@@ -1,4 +1,4 @@
-<img alt="Logo ALt+F4" src="Immagini/logo.png" width="200" >
+<img alt="Logo ALt+F4" src="Immagini/logo.jpeg" width="200" >
 
 # Documentazione
 Questo repository contiene i sorgenti LaTeX della documentazione di progetto del corso di Ingegneria del Software 2024-2025.
