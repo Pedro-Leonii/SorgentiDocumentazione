@@ -1,0 +1,176 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[italian]{babel}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{imakeidx}
+\usepackage{caption}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+
+
+%--------------------VARIABILI--------------------
+\def\logo{logo.jpeg}
+\def\ultima-versione{v1.0}
+\def\titolo{Verbale interno}
+\def\data{22/10/2024}
+%------------------------------------------------
+
+\usetikzlibrary{calc}
+\definecolor{fp-blue}{HTML}{2885c8}
+\definecolor{fp-red}{HTML}{ea5f64}
+\makeindex[title=Indice]
+\hypersetup{hidelinks}
+
+\pagestyle{fancy}
+\fancyhead[L]{}
+\setlength{\headheight}{15pt}
+\fancyhead[R]{\titolo - \ultima-versione}
+
+\renewcommand{\familydefault}{\sfdefault}
+\newcommand{\glossario}[1]{\fontfamily{lmr}\selectfont{\textit{#1\textsubscript{\small G}}}}
+
+%--------------------INFORMAZIONI PRIMA PAGINA-------------------- 
+\title{\Huge \textbf{\titolo}}
+\author{\Large{Alt} \raisebox{0.3ex}{\normalsize  +} \Large{F4}}
+\date{22/10/2024}
+%----------------------------------------------------------------
+
+\begin{document}
+
+\begin{titlepage}      
+    \maketitle
+    \thispagestyle{empty}  
+
+    \begin{tikzpicture}[remember picture, overlay]
+        \fill[fp-blue] 
+        ($(current page.south west) + (0, 10)$) 
+        -- ($(current page.center) + (0, -8)$)
+        -- ($(current page.center) + (0, -15)$)
+        -- (current page.south west);
+
+        \fill[fp-red]
+        ($(current page.south east) + (0, 10)$) 
+        -- ($(current page.center) + (0, -8)$)
+        -- ($(current page.center) + (0, -15)$)
+        -- (current page.south east);
+
+        \clip ($(current page.center) + (0, -8)$) circle (1cm) node 
+        {\includegraphics[width=.25\textwidth]{\logo}};
+        
+    \end{tikzpicture}    
+\end{titlepage}
+
+\tableofcontents
+
+\newpage
+
+\begin{table}[!h]
+    \centering
+    \caption*{\textbf{\Large Registro Modifiche}}
+    {\renewcommand{\arraystretch}{2}
+    \begin{tabularx}{\textwidth}{| X | X | X | X |}
+        \hline
+            \textbf{\large Versione} & 
+            \textbf{\large Data} & 
+            \textbf{\large Autore/i} & 
+            \textbf{\large Descrizione} \\ 
+        \hline \hline
+            0.1 & 
+            \data & 
+            Eghosa Igbinedion & 
+            Prima stesura del documento \\
+        \hline 
+    \end{tabularx}}
+\end{table}
+
+\newpage
+
+\section{Registro presenze}
+   \begin{itemize}
+        \item[] \textbf{Ora inizio}:  18:00
+        \item[] \textbf{Ora fine}: 19:30
+        \item[] \textbf{Piattaforma}: Discord	
+    \end{itemize}
+\begin{table}[!h]
+    \centering
+    {\renewcommand{\arraystretch}{2}
+    \begin{tabularx}{\textwidth}{| X | X |}
+        \hline
+            \textbf{\large Componente} & 
+            \textbf{\large Presenza} \\ 
+        \hline 
+        \hline
+            Eghosa Igbinedion&
+            Presente \\
+        \hline 
+        \hline
+            Giovanni Lan&
+            Presente \\
+        \hline 
+        \hline
+            Enrico&
+            Presente \\
+        \hline 
+        \hline
+            Francesco&
+            Presente \\
+        \hline 
+        \hline
+            Marko Peric&
+            Presente \\
+        \hline 
+        \hline
+            Pedro Leoni&
+            Presente \\
+        \hline 
+
+    \end{tabularx}}
+\end{table}
+
+\newpage
+
+\section{Strumetni di lavoro}
+Si discute l’utilizzo degli strumenti principali per il progetto. Dopo un confronto, il gruppo decide di adottare i seguenti strumenti:
+\begin{itemize}
+    \item \textbf{GitHub}: per la gestione del codice e il versionamento.
+    \item \textbf{LaTeX}: per la stesura di documenti formali.
+    \item \textbf{Discord}: come piattaforma di comunicazione principale per le riunioni e lo scambio quotidiano di informazioni.
+\end{itemize}
+
+\section{Strumetni di lavoro}
+Durante la riunione, il gruppo si concentra sulla preparazione di alcune domande per comprendere meglio la natura dei capitolati C5, C7 e C9, precedentemente selezionati come i più interessanti. Le domande si focalizzano su:
+\begin{itemize}
+    \item  Le specifiche tecniche richieste per ciascun capitolato.
+    \item Le aspettative delle aziende in merito alla fase di sviluppo e alle tecnologie da utilizzare.
+    \item La flessibilità nel modificare alcune funzionalità richieste nel corso del progetto.
+    \item Il livello di interazione previsto tra il gruppo e l'azienda durante il progetto.
+\end{itemize}
+
+\section{Workflow e requisiti minimi}
+ Il gruppo discute poi il workflow da adottare per il completamento dei requisiti minimi necessari alla candidatura a uno dei capitolati. Viene concordato di sfruttare il sistema di \textbf{issue di GitHub} per:
+\begin{itemize}
+    \item  Tracciare e assegnare compiti e responsabilità.
+    \item Monitorare lo stato di avanzamento dei requisiti.
+\end{itemize}
+Ogni membro del gruppo sarà incaricato di aprire e gestire issue legate ai propri compiti, garantendo trasparenza e tracciabilità dei progressi.
+
+\section{Conclusioni}
+L’incontro si conclude con la conferma della necessità di ulteriori approfondimenti sui capitolati scelti e l’organizzazione di una prossima riunione per valutare le risposte ricevute dalle aziende.
+
+% ESEMPIO ELENCO PUNTATO
+%\begin{itemize}
+%    \item Primo elemento.
+%    \item Secondo elemento.
+%\end{itemize}
+
+% ESEMPIO ELENCO NUMERATO
+%\begin{enumerate}
+%    \item Primo elemento.
+%    \item Secondo elemento.
+%\end{enumerate}
+
+%\glossario{Termine glossario}
+\end{document}
