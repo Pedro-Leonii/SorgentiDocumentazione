@@ -10,12 +10,11 @@
 \usepackage{fancyhdr}
 \usepackage{tabularx}
 
-
-%--------------------VARIABILI--------------------
-\def\logo{logo.jpeg}
+%--------------------VARIABILI-------------------- 
+\def\logo{Immagini/logo.jpeg}
 \def\ultima-versione{v1.0}
 \def\titolo{Verbale interno}
-\def\data{22/10/2024}
+\def\data{27/10/2024}
 %------------------------------------------------
 
 \usetikzlibrary{calc}
@@ -35,7 +34,7 @@
 %--------------------INFORMAZIONI PRIMA PAGINA-------------------- 
 \title{\Huge \textbf{\titolo}}
 \author{\Large{Alt} \raisebox{0.3ex}{\normalsize  +} \Large{F4}}
-\date{22/10/2024}
+\date{\data}
 %----------------------------------------------------------------
 
 \begin{document}
@@ -81,7 +80,12 @@
             0.1 & 
             \data & 
             Eghosa Igbinedion & 
-            Prima stesura del documento \\
+            Prima stesura del documento \\ 
+        \hline 
+            0.2 & 
+            \data & 
+            Marko Peric & 
+            Revisione e modifica documento \\
         \hline 
     \end{tabularx}}
 \end{table}
@@ -90,7 +94,7 @@
 
 \section{Registro presenze}
    \begin{itemize}
-        \item[] \textbf{Ora inizio}:  18:00
+        \item[] \textbf{Ora inizio}: 18:00
         \item[] \textbf{Ora fine}: 19:30
         \item[] \textbf{Piattaforma}: Discord	
     \end{itemize}
@@ -102,75 +106,86 @@
             \textbf{\large Componente} & 
             \textbf{\large Presenza} \\ 
         \hline 
-        \hline
-            Eghosa Igbinedion&
-            Presente \\
+            Eghosa Igbinedion &
+            Presente \\ 
         \hline 
-        \hline
-            Giovanni Lan&
-            Presente \\
+            Giovanni Lan &
+            Presente \\ 
         \hline 
-        \hline
-            Enrico Bianchi&
-            Presente \\
+            Enrico Bianchi &
+            Presente \\ 
         \hline 
-        \hline
-            Francesco Savio&
-            Presente \\
+            Francesco Savio &
+            Presente \\ 
         \hline 
-        \hline
-            Marko Peric&
-            Presente \\
+            Marko Peric &
+            Presente \\ 
         \hline 
-        \hline
-            Pedro Leoni&
-            Presente \\
+            Pedro Leoni &
+            Presente \\ 
         \hline 
-
     \end{tabularx}}
 \end{table}
 
 \newpage
 
-\section{Strumetni di lavoro}
-Si discute l’utilizzo degli strumenti principali per il progetto. Dopo un confronto, il gruppo decide di adottare i seguenti strumenti:
-\begin{itemize}
-    \item \textbf{GitHub}: per la gestione del codice e il versionamento.
-    \item \textbf{LaTeX}: per la stesura di documenti formali.
-    \item \textbf{Discord}: come piattaforma di comunicazione principale per le riunioni e lo scambio quotidiano di informazioni.
-\end{itemize}
+\section{Way of working}
+Il gruppo ha discusso sul workflow da adottare per il completamento dei requisiti minimi necessari alla candidatura a uno dei capitolati.
 
-\section{Strumetni di lavoro}
-Durante la riunione, il gruppo si concentra sulla preparazione di alcune domande per comprendere meglio la natura dei capitolati C5, C7 e C9, precedentemente selezionati come i più interessanti. Le domande si focalizzano su:
-\begin{itemize}
-    \item  Le specifiche tecniche richieste per ciascun capitolato.
-    \item Le aspettative delle aziende in merito alla fase di sviluppo e alle tecnologie da utilizzare.
-    \item La flessibilità nel modificare alcune funzionalità richieste nel corso del progetto.
-    \item Il livello di interazione previsto tra il gruppo e l'azienda durante il progetto.
-\end{itemize}
+\subsection{Template}
+Grazie alla maggiore esperienza di Pedro Leoni con lo strumento LaTeX, che si è deciso di usare per la stesura dei documenti, quest'ultimo si è offerto di creare un documento di esempio da utilizzare come template per i successivi verbali del gruppo.
 
-\section{Workflow e requisiti minimi}
- Il gruppo discute poi il workflow da adottare per il completamento dei requisiti minimi necessari alla candidatura a uno dei capitolati. Viene concordato di sfruttare il sistema di \textbf{issue di GitHub} per:
+\subsection{Gitflow}
+Si è deciso di utilizzare gitflow come struttura di sviluppo per garantire un flusso di lavoro ordinato e scalabile, particolarmente utile in un progetto di team. Questo approccio permette di ridurre i conflitti e mantenere un elevato controllo sul codice in ogni fase del processo di sviluppo. La struttura si basa su branch principali:
+
+\subsubsection{Main}
+Contiene solo il codice stabile e pronto per il rilascio, assicurando che le versioni finali siano sempre affidabili.
+
+\subsubsection{Develop}
+Dove le funzionalità approvate dai branch di feature vengono integrate e testate, permettendo uno sviluppo continuo senza compromettere la stabilità del codice.
+
+\subsubsection{Feature}
+Creato per ogni nuova funzionalità, consente agli sviluppatori di lavorare in modo indipendente senza interferire con altre parti del progetto. Una volta completata, la feature viene unita a develop, garantendo così che solo le modifiche pronte siano integrate.
+
+\subsection{Organizzazione della repository}
+Si è concordato di sfruttare il sistema di \textbf{Issues}, il sistema di \textbf{Milestone} e il sistema di \textbf{Tables} per:
 \begin{itemize}
-    \item  Tracciare e assegnare compiti e responsabilità.
+    \item Tracciare e assegnare compiti e responsabilità.
     \item Monitorare lo stato di avanzamento dei requisiti.
+    \item Creare compiti non assegnati che possono essere svolti in caso di completamento anticipato dei propri compiti.
 \end{itemize}
-Ogni membro del gruppo sarà incaricato di aprire e gestire issue legate ai propri compiti, garantendo trasparenza e tracciabilità dei progressi.
+Ogni membro del gruppo sarà incaricato di aprire e gestire le issue legate ai propri compiti, garantendo trasparenza e tracciabilità dei progressi.
+
+\section{Brainstorming per le riunioni esterne}
+Durante la riunione, il gruppo si è focalizzato sulla preparazione di domande mirate a comprendere in maniera più approfondita la natura dei capitolati C5, C7 e C9, precedentemente selezionati come i più rilevanti. Le domande sono state suddivise in quesiti di carattere generale, comuni a tutte le aziende, e domande tecniche specifiche per ogni capitolato. Di seguito sono riportati alcuni esempi.
+
+\subsection{Domande generali}
+\begin{itemize}
+    \item Quali canali di comunicazione si intendano utilizzare per mantenere il contatto tra azienda e gruppo di sviluppo;
+    \item La frequenza di interazione prevista tra azienda e gruppo durante le diverse fasi del progetto;
+    \item La piattaforma di destinazione per il rilascio e la fruizione del prodotto finale;
+    \item Quali componenti o aspetti del progetto, secondo il parere degli sviluppatori aziendali, potrebbero presentare le maggiori difficoltà tecniche.
+\end{itemize}
+
+\subsection{Domande tecniche}
+\subsubsection{Azzurro Digitale (C9)}
+\begin{itemize}
+    \item Chiarimenti in merito alla menzione della "documentazione di API di terze parti" nel capitolato;
+    \item Informazioni sulle risorse eventualmente fornite dall'azienda per l'accesso alle API di terze parti;
+    \item Preferenze specifiche riguardo all'uso di Node.js o Spring Boot per lo sviluppo del progetto;
+    \item Precisazioni sulla funzione principale della libreria \textit{Langchain} e sul suo ruolo previsto nel progetto.
+\end{itemize}
+
+\subsubsection{Ergon Informatica (C7)}
+\begin{itemize}
+    \item Chiarimenti riguardo alla necessità di sviluppare un ambiente per la gestione di Large Language Model (LLM) o se tale ambiente venga fornito dall'azienda;
+    \item Dettagli sulla gestione e struttura dei Database Vettoriali richiesti dal capitolato.
+\end{itemize}
+
+\subsubsection{SanMarco Informatica (C5)}
+\begin{itemize}
+    \item Se per l’apprendimento delle librerie \textit{three.js} e \textit{d3.js} siano previste risorse aziendali o se tale apprendimento debba avvenire in modo autonomo; \item Eventuali restrizioni o linee guida specifiche per lo sviluppo del \textit{backend} del progetto. \end{itemize}
 
 \section{Conclusioni}
 L’incontro si conclude con la conferma della necessità di ulteriori approfondimenti sui capitolati scelti e l’organizzazione di una prossima riunione per valutare le risposte ricevute dalle aziende.
-
-% ESEMPIO ELENCO PUNTATO
-%\begin{itemize}
-%    \item Primo elemento.
-%    \item Secondo elemento.
-%\end{itemize}
-
-% ESEMPIO ELENCO NUMERATO
-%\begin{enumerate}
-%    \item Primo elemento.
-%    \item Secondo elemento.
-%\end{enumerate}
-
-%\glossario{Termine glossario}
 \end{document}
