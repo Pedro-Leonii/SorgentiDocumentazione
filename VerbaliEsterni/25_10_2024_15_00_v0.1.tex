@@ -1,0 +1,183 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[italian]{babel}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{imakeidx}
+\usepackage{caption}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+
+
+%--------------------VARIABILI--------------------
+\def\logo{../Immagini/logo.jpeg}
+\def\ultima-versione{v0.1}
+\def\titolo{Verbale esterno - Ergon Informatica }
+%------------------------------------------------
+
+\usetikzlibrary{calc}
+\definecolor{fp-blue}{HTML}{2885c8}
+\definecolor{fp-red}{HTML}{ea5f64}
+\makeindex[title=Indice]
+\hypersetup{hidelinks}
+
+\pagestyle{fancy}
+\fancyhead[L]{}
+\setlength{\headheight}{15pt}
+\fancyhead[R]{\titolo - \ultima-versione}
+
+\renewcommand{\familydefault}{\sfdefault}
+\newcommand{\glossario}[1]{\fontfamily{lmr}\selectfont{\textit{#1\textsubscript{\small G}}}}
+
+%--------------------INFORMAZIONI PRIMA PAGINA-------------------- 
+\title{\Huge \textbf{\titolo}}
+\author{\Large{Alt} \raisebox{0.3ex}{\normalsize  +} \Large{F4}}
+\date{\today}
+%----------------------------------------------------------------
+
+\begin{document}
+
+\begin{titlepage}      
+    \maketitle
+    \thispagestyle{empty}  
+
+    \begin{tikzpicture}[remember picture, overlay]
+        \fill[fp-blue] 
+        ($(current page.south west) + (0, 10)$) 
+        -- ($(current page.center) + (0, -8)$)
+        -- ($(current page.center) + (0, -15)$)
+        -- (current page.south west);
+
+        \fill[fp-red]
+        ($(current page.south east) + (0, 10)$) 
+        -- ($(current page.center) + (0, -8)$)
+        -- ($(current page.center) + (0, -15)$)
+        -- (current page.south east);
+
+        \clip ($(current page.center) + (0, -8)$) circle (1cm) node 
+        {\includegraphics[width=.25\textwidth]{\logo}};
+        
+    \end{tikzpicture}    
+\end{titlepage}
+
+\tableofcontents
+
+\newpage
+
+\begin{table}[!h]
+    \centering
+    \caption*{\textbf{\Large Registro Modifiche}}
+    {\renewcommand{\arraystretch}{2}
+    \begin{tabularx}{\textwidth}{| X | X | X | X |}
+        \hline
+            \textbf{\large Versione} & 
+            \textbf{\large Data} & 
+            \textbf{\large Autore/i} & 
+            \textbf{\large Descrizione} \\ 
+        \hline \hline
+            \ultima-versione & 
+            27 ottobre  2024 & 
+            Guirong Lan & 
+            Stesura verbale \\
+        \hline 
+    \end{tabularx}}
+\end{table}
+
+\newpage
+
+\section{Registro presenze}
+\begin{itemize}
+    \item[] \textbf{Data}: 25 ottobre 2024
+    \item[] \textbf{Ora inizio}:  15:00
+    \item[] \textbf{Ora fine}: 15:10
+    \item[] \textbf{Piattaforma}: Zoom	
+\end{itemize}
+\begin{table}[!h]
+\centering
+{\renewcommand{\arraystretch}{2}
+\begin{tabularx}{\textwidth}{| X | X |}
+    \hline
+        \textbf{\large Componente} & 
+        \textbf{\large Presenza} \\ 
+    \hline 
+    \hline
+        Eghosa Igbinedion&
+        Presente \\
+    \hline 
+        Giovanni Lan&
+        Presente \\
+    \hline 
+        Enrico Bianchi&
+        Presente \\
+    \hline 
+        Francesco Savio&
+        Presente \\
+    \hline 
+        Marko Peric&
+        Presente \\
+    \hline 
+        Pedro Leoni&
+        Presente \\
+    \hline 
+
+\end{tabularx}}
+\end{table}
+
+\begin{table}[!h]
+    \centering
+    {\renewcommand{\arraystretch}{2}
+    \begin{tabularx}{\textwidth}{| X | X |}
+        \hline
+            \textbf{\large Nome} & 
+            \textbf{\large Ruolo} \\ 
+        \hline 
+        \hline
+            Gianluca Carlesso&
+            Rappresentante dell'azienda \\
+        \hline 
+
+    \end{tabularx}}
+\end{table}
+
+\newpage
+
+\section{Introduzione}
+Il presente verbale ha lo scopo di tracciare la riunione eseguita con la proponete Ergon Informatica. All'inizio ci siamo incontrati 20 minuti prima dell’appuntamento con l’azienda per chiarire le domande da porre. Come concordato, il referente di Ergon Informatica si è unito alla riunione su Zoom alle 15:00. Durante la discussione, il team ha esaurito tutti dubbi e perplessità relativi al capitolato C7, LLM: Assistente virtuale.
+\section{Domande}
+\paragraph{Domanda:} Tutti i modelli di Large Language Models (LLM) consigliati sono open source? perché alcuni vengono citati mentre altri no.
+\paragraph{Risposta:} Sì, tutti i modelli consigliati sono open source, quindi potete scegliere liberamente quello che preferite tra le opzioni suggerite o cercare altre alternative online.
+
+\vspace{1.2cm}
+
+\paragraph{Domanda:} Qual è la vostra disponibilità per incontri?
+\paragraph{Risposta:} Offriamo piena disponibilità per organizzare incontri secondo le vostre esigenze. Solitamente, possiamo fissare un appuntamento entro 1-2 giorni lavorativi dalla richiesta, garantendo flessibilità e rapidità nella pianificazione.
+
+\vspace{1.2cm}
+
+\paragraph{Domanda:} Quale strumento di comunicazione preferite? Zoom va bene per voi?
+\paragraph{Risposta:} Sì, Zoom per noi va benissimo come strumento di comunicazione. In alternativa, possiamo organizzare un incontro fisico presso la nostra azienda, se preferite.
+
+\vspace{1.2cm}
+
+\paragraph{Domanda:} In poche parole, in cosa consiste un database vettoriale?
+\paragraph{Risposta:} Un database vettoriale memorizza le informazioni, ad esempio le stringhe, trasformandole in vettori numerici anziché conservarle come stringhe. Inoltre, la scelta del database è fortemente influenzata dal modello di LLM che si intende utilizzare; pertanto, è meglio decidere prima il modello LLM e successivamente il tipo di database.
+
+\vspace{1.2cm}
+
+\paragraph{Domanda:}  Qual'è, secondo voi, la parte più difficile da realizzare?
+\paragraph{Risposta:} A mio parere, la parte più complessa è estrarre i dati semantici dal modello LLM pre-addestrato, poiché rappresenta un aspetto critico del processo. Le altre componenti, come la comunicazione, l'interfaccia utente e i servizi web API, non costituiscono un ostacolo significativo
+
+\vspace{1.2cm}
+
+\paragraph{Domanda:} Se ci trovassimo in difficoltà e non riusciamo ad avanzare, potremmo ricevere aiuto da parte vostra?
+\paragraph{Risposta:} Certo! Siamo disponibili a supportarvi e a esaminare insieme le vostre difficoltà e le decisioni da prendere. Se possibile, vi invitiamo a inviare una email descrivendo la situazione; in questo modo potremmo anche inviare un tecnico con competenze specifiche per assistervi meglio.
+\vspace{1.2cm}
+
+\paragraph{Domanda:} Dal punto di vista implementativo, dobbiamo realizzare un'interfaccia sia per desktop che per mobile, o è sufficiente una sola versione?
+
+\paragraph{Risposta:} Il focus principale dovrebbe essere sulla versione mobile, poiché molti utenti accedono alle piattaforme tramite dispositivi portatili.Però potete anche sviluppare una web app, quindi potete scegliere tra mobile o web app. Tuttavia, la gestione della parte backend deve avvenire tramite una web app.
+\vspace{1.2cm}
+
+\end{document}
