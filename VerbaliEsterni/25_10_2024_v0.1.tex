@@ -1,0 +1,193 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[italian]{babel}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{imakeidx}
+\usepackage{caption}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+
+
+%--------------------VARIABILI--------------------
+\def\logo{../Immagini/logo.jpeg}
+\def\ultima-versione{v0.1}
+\def\titolo{Verbale esterno - AzzurroDigitale }
+%------------------------------------------------
+
+\usetikzlibrary{calc}
+\definecolor{fp-blue}{HTML}{2885c8}
+\definecolor{fp-red}{HTML}{ea5f64}
+\makeindex[title=Indice]
+\hypersetup{hidelinks}
+
+\pagestyle{fancy}
+\fancyhead[L]{}
+\setlength{\headheight}{15pt}
+\fancyhead[R]{\titolo - \ultima-versione}
+
+\renewcommand{\familydefault}{\sfdefault}
+\newcommand{\glossario}[1]{\fontfamily{lmr}\selectfont{\textit{#1\textsubscript{\small G}}}}
+
+%--------------------INFORMAZIONI PRIMA PAGINA-------------------- 
+\title{\Huge \textbf{\titolo}}
+\author{\Large{Alt} \raisebox{0.3ex}{\normalsize  +} \Large{F4}}
+\date{\today}
+%----------------------------------------------------------------
+
+\begin{document}
+
+\begin{titlepage}      
+    \maketitle
+    \thispagestyle{empty}  
+
+    \begin{tikzpicture}[remember picture, overlay]
+        \fill[fp-blue] 
+        ($(current page.south west) + (0, 10)$) 
+        -- ($(current page.center) + (0, -8)$)
+        -- ($(current page.center) + (0, -15)$)
+        -- (current page.south west);
+
+        \fill[fp-red]
+        ($(current page.south east) + (0, 10)$) 
+        -- ($(current page.center) + (0, -8)$)
+        -- ($(current page.center) + (0, -15)$)
+        -- (current page.south east);
+
+        \clip ($(current page.center) + (0, -8)$) circle (1cm) node 
+        {\includegraphics[width=.25\textwidth]{\logo}};
+        
+    \end{tikzpicture}    
+\end{titlepage}
+
+\tableofcontents
+
+\newpage
+
+\begin{table}[!h]
+    \centering
+    \caption*{\textbf{\Large Registro Modifiche}}
+    {\renewcommand{\arraystretch}{2}
+    \begin{tabularx}{\textwidth}{| X | X | X | X |}
+        \hline
+            \textbf{\large Versione} & 
+            \textbf{\large Data} & 
+            \textbf{\large Autore/i} & 
+            \textbf{\large Descrizione} \\ 
+        \hline \hline
+            \ultima-versione & 
+            27 ottobre  2024 & 
+            Pedro Leoni & 
+            Stesura verbale \\
+        \hline 
+    \end{tabularx}}
+\end{table}
+
+\newpage
+
+\section{Registro presenze}
+\begin{itemize}
+    \item[] \textbf{Data}: 25 ottobre 2024
+    \item[] \textbf{Ora inizio}:  16:30
+    \item[] \textbf{Ora fine}: 16:50
+    \item[] \textbf{Piattaforma}: Google Meet	
+\end{itemize}
+\begin{table}[!h]
+\centering
+{\renewcommand{\arraystretch}{2}
+\begin{tabularx}{\textwidth}{| X | X |}
+    \hline
+        \textbf{\large Componente} & 
+        \textbf{\large Presenza} \\ 
+    \hline 
+    \hline
+        Eghosa Igbinedion&
+        Presente \\
+    \hline 
+        Giovanni Lan&
+        Presente \\
+    \hline 
+        Enrico Bianchi&
+        Presente \\
+    \hline 
+        Francesco Savio&
+        Presente \\
+    \hline 
+        Marko Peric&
+        Presente \\
+    \hline 
+        Pedro Leoni&
+        Presente \\
+    \hline 
+
+\end{tabularx}}
+\end{table}
+
+\begin{table}[!h]
+    \centering
+    {\renewcommand{\arraystretch}{2}
+    \begin{tabularx}{\textwidth}{| X | X |}
+        \hline
+            \textbf{\large Nome} & 
+            \textbf{\large Ruolo} \\ 
+        \hline 
+        \hline
+            Nicola Boscaro&
+            Rappresentante dell'azienda \\
+        \hline 
+            Martina Daniele&
+            Rappresentante dell'azienda \\
+        \hline 
+    
+    \end{tabularx}}
+\end{table}
+
+\newpage
+
+\section{Introduzione}
+Il presente verbale ha lo scopo di tracciare la riunione eseguita con la proponente AzzurroDigitale per chiarire i dubbi del gruppo riguardanti il capitolato C9.
+
+\section{Domande}
+\paragraph{Domanda:} AzzurroDigitale fornirà esempi di progetto per le diverse piattaforme(Jira, Confluence e GitHub) con cui il sistema dovrà interfacciarsi, o sarà responsabilità del gruppo crearli?
+\paragraph{Risposta:} Si prevede di attribuire al gruppo la responsabilità di creare gli account sulle piattaforme Jira, Confluence e GitHub. Successivamente, il gruppo genererà le chiavi API necessarie per consentire al sistema di accedere alle informazioni. Questa modalità permetterà al gruppo di non essere vincolato agli input forniti dall’azienda, consentendo così una maggiore libertà nello sviluppo. Il contenuto delle piattaforme Jira e Confluence potrà essere discusso a seguito della creazione del Proof of Concept (PoC), mentre per quanto riguarda GitHub, si potrà optare per una repository di un progetto open source.
+
+\vspace{1.2cm}
+
+\paragraph{Domanda:} Qual è, secondo voi, l’aspetto più complesso del progetto?
+\paragraph{Risposta:} La sfida principale consiste nel garantire che le domande formulate tramite la chat vengano riconosciute e producano le richieste corrette verso le tre piattaforme esterne.
+
+\vspace{1.2cm}
+
+\paragraph{Domanda:} L’utilizzo di OpenAI è vincolante oppure è possibile optare per modelli open source? Nel caso in cui si scelga di utilizzare OpenAI, l’azienda provvederà a coprire interamente o parzialmente i costi delle chiamate che eccedono il limite gratuito?
+\paragraph{Risposta:} OpenAI rappresenta un esempio di modello che può essere usato, se si sceglie di utilizzarlo, l'azienda è disposta a farsi carico di parte dell'eventuale quota di pagamento, previa discussione.
+
+\vspace{1.2cm}
+
+\paragraph{Domanda:} La chat deve essere visualizzabile su dispositivi mobili e desktop?
+\paragraph{Risposta:} Sebbene la chat costituisca un aspetto secondario del progetto, sarebbe preferibile che fosse responsive.
+
+\vspace{1.2cm}
+
+\paragraph{Domanda:} Cos'è LangChain e quale è la sua utilità?
+\paragraph{Risposta:} Così su due piedi non riusciamo a fornire ulteriori dettagli, la documentazione ufficiale comunque fornisce una descrizione approfondita del framework.
+LangChain è stato consigliato principalmente per il fatto che sia open source e molto usato. 
+
+\vspace{1.2cm}
+
+\paragraph{Domanda:} Cosa si intende per "documentare le API di terze parti usate"?
+\paragraph{Risposta:} Nella documentazione da consegnare si richiede di motivare l'uso delle chiamate che si fanno alle API di terze parti riportando la loro documentazione ufficiale come fonte esterna.
+
+\vspace{1.2cm}
+
+\paragraph{Domanda:} Con quale frequenza si terranno incontri per ottenere riscontri dall'azienda sullo stato di avanzamento del progetto?
+\paragraph{Risposta:} In considerazione dell'utilizzo di metodologie Agile, si prevede di organizzare incontri di riscontro inizialmente con cadenza bisettimanale, per poi passare a incontri settimanali dopo le prime dieci settimane dall'avvio del progetto. Inoltre, si intende attivare un canale di comunicazione informale(come Discord o Telegram) per facilitare una comunicazione più rapida riguardo a eventuali problemi.
+
+\vspace{1.2cm}
+
+\paragraph{Domanda:} Avete una preferenza tra i due framework(Spring Boot e NestJS) consigliati nel capitolato?
+\paragraph{Risposta:} La scelta del framework e del linguaggio da utilizzare per lo sviluppo del backend è a discrezione del gruppo. Questi due framework sono stati suggeriti poiché vengono già impiegati internamente dall'azienda, la quale può quindi offrire supporto nel loro utilizzo. Si raccomanda ovviamente di optare per il framework e il linguaggio in cui il gruppo è più ferrato.
+
+
+\end{document}
