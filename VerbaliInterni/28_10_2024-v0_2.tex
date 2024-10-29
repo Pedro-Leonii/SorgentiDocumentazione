@@ -13,7 +13,7 @@
 
 %--------------------VARIABILI--------------------
 \def\logo{../Immagini/logo.jpeg}
-\def\ultima-versione{v0.1}
+\def\ultima-versione{v0.2}
 \def\titolo{Verbale interno }
 %------------------------------------------------
 
@@ -77,10 +77,15 @@
             \textbf{\large Autore/i} & 
             \textbf{\large Descrizione} \\ 
         \hline \hline
-            \ultima-versione & 
-            29-10-2024 & 
+            v0.1 & 
+            29 ottobre 2024 & 
             Enrico Bianchi & 
             Stesura verbale \\
+        \hline 
+        \ultima-versione & 
+            29 ottobre 2024 & 
+            Pedro Leoni & 
+            Revisione \\
         \hline 
     \end{tabularx}}
 \end{table}
@@ -91,7 +96,7 @@
     \item[] \textbf{Data}: 28-10-2024
     \item[] \textbf{Ora inizio}:  20:30
     \item[] \textbf{Ora fine}: 21:30
-    \item[] \textbf{Piattaforma}: canale discord	
+    \item[] \textbf{Piattaforma}: Discord
 \end{itemize}
 \begin{table}[!h]
 \centering
@@ -128,25 +133,40 @@
 
 \section{Verbale}
 Durante questo incontro si è discusso su possibili miglioramenti del way of working che possano migliorare l’efficienza e l’efficacia del team.
-E’ stato deciso di aggiungere due nuovi template, uno per i verbali interni e uno per i verbali esterni, in modo tale da determinare una struttura fissa che tutti i membri del gruppo dovranno seguire per la stesura dei documenti.
+
+È stato deciso di aggiungere due nuovi template, uno per i verbali interni e uno per i verbali esterni, in modo tale da determinare una struttura fissa che tutti i membri del gruppo dovranno seguire per la stesura dei documenti.
 Si è deciso di avere strutture più semplici con solamente due sezioni aggiuntive oltre al registro delle presenze in modo che lo schema del documento sia indipendente dagli argomenti trattati durante la riunione. 
 I verbali interni avranno le sezioni:
-- “Verbale”, in cui verranno inseriti gli argomenti discussi durante l’incontro, questa dovrà avere un contenuto comprensibile e discorsivo, evitando la creazione di sottosezioni per ogni argomento trattato
-- “To Do”, qui verranno inseriti gli obiettivi che ci si prefigge di raggiungere prima del prossimo incontro e gli argomenti che si tratteranno.
+\begin{itemize}
+    \item “Verbale”, in cui verranno inseriti gli argomenti discussi durante l’incontro, questa dovrà avere un contenuto comprensibile e discorsivo, evitando la creazione di sottosezioni per ogni argomento trattato
+    \item “To Do”, qui verranno inseriti gli obiettivi che ci si prefigge di raggiungere prima del prossimo incontro e gli argomenti che si tratteranno.
+\end{itemize}
 I verbali esterni avranno le sezioni:
--”Domande”, in cui verranno inserite le domande effettuate ai membri dell’azienda con cui si è svolto l’incontro
--”Conclusioni” che comprenderà tutto ciò che il gruppo è riuscito a chiarire grazie alle risposte dei membri dell’azienda e/o tutte le attività che, in seguito a ciò che si è appreso durante la riunione, dovranno essere svolte.
-Si è notato come assegnare la pull request per la revisione di documento a tutti i membri del gruppo fosse confusionario e poco efficiente, è stata quindi modificata  la gestione delle revisioni e accettazioni di documenti, in particolare si è stabilito il seguente workflow: un membro del gruppo effettuerà la prima stesura facendo poi il push sul repository remoto, successivamente aprirà una pull request che verrà assegnata ad uno ed un solo membro incaricato della revisione, il secondo membro scaricherà in locale il documento, effettuerà la revisione ed assegnerà la pull request ad un terzo membro che sarà incaricato dell’accettazione.
-Se il file è stato revisionato correttamente e non deve essere modificato la pull request verrà accettata altrimenti sarà rifiutata e verrà assegnata di nuovo la revisione al secondo membro.
+\begin{itemize}
+    \item ”Domande”, in cui verranno inserite le domande effettuate ai membri dell’azienda con cui si è svolto l’incontro
+    \item ”Conclusioni” che comprenderà tutto ciò che il gruppo è riuscito a chiarire grazie alle risposte dei membri dell’azienda e/o tutte le attività che, in seguito a ciò che si è appreso durante la riunione, dovranno essere svolte.
+\end{itemize}
+
+Si è notato come assegnare la pull request per la revisione di documento a tutti i membri del gruppo fosse confusionario e poco efficiente, è stata quindi modificata  la gestione delle revisioni e accettazioni di documenti.
+In particolare si è stabilito il seguente workflow: un membro del gruppo effettuerà la prima stesura facendo poi il push sul repository remoto, successivamente aprirà una pull request che verrà assegnata ad uno solo membro incaricato della revisione, il secondo membro scaricherà in locale il documento, effettuerà la revisione ed assegnerà la pull request ad un terzo membro che sarà incaricato dell’accettazione.
+Se il file è stato revisionato correttamente e non deve essere modificato la pull request verrà accettata altrimenti sarà rifiutata.
+Il rifiuto deve essere corredato con un messaggio nella pull request in cui si indicano le modifiche da apportare al contenuto del documento affinchè esso venga approvato.
+Queste modifiche saranno a carico del membro che ha effettuato la stesura del documento e dovranno passare attraverso le attività di revisione e accettazione.
+
 Successivamente vi è stata una discussione sul sistema per descrivere le versioni dei documenti che si è conclusa con la scelta di mantenere il sistema vX.Y adottato dall’inizio.
+
 E’ stato poi stabilito che le  descrizioni nel registro delle modifiche dei documenti e nelle issue di github dovranno indicare le sezioni del documento su cui si è lavorato, o su cui si dovrà lavorare, in modo che siano maggiormente esplicative.
+
 In seguito a fraintendimenti nell’applicazione del gitflow, si è deciso che verranno aggiunti alle norme di progetto i comandi di git da utilizzare, in modo da evitare errori e dubbi di ogni tipo.
+
 Si è parlato della possibilità di utilizzare un plugin ci VSCode per l’analisi grammaticale del documento, in modo da facilitarne la revisione,  ma senza giungere ad una conclusione definitiva.
 La riunione si è conclusa con l’assegnazione di un documento da creare e/o revisionare per ogni membro del gruppo.
 
 \section{To Do}
-Aggiornare le Norme di Progetto aggiungendo le nuove metodologie di lavoro che sono state stabilite durante l’incontro.
-Verrà svolto un altro incontro in data 29/10/2024 in cui si effettuerà il preventivo dei costi.
-Discutere la creazione di un automazione per la pubblicazione dei documenti compilati.
+\begin{itemize}
+    \item Aggiornare le Norme di Progetto aggiungendo le nuove metodologie di lavoro che sono state stabilite durante l’incontro.
+    \item Verrà svolto un altro incontro in data 29/10/2024 in cui si effettuerà il preventivo dei costi.
+    \item Discutere la creazione di un automazione per la pubblicazione dei documenti compilati.
+\end{itemize}
 
 \end{document}
