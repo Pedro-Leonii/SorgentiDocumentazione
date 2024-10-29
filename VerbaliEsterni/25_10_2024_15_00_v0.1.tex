@@ -14,7 +14,7 @@
 %--------------------VARIABILI--------------------
 \def\logo{../Immagini/logo.jpeg}
 \def\ultima-versione{v0.1}
-\def\titolo{Verbale esterno - Ergon Informatica }
+\def\titolo{Verbale esterno Ergon Informatica }
 %------------------------------------------------
 
 \usetikzlibrary{calc}
@@ -78,7 +78,7 @@
             \textbf{\large Descrizione} \\ 
         \hline \hline
             \ultima-versione & 
-            27 ottobre  2024 & 
+            29 ottobre  2024 & 
             Guirong Lan & 
             Stesura verbale \\
         \hline 
@@ -143,41 +143,38 @@
 
 \newpage
 
-\section{Introduzione}
-Il presente verbale ha lo scopo di tracciare la riunione eseguita con la proponete Ergon Informatica. All'inizio ci siamo incontrati 20 minuti prima dell’appuntamento con l’azienda per chiarire le domande da porre. Come concordato, il referente di Ergon Informatica si è unito alla riunione su Zoom alle 15:00. Durante la discussione, il team ha esaurito tutti dubbi e perplessità relativi al capitolato C7, LLM: Assistente virtuale.
 \section{Domande}
-\paragraph{Domanda:} Tutti i modelli di Large Language Models (LLM) consigliati sono open source? perché alcuni vengono citati mentre altri no.
-\paragraph{Risposta:} Sì, tutti i modelli consigliati sono open source, quindi potete scegliere liberamente quello che preferite tra le opzioni suggerite o cercare altre alternative online.
+Di seguito sono riportate le domande fatte dal gruppo durante l'incontro, che ci ha chiarito i nostri dubbi iniziali:
+\begin{enumerate}
+    \item Tutti i modelli di Large Language Models (LLM) consigliati sono open source? perché alcuni vengono citati mentre altri no?
+    \item Qual è la vostra disponibilità per incontri?
+    \item Quale strumento di comunicazione preferite? Zoom va bene per voi?
+    \item In poche parole, in cosa consiste un database vettoriale?
+    \item Qual'è, secondo voi, la parte più difficile da realizzare?
+    \item Se ci trovassimo in difficoltà e non riusciamo ad avanzare, potremmo ricevere aiuto da parte vostra?
+    \item Dal punto di vista implementativo, dobbiamo realizzare un'interfaccia sia per desktop che per mobile, o è sufficiente una sola versione?
+\end{enumerate}
 
-\vspace{1.2cm}
+\section{Conclusioni}
+In base alle risposte fornite dai rappresentanti, il gruppo è arrivato alle seguenti conclusioni:
+\begin{itemize}
+    \item I modelli consigliati dall’azienda proponente sono open source e spetta al gruppo decidere quali opzioni preferire tra quelle suggerite o esplorare ulteriori alternative disponibili online.
+    
+    \item L’azienda proponente ha assicurato piena disponibilità per organizzare incontri, solitamente entro 1-2 giorni. Inoltre, abbiamo concordato di utilizzare Zoom come strumento di comunicazione; in alternativa, si potrebbe anche organizzare un incontro di persona presso l’azienda.
+    
+    \item In caso di difficoltà nell'avanzare, l'azienda proponente è disponibile a supportarci e a esaminare insieme le nostre problematiche. Inoltre, ci invita a inviare un’email descrivendo la situazione, in modo da poter mandare un tecnico con competenze specifiche per fornire assistenza
+    
+    \item La sfida principale consiste nell'estrazione dei dati semantici dal modello LLM pre-addestrato, mentre le altre componenti, come la comunicazione, l'interfaccia utente e i servizi web API, non rappresentano ostacoli per lo sviluppo del progetto
 
-\paragraph{Domanda:} Qual è la vostra disponibilità per incontri?
-\paragraph{Risposta:} Offriamo piena disponibilità per organizzare incontri secondo le vostre esigenze. Solitamente, possiamo fissare un appuntamento entro 1-2 giorni lavorativi dalla richiesta, garantendo flessibilità e rapidità nella pianificazione.
+    \item L’obiettivo principale deve essere progettato per la versione mobile, poiché molti utenti accedono tramite dispositivi portatili. Tuttavia, è anche possibile sviluppare una web app, lasciando al gruppo la decisione finale. Comunque, la gestione del backend deve comunque avvenire tramite una web app.
+\end{itemize}
 
-\vspace{1.2cm}
-
-\paragraph{Domanda:} Quale strumento di comunicazione preferite? Zoom va bene per voi?
-\paragraph{Risposta:} Sì, Zoom per noi va benissimo come strumento di comunicazione. In alternativa, possiamo organizzare un incontro fisico presso la nostra azienda, se preferite.
-
-\vspace{1.2cm}
-
-\paragraph{Domanda:} In poche parole, in cosa consiste un database vettoriale?
-\paragraph{Risposta:} Un database vettoriale memorizza le informazioni, ad esempio le stringhe, trasformandole in vettori numerici anziché conservarle come stringhe. Inoltre, la scelta del database è fortemente influenzata dal modello di LLM che si intende utilizzare; pertanto, è meglio decidere prima il modello LLM e successivamente il tipo di database.
-
-\vspace{1.2cm}
-
-\paragraph{Domanda:}  Qual'è, secondo voi, la parte più difficile da realizzare?
-\paragraph{Risposta:} A mio parere, la parte più complessa è estrarre i dati semantici dal modello LLM pre-addestrato, poiché rappresenta un aspetto critico del processo. Le altre componenti, come la comunicazione, l'interfaccia utente e i servizi web API, non costituiscono un ostacolo significativo
-
-\vspace{1.2cm}
-
-\paragraph{Domanda:} Se ci trovassimo in difficoltà e non riusciamo ad avanzare, potremmo ricevere aiuto da parte vostra?
-\paragraph{Risposta:} Certo! Siamo disponibili a supportarvi e a esaminare insieme le vostre difficoltà e le decisioni da prendere. Se possibile, vi invitiamo a inviare una email descrivendo la situazione; in questo modo potremmo anche inviare un tecnico con competenze specifiche per assistervi meglio.
-\vspace{1.2cm}
-
-\paragraph{Domanda:} Dal punto di vista implementativo, dobbiamo realizzare un'interfaccia sia per desktop che per mobile, o è sufficiente una sola versione?
-
-\paragraph{Risposta:} Il focus principale dovrebbe essere sulla versione mobile, poiché molti utenti accedono alle piattaforme tramite dispositivi portatili.Però potete anche sviluppare una web app, quindi potete scegliere tra mobile o web app. Tuttavia, la gestione della parte backend deve avvenire tramite una web app.
-\vspace{1.2cm}
+\vfill
+{\renewcommand{\arraystretch}{2}
+\begin{tabular}{l p{5cm}}
+    Data: &  \hrulefill \\
+    Firma: & \hrulefill \\
+\end{tabular}
+}
 
 \end{document}
