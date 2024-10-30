@@ -1,0 +1,193 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[italian]{babel}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{imakeidx}
+\usepackage{caption}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+
+
+%--------------------VARIABILI--------------------
+\def\logo{../Immagini/logo.jpeg}
+\def\ultima-versione{v1.0}
+\def\titolo{Verbale esterno Ergon Informatica }
+%------------------------------------------------
+
+\usetikzlibrary{calc}
+\definecolor{fp-blue}{HTML}{2885c8}
+\definecolor{fp-red}{HTML}{ea5f64}
+\makeindex[title=Indice]
+\hypersetup{hidelinks}
+
+\pagestyle{fancy}
+\fancyhead[L]{}
+\setlength{\headheight}{15pt}
+\fancyhead[R]{\titolo - \ultima-versione}
+
+\renewcommand{\familydefault}{\sfdefault}
+\newcommand{\glossario}[1]{\fontfamily{lmr}\selectfont{\textit{#1\textsubscript{\small G}}}}
+
+%--------------------INFORMAZIONI PRIMA PAGINA-------------------- 
+\title{\Huge \textbf{\titolo}}
+\author{\Large{Alt} \raisebox{0.3ex}{\normalsize  +} \Large{F4}}
+\date{25 ottobre 2024}
+%----------------------------------------------------------------
+
+\begin{document}
+
+\begin{titlepage}      
+    \maketitle
+    \thispagestyle{empty}  
+
+    \begin{tikzpicture}[remember picture, overlay]
+        \fill[fp-blue] 
+        ($(current page.south west) + (0, 10)$) 
+        -- ($(current page.center) + (0, -8)$)
+        -- ($(current page.center) + (0, -15)$)
+        -- (current page.south west);
+
+        \fill[fp-red]
+        ($(current page.south east) + (0, 10)$) 
+        -- ($(current page.center) + (0, -8)$)
+        -- ($(current page.center) + (0, -15)$)
+        -- (current page.south east);
+
+        \clip ($(current page.center) + (0, -8)$) circle (1cm) node 
+        {\includegraphics[width=.25\textwidth]{\logo}};
+        
+    \end{tikzpicture}    
+\end{titlepage}
+
+\tableofcontents
+
+\newpage
+
+\begin{table}[!h]
+    \centering
+    \caption*{\textbf{\Large Registro Modifiche}}
+    {\renewcommand{\arraystretch}{2}
+    \begin{tabularx}{\textwidth}{| X | X | X | X |}
+        \hline
+            \textbf{\large Versione} & 
+            \textbf{\large Data} & 
+            \textbf{\large Autore/i} & 
+            \textbf{\large Descrizione} \\ 
+        \hline \hline
+        \ultima-versione & 
+            30 ottobre  2024 & 
+            Enrico Bianchi & 
+            Approvazione documento \\
+        \hline 
+            v0.2 & 
+            29 ottobre  2024 & 
+            Pedro Leoni & 
+            Revisione \\
+        \hline 
+            v0.1 & 
+            29 ottobre  2024 & 
+            Guirong Lan & 
+            Stesura verbale \\
+        \hline 
+    \end{tabularx}}
+\end{table}
+
+\newpage
+
+\section{Registro presenze}
+\begin{itemize}
+    \item[] \textbf{Data}: 25 ottobre 2024
+    \item[] \textbf{Ora inizio}:  15:00
+    \item[] \textbf{Ora fine}: 15:10
+    \item[] \textbf{Piattaforma}: Zoom	
+\end{itemize}
+\begin{table}[!h]
+\centering
+{\renewcommand{\arraystretch}{2}
+\begin{tabularx}{\textwidth}{| X | X |}
+    \hline
+        \textbf{\large Componente} & 
+        \textbf{\large Presenza} \\ 
+    \hline 
+    \hline
+        Eghosa Igbinedion&
+        Presente \\
+    \hline 
+        Giovanni Lan&
+        Presente \\
+    \hline 
+        Enrico Bianchi&
+        Presente \\
+    \hline 
+        Francesco Savio&
+        Presente \\
+    \hline 
+        Marko Peric&
+        Presente \\
+    \hline 
+        Pedro Leoni&
+        Presente \\
+    \hline 
+
+\end{tabularx}}
+\end{table}
+
+\begin{table}[!h]
+    \centering
+    {\renewcommand{\arraystretch}{2}
+    \begin{tabularx}{\textwidth}{| X | X |}
+        \hline
+            \textbf{\large Nome} & 
+            \textbf{\large Ruolo} \\ 
+        \hline 
+        \hline
+            Gianluca Carlesso&
+            Rappresentante dell'azienda \\
+        \hline 
+
+    \end{tabularx}}
+\end{table}
+
+\newpage
+
+\section{Domande}
+Di seguito sono riportate le domande fatte dal gruppo durante l'incontro:
+\begin{enumerate}
+    \item Il Large Language Model(LLM) verrà eseguito in locale oppure l'azienda fornirà un ambiente di esecuzione?
+    \item Tutti i modelli di Large Language Models(LLM) consigliati sono open source? I modelli citati rappresentano solo un consiglio o un vincolo?
+    \item Qual è la vostra disponibilità per gli incontri?
+    \item Quale strumento di comunicazione preferite? Zoom va bene per voi?
+    \item In poche parole, in cosa consiste un database vettoriale?
+    \item Qual'è, secondo voi, la parte più difficile da realizzare?
+    \item Se ci trovassimo in difficoltà sulle diverse tecnologie e non riuscissimo ad avanzare, sareste disposti a fornirci supporto?
+    \item E' necessario realizzare un'interfaccia che si adatti a dispositivi desktop e mobile?
+\end{enumerate}
+
+\section{Conclusioni}
+In base alle risposte fornite dai rappresentanti, il gruppo è arrivato alle seguenti conclusioni:
+\begin{itemize}
+    \item L'azienda proponente è disponibile previa discussione a fornire un ambiente di esecuzione per il Large Language Model scelto.
+
+    \item I modelli consigliati dall’azienda proponente sono tutti open source e spetta al gruppo decidere quali opzioni preferire tra quelle suggerite o esplorare ulteriori alternative disponibili online.
+    
+    \item L'azienda propone incontri virtuali su Zoom, generalmente organizzabili entro 1-2 giorni dalla richiesta. In alternativa, è possibile valutare la possibilità di un incontro di persona presso la loro sede.
+    
+    \item In caso di difficoltà nell'avanzare, l'azienda proponente è disponibile a supportarci ed esaminare insieme le problematiche riscontrate.
+    
+    \item La sfida principale consiste nell'estrazione dei dati semantici da fornire al modello LLM pre-addestrato per permettergli di rispondere alle domande poste.
+
+    \item L’obiettivo principale è quello di realizzare un interfaccia grafica adatta ai dispositivi mobile, poiché la maggior parte degli utenti interagirebbero col sistema tramite essi. Tuttavia, è anche possibile sviluppare una web app che si adatti a tutte le tipologie di dispositivi.
+\end{itemize}
+
+\vfill
+{\renewcommand{\arraystretch}{2}
+\begin{tabular}{l p{5cm}}
+    Data: &  \hrulefill \\
+    Firma: & \hrulefill \\
+\end{tabular}
+}
+
+\end{document}
