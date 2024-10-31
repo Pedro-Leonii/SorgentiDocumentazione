@@ -1,0 +1,139 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[italian]{babel}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{imakeidx}
+\usepackage{caption}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+
+
+%--------------------VARIABILI--------------------
+\def\logo{../Immagini/logo.jpeg}
+\def\ultima-versione{v0.1}
+\def\titolo{Verbale interno }
+%------------------------------------------------
+
+\usetikzlibrary{calc}
+\definecolor{fp-blue}{HTML}{2885c8}
+\definecolor{fp-red}{HTML}{ea5f64}
+\makeindex[title=Indice]
+\hypersetup{hidelinks}
+
+\pagestyle{fancy}
+\fancyhead[L]{}
+\setlength{\headheight}{15pt}
+\fancyhead[R]{\titolo - \ultima-versione}
+
+\renewcommand{\familydefault}{\sfdefault}
+\newcommand{\glossario}[1]{\fontfamily{lmr}\selectfont{\textit{#1\textsubscript{\small G}}}}
+
+%--------------------INFORMAZIONI PRIMA PAGINA-------------------- 
+\title{\Huge \textbf{\titolo}}
+\author{\Large{Alt} \raisebox{0.3ex}{\normalsize  +} \Large{F4}}
+\date{29 ottobre 2024}
+%----------------------------------------------------------------
+
+\begin{document}
+
+\begin{titlepage}      
+    \maketitle
+    \thispagestyle{empty}  
+
+    \begin{tikzpicture}[remember picture, overlay]
+        \fill[fp-blue] 
+        ($(current page.south west) + (0, 10)$) 
+        -- ($(current page.center) + (0, -8)$)
+        -- ($(current page.center) + (0, -15)$)
+        -- (current page.south west);
+
+        \fill[fp-red]
+        ($(current page.south east) + (0, 10)$) 
+        -- ($(current page.center) + (0, -8)$)
+        -- ($(current page.center) + (0, -15)$)
+        -- (current page.south east);
+
+        \clip ($(current page.center) + (0, -8)$) circle (1cm) node 
+        {\includegraphics[width=.25\textwidth]{\logo}};
+        
+    \end{tikzpicture}    
+\end{titlepage}
+
+\tableofcontents
+
+\newpage
+
+\begin{table}[!h]
+    \centering
+    \caption*{\textbf{\Large Registro Modifiche}}
+    {\renewcommand{\arraystretch}{2}
+    \begin{tabularx}{\textwidth}{| X | X | X | X |}
+        \hline
+            \textbf{\large Versione} & 
+            \textbf{\large Data} & 
+            \textbf{\large Autore/i} & 
+            \textbf{\large Descrizione} \\ 
+        \hline \hline
+            \ultima-versione & 
+            31 ottobre 2024 & 
+            Enrico Bianchi & 
+            Stesura verbale \\
+        \hline 
+    \end{tabularx}}
+\end{table}
+
+\newpage
+\section{Registro presenze}
+\begin{itemize}
+    \item[] \textbf{Data}: 29 ottobre 2024
+    \item[] \textbf{Ora inizio}:  19:00
+    \item[] \textbf{Ora fine}: 20:00
+    \item[] \textbf{Piattaforma}: Discord	
+\end{itemize}
+\begin{table}[!h]
+\centering
+{\renewcommand{\arraystretch}{2}
+\begin{tabularx}{\textwidth}{| X | X |}
+    \hline
+        \textbf{\large Componente} & 
+        \textbf{\large Presenza} \\ 
+    \hline 
+    \hline
+        Eghosa Igbinedion&
+        Presente \\
+    \hline 
+        Giovanni Lan&
+        Presente \\
+    \hline 
+        Enrico Bianchi&
+        Presente \\
+    \hline 
+        Francesco Savio&
+        Presente \\
+    \hline 
+        Marko Peric&
+        Presente \\
+    \hline 
+        Pedro Leoni&
+        Presente \\
+    \hline 
+
+\end{tabularx}}
+\end{table}
+
+\newpage
+
+\section{Verbale}
+Come indicato nel verbale interno sull'incontro tenuto in data 28/10/2024, è stato effettuato questo incontro per realizzare il preventivo dei costi.
+Per prima cosa è stato accordato che ogni membro impigherà 95 ore produttive per la realizzazione del progetto, questo in modo da evitare di allungare i tempi di consegna del progetto che vorrebbe essere consegnato dal gruppo entro fine Marzo.
+Una volta accordate le ore e fatto un calcolo delle ore totali che verranno impiegate dal gruppo, sono state stabilite le ore da impiegare per ogni ruolo in modo tale da stabilire un preventivo dei costi adeguato.
+Tutte le scelte adottate durante questo incontro per realizzare il preventivo dei costi verranno comunque indicate e motivate in un opportuno documento che verrà consegnato nella candidatura.
+\section{To Do}
+\begin{itemize}
+    \item Terminare i documenti necessari per la presentazione della candidatura
+    \item Inviare i verbali esterni alle aziende con cui si sono tenuti colloqui perchè vengano firmati
+\end{itemize}
+\end{document}
