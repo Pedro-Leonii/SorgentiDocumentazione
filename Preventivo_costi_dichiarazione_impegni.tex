@@ -1,0 +1,195 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[italian]{babel}
+\usepackage{lmodern,textcomp}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{imakeidx}
+\usepackage{caption}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{makecell}
+
+
+%--------------------VARIABILI--------------------
+\def\logo{Immagini/logo.jpeg}
+\def\ultima-versione{v1.0}
+\def\titolo{Preventivo dei costi finali}
+%------------------------------------------------
+
+\usetikzlibrary{calc}
+\definecolor{fp-blue}{HTML}{2885c8}
+\definecolor{fp-red}{HTML}{ea5f64}
+\makeindex[title=Indice]
+\hypersetup{hidelinks}
+
+\pagestyle{fancy}
+\fancyhead[L]{}
+\setlength{\headheight}{15pt}
+\fancyhead[R]{\titolo - \ultima-versione}
+
+\renewcommand{\familydefault}{\sfdefault}
+\newcommand{\glossario}[1]{\fontfamily{lmr}\selectfont{\textit{#1\textsubscript{\small G}}}}
+
+%--------------------INFORMAZIONI PRIMA PAGINA-------------------- 
+\title{\Huge \textbf{\titolo}}
+\author{\Large{Alt} \raisebox{0.3ex}{\normalsize  +} \Large{F4}}
+\date{31 ottobre 2024}
+%----------------------------------------------------------------
+
+\begin{document}
+
+\begin{titlepage}      
+    \maketitle
+    \thispagestyle{empty}  
+
+    \begin{tikzpicture}[remember picture, overlay]
+        \fill[fp-blue] 
+        ($(current page.south west) + (0, 10)$) 
+        -- ($(current page.center) + (0, -8)$)
+        -- ($(current page.center) + (0, -15)$)
+        -- (current page.south west);
+
+        \fill[fp-red]
+        ($(current page.south east) + (0, 10)$) 
+        -- ($(current page.center) + (0, -8)$)
+        -- ($(current page.center) + (0, -15)$)
+        -- (current page.south east);
+
+        \clip ($(current page.center) + (0, -8)$) circle (1cm) node 
+        {\includegraphics[width=.25\textwidth]{\logo}};
+        
+    \end{tikzpicture}    
+\end{titlepage}
+\tableofcontents
+
+\newpage
+
+\begin{table}[!h]
+    \centering
+    \caption*{\textbf{\Large Registro Modifiche}}
+    {\renewcommand{\arraystretch}{2}
+    \begin{tabularx}{\textwidth}{| X | X | X | X |}
+        \hline
+            \textbf{\large Versione} & 
+            \textbf{\large Data} & 
+            \textbf{\large Autore/i} & 
+            \textbf{\large Descrizione} \\ 
+        \hline
+        \hline
+            \ultima-versione & 
+            1 novembre 2024 & 
+            Guirong Lan & 
+            Approvazione documento \\
+        \hline
+            v0.2 & 
+            31 ottobre 2024 & 
+            Francesco Savio & 
+            Revisione \\
+        \hline
+            v0.1 & 
+            31 ottobre 2024 & 
+            Marko Peric & 
+            Prima Stesura \\
+        \hline 
+    \end{tabularx}}
+\end{table}
+
+\newpage
+
+\section{Considerazioni sui ruoli}
+\subsection{Responsabile}
+Il responsabile del progetto è incaricato di coordinare le attività del gruppo di lavoro, pianificare e monitorare i progressi, e gestire efficacemente le risorse disponibili. 
+In sintesi, egli si assicura che il progetto venga portato a termine nei tempi stabiliti e in conformità con le risorse assegnate. La sua partecipazione è prevista come frequente, caratterizzata da attività di breve durata,
+poiché la sua figura è fondamentale per garantire l’ottimizzazione dei tempi e dei costi.
+\subsection{Amministratore}
+L’amministratore ha la responsabilità della gestione delle risorse e delle infrastrutture del progetto, inclusa la configurazione e il supporto degli strumenti utilizzati nella produzione del software. 
+Questo ruolo è cruciale per garantire l'adozione efficace delle procedure operative, assicurando così un elevato livello di efficienza e produttività nel gruppo di lavoro. 
+Si prevede un coinvolgimento intenso nelle fasi iniziali del progetto, per poi assestarsi su un impegno più moderato man mano che le attività proseguono.
+\subsection{Analista}
+L’analista ricopre un ruolo fondamentale, specialmente nelle fasi iniziali del progetto. Egli è responsabile dell’analisi delle funzionalità del software, definendo i requisiti e i casi d’uso pertinenti. 
+La complessità del capitolato richiede un impegno considerevole nella fase di analisi dei requisiti, essenziale per garantire che il progetto soddisfi le esigenze degli stakeholder e per delineare una base solida su cui costruire il lavoro successivo.
+\subsection{Progettista}
+Il progettista è responsabile della definizione dell'architettura del software, identificando le componenti e le relazioni tra di esse, sulla base dei requisiti stabiliti dall’analista. 
+L'integrazione di molteplici tecnologie e prodotti di terze parti richiede un approccio meticoloso e un significativo dispendio di tempo. 
+È fondamentale disporre di una base progettuale solida, che permetta l'integrazione di ulteriori funzionalità e garantisca un corretto sviluppo del progetto.
+\subsection{Programmatore}
+Il programmatore si occupa di scrivere il codice sorgente del software, seguendo le specifiche elaborate dal progettista. Data la complessità del progetto, si prevede un significativo impegno temporale nella fase di sviluppo. 
+Un'attenta codifica è essenziale per garantire la funzionalità e l'affidabilità del software finale, poiché eventuali errori in questa fase possono compromettere il funzionamento del prodotto.
+\subsection{Verificatore}
+Il verificatore ha il compito di garantire che il software prodotto e la documentazione associata siano conformi alle normative e alle specifiche definite. 
+La sua attività sarà parallela a quella del programmatore, con un focus sulla verifica continua durante tutto il processo di sviluppo. 
+Questo approccio è cruciale per assicurare la qualità del prodotto finale e per affrontare tempestivamente eventuali problematiche emerse durante le fasi di sviluppo.
+
+\newpage
+\section {Dichiarazione degli impegni}
+Ogni componente del gruppo \textbf{Alt+F4} si impegna a contribuire con \textbf{95} ore di lavoro per lo sviluppo del capitolato
+\textbf{BuddyBot (C9)}, ricoprendo ciascun ruolo per un numero minimo di ore prestabilito, in modo da assicurare un’equa distribuzione delle attività e delle responsabilità.
+\section{Costi}
+\subsection{Costi orari e suddivisione delle ore}
+Dopo un’attenta analisi del capitolato e delle responsabilità associate a ciascun ruolo, è stata stabilita la suddivisione oraria riportata di seguito.
+\begin{table}[!h]
+    \centering
+    {\renewcommand{\arraystretch}{1.5}
+    \begin{tabularx}{\textwidth}{| X | X | X | X |}
+        \hline
+            \textbf{\large Ruolo} & 
+            \textbf{\large Costo orario} & 
+            \textbf{\large \makecell{Ore \\ per ruolo}} & 
+            \textbf{\large \makecell{Ore \\ per membro}} \\ 
+        \hline
+        \hline
+            Responsabile & 
+            30 & 
+            48 & 
+            8 \\
+        \hline
+        \hline
+            Amministratore & 
+            20 & 
+            48 & 
+            8 \\
+        \hline 
+        \hline
+            Analista & 
+            25 & 
+            66 & 
+            11 \\
+        \hline 
+        \hline
+            Progettista & 
+            25 & 
+            96 & 
+            16 \\
+        \hline 
+        \hline
+            Programmatore & 
+            15 & 
+            156 & 
+            26 \\
+        \hline 
+        \hline
+            Verificatore & 
+            15 & 
+            156 & 
+            26 \\
+        \hline 
+        \hline
+        \textbf{Totale} & 
+        \textbf{11130€} & 
+        \textbf{570} & 
+        \textbf{95} \\ 
+        \hline  
+    \end{tabularx}}
+\end{table}
+\subsection{Costi totali}
+Considerato che il gruppo è composto da 6 membri, il costo minimo stimato per lo sviluppo del 
+progetto ammontava a 6/7 di \textbf{12.000€}, pari a \textbf{10.285€}. A questo importo è stato aggiunto un margine di \textbf{845€} per coprire eventuali imprevisti, 
+portando così il costo totale preventivato a \textbf{11.130€}.
+\section{Scadenza di consegna}
+Il gruppo ha pianificato un periodo di lavoro di 24 settimane, includendo alcune settimane di slack per affrontare eventuali ritardi o imprevisti che potrebbero sorgere durante lo sviluppo del progetto.
+Questa strategia di gestione del tempo dovrebbe consentire di mantenere il progetto allineato con le scadenze previste, garantendo una conduzione efficace delle attività.
+Pertanto, ci si impegna a completare il progetto entro il \textbf{21 aprile 2025}.
+\end{document}
