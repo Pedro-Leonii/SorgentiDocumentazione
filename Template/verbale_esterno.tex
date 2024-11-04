@@ -8,13 +8,14 @@
 \usepackage{imakeidx}
 \usepackage{caption}
 \usepackage{fancyhdr}
+\usepackage{geometry}
 \usepackage{tabularx}
 
 
 %--------------------VARIABILI--------------------
 \def\logo{../Immagini/logo.jpeg}
-\def\ultima-versione{v0.1}
-\def\titolo{Verbale esterno nome azienda }
+\def\ultima-versione{ULTIMA VERSIONE}
+\def\titolo{Verbale esterno NOME AZIENDA }
 %------------------------------------------------
 
 \usetikzlibrary{calc}
@@ -30,11 +31,12 @@
 
 \renewcommand{\familydefault}{\sfdefault}
 \newcommand{\glossario}[1]{\fontfamily{lmr}\selectfont{\textit{#1\textsubscript{\small G}}}}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
 
 %--------------------INFORMAZIONI PRIMA PAGINA-------------------- 
 \title{\Huge \textbf{\titolo}}
 \author{\Large{Alt} \raisebox{0.3ex}{\normalsize  +} \Large{F4}}
-\date{\today}
+\date{DATA RIUNIONE}
 %----------------------------------------------------------------
 
 \begin{document}
@@ -62,28 +64,31 @@
     \end{tikzpicture}    
 \end{titlepage}
 
-\tableofcontents
-
-\newpage
-
+\thispagestyle{plain}
+\newgeometry{ignoreall, hmargin=20pt}
 \begin{table}[!h]
     \centering
     \caption*{\textbf{\Large Registro Modifiche}}
     {\renewcommand{\arraystretch}{2}
-    \begin{tabularx}{\textwidth}{| X | X | X | X |}
+    \begin{tabularx}{\textwidth}{| c | c | C | C | C |}
         \hline
-            \textbf{\large Versione} & 
-            \textbf{\large Data} & 
-            \textbf{\large Autore/i} & 
-            \textbf{\large Descrizione} \\ 
+            \textbf{\normalsize Versione} & 
+            \textbf{\normalsize Data} & 
+            \textbf{\normalsize Autore/i} & 
+            \textbf{\normalsize Verificatore} &
+            \textbf{\normalsize Descrizione} \\ 
         \hline \hline
-            \ultima-versione & 
-            data & 
-            autore & 
-            Stesura verbale \\
+        ULTIMA VERSIONE & 
+       DATA MODIFICA & 
+        AUTORE MODIFICA&
+        VERIFICATORE MODIFICA& 
+        DESCRIZIONE MODIFICA\\
         \hline 
     \end{tabularx}}
 \end{table}
+\restoregeometry
+
+\tableofcontents
 
 \newpage
 
