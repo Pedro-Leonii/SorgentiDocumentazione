@@ -4,10 +4,9 @@ on:
     push: 
         branches:
             - main
-    workflow_dispatch:
     
 jobs:
-    deploy_compiled:
+    pubblicazione_compilati:
         env: 
             DIRS_TO_IGNORE: ${{vars.DIRS_TO_IGNORE}}
             DIRS_TO_DEL: ${{vars.DIRS_TO_DEL}}
