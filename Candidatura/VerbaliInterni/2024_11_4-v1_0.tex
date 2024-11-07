@@ -1,6 +1,7 @@
 \documentclass[a4paper, 12pt]{article}
 
 \usepackage[italian]{babel}
+\usepackage{lmodern,textcomp}
 \usepackage{tikz}
 \usepackage{xcolor}
 \usepackage{graphicx}
@@ -13,9 +14,10 @@
 
 
 %--------------------VARIABILI--------------------
-\def\logo{../Immagini/logo.jpeg}
-\def\ultima-versione{ULTIMA VERSIONE}
-\def\titolo{Verbale esterno NOME AZIENDA }
+\def\logo{../../Immagini/logo.jpeg}
+\def\ultima-versione{v1.0}
+\def\titolo{Verbale interno }
+\def\data{2024/11/4}
 %------------------------------------------------
 
 \usetikzlibrary{calc}
@@ -36,7 +38,7 @@
 %--------------------INFORMAZIONI PRIMA PAGINA-------------------- 
 \title{\Huge \textbf{\titolo}}
 \author{\Large{Alt} \raisebox{0.3ex}{\normalsize  +} \Large{F4}}
-\date{DATA RIUNIONE}
+\date{2024/11/4}
 %----------------------------------------------------------------
 
 \begin{document}
@@ -78,11 +80,17 @@
             \textbf{\normalsize Verificatore} &
             \textbf{\normalsize Descrizione} \\ 
         \hline \hline
-        ULTIMA VERSIONE & 
-       DATA MODIFICA & 
-        AUTORE MODIFICA&
-        VERIFICATORE MODIFICA& 
-        DESCRIZIONE MODIFICA\\
+        \ultima-versione & 
+        5 novembre 2024& 
+        Eghosa Igbinedion &
+        & 
+        Approvazione documento \\
+        \hline 
+        v0.1 &
+        2024/11/4 & 
+        Marko Peric&
+        Guirong Lan& 
+        Prima stesura\\
         \hline 
     \end{tabularx}}
 \end{table}
@@ -94,10 +102,10 @@
 
 \section{Registro presenze}
 \begin{itemize}
-    \item[] \textbf{Data}: data verbale
-    \item[] \textbf{Ora inizio}:  ora inizio
-    \item[] \textbf{Ora fine}: ora fine
-    \item[] \textbf{Piattaforma}: piattaforma	
+    \item[] \textbf{Data}: \data
+    \item[] \textbf{Ora inizio}:  14:30
+    \item[] \textbf{Ora fine}: 16:30
+    \item[] \textbf{Piattaforma}: Discord	
 \end{itemize}
 \begin{table}[!h]
 \centering
@@ -130,33 +138,33 @@
 \end{tabularx}}
 \end{table}
 
-\begin{table}[!h]
-    \centering
-    {\renewcommand{\arraystretch}{2}
-    \begin{tabularx}{\textwidth}{| X | X |}
-        \hline
-            \textbf{\large Nome} & 
-            \textbf{\large Ruolo} \\ 
-        \hline 
-        \hline
-            Nome rappresentante azienda&
-            Rappresentante dell'azienda \\
-        \hline 
-    
-    \end{tabularx}}
-\end{table}
-
 \newpage
 
-\section{Domande}
+\section{Verbale}
+\subsection{Argomenti trattati}
+Il gruppo si è riunito per rispondere alle seguenti domande:
+\begin{itemize}
+    \item A quale capitolato candidarci e perché?
+    \item Come migliorare sui punti indicati come carenti dal professore?
+    \item Come suddividerci il lavoro?
+    \item Cosa bisogna fare in maniera urgente e cosa no?
+\end{itemize}
+\subsection{Decisioni prese}
+Discutendo riguardo ai temi soprastanti il gruppo è giunto alle seguenti decisioni:
+\begin{itemize} 
+    \item Il gruppo ha optato per il capitolato C5, motivo del quale indicato nella lettera di presentazione.
+    \item Per colmare le lacune segnalate dal docente: 
+    \begin{itemize} 
+        \item Ogni modifica sarà ora soggetta a verifica da parte di un membro apposito, senza che questi intervenga direttamente.        \item La redazione dei verbali sarà più sintetica, favorendo chiarezza e concisione. 
+    \end{itemize} 
+    \item I ruoli sono stati suddivisi in modo equo, come indicato nel documento di preventivo dei costi. 
+\end{itemize}
 
-\section{Conclusioni}
-
-\vfill
-{\renewcommand{\arraystretch}{2}
-\begin{tabular}{l p{5cm}}
-    Data: &  \hrulefill \\
-    Firma: & \hrulefill \\
-\end{tabular}
-}
+\section{To Do}
+\begin{itemize}
+    \item Terminare la issue \textbf{\#42}: stesura del verbale interno del 2024/11/4.
+    \item Terminare la issue \textbf{\#39}: modifica dei template dei documenti.
+    \item Terminare la issue \textbf{\#41}: modifica della lettera di presentazione.
+    \item Terminare la issue \textbf{\#40}: modifica del documento di preventivo dei costi.
+\end{itemize}
 \end{document}
