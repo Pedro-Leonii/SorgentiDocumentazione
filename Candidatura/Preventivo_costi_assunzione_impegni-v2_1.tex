@@ -31,7 +31,7 @@
 \pagestyle{fancy}
 \fancyhead[L]{}
 \setlength{\headheight}{15pt}
-\fancyhead[R]{\titolo - \ultima-versione}
+\fancyhead[R]{\titolo \space - \ultima-versione}
 
 \renewcommand{\familydefault}{\sfdefault}
 \newcommand{\glossario}[1]{\fontfamily{lmr}\selectfont{\textit{#1\textsubscript{\small G}}}}
@@ -85,8 +85,8 @@
         \ultima-versione & 
         11 novembre 2024& 
         Guirong Lan &
-        & 
-        Modifica sezione: Dichiarazione degli impegni\\
+        Pedro Leoni& 
+        Modifica sezione:  \hyperref[sec:dic]{Dichiarazione degli impegni}\\
         \hline
         v2.0 & 
         5 novembre 2024& 
@@ -98,8 +98,8 @@
         4 novembre 2024 &
         Pedro Leoni &
         Guirong Lan&
-        Modifica sezioni: Costi e Scadenza di consegna
-        Aggiunta sezione: Criteri di rotazione dei ruoli \\
+        Modifica sezioni: \hyperref[sec:cost]{Costi} e \hyperref[sec:scad]{Scadenza di consegna}
+        Aggiunta sezione: \hyperref[sec:crit]{Criteri di rotazione dei ruoli} \\
         \hline
         v1.0 & 
         1 novembre 2024& 
@@ -146,13 +146,16 @@ Questo approccio è cruciale per assicurare la qualità del prodotto finale e pe
 
 \newpage
 \section {Dichiarazione degli impegni}
+\label{sec:dic}
 Ogni componente del gruppo \textbf{Alt+F4} si impegna a contribuire con \textbf{95} ore di lavoro per lo sviluppo del capitolato
 \textbf{ Artificial QI (C1)}, ricoprendo ciascun ruolo per un numero minimo di ore prestabilito, in modo da assicurare un’equa distribuzione delle attività e delle responsabilità.
 \section{Costi}
+\label{sec:cost}
 \subsection{Costi orari e suddivisione delle ore}
-Dopo un’attenta analisi del capitolato e delle responsabilità associate a ciascun ruolo, è stata stabilita la suddivisione oraria riportata di seguito.
-\label{tab:ore}
-\begin{table}[!h] 
+Dopo un’attenta analisi del capitolato e delle responsabilità associate a ciascun ruolo, è stata stabilita la suddivisione oraria riportata nella \hyperref[tab:ore]{Tabella 1}.
+
+\begin{table}[!h]
+    \label{tab:ore} 
     \centering
     {\renewcommand{\arraystretch}{1.5}
     \begin{tabularx}{\textwidth}{| X | X | X | X |}
@@ -199,14 +202,17 @@ Dopo un’attenta analisi del capitolato e delle responsabilità associate a cia
         \textbf{95} \\ 
         \hline  
     \end{tabularx}}
+    \caption{Ripartizione ore e costi}
 \end{table}
 
-Di seguito viene mostrato un grafico a torta che illustra la ripartizione dei ruoli in percentuale rispetto alle ore totali a disposizione.
+In \hyperref[fig:pie]{Figura 1} viene mostrato un grafico a torta che illustra la ripartizione dei ruoli in percentuale rispetto alle ore totali a disposizione.
 \begin{figure}[H]
+    \label{fig:pie}
     \centering
     \begin{tikzpicture}
         \pie{8.42/Responsabile, 8.42/Amministratore, 13.68/Analista, 16.84/Progettista, 26.31/Programmatore, 26.31/Verificatore}
     \end{tikzpicture}
+    \caption{Ripartizione ore e ruoli}
 \end{figure}
 
 \subsection{Costi totali}
@@ -215,11 +221,13 @@ progetto ammonta a 6/7 di \textbf{12.000€}, pari a \textbf{10.285€}.
 Data la precedente ripartizione delle ore per ruolo si ha che il costo minimo stimato è pari a \textbf{11.250€}.
 
 \section{Criteri di rotazione dei ruoli}
+\label{sec:crit}
 Dato che nessun membro del gruppo ha una chiara idea del compito pratico di ogni ruolo di progetto è stato deciso che ogni membro ricoprirà per lo stesso monte ore(indicato nella sezione \hyperref[tab:ore]{\textbf{\underline{Costi orari e suddivisione delle ore}}}).
 Il gruppo ha deciso, almeno nella fase iniziale del progetto, di cambiare i ruoli a turno con cadenza bisettimanale. In questo modo, ogni componente avrà il tempo di apprendere i diversi ruoli.
 
 \section{Scadenza di consegna}
-Il gruppo ha pianificato un periodo di lavoro di 22 settimane, includendo alcune settimane di slack per affrontare eventuali ritardi o imprevisti che potrebbero sorgere durante lo sviluppo del progetto.
+\label{sec:scad}
+Il gruppo ha pianificato un periodo di lavoro di 21 settimane, includendo alcune settimane di slack per affrontare eventuali ritardi o imprevisti che potrebbero sorgere durante lo sviluppo del progetto.
 Questa strategia di gestione del tempo dovrebbe consentire di mantenere il progetto allineato con le scadenze previste, garantendo una conduzione efficace delle attività.
 Pertanto, ci si impegna a completare il progetto entro il \textbf{7 aprile 2025}.
 \end{document}
