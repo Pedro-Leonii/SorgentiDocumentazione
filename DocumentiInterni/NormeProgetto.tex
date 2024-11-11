@@ -233,9 +233,9 @@ La creazione di un documento segue i passi:
         git pull origin develop
     \end{lstlisting}
     
-    \item Creazione branch \lstinline|feature/#id-issue| tramite il comando:
+    \item Creazione e spostamento nel branch \lstinline|feature/#id-issue| tramite il comando:
     \begin{lstlisting}
-        git branch feature/#id-issue
+        git checkout -b feature/#id-issue
     \end{lstlisting}
 
     \item Creazione del documento usando template e nomi(\underline{esclusa versione}) indicati nella sezione \hyperref[subsec:docs]{Tipi di documenti}.
@@ -251,11 +251,19 @@ La creazione di un documento segue i passi:
     
     \item Notare che non viene modificato il nome del documento. 
     
-    
     \item Registrazione delle modifiche nel repository locale tramite i comandi:
     \begin{lstlisting}
         git add *.tex
         git commit -m "messaggio-commit"
+    \end{lstlisting}
+
+    \item Aggiornare il ramo develop locale e mergiarlo nel ramo di feature tramite i comandi:
+    \begin{lstlisting}
+        git checkout develop
+        git pull origin develop
+
+        git checkout feature/#id-feature
+        git merge develop
     \end{lstlisting}
 
     \item Pubblicazione del ramo nel repository tramite il comando:
@@ -315,7 +323,7 @@ La modifica di un documento segue i passi:
     Per i documenti di tipo diverso da Verbali interni e Verbali esterni deve essere aggiornata la variabile \LaTeX \space chiamata \lstinline|\date| usando la data attuale indicando il mese in lettere. 
     
     \item Notare che non viene modificato il nome del documento.
-    
+
     \item Pubblicazione del ramo nel repository tramite il comando:
     \begin{lstlisting}
         git push origin feature/#id-issue
@@ -353,11 +361,6 @@ La verifica di un documento segue i passi:
     \end{lstlisting}
     L'id della issue relativa alla pull request si trova nella descrizione della pull request stessa.
 
-    \item Spostamento sul ramo di feature tramite il comando:
-    \begin{lstlisting}
-        git checkout feature/#id-issue
-    \end{lstlisting}
-
     \item Compilazione del documento e verifica del contenuto rispetto alla definition of done contenuta nella relativa issue.
     
     \item Se la definition of done non è stata rispettata commentare la pull request indicando le parti mancanti.
@@ -379,11 +382,20 @@ La verifica di un documento segue i passi:
     \end{itemize}
 
     \item Modifica del nome del documento assegnando la nuova versione.
-    
+
     \item Registrazione delle modifiche nel repository locale tramite i comandi:
     \begin{lstlisting}
         git add *.tex
         git commit -m "messaggio-commit"
+    \end{lstlisting}
+
+    \item Allineamento con lo stato attuale del ramo develop remoto tramite i comandi:
+    \begin{lstlisting}
+        git checkout develop
+        git pull origin develop
+
+        git checkout feature/#id-issue
+        git merge develop
     \end{lstlisting}
 
     \item Pubblicazione del ramo nel repository tramite il comando:
@@ -412,14 +424,9 @@ L'accettazione di un documento segue i passi:
         git pull origin develop
     \end{lstlisting}
     
-    \item Creazione branch \lstinline|release/NomeMilestone| tramite il comando:
+    \item Creazione e spostamento nel branch \lstinline|release/NomeMilestone| tramite il comando:
     \begin{lstlisting}
-        git branch release/NomeMilestone
-    \end{lstlisting}
-
-    \item Spostamento sul ramo di release tramite il comando:
-    \begin{lstlisting}
-        git checkout release/NomeMilestone
+        git checkout -b release/NomeMilestone
     \end{lstlisting}
 
     \item Controllo dei documenti da pubblicare.
