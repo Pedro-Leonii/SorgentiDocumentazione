@@ -18,7 +18,7 @@
 
 %--------------------VARIABILI--------------------
 \def\logo{../Immagini/logo.jpeg}
-\def\ultima-versione{v2.1}
+\def\ultima-versione{v3.0}
 \def\titolo{Preventivo dei costi finali}
 %------------------------------------------------
 
@@ -26,7 +26,14 @@
 \definecolor{fp-blue}{HTML}{2885c8}
 \definecolor{fp-red}{HTML}{ea5f64}
 \makeindex[title=Indice]
-\hypersetup{hidelinks}
+\hypersetup{
+    hidelinks,
+    colorlinks=true,
+    linkcolor=fp-red,
+    filecolor=magenta,      
+    urlcolor=fp-blue,
+    pdfpagemode=FullScreen,
+}
 
 \pagestyle{fancy}
 \fancyhead[L]{}
@@ -83,6 +90,12 @@
             \textbf{\normalsize Descrizione} \\ 
         \hline \hline
         \ultima-versione & 
+        11 novembre 2024& 
+        Pedro Leoni &
+        & 
+        Approvazione documento\\
+        \hline
+        v2.1 & 
         11 novembre 2024& 
         Guirong Lan &
         Pedro Leoni& 
