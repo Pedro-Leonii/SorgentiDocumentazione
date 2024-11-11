@@ -1,0 +1,573 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[italian]{babel}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{imakeidx}
+\usepackage{caption}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{tabularx}
+\usepackage{listings}
+
+
+%--------------------VARIABILI--------------------
+\def\logo{../Immagini/logo.jpeg}
+\def\ultima-versione{v0.1}
+\def\titolo{ Norme di progetto}
+%------------------------------------------------
+
+\lstnewenvironment{TeXlstlisting}{\lstset{language=[LaTeX]TeX}}{}
+\usetikzlibrary{calc}
+\definecolor{fp-blue}{HTML}{2885c8}
+\definecolor{fp-red}{HTML}{ea5f64}
+\makeindex[title=Indice]
+\hypersetup{
+    hidelinks,
+    colorlinks=true,
+    linkcolor=fp-red,
+    filecolor=magenta,      
+    urlcolor=fp-blue,
+    pdfpagemode=FullScreen,
+}
+
+\pagestyle{fancy}
+\fancyhead[L]{}
+\setlength{\headheight}{15pt}
+\fancyhead[R]{\titolo \space - \ultima-versione}
+
+\renewcommand{\familydefault}{\sfdefault}
+\newcommand{\glossario}[1]{\fontfamily{lmr}\selectfont{\textit{#1\textsubscript{\small G}}}}
+
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+\lstset{
+    basicstyle=\ttfamily\footnotesize,             
+    stepnumber=1,                                              
+    tabsize=2,                        
+    showspaces=false,                   
+    showstringspaces=false,           
+    breaklines=true,                      
+    breakatwhitespace=true,                          
+}
+
+
+
+%--------------------INFORMAZIONI PRIMA PAGINA-------------------- 
+\title{\Huge \textbf{\titolo}}
+\author{\Large{Alt} \raisebox{0.3ex}{\normalsize  +} \Large{F4}}
+\date{ 11 novembre 2024}
+%----------------------------------------------------------------
+
+\begin{document}
+
+\begin{titlepage}      
+    \maketitle
+    \thispagestyle{empty}  
+
+    \begin{tikzpicture}[remember picture, overlay]
+        \fill[fp-blue] 
+        ($(current page.south west) + (0, 10)$) 
+        -- ($(current page.center) + (0, -8)$)
+        -- ($(current page.center) + (0, -15)$)
+        -- (current page.south west);
+
+        \fill[fp-red]
+        ($(current page.south east) + (0, 10)$) 
+        -- ($(current page.center) + (0, -8)$)
+        -- ($(current page.center) + (0, -15)$)
+        -- (current page.south east);
+
+        \clip ($(current page.center) + (0, -8)$) circle (1cm) node 
+        {\includegraphics[width=.25\textwidth]{\logo}};
+        
+    \end{tikzpicture}    
+\end{titlepage}
+
+\thispagestyle{plain}
+\newgeometry{ignoreall, hmargin=20pt}
+\begin{table}[!h]
+    \centering
+    \caption*{\textbf{\Large Registro Modifiche}}
+    {\renewcommand{\arraystretch}{2}
+    \begin{tabularx}{\textwidth}{| c | c | C | C | C |}
+        \hline
+            \textbf{\normalsize Versione} & 
+            \textbf{\normalsize Data} & 
+            \textbf{\normalsize Autore/i} & 
+            \textbf{\normalsize Verificatore} &
+            \textbf{\normalsize Descrizione} \\ 
+        \hline \hline
+        v0.1 & 
+        8 novembre 2024  & 
+        Pedro Leoni &
+        Enrico Bianchi & 
+        Sottosezioni \hyperref[subsec:gui]{Guida a \LaTeX}, 
+        \hyperref[subsec:cre]{Creazione documento}, \hyperref[subsec:mod]{Modifica documento}, \hyperref[subsec:ver]{Verifica documento}, \hyperref[subsec:acc]{Accettazione documenti}, \hyperref[subsec:vers]{Versionamento}, \hyperref[subsec:docs]{Tipi di documenti}, \hyperref[subsec:mods]{Modalità di scrittura}, \hyperref[subsec:pub]{Pubblicazione documentazione}, \hyperref[subsec:issue]{Issue}\\
+        \hline 
+    \end{tabularx}}
+\end{table}
+\restoregeometry
+
+\tableofcontents
+
+\newpage
+
+\section{Documentazione}
+
+\subsection{Guida a \LaTeX}
+\label{subsec:gui}
+\subsubsection{Creazione tabella}
+\label{subsub:tab}
+\begin{lstlisting}
+
+        \begin{table}[!h]
+            \begin{tabularx}[| X | c | l | r |]
+                \hline
+
+                Intestazione1 &
+                Intestazione2 &
+                Intestazione3 &
+                Intestazione4 \\
+
+                \hline
+
+                prima colonna prima riga   &
+                seconda colonna prima riga &
+                terza coolonna prima riga  &
+                quarta colonna prima riga  &
+
+                \hline
+
+                ...
+
+                \hline
+            \end{tabularx}
+            \caption{Riassunto contenuto}
+        \end{table}
+\end{lstlisting}
+Dove:
+\begin{itemize}
+    \item \lstinline+[!h]+ indica che il posizionamento della tabella nel pdf deve essere dove si trova nel codice.
+    
+    \item \lstinline+[| X | c | l | r |]+ indica le colonne della tabella.
+
+    \lstinline+|+ indica una riga di separazione tra le colonne.
+
+    \lstinline+X+ indica una colonna che si allarga dinamicamente.
+
+    \lstinline+c+, \lstinline+l+ e \lstinline+r+ indicano rispettivamente colonne in cui il posizionamento del testo è centrale, a sinistra e a destra.
+
+    \item \lstinline+\hline+ crea una linea orizzontale.
+\end{itemize}
+
+\subsubsection{Link}
+\label{subsub:link}
+Link ad elementi interni alla pagina:
+\begin{lstlisting}
+    \label[sec:nome]
+
+    ... 
+
+    \hypperref[sec:nome]{nomeLink}
+\end{lstlisting}
+Dove:
+\begin{itemize}
+    \item Convezione standard per nominare le label: \lstinline|tipoElemento:nome|.
+    
+    Esempi: img(immagini), sec(section), subsec(subsection), subsub(subsubsection), tab(tabella) ecc.
+\end{itemize}
+\noindent Link ad elementi esterni alla pagina:
+\begin{lstlisting}
+    \href{URL}{nomeLink}
+\end{lstlisting}
+
+\subsubsection{Listati di codice}
+\label{subsub:cod}
+Listati di codice su più righe:
+\begin{TeXlstlisting}
+\begin{lstlisting}
+    ...
+\end{lstlisting}
+\end{TeXlstlisting}
+\noindent 
+Listati di codice inline:
+\begin{lstlisting}
+    \lstinline|code|
+    \lstinline+code+
+\end{lstlisting}
+
+\subsubsection{Figure}
+\label{subsub:fig}
+\begin{lstlisting}
+    \begin{figure}[h!]
+        \includegraphics[scale=1.2]{pathImmagine}
+        \caption{Riassunto immagine}
+    \end{figure}
+\end{lstlisting}
+Dove:
+\begin{itemize}
+    \item \lstinline|[h!]| permette di posizionare la figura nel pdf dove si trova nel codice.
+    \item \lstinline|scale=x.y| indica la scala da applicare all'immagine.
+\end{itemize}
+
+\subsection{Creazione documento}
+\label{subsec:cre}
+Un documento viene creato solo se esiste una issue che lo prevede.
+La creazione di un documento segue i passi:
+\begin{enumerate}
+    \item Presa in carico della issue all'interno della board-view del \href{https://github.com/orgs/ALT-F4-eng/projects}{project GitHub}.
+    Questo richiede:
+    \begin{enumerate}
+        \item Auto assegnamento della issue.
+        \item Spostamento della issue nella colonna "In Progress" della board view dell'iterazione corrente.
+    \end{enumerate}
+
+    \item Spostarsi sul branch develop tramite il comando:
+    \begin{lstlisting}
+        git checkout develop
+    \end{lstlisting}
+     
+    \item Aggiornare il branch develop tramite il comando: 
+    \begin{lstlisting}
+        git pull origin develop
+    \end{lstlisting}
+    
+    \item Creazione e spostamento nel branch \lstinline|feature/#id-issue| tramite il comando:
+    \begin{lstlisting}
+        git checkout -b feature/#id-issue
+    \end{lstlisting}
+
+    \item Creazione del documento usando template e nomi(\underline{esclusa versione}) indicati nella sezione \hyperref[subsec:docs]{Tipi di documenti}.
+    
+    Per i documenti di tipo: Verbali interni e Verbali esterni indicare la data in cui sono stati svolti mentre per gli altri documenti indicare la data attuale.
+    
+    \item Popolazione del documento assicurandosi di soddisfare la definition of done indicata nella descrizione dell'issue.
+    
+    La scrittura deve rispettare la \hyperref[subsec:mods]{Modalità di scrittura}. 
+    
+    \item Compilazione registro delle modifiche omettendo le colonne: Verificatore, Versione.
+    Nella colonna Descrizione deve essere inserito un \hyperref[subsub:link]{link} agli elementi creati.
+    
+    \item Notare che non viene modificato il nome del documento. 
+    
+    \item Registrazione delle modifiche nel repository locale tramite i comandi:
+    \begin{lstlisting}
+        git add *.tex
+        git commit -m "messaggio-commit"
+    \end{lstlisting}
+
+    \item Aggiornare il ramo develop locale e mergiarlo nel ramo di feature tramite i comandi:
+    \begin{lstlisting}
+        git checkout develop
+        git pull origin develop
+
+        git checkout feature/#id-feature
+        git merge develop
+    \end{lstlisting}
+
+    \item Pubblicazione del ramo nel repository tramite il comando:
+    \begin{lstlisting}
+        git push origin feature/#id-issue
+    \end{lstlisting}
+
+    \item Creazione di una pull request nel \href{https://github.com/ALT-F4-eng/SorgentiDocumentazione}{repository del progetto} che parte dal ramo feature verso il ramo develop.
+    La descrizione della pull request deve contenere il testo \lstinline|closes id-issue|.
+    
+    \item Aggiunta della pull request nella colonna "Backlog" della board view del progetto.
+    
+    \lstinline|Progetto > (Backlog) + Add item|
+    
+    \item Assegnazione del valore "CurrentIteration" al field "Iteration" della pull request nella table view del progetto.
+    
+    \lstinline|TabellaProgetto > Iteration > CurrentIteration|
+   
+\end{enumerate}
+
+\subsection{Modifica documento}
+\label{subsec:mod}
+Un documento viene modificato solo se esiste una issue che lo prevede.
+La modifica di un documento segue i passi:
+\begin{enumerate}
+
+    \item Presa in carico della issue all'interno della board view del \href{https://github.com/orgs/ALT-F4-eng/projects}{project GitHub}.
+    Questo richiede:
+    \begin{enumerate}
+        \item Auto assegnamento della issue.
+        \item Spostamento della issue nella colonna "In Progress" della board view dell'iterazione corrente.
+    \end{enumerate}
+    
+    \item Spostarsi sul branch develop tramite il comando:
+    \begin{lstlisting}
+        git checkout develop
+    \end{lstlisting}
+     
+    \item Aggiornare il branch develop tramite il comando: 
+    \begin{lstlisting}
+        git pull origin develop
+    \end{lstlisting}
+    
+    \item Creazione e spostamento branch \lstinline|feature/#id-issue| tramite il comando:
+    \begin{lstlisting}
+        git checkout -b feature/#id-issue
+    \end{lstlisting}
+    
+
+    \item Modifica del contenuto del documento assicurandosi di soddisfare la definition of done indicata nella descrizione dell'issue.
+     
+    La scrittura deve rispettare la \hyperref[subsec:mods]{Modalità di scrittura}. 
+
+    \item Compilazione registro delle modifiche omettendo le colonne: Verificatore, Versione.
+    Nella colonna Descrizione deve essere inserito un \hyperref[subsub:link]{link} agli elementi modificati.
+
+    Per i documenti di tipo diverso da Verbali interni e Verbali esterni deve essere aggiornata la variabile \LaTeX \space chiamata \lstinline|\date| usando la data attuale indicando il mese in lettere. 
+    
+    \item Notare che non viene modificato il nome del documento.
+
+    \item Pubblicazione del ramo nel repository tramite il comando:
+    \begin{lstlisting}
+        git push origin feature/#id-issue
+    \end{lstlisting}
+
+    \item Creazione di una pull request nel \href{https://github.com/ALT-F4-eng/SorgentiDocumentazione}{repository del progetto} che parte dal ramo feature verso il ramo develop.
+    La descrizione della pull request deve contenere il testo \lstinline|closes #id-issue|.
+
+    \item Aggiunta della pull request nella colonna "Backlog" della board view del progetto.
+        
+    \lstinline|Progetto > (Backlog) + Add item|
+    
+    \item Assegnazione del valore "CurrentIteration" al field "Iteration" della pull request nella table view del progetto.
+    
+    \lstinline|TabellaProgetto > Iteration > CurrentIteration|
+
+\end{enumerate}
+
+\subsection{Verifica documento}
+\label{subsec:ver}
+Un documento deve essere verificato a seguito della sua modifica o della sua creazione.
+La verifica di un documento segue i passi:
+\begin{enumerate}
+    \item Presa in carico della pull request all'interno della board view del \href{https://github.com/orgs/ALT-F4-eng/projects}{project GitHub}.
+    Questo richiede:
+    \begin{enumerate}
+        \item Auto assegnamento della review della pull request.
+        \item Spostamento della pull request nella colonna "In Progress" della board view dell'iterazione corrente.
+    \end{enumerate}
+    
+    \item Ottenimento del ramo di feature tramite i comandi:
+    \begin{lstlisting}
+        git checkout -b feature/#id-issue
+        git pull origin feature/#id-issue
+    \end{lstlisting}
+    L'id della issue relativa alla pull request si trova nella descrizione della pull request stessa.
+
+    \item Compilazione del documento e verifica del contenuto rispetto alla definition of done contenuta nella relativa issue.
+    
+    \item Se la definition of done non è stata rispettata commentare la pull request indicando le parti mancanti.
+    
+    Il verificatore deve spuntare i task della definition of done che sono stati portati a termine.
+    
+    \item Controllo grammaticale.
+    
+    \item Aggiornare il registro delle modifiche popolando le colonne: Verificatore e Versione.
+    
+    Il cambiamento della versione richiede i seguenti passi:
+    \begin{itemize}
+        \item Modifica della variabile \LaTeX \space chiamata \lstinline|\ultima-versione| seguendo la convenzione descritta nella sezione \hyperref[subsec:vers]{Versionamento}.
+        Questa variabile deve essere usata nella colonna Versione del registro delle modifiche.
+
+        \underline{Occhio alla "v" che precede la versione.}
+
+        \item Modifica del valore della colonna Versione nella riga precedente assegnando la versione indicata nel nome del documento sorgente. 
+    \end{itemize}
+
+    \item Modifica del nome del documento assegnando la nuova versione.
+
+    \item Registrazione delle modifiche nel repository locale tramite i comandi:
+    \begin{lstlisting}
+        git add *.tex
+        git commit -m "messaggio-commit"
+    \end{lstlisting}
+
+    \item Allineamento con lo stato attuale del ramo develop remoto tramite i comandi:
+    \begin{lstlisting}
+        git checkout develop
+        git pull origin develop
+
+        git checkout feature/#id-issue
+        git merge develop
+    \end{lstlisting}
+
+    \item Pubblicazione del ramo nel repository tramite il comando:
+    \begin{lstlisting}
+        git push origin feature/#id-issue
+    \end{lstlisting}
+
+    \item Accettazione e merge della pull request.
+    
+    \item Eliminazione del ramo di feature.
+\end{enumerate}
+
+\subsection{Accettazione documenti}
+\label{subsec:acc}
+L'accettazione dei documenti viene fatta quando è necessario pubblicare dei documenti compilati.
+Questo viene fatto quando è necessario mostrare all'esterno del team delle versioni "stabili" dei documenti.
+L'accettazione di un documento segue i passi:
+\begin{enumerate}
+    \item Spostarsi sul branch develop tramite il comando:
+    \begin{lstlisting}
+        git checkout develop
+    \end{lstlisting}
+     
+    \item Aggiornare il branch develop tramite il comando: 
+    \begin{lstlisting}
+        git pull origin develop
+    \end{lstlisting}
+    
+    \item Creazione e spostamento nel branch \lstinline|release/NomeMilestone| tramite il comando:
+    \begin{lstlisting}
+        git checkout -b release/NomeMilestone
+    \end{lstlisting}
+
+    \item Controllo dei documenti da pubblicare.
+    
+    \item Per ogni documento da pubblicare controllato:
+    \begin{itemize}
+        \item Modificare il valore della variabile \LaTeX \space chiamata \lstinline|\ultima-versione| aumentando il numero di versione "stabile" e azzerando il secondo valore(spiegato nella sezione \hyperref[subsec:vers]{Versionamento}).
+
+        \item Assegnare alla colonna dell'ultima riga del registro delle modifiche la versione indicata nel nome del documento.
+        
+        \item Aggiungere una riga nel registro della versione in cui popolare tutte le colonne esclusa la colonna Verificatore.  
+        
+        Nella colonna Versione usare la variabile \LaTeX \space chiamata \lstinline|\ultima-versione|.
+        Nella colonna Descrizione usare il testo "Approvazione documento".
+        Nella colonna data scrivere la data attuale indicando il \underline{mese in lettere}.
+    \end{itemize}
+   
+    \item Eventualmente apportare modifiche ai documenti e approvarli eseguendo i passi precedenti.
+    
+    \item Eseguire un commit per registrare le modifiche nel repository locale tramite i comandi:
+    \begin{lstlisting}
+        git add *.tex
+        git commit -m "messaggio-commit"
+    \end{lstlisting}
+
+    \item Merge del ramo di realese nei rami main e develop e pubblicazione delle modifiche in questi ultimi, tramite i comandi:
+    \begin{lstlisting}
+        git checkout main 
+        git merge release/NomeMilestone
+        git push origin main
+
+        git checkout develop
+        git merge release/NomeMilestone
+        git push origin develop
+    \end{lstlisting}
+\end{enumerate}
+
+\subsection{Versionamento}
+\label{subsec:vers}
+I documenti vengono versionati seguendo lo schema:
+\begin{center}
+    vX.Y 
+\end{center}
+Dove:
+\begin{enumerate}
+    \item X è un intero positivo non nullo aumentato a seguito della accettazione di un documento che si pensi resti invariato.
+    
+    L'aumento di questo valore genera automaticamente l'annullamento del secondo valore Y.
+
+    \item Y è un intero positivo non nullo aumentato al seguito della verifica di un documento.
+\end{enumerate}
+
+\subsection{Tipi di documenti}
+\label{subsec:docs}
+\subsubsection{Verbali interni}
+\begin{enumerate}
+    \item Denominazione: \lstinline|anno_mese_giorno-vX_Y.tex| dove anno, mese e giorno sono numerici e \lstinline|vX_Y| è la versione del documento che segue lo \hyperref[subsec:vers]{schema di versionamento}.
+    
+    \item Template: utilizzare il template situato nel percorso \lstinline|Template/verbale_interno.tex|.
+    
+    \item Contenuto: Registro presenze, Verbale(Argomenti trattati e Decisioni prese) e To Do(associazione compiti-issue).
+
+    \item Cartella di destinazione: \lstinline|Candidatura/VerbaliInterni|.
+\end{enumerate}
+
+\subsubsection{Verbali esterni}
+\begin{enumerate}
+    \item Denominazione: \lstinline|nomeAzienda-anno_mese_giorno-vX_Y.tex| dove anno, mese e giorno sono numerici e \lstinline|vX_Y| è la versione del documento che segue lo \hyperref[subsec:vers]{schema di versionamento}.
+    
+    \item Template: utilizzare il template situato nel percorso \lstinline|Template/verbale_interno.tex|.
+    
+    \item Contenuto: Registro presenze, Domande e Conclusioni. 
+    
+    \item Cartella di destinazione: \lstinline|Candidatura/VerbaliEsterni|.
+\end{enumerate}
+
+\subsubsection{Norme Progetto}
+\begin{enumerate}
+    \item Denominazione: \lstinline|normeProgetto-vX_Y.tex| dove \lstinline|vX_Y| è la versione del documento che segue lo \hyperref[subsec:vers]{schema di versionamento}.
+    
+    \item Template: utilizzare il template situato nel percorso \lstinline|Template/generico.tex|.
+    
+    \item Contenuto: way of working del team.
+
+    \item Cartella di destinazione: \lstinline|DocumentiInterni|.
+\end{enumerate}
+
+\subsection{Modalità di scrittura}
+\label{subsec:mods}
+\begin{itemize}
+    \item Preferire frasi brevi.
+    \item Utilizzo di elenchi puntati.
+    \item Usare sempre \hyperref[subsub:link]{link} a \hyperref[subsub:tab]{tabelle} e \hyperref[subsub:fig]{figure}.
+    \item Indicare le caption delle tabelle e delle figure.
+    \item Usare i comandi \LaTeX \space relativi al \hyperref[subsub:cod]{codice} per indicare: comandi, spezzoni di script, nomi file, percorsi e nomi tecnici.
+    \item Scrivere i mesi delle date in lettere.
+    \item Scrivere solo per risolvere un issue.
+    \item Assicurarsi sempre di soddisfare la definition of done delle issue.
+\end{itemize}
+
+\subsection{Pubblicazione documentazione}
+\label{subsec:pub}
+La pubblicazione della documentazione compilata avviene usando una \href{https://github.com/ALT-F4-eng/SorgentiDocumentazione/blob/main/.github/workflows/pubblicazione_compilati.yaml}{GitHub Action}.
+Questa GitHub Action compila i documenti sorgenti pubblicati nel ramo main del repository \href{https://github.com/ALT-F4-eng/SorgentiDocumentazione}{SorgentiDocumentazione} e li pubblica nel ramo main del repository \href{https://github.com/ALT-F4-eng/Documentazione}{Documentaizone}. 
+Per fare ciò utilizza due variabili settate a livello di repository ovvero:
+\begin{enumerate}
+    \item \lstinline|DIRS_TO_DEL|: contiene un insieme di nomi di cartelle che devono essere eliminate a seguito della compilazione dei documenti.
+    Se si vuole evitare di pubblicare una cartella il suo nome(preceduto da spazio) deve essere aggiunto al valore di questa variabile.
+
+    \item \lstinline|DIRS_TO_IGNORE|: contiene un insieme di nomi di cartelle che devono essere lasciate invariate nel repository in cui vengono pubblicati i file compilati.
+    
+    Modificando il valore di questa variabile è quindi possibile aggiungere o togliere delle cartelle da non sovrascrivere.
+
+    Queste cartelle attualmente sono solo quelle dei verbali esterni dato che vengono firmati dal referente dell'azienda.
+\end{enumerate}
+
+\subsection{Issue}
+\label{subsec:issue}
+Tutto ciò che viene fatto dal team deve essere documentato da issue di GitHub.
+Le issue per la documentazione devono avere una delle seguenti label:
+\begin{enumerate}
+    \item bug: problematiche minori riguardanti il contenuto del documento associato all'issue.
+    Es: errori ortografici e di formulazione delle frasi.
+
+    \item enhancement: automazioni che devono essere implementate.
+    
+    \item documentation: creazione o modifica di un documento.
+    
+    \item question: per approfondimenti sugli strumenti utili.
+\end{enumerate}
+
+Il titolo di ogni issue deve essere un nome parlante che permette quindi d'identificare rapidamente il compito a essa associato.
+
+Ogni issue deve contenere nella propria descrizione la definition of done sotto forma di check list.
+Questa permette al team di avere una definizione comune sullo stato in cui l'elemento riferito dalla issue soddisfa la necessità catturata dalla issue stessa.
+Una check list viene definita usando il seguente codice:
+\begin{lstlisting}
+    - [ ] primo elemento
+    - [ ] secondo elemento
+    ...
+\end{lstlisting}
+\end{document}

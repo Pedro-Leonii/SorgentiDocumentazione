@@ -13,9 +13,10 @@
 
 
 %--------------------VARIABILI--------------------
-\def\logo{../Immagini/logo.jpeg}
-\def\ultima-versione{ULTIMA VERSIONE}
-\def\titolo{Verbale esterno NOME AZIENDA}
+\def\logo{../../Immagini/logo.jpeg}
+\def\ultima-versione{v1.0}
+\def\titolo{Verbale interno }
+\def\data-verbale{6 novembre 2024}
 %------------------------------------------------
 
 \usetikzlibrary{calc}
@@ -34,7 +35,7 @@
 \pagestyle{fancy}
 \fancyhead[L]{}
 \setlength{\headheight}{15pt}
-\fancyhead[R]{\titolo\space- \ultima-versione}
+\fancyhead[R]{\titolo - \ultima-versione}
 
 \renewcommand{\familydefault}{\sfdefault}
 \newcommand{\glossario}[1]{\fontfamily{lmr}\selectfont{\textit{#1\textsubscript{\small G}}}}
@@ -43,7 +44,7 @@
 %--------------------INFORMAZIONI PRIMA PAGINA-------------------- 
 \title{\Huge \textbf{\titolo}}
 \author{\Large{Alt} \raisebox{0.3ex}{\normalsize  +} \Large{F4}}
-\date{DATA RIUNIONE}
+\date{\data-verbale}
 %----------------------------------------------------------------
 
 \begin{document}
@@ -85,11 +86,17 @@
             \textbf{\normalsize Verificatore} &
             \textbf{\normalsize Descrizione} \\ 
         \hline \hline
-        ULTIMA VERSIONE & 
-       DATA MODIFICA & 
-        AUTORE MODIFICA&
-        VERIFICATORE MODIFICA& 
-        DESCRIZIONE MODIFICA\\
+        \ultima-versione & 
+        11 novembre 2024& 
+        Pedro Leoni&
+         & 
+        Accettazione documento\\
+        \hline 
+        v0.1 & 
+        7 novembre 2024& 
+        Peric Marko&
+        Pedro Leoni & 
+        Prima Stesura\\
         \hline 
     \end{tabularx}}
 \end{table}
@@ -101,10 +108,10 @@
 
 \section{Registro presenze}
 \begin{itemize}
-    \item[] \textbf{Data}: data verbale
-    \item[] \textbf{Ora inizio}:  ora inizio
-    \item[] \textbf{Ora fine}: ora fine
-    \item[] \textbf{Piattaforma}: piattaforma	
+    \item[] \textbf{Data}: \data-verbale
+    \item[] \textbf{Ora inizio}:  14:30
+    \item[] \textbf{Ora fine}: 15:30
+    \item[] \textbf{Piattaforma}: Discord	
 \end{itemize}
 \begin{table}[!h]
 \centering
@@ -137,33 +144,29 @@
 \end{tabularx}}
 \end{table}
 
-\begin{table}[!h]
-    \centering
-    {\renewcommand{\arraystretch}{2}
-    \begin{tabularx}{\textwidth}{| X | X |}
-        \hline
-            \textbf{\large Nome} & 
-            \textbf{\large Ruolo} \\ 
-        \hline 
-        \hline
-            Nome rappresentante azienda&
-            Rappresentante dell'azienda \\
-        \hline 
-    
-    \end{tabularx}}
-\end{table}
-
 \newpage
 
-\section{Domande}
+\section{Verbale}
+\subsection{Argomenti trattati}
+Il gruppo si è riunito per decidere su come procedere con la scelta del capitolato. Sono state discusse le seguenti domande:
+\begin{itemize}
+    \item Ricandidarsi al capitolato C7 o sceglierne un altro.
+    \item Quale capitolato scegliere e perché.
+    \item Ristrutturazione del documento \textit{Norme di Progetto} aggiungendo in particolare informazioni più specifiche su issue e ciclo di vita dei documenti.
+    \item Ristrutturazione del Way of Working.
+\end{itemize}
+\subsection{Decisioni prese}
+\begin{itemize}
+    \item Il gruppo ha deciso di provare a candidarsi al capitolato C1 per ottimizzare i tempi di sviluppo.
+    \item Il gruppo ha deciso di modificare le Norme di Progetto cercando di sfruttare lo standard \textbf{ISO-12207}.
+    \item Il gruppo ha organizzato la riunione con l'azienda Zucchetti.
+\end{itemize}
+\section{To Do}
+\begin{itemize}
+\item Terminare la issue \textbf{\#60}, stesura del verbale interno del 6 novembre 2024.
+\item Terminare l'issue \textbf{\#66} composta dalle sotto issue \textbf{\#52},\textbf{\#53},\textbf{\#54},\textbf{\#59},\textbf{\#61},\textbf{\#61} che riguardano
+ristrutturazione del documento \textit{Norme di Progetto}.
+\item Terminare la issue \textbf{\#64}, correzzione della lettera di candidatura.
+\end{itemize}
 
-\section{Conclusioni}
-
-\vfill
-{\renewcommand{\arraystretch}{2}
-\begin{tabular}{l p{5cm}}
-    Data: &  \hrulefill \\
-    Firma: & \hrulefill \\
-\end{tabular}
-}
 \end{document}

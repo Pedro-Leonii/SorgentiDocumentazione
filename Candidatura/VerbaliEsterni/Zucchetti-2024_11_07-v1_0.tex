@@ -13,9 +13,10 @@
 
 
 %--------------------VARIABILI--------------------
-\def\logo{../Immagini/logo.jpeg}
-\def\ultima-versione{ULTIMA VERSIONE}
-\def\titolo{Verbale esterno NOME AZIENDA}
+\def\logo{../../Immagini/logo.jpeg}
+\def\ultima-versione{v1.0}
+\def\titolo{Verbale esterno Zucchetti}
+\def\data-verbale{7 novembre 2024}
 %------------------------------------------------
 
 \usetikzlibrary{calc}
@@ -31,6 +32,7 @@
     pdfpagemode=FullScreen,
 }
 
+
 \pagestyle{fancy}
 \fancyhead[L]{}
 \setlength{\headheight}{15pt}
@@ -43,7 +45,7 @@
 %--------------------INFORMAZIONI PRIMA PAGINA-------------------- 
 \title{\Huge \textbf{\titolo}}
 \author{\Large{Alt} \raisebox{0.3ex}{\normalsize  +} \Large{F4}}
-\date{DATA RIUNIONE}
+\date{\data-verbale}
 %----------------------------------------------------------------
 
 \begin{document}
@@ -85,11 +87,17 @@
             \textbf{\normalsize Verificatore} &
             \textbf{\normalsize Descrizione} \\ 
         \hline \hline
-        ULTIMA VERSIONE & 
-       DATA MODIFICA & 
-        AUTORE MODIFICA&
-        VERIFICATORE MODIFICA& 
-        DESCRIZIONE MODIFICA\\
+        \ultima-versione& 
+        11 novembre 2024& 
+        Pedro Leoni&
+        & 
+        Approvazione documento\\
+        \hline 
+        v0.1& 
+        10 novembre 2024& 
+        Guirong Lan&
+        Marko Peric& 
+        Prima Stesura\\
         \hline 
     \end{tabularx}}
 \end{table}
@@ -101,10 +109,10 @@
 
 \section{Registro presenze}
 \begin{itemize}
-    \item[] \textbf{Data}: data verbale
-    \item[] \textbf{Ora inizio}:  ora inizio
-    \item[] \textbf{Ora fine}: ora fine
-    \item[] \textbf{Piattaforma}: piattaforma	
+    \item[] \textbf{Data}: \data-verbale
+    \item[] \textbf{Ora inizio}:  15:00
+    \item[] \textbf{Ora fine}: 15:25
+    \item[] \textbf{Piattaforma}: Google Meet	
 \end{itemize}
 \begin{table}[!h]
 \centering
@@ -146,7 +154,7 @@
             \textbf{\large Ruolo} \\ 
         \hline 
         \hline
-            Nome rappresentante azienda&
+            Gregorio Piccoli&
             Rappresentante dell'azienda \\
         \hline 
     
@@ -156,9 +164,28 @@
 \newpage
 
 \section{Domande}
-
+Di seguito vengono riportate le domande fatte dal gruppo:
+\begin{enumerate}
+    \item L'applicazione deve essere sviluppata come una web app o come un programma eseguibile?
+    \item L'inserimento delle domande e le risposte da parte dell'operatore deve avvenire in modo manuale, oppure si prevede altri metodi di caricamento, come inserimento da un file CSV?
+    \item Quale metodo di valutazione dei modelli consigliereste di utilizzare per questo progetto? Inoltre, ci sono siti web specifici o articoli scientifici che consigliate di consultare per approfondire l'argomento?
+    \item La motivazione dietro la scelta del metodo di valutazione dei modelli si basa sull'esperienza empirica? 
+    \item L'output di ogni test deve essere binario? È necessario fornire anche un grado di somiglianza?
+    \item In caso di difficoltà durante lo sviluppo, è possibile chiedere supporto all'azienda? È previsto un incontro settimanale per aggiornamenti o supporto?
+\end{enumerate}
 \section{Conclusioni}
-
+Il gruppo dalle risposte date dai rappresentanti dell’azienda proponente ha tratto le seguenti conclusioni:
+\begin{itemize}
+    \item L’azienda non impone particolari requisiti specifici sul tipo di applicazione: può essere sia una web app che un programma tradizionale, a discrezione dello studente. Anche il metodo per caricare le domande e le risposte è libero. L’unica condizione è che il programma sia facilmente accessibile.
+    
+    \item L’azienda suggerisce di utilizzare i siti Hugging Face e GitHub come principali fonti di studio. La scelta dei modelli per la valutazione sarà basata principalmente su un approccio empirico. 
+   
+    \item Un metodo di valutazione potrebbe essere l'uso di un modello per analizzare le risposte generate da altri modelli oppure l’impiego di espressioni regolari (Regular Expressions) per valutare alcuni aspetti delle risposte.
+    
+    \item L'azienda è disponibile per eventuali richieste di supporto e, se necessario, è possibile organizzare incontri regolari o settimanali.
+    
+    \item Il fulcro del problema consiste nel valutare la verosimiglianza tra la risposta attesa e quella generata dai modelli linguistici (LLM).
+\end{itemize}
 \vfill
 {\renewcommand{\arraystretch}{2}
 \begin{tabular}{l p{5cm}}
