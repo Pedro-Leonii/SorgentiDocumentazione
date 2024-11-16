@@ -10,7 +10,7 @@ jobs:
      runs-on: ubuntu-latest
      env:
        GH_TOKEN: ${{ secrets.PAT_ALT_F4 }}
-       WD: SorgentiDocumentazione
+       WD: 'SorgentiDocumentazione'
        
      steps:   
         - name: Clona la repository dei docuemnti sorgenti
