@@ -18,13 +18,13 @@ jobs:
             gh repo clone https://github.com/ALT-F4-eng/SorgentiDocumentazione
         
         - name: Ottiene il numero del project
-          working-directory: $WD
+          working-directory: "$WD"
           run: |
             project_number=$(gh project list --format json | jq '.projects[] | select(.title=="ArtificialQI") | .number')
             echo "PROJECT_NUMBER=$project_number" >> $GITHUB_ENV
             
         - name: Ottiene l'id della issue relativa alla pull request
-          working-directory: $WD
+          working-directory: "$WD"
           run: |
             issue_number=$(echo "${{github.head_ref}}" | grep -E -o -m 1 '[0-9]+')
             issue_id=$(gh project item-list ${{ env.PROJECT_NUMBER }} --owner @me --format json --jq ".items[] | select(.content.number==$issue_number) | .id")
@@ -33,13 +33,13 @@ jobs:
             echo "ISSUE_ID=$issue_id" >> $GITHUB_ENV
             
         - name: Ottiene l'id del project
-          working-directory: $WD
+          working-directory: "$WD"
           run: |
             project_id=$(gh project list --format json | jq ".projects[] | select(.number==${{ env.PROJECT_NUMBER }}) | .id")
             echo "PROJECT_ID=$project_id" >> $GITHUB_ENV
         
         - name: Cambia lo stato della issue in review
-          working-directory: $WD
+          working-directory: "$WD"
           run: |
             review_value_id=$(gh project field-list ${{ env.PROJECT_NUMBER }} --format json --jq '.fields[] | select(.name=="Status") | .options[] | select(.name=="Review") | .id')
 
