@@ -23,7 +23,7 @@ jobs:
               with:
                 repository: ALT-F4-eng/Documentazione
                 path: dst
-                token: ${{ secrets.PAT_COMPILATI }}
+                token: ${{ secrets.PAT_ALT_F4 }}
             
             - name: Seleziona i documenti da compilare
               id: setup_tex

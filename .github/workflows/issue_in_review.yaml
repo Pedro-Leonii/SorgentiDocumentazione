@@ -1,0 +1,49 @@
+name: Inserisce le issue per cui è stata aperta una pull request nella colonna review della project board
+
+on: 
+  pull_request:
+    types: [opened, reopened]
+  
+jobs:
+  move_issue:
+     if: startsWith(github.head_ref, 'feature/') 
+     runs-on: ubuntu-latest
+     env:
+       GH_TOKEN: ${{ secrets.PAT_ALT_F4 }}
+       WD: SorgentiDocumentazione
+       
+     steps:   
+        - name: Clona la repository dei docuemnti sorgenti
+          run: | 
+            gh repo clone https://github.com/ALT-F4-eng/SorgentiDocumentazione
+        
+        - name: Ottiene il numero del project
+          working-directory: $WD
+          run: |
+            project_number=$(gh project list --format json | jq '.projects[] | select(.title=="ArtificialQI") | .number')
+            echo "PROJECT_NUMBER=$project_number" >> $GITHUB_ENV
+            
+        - name: Ottiene l'id della issue relativa alla pull request
+          working-directory: $WD
+          run: |
+            issue_number=$(echo "${{github.head_ref}}" | grep -E -o -m 1 '[0-9]+')
+            issue_id=$(gh project item-list ${{ env.PROJECT_NUMBER }} --owner @me --format json --jq ".items[] | select(.content.number==$issue_number) | .id")
+            echo "$issue_id"
+            echo "$issue_number"
+            echo "ISSUE_ID=$issue_id" >> $GITHUB_ENV
+            
+        - name: Ottiene l'id del project
+          working-directory: $WD
+          run: |
+            project_id=$(gh project list --format json | jq ".projects[] | select(.number==${{ env.PROJECT_NUMBER }}) | .id")
+            echo "PROJECT_ID=$project_id" >> $GITHUB_ENV
+        
+        - name: Cambia lo stato della issue in review
+          working-directory: $WD
+          run: |
+            review_value_id=$(gh project field-list ${{ env.PROJECT_NUMBER }} --format json --jq '.fields[] | select(.name=="Status") | .options[] | select(.name=="Review") | .id')
+
+            field_status_id=$(gh project field-list ${{ env.PROJECT_NUMBER }} --format json --jq '.fields[] | select(.name=="Status") | .id')
+
+            gh project item-edit --id ${{ env.ISSUE_ID }} --field-id $field_status_id --project-id ${{ env.PROJECT_ID }} --single-select-option-id $review_value_id
+          
