@@ -1,8 +1,8 @@
-name: Inserisce le issue per cui è stata aperta una pull request nella colonna review della project board
+name: Sposta le issue dalla colonna In Review alla colonna To do della project board se il verificatore non acetta
 
 on: 
   pull_request:
-    types: [opened, reopened]
+    types: closed
   
 jobs:
   move_issue:
@@ -35,12 +35,12 @@ jobs:
             project_id=$(gh project list --owner ALT-F4-eng --format json | jq ".projects[] | select(.number==$PROJECT_NUMBER) | .id")
             echo "PROJECT_ID=$project_id" >> $GITHUB_ENV
         
-        - name: Cambia lo stato della issue in review
+        - name: Cambia lo stato della issue da In Review a To do
           working-directory: SorgentiDocumentazione
           run: |
-            review_value_id=$(gh project field-list $PROJECT_NUMBER --owner ALT-F4-eng --format json --jq '.fields[] | select(.name=="Status") | .options[] | select(.name=="Review") | .id')
+            todo_value_id=$(gh project field-list $PROJECT_NUMBER --owner ALT-F4-eng --format json --jq '.fields[] | select(.name=="Status") | .options[] | select(.name=="To do") | .id')
 
             field_status_id=$(gh project field-list $PROJECT_NUMBER --owner ALT-F4-eng --format json --jq '.fields[] | select(.name=="Status") | .id')
 
-            gh project item-edit --id $ISSUE_ID --field-id $field_status_id --project-id $PROJECT_ID --single-select-option-id $review_value_id
+            gh project item-edit --id $ISSUE_ID --field-id $field_status_id --project-id $PROJECT_ID --single-select-option-id $todo_value_id
           
