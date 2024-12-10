@@ -1,0 +1,73 @@
+name: Grammar Check for LaTeX
+
+on:
+  push:
+    paths:
+      - '**/*.tex'
+  pull_request:
+    paths:
+      - '**/*.tex'
+
+jobs:
+  spell-check:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Install Aspell and Dictionaries
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y aspell aspell-it aspell-en
+
+    - name: Spell Check for LaTeX Files
+      run: |
+        # File personalizzati per italiano e inglese
+        PERSONAL_WORDLIST_IT="/Dizionari_Latex/personal_wordlist_it.txt"
+        PERSONAL_WORDLIST_EN="/Dizionari_Latex/personal_wordlist_en.txt"
+
+        # Verifica che i file di parole personalizzate esistano
+        for wordlist in "$PERSONAL_WORDLIST_IT" "$PERSONAL_WORDLIST_EN"; do
+          if [ ! -f "$wordlist" ]; then
+            echo "File di parole personalizzate non trovato: $wordlist"
+            exit 1
+          fi
+        done
+
+        # Crea file temporaneo per le parole non riconosciute
+        TMP_FILE=$(mktemp)
+
+        # Processa tutti i file .tex
+        for file in $(find . -name "*.tex"); do
+          echo "Processing $file..."
+
+          # Rimuovi comandi LaTeX prima di controllare l'ortografia
+          sed -E '
+            s/\\[a-zA-Z@]+(\[[^]]*\])?(\{[^}]*\})?//g;
+            s/\$[^\$]*\$//g;
+            s/\$\$[^\$]*\$\$//g;
+            s/%.*//g;
+            s/[{}]//g;
+          ' "$file" | \
+          aspell --lang=it --personal=$PERSONAL_WORDLIST_IT list >> $TMP_FILE
+        done
+
+        # Controlla le parole non riconosciute in italiano
+        if [ -s "$TMP_FILE" ]; then
+          # Salva le parole non riconosciute in italiano nel file
+          sort -u "$TMP_FILE" > unrecognized_words_it.txt
+
+          # Controlla l'ortografia in inglese per le stesse parole
+          sort -u "$TMP_FILE" | aspell --lang=en --personal=$PERSONAL_WORDLIST_EN list > errors_in_english.txt
+
+          if [ -s errors_in_english.txt ]; then
+            echo "Errors found:"
+            cat errors_in_english.txt
+            exit 1
+          else
+            echo "No errors in English. Unrecognized Italian words only."
+          fi
+        else
+          echo "No unrecognized words found in Italian."
+        fi
