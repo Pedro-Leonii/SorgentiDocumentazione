@@ -1,106 +1,25 @@
 \documentclass[a4paper, 12pt]{article}
 
-\usepackage[italian]{babel}
-\usepackage{tikz}
-\usepackage{xcolor}
-\usepackage{graphicx}
-\usepackage{hyperref}
-\usepackage{imakeidx}
-\usepackage{caption}
-\usepackage{fancyhdr}
-\usepackage{geometry}
-\usepackage{tabularx}
+\usepackage{custom}
 
 
 %--------------------VARIABILI--------------------
-\def\logo{../../Immagini/logo.jpeg}
-\def\ultima-versione{v1.0}
-\def\titolo{Verbale interno}
-%------------------------------------------------
-
-\usetikzlibrary{calc}
-\definecolor{fp-blue}{HTML}{2885c8}
-\definecolor{fp-red}{HTML}{ea5f64}
-\makeindex[title=Indice]
-\hypersetup{
-    hidelinks,
-    colorlinks=true,
-    linkcolor=fp-red,
-    filecolor=magenta,      
-    urlcolor=fp-blue,
-    pdfpagemode=FullScreen,
-}
-
-\pagestyle{fancy}
-\fancyhead[L]{}
-\setlength{\headheight}{15pt}
-\fancyhead[R]{\titolo \space- \ultima-versione}
-
-\renewcommand{\familydefault}{\sfdefault}
-\newcommand{\glossario}[1]{\fontfamily{lmr}\selectfont{\textit{#1\textsubscript{\small G}}}}
-\newcolumntype{C}{>{\centering\arraybackslash}X}
-
-%--------------------INFORMAZIONI PRIMA PAGINA-------------------- 
-\title{\Huge \textbf{\titolo}}
-\author{\Large{Alt} \raisebox{0.3ex}{\normalsize  +} \Large{F4}}
-\date{28 ottobre 2024}
-%----------------------------------------------------------------
+\def\lastversion{v1.0}
+\def\title{Verbale interno}
+\def\date{28 ottobre 2024}
+%-------------------------------------------------
 
 \begin{document}
 
-\begin{titlepage}      
-    \maketitle
-    \thispagestyle{empty}  
+\primapagina
 
-    \begin{tikzpicture}[remember picture, overlay]
-        \fill[fp-blue] 
-        ($(current page.south west) + (0, 10)$) 
-        -- ($(current page.center) + (0, -8)$)
-        -- ($(current page.center) + (0, -15)$)
-        -- (current page.south west);
+\begin{registromodifiche}
+        v1.0 & 30 ottobre 2024 & Francesco Savio & & Approvazione documento \\
+    \hline
+        v0.1 & 29 ottobre 2024 & Enrico Bianchi & Pedro Leoni & Stesura verbale \\
+    \hline 
+\end{registromodifiche}
 
-        \fill[fp-red]
-        ($(current page.south east) + (0, 10)$) 
-        -- ($(current page.center) + (0, -8)$)
-        -- ($(current page.center) + (0, -15)$)
-        -- (current page.south east);
-
-        \clip ($(current page.center) + (0, -8)$) circle (1cm) node 
-        {\includegraphics[width=.25\textwidth]{\logo}};
-        
-    \end{tikzpicture}    
-\end{titlepage}
-
-\thispagestyle{plain}
-\newgeometry{ignoreall, hmargin=20pt}
-\begin{table}[!h]
-    \centering
-    \caption*{\textbf{\Large Registro Modifiche}}
-    {\renewcommand{\arraystretch}{2}
-    \begin{tabularx}{\textwidth}{| c | c | C | C | C |}
-        \hline
-            \textbf{\normalsize Versione} & 
-            \textbf{\normalsize Data} & 
-            \textbf{\normalsize Autore/i} & 
-            \textbf{\normalsize Verificatore} &
-            \textbf{\normalsize Descrizione} \\ 
-            \hline \hline
-                \ultima-versione & 
-                30 ottobre 2024 & 
-                Francesco Savio &
-                & 
-                Approvazione documento \\
-            \hline
-                v0.1 & 
-                29 ottobre 2024 & 
-                Enrico Bianchi & 
-                Pedro Leoni &
-                Stesura verbale \\
-            \hline 
-    \end{tabularx}}
-\end{table}
-
-\restoregeometry
 
 \tableofcontents
 
@@ -122,23 +41,17 @@
         \textbf{\large Presenza} \\ 
     \hline 
     \hline
-        Eghosa Matteo Igbinedion Osamwonyi&
-        Presente \\
+        Eghosa Matteo Igbinedion Osamwonyi&Presente \\
     \hline 
-        Guirong Lan&
-        Presente \\
+        Guirong Lan&Presente \\
     \hline 
-        Enrico Bianchi&
-        Presente \\
+        Enrico Bianchi&Presente \\
     \hline 
-        Francesco Savio&
-        Presente \\
+        Francesco Savio&Presente \\
     \hline 
-        Marko Peric&
-        Presente \\
+        Marko Peric&Presente \\
     \hline 
-        Pedro Leoni&
-        Presente \\
+        Pedro Leoni&Presente \\
     \hline  
 
 \end{tabularx}}

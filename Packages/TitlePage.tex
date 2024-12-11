@@ -1,0 +1,41 @@
+\begin{titlepage} 
+    
+    
+    \begin{center}
+        {\LARGE \textbf{\title}} \\\bigskip
+        {\setstretch{1.2}
+        \ifthenelse{\equal{\lastversion}{}}{
+
+            \begin{tabular}{r | l}
+                \textbf{Gruppo} & Alt+F4 \\
+                \textbf{Data} &  \date \\
+            \end{tabular}
+        }{
+            \begin{tabular}{r | l}
+                \textbf{Gruppo} & Alt+F4 \\
+                \textbf{Data} &  \date \\
+                \textbf{Versione} & \lastversion \\
+            \end{tabular}
+        }}
+    \end{center}
+    
+    \thispagestyle{empty}  
+
+    \begin{tikzpicture}[remember picture, overlay]
+        \fill[fp-blue] 
+        ($(current page.south west) + (0, 10)$) 
+        -- ($(current page.center) + (0, -8)$)
+        -- ($(current page.center) + (0, -15)$)
+        -- (current page.south west);
+
+        \fill[fp-red]
+        ($(current page.south east) + (0, 10)$) 
+        -- ($(current page.center) + (0, -8)$)
+        -- ($(current page.center) + (0, -15)$)
+        -- (current page.south east);
+
+        \clip ($(current page.center) + (0, -8)$) circle (1cm) node 
+        {\includegraphics[width=.25\textwidth]{Immagini/logo.jpeg}};
+
+    \end{tikzpicture}    
+\end{titlepage}
