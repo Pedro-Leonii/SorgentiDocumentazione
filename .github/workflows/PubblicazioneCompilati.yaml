@@ -41,7 +41,7 @@ jobs:
             root_file: |
                 ${{ steps.setup_tex.outputs.TEX_PATH }}
           env:
-            TEXINPUTS: "/home/runner/work/sorgenti/sorgenti/src/Packages:"
+            TEXINPUTS: "/home/runner/work/SorgentiDocumentazione/SorgentiDocumentazione/src/Packages:"
   
         - name: Rimuove file inutili in src
           run: |
