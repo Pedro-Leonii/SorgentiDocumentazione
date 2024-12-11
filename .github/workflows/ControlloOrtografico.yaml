@@ -24,8 +24,8 @@ jobs:
     - name: Spell Check for LaTeX Files
       run: |
         # File personalizzati per italiano e inglese
-        PERSONAL_WORDLIST_IT="/Dizionari_Latex/personal_wordlist_it.txt"
-        PERSONAL_WORDLIST_EN="/Dizionari_Latex/personal_wordlist_en.txt"
+        PERSONAL_WORDLIST_IT="./.github/workflows/Dizionari_Latex/personal_wordlist_it.txt"
+        PERSONAL_WORDLIST_EN="./.github/workflows/Dizionari_Latex/personal_wordlist_en.txt"
 
         # Verifica che i file di parole personalizzate esistano
         for wordlist in "$PERSONAL_WORDLIST_IT" "$PERSONAL_WORDLIST_EN"; do
