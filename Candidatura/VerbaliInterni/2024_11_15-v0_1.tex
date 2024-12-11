@@ -1,0 +1,208 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[italian]{babel}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{imakeidx}
+\usepackage{caption}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{tabularx}
+
+
+%--------------------VARIABILI--------------------
+\def\logo{../../Immagini/logo.jpeg}
+\def\ultima-versione{v0.1}
+\def\titolo{Verbale interno }
+\def\data-verbale{15 novembre 2024}
+%------------------------------------------------
+
+\usetikzlibrary{calc}
+\definecolor{fp-blue}{HTML}{2885c8}
+\definecolor{fp-red}{HTML}{ea5f64}
+\makeindex[title=Indice]
+\hypersetup{
+    hidelinks,
+    colorlinks=true,
+    linkcolor=fp-red,
+    filecolor=magenta,      
+    urlcolor=fp-blue,
+    pdfpagemode=FullScreen,
+}
+
+\pagestyle{fancy}
+\fancyhead[L]{}
+\setlength{\headheight}{15pt}
+\fancyhead[R]{\titolo - \ultima-versione}
+
+\renewcommand{\familydefault}{\sfdefault}
+\newcommand{\glossario}[1]{\fontfamily{lmr}\selectfont{\textit{#1\textsubscript{\small G}}}}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+%--------------------INFORMAZIONI PRIMA PAGINA-------------------- 
+\title{\Huge \textbf{\titolo}}
+\author{\Large{Alt} \raisebox{0.3ex}{\normalsize  +} \Large{F4}}
+\date{\data-verbale}
+%----------------------------------------------------------------
+
+\begin{document}
+
+\begin{titlepage}      
+    \maketitle
+    \thispagestyle{empty}  
+
+    \begin{tikzpicture}[remember picture, overlay]
+        \fill[fp-blue] 
+        ($(current page.south west) + (0, 10)$) 
+        -- ($(current page.center) + (0, -8)$)
+        -- ($(current page.center) + (0, -15)$)
+        -- (current page.south west);
+
+        \fill[fp-red]
+        ($(current page.south east) + (0, 10)$) 
+        -- ($(current page.center) + (0, -8)$)
+        -- ($(current page.center) + (0, -15)$)
+        -- (current page.south east);
+
+        \clip ($(current page.center) + (0, -8)$) circle (1cm) node 
+        {\includegraphics[width=.25\textwidth]{\logo}};
+        
+    \end{tikzpicture}    
+\end{titlepage}
+
+\thispagestyle{plain}
+\newgeometry{ignoreall, hmargin=20pt}
+\begin{table}[!h]
+    \centering
+    \caption*{\textbf{\Large Registro Modifiche}}
+    {\renewcommand{\arraystretch}{2}
+    \begin{tabularx}{\textwidth}{| c | c | C | C | C |}
+        \hline
+            \textbf{\normalsize Versione} & 
+            \textbf{\normalsize Data} & 
+            \textbf{\normalsize Autore/i} & 
+            \textbf{\normalsize Verificatore} &
+            \textbf{\normalsize Descrizione} \\ 
+        \hline \hline
+        \ultima-versione & 
+        15 novembre 2024& 
+        Eghosa Matteo Igbinedion Osamwonyi&
+        Enrico Bianchi & 
+        Prima stesura del documento\\
+        \hline 
+    \end{tabularx}}
+\end{table}
+\restoregeometry
+
+\tableofcontents
+
+\newpage
+
+\section{Registro presenze}
+\begin{itemize}
+    \item[] \textbf{Data}: \data-verbale
+    \item[] \textbf{Ora inizio}:  21:00
+    \item[] \textbf{Ora fine}: 22:30
+    \item[] \textbf{Piattaforma}: Discord	
+\end{itemize}
+\begin{table}[!h]
+\centering
+{\renewcommand{\arraystretch}{2}
+\begin{tabularx}{\textwidth}{| X | X |}
+    \hline
+        \textbf{\large Componente} & 
+        \textbf{\large Presenza} \\ 
+    \hline 
+    \hline
+        Eghosa Matteo Igbinedion Osamwonyi&
+        Presente \\
+    \hline 
+        Guirong Lan&
+        Presente \\
+    \hline 
+        Enrico Bianchi&
+        Presente \\
+    \hline 
+        Francesco Savio&
+        Presente \\
+    \hline 
+        Marko Peric&
+        Presente \\
+    \hline 
+        Pedro Leoni&
+        Presente \\
+    \hline 
+
+\end{tabularx}}
+\end{table}
+
+\newpage
+
+\section{Verbale}
+\subsection{Argomenti trattati}
+\begin{itemize}
+    \item Scadenza del RTB fissata per il 26 gennaio.
+    \item Distribuzione delle ore tra i vari ruoli per il periodo di sviluppo del RTB:
+    \begin{itemize}
+        \item \textbf{Analista}: 70 ore (90\%). Si prevede che utilizzi la maggior parte del suo tempo per completare l'analisi necessaria, con un margine di ore come cuscinetto per eventuali necessità di analisi aggiuntive.
+        \item \textbf{Programmatore}: 40 ore (27\%). L'obiettivo è sviluppare un Proof of Concept (PoC) per dimostrare la capacità del team di soddisfare i requisiti del proponente.
+        \item \textbf{Verificatore}: 30 ore (20\%). Il verificatore inizialmente si concentrerà sulla verifica dei requisiti e dei casi d'uso piuttosto che sulla verifica del codice del PoC.
+        \item \textbf{Amministratore}: 20 ore (42\%). L'amministratore organizzerà gli strumenti necessari per lo sviluppo del RTB e inizierà a preparare gli strumenti per lo sviluppo del prodotto finale, in modo da essere pronti in caso di approvazione del RTB.
+        \item \textbf{Responsabile}: 24 ore. Il responsabile avrà il compito di organizzare le attività settimanali, siccome l'RTB richiederà metà del tempo totale per la realizzazione del progetto ci aspettiamo che il responsabile utilizzi metà delle ore totali a disposizione.
+        \item \textbf{Progettista}: 0 ore. Non sono previste ore per il progettista in quanto non c'è ancora un prodotto finale da sviluppare e il PoC non richiede il suo coinvolgimento.
+    \end{itemize}
+    \item Pianificazione del primo sprint:
+    \begin{itemize}
+        \item \textbf{Amministratore}: 2,5 ore.
+            \begin{itemize}
+                \item Creazione e aggiornamento del Glossario.
+                \item Aggiornamento del documento "Way of Working".
+            \end{itemize}
+        \item \textbf{Programmatore}: 1 ora.
+            \begin{itemize}
+                \item Sviluppo del sito web.
+            \end{itemize}
+        \item \textbf{Responsabile}: 4 ore.
+            \begin{itemize}
+                \item Analisi dei rischi.
+                \item Redazione del Piano di Progetto.
+            \end{itemize}
+        \item \textbf{Verificatore}: 2 ore.
+            \begin{itemize}
+                \item Attività di verifica iniziale.
+            \end{itemize}
+        \item \textbf{Analista}: 5 ore.
+            \begin{itemize}
+                \item Sviluppo dei casi d'uso 10, 1 e 2 come fatto in aula (ArtificialQI).
+                \item Introduzione al documento di Analisi dei Requisiti e Scopo del Progetto.
+            \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\subsection{Decisioni prese}
+\begin{itemize}
+    \item Conferma della scadenza del RTB per il 26 gennaio.
+    \item Allocazione delle ore tra i ruoli definita per ottimizzare il tempo e le risorse disponibili:
+    \begin{itemize}
+        \item L'analista avrà il focus principale sull'analisi, con un margine di ore per eventuali approfondimenti futuri.
+        \item Il programmatore si concentrerà sullo sviluppo del PoC per dimostrare le capacità del team.
+        \item Il verificatore si focalizzerà inizialmente sui requisiti e sui casi d'uso.
+        \item L'amministratore inizierà a predisporre gli strumenti necessari per lo sviluppo sia del RTB sia del prodotto finale.
+        \item Il responsabile avrà il compito di organizzare le attività settimanali.
+        \item Nessuna attività prevista per il progettista fino allo sviluppo del prodotto finale.
+    \end{itemize}
+    \item Piano per il primo sprint stabilito con un totale di 14,5 ore suddivise tra i vari ruoli.
+\end{itemize}
+
+\section{To Do}
+\begin{itemize}
+    \item Completare il Glossario e aggiornare il documento "Way of Working" (Amministratore).
+    \item Implementare il sito web per la pubblicazione dei documenti (Programmatore).
+    \item Redigere l'Analisi dei rischi e il Piano di Progetto (Responsabile).
+    \item Verificare i documenti realizzati durante lo sprint (Verificatore).
+    \item Sviluppare i casi d'uso e introdurre il documento di Analisi dei Requisiti (Analista).
+\end{itemize}
+
+\end{document}

@@ -2,3 +2,4 @@
 *.ilg
 *.ind
 *.pdf
+!*/Immagini/*.pdf
