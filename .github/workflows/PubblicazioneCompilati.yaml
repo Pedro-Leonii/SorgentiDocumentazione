@@ -53,7 +53,7 @@ jobs:
                 files_n=$(echo "$files_child" | wc -l)
 
                 if [ $files_n -eq 1 ]; then
-                        mv "$dir/$files_child" "./"
+                        mv "$dir/$files_child" "$dir/../"
                 fi
               done
               cd ..
