@@ -15,7 +15,7 @@
 \primapagina
 
 \begin{registromodifiche}
-        v0.1 & 14 dicembre 2024  & Guirong Lan & - & prima stesura del documento \\
+        v0.1 & 14 dicembre 2024  & Guirong Lan & - & prima stesura del documento:\hyperref[sec:Domande]{inserimento delle domande}, \hyperref[sec:Conclusioni]{inserimento delle conclusioni}\\
     \hline 
 \end{registromodifiche}
 
@@ -81,24 +81,26 @@
 \newpage
 
 \section{Domande}
+\label{sec:Domande}
 Di seguito vengono riportate le domande fatte dal gruppo:
 \begin{enumerate}
     \item Il sistema deve prevedere un metodo di autenticazione?
     \item È necessario includere un sistema di navigazione (dashboard/home) per gestire le varie operazioni, come ad esempio l'inserimento di un file contenente un set di coppie di domande e risposte?
     \item Il caricamento di un file contenente il set di coppie di domande e risposte è un requisito opzionale?
     \item Il sistema deve prevedere l'inserimento, la creazione, la modifica, la ricerca, l'archiviazione, la visualizzazione e la cancellazione delle coppie di domande e risposte. Oltre a queste, ci sono altri requisiti obbligatori?
-    \item È sufficiente un database locale per una web app?
-    \item L'utente deve poter scegliere dall'elenco delle domande/risposte quali testare, o si verifica tutto il set durante la fase di test? è un requisito opzionale
+    \item È sufficiente un \textit{database$_{G}$} locale per una web app?
+    \item L'utente deve poter scegliere dall'elenco delle domande/risposte quali testare, o si verifica tutto il set durante la fase di \textit{test$_{G}$}?
     \item Diamo per scontato che le domande possano essere di qualsiasi tipo, o possiamo applicare dei filtri?
-    \item Esiste un modo per migliorare il risultato degli embedding quando le frasi sono simili ma hanno significati diversi?
+    \item Esiste un modo per migliorare il risultato degli \textit{embedding$_{G}$} quando le frasi sono simili ma hanno significati diversi?
     \item Ha metodi di confronto innovativi da segnalarci?
 \end{enumerate}
 \section{Conclusioni}
+\label{sec:Conclusioni}
 Il gruppo dalle risposte date dai rappresentanti dell’azienda ha tratto le seguenti conclusioni:
 \begin{itemize}
     \item Il fulcro del problema è il confronto tra le coppie di domande e risposte. 
     \item Avere una dashboard per visualizzare i risultati dei test è altamente consigliato, anche se quest’ultima rappresenta un requisito opzionale.
-    \item Ci servirà un metodo di archiviazione e caricamento, oltre alle solide procedure come la creazione, la visualizzazione, la ricerca e così via. Insomma, si tratta di un classico programma di gestione dell’archivio per rendere funzionale il sistema: non deve fare cose straordinarie, ma garantire un minimo di funzionalità essenziale, come anche la parte estetica.
+    \item Ci servirà un metodo di archiviazione e caricamento, oltre alle solide procedure come la creazione, la visualizzazione, la ricerca e così via. Insomma, si tratta di un classico programma di gestione dell’archivio per rendere funzionale il sistema: non deve fare cose straordinarie, ma garantire un minimo di funzionalità essenziale, come anche per la parte estetica.
     \item Non è necessario disporre di un database remoto o online; la decisione spetta al gruppo di sviluppo se adottarne uno o meno. Si consiglia di utilizzare gli strumenti con cui ci si sente più a proprio agio.
     \item Avere un filtro può certamente agevolare lo sviluppo, pertanto è un requisito opzionale. Nel caso si decida di svilupparlo, spetta sempre al gruppo decidere se applicarlo durante o prima dell'avvio dei test. Inoltre, la possibilità di caricare un insieme di piccoli file di testo (CSV o Markdown) e trasformarli in coppie di domande e risposte è anch'essa un requisito opzionale.
     \item Tra le tecnologie consigliate da consultare ci sono: Nomic (embedding per la maggiore), Bertino embedding e BGE 5 embedding. Inoltre, si può considerare l'uso della Non-Negativity Matrix Factorization e degli LLM con prompt specifici. 
