@@ -5,6 +5,7 @@ CurrentIteration
 DIRS
 Flink
 FullScreen
+documentclass
 Grafana
 Jira
 Kubernetes
