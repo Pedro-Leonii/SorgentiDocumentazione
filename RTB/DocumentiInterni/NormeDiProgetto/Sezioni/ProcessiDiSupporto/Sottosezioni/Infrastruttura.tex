@@ -345,7 +345,7 @@ Questo comando utilizza come commit padre il commit foglia del ramo corrente.
 \label{subpar:branch}
 Un ramo in Git è un commit a cui è stata associata un etichetta mobile che funziona da alias per lo stesso.
 Tramite questa etichetta mobile è possibile fare riferimento al commit ad essa associato.
-Un ramo è un etichetta mobile nel senso che Git la sposta in automatico quando viene gerato un commit figlio.
+Un ramo è un etichetta mobile nel senso che Git la sposta in automatico quando viene generato un commit figlio.
 Questo crea una biforcazione nella storia dei commit(ramo) dove l'etichetta punta sempre all'ultimo commit(foglia) del nuovo flusso.
 
 Git mantiene internamente un puntatore all'etichetta del ramo corrente chiamato commit \textbf{HEAD}.
@@ -430,7 +430,7 @@ Git lavora su tre diversi livelli:
     git diff 
     \end{lstlisting}
     
-    \item \textbf{Albero di lavoro}: albero di cartelle e file che Git "conosce" e quindi ritiene come facenti parti del repository.
+    \item \textbf{Albero di lavoro}: albero di cartelle e file che Git "conosce" e quindi ritiene come facenti parte del repository.
     
     Questi file e cartelle vengono chiamati \textbf{file tracciati} e devono per forza essere memorizzati all'interno della cartella relativa al repository.
 
@@ -465,7 +465,7 @@ Dove \texttt{origin} è il nome di default del riferimento al repository remoto 
 
 \subparagraph{pull}
 \label{subpar:pull}
-L'operazione di push permette aggiornare un repository locale con le modifiche registrate al repository remoto a cui è associato.
+L'operazione di pull permette aggiornare un repository locale con le modifiche registrate al repository remoto a cui è associato.
 Git per eseguire un operazione di pull mette a dispozione il seguente comando:
 \begin{lstlisting}
     # esegue il pull del ramo remoto indicato
@@ -501,7 +501,7 @@ Per eseguire un merge è necessario usare il comando:
 \end{lstlisting}
 
 Nel caso in cui esista un conflitto Git richiede la risoluzione manuale dello stesso tramite la modifica dei file.
-Git indica questa situazione nella console in cui appare la keywork \texttt{MERGING} che indica il fatto che siamo nel mezzo di un operazione di fusione.
+Git indica questa situazione nella console in cui appare la keyword \texttt{MERGING} che indica il fatto che siamo nel mezzo di un operazione di fusione.
 In questa situazione il comando \lstinline|git diff| ci mostra i conflitti.
 Per uscire dallo stato di \texttt{MERGING} eliminando l'operazione di merge è possibile eseguire il comando \lstinline|git merge --abort|.
 
@@ -885,8 +885,10 @@ Per richiedere la verifica di una modifica è necessario \hyperref[item:creazion
 \subparagraph{Accettazione modifiche}
 \label{subpar:accettazione_modifiche}
 Per accettare le modifiche di cui è stata richiesta la verifica è necessario eseguire il \hyperref[item:approvazione_pull_request]{merge della pull request}.
+Ed eliminare il ramo sorgente della pull request.
 
 Per informazioni sulla risoluzione dei conflitti nella strategia di branching scelta dal gruppo leggere la sezione \hyperref[subpar:risoluzione_dei_conflitti]{Risoluzione dei conflitti}.
+
 
 \subparagraph{Rifiuto modifiche}
 \label{subpar:rifiuto_modifiche}
@@ -951,8 +953,8 @@ Un job è composto dai seguenti elementi fondanti:
 Ogni step è identificato da GitHub tramite un nome.
 Uno step è composto dai seguenti componenti presenti in modo mutuamente esclusivo:
 \begin{itemize}
-    \item \textbf{action}: una GitHub action pubblicata su GitHub action marketplace che lo step chiama.
-    Il markeplace delle GitHub action si trova al link \href{https://github.com/marketplace?type=actions}{actions}.
+    \item \textbf{action}: nome di una GitHub action appartenente al marketplace.
+    Il marketplace delle GitHub action si trova al link \href{https://github.com/marketplace?type=actions}{actions}.
     
     \item \textbf{comandi}: uno o più comandi che vengono eseguiti nel runner.
 \end{itemize}
@@ -1022,6 +1024,7 @@ In caso in cui ciò non sia vero all'interno del repository deve esistere un fil
 
 \paragraph{Variabili GitHub}
 Le variabili definite a livello di repository sono accessibili da parte di tutte le GitHub action contenute nel repository stesso.
+Le variabili permettono di modificare i valori usati dalle action senza dover modificare il file in cui esse sono definite.
 
 \subparagraph{Definizione}
 Per definire una variabile a livello di repository è necessario seguire i passaggi:

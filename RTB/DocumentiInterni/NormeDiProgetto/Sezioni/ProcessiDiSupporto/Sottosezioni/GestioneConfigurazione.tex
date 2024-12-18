@@ -9,13 +9,15 @@ Inoltre garantisce la completezza, la coerenza e la correttezza degli elementi c
 I prodotti del progetto vengono memorizzati in più \glossario{repository}.
 Di seguito vengono elencati i repository utilizzati dal gruppo, le loro caratteristiche e la loro struttura.
 
-\paragraph{Sorgenti documenti}
+\paragraph{SorgentiDocumentazione}
 Questo repository contiene i sorgenti della documentazione scritti usando il \hyperref[par:latex]{linguaggio LaTeX}.
 Il repository segue la struttura indicata in \hyperref[fig:repo_sorgenti_documenti]{Figura \ref{fig:repo_sorgenti_documenti}}.
 \begin{figure}[!h]
     \dirtree{%
-        .1 Sorgenti documenti.
+        .1 SorgentiDocumentazione.
             .2 .github.
+                .3 DizionariLatex.
+                    .4 \texttt{<dizionari>}
                 .3 workflows.
                     .4 \texttt{<file worflows>}.
             .2 Candidatura.
@@ -25,14 +27,14 @@ Il repository segue la struttura indicata in \hyperref[fig:repo_sorgenti_documen
             .2 \texttt{README.md}.
             .2 \texttt{.gitignore}.
     }
-    \caption{Struttura repository Sorgenti documenti.}
+    \caption{Struttura repository SorgentiDocumentazione.}
     \label{fig:repo_sorgenti_documenti}
 \end{figure}
 Dove:
 \begin{enumerate}
     \item \texttt{Candidatura}, \texttt{RTB} e \texttt{Packages} sono delle cartelle il cui contenuto viene spiegato nelle successive sezioni.
     \item \texttt{<file workflows>} sono dei file che definiscono le automazioni associate al repository e vengono denominati usando la sintassi \glossario{Pascal case}.
-    \item \texttt{Immagini} è una cartella che contiene il nome del gruppo.
+    \item \texttt{Immagini} è una cartella che contiene il logo del gruppo.
     \item \texttt{README.md} è un file che contiene la descrizione del repository e del gruppo.
     \item \texttt{.gitignore} è un file speciale che contiene una lista di file che il sistema di versionamento deve ignorare.
 \end{enumerate}
@@ -101,8 +103,12 @@ I file che non riguardano direttamente il progetto non vengono spiegati ulterior
         \hline
         norme di progetto & \texttt{NormeDiProgetto-<versione>} & sì\\
         \hline
+        Piano di qualifica & \texttt{PianoDiQualifica-<versione>} & sì\\
+        \hline
+        analisi dei requisiti & \texttt{AnalisiDeiRequisiti-<versione>} & sì\\
+        \hline
     \end{tabular}}
-    \caption{Configuration item del repository Sorgenti documentazione.}
+    \caption{Configuration item del repository SorgentiDocumentazione.}
 \end{table}
 \noindent Dove:
 \begin{itemize}
@@ -207,7 +213,7 @@ Oltre all'utilizzo di un software di controllo di versione il gruppo ha deciso d
 Tale tabella se il repository fosse gestito in modo impeccabile sarebbe una copia dei dati già registrati nella stessa.
 Tuttavia il metodo di lavoro del gruppo è in continua evoluzione quindi possono accadere modifiche distruttive che eliminano le versioni dei configuration item apperteneti alla baseline precedente.
 Il registro delle modifiche è quindi uno strumento a supporto del controllo di configurazione ed è più "attendibile" rispetto alla storia del repository Git.
-I documenti per cui viene usato il registro delle modifiche sono indicati nella sezione \hyperref[subsubsec:identificazione_CI]{Identificazione configuration}.
+I documenti per cui viene usato il registro delle modifiche sono indicati nella sezione \hyperref[subsubsec:identificazione_CI]{Identificazione configuration item}.
 
 Di seguito viene indicata la struttura del registro delle modifiche:
 \begin{enumerate}
@@ -229,7 +235,7 @@ Le versioni dei documenti vengono indicate seguendo lo schema di versionamento:
 \end{lstlisting}
 Dove:
 \begin{enumerate}
-    \item \texttt{X}: interno positivo che indica la versione major del documento.
+    \item \texttt{X}: intero positivo che indica la versione major del documento.
     La versione major indica a quante volte il documento ha raggiunto uno stato ritenuto come "stabile" dal gruppo.
 
     \item \texttt{Y}: intero positivo che indica la versione minor del documento.
@@ -399,11 +405,11 @@ L'approvazione deve essere eseguita dal Responsabile del gruppo di lavoro e prev
     Inoltre usare il valore "Approvazione modifiche" per la colonna "Descrizione".
 
     \item \hyperref[subpar:commit]{Commit} delle modifiche.
-    \item \hyperref[subpar:merge]{Merge} del ramo \texttt{develop} nel ramo \texttt{main} seguendo le regole indicate alla sezione \hyperref[subpar:risoluzione_dei_conflitti]{Risoluzione dei conflitti}.
-    \item \hyperref[subpar:push]{push} del ramo \texttt{main}.
+    \item \hyperref[subpar:merge]{Merge} del ramo \texttt{release} nel ramo \texttt{main} e nel ramo \texttt{develop} seguendo le regole indicate alla sezione \hyperref[subpar:risoluzione_dei_conflitti]{Risoluzione dei conflitti}.
+    \item \hyperref[subpar:push]{push} dei rami \texttt{main} e \texttt{develop}.
 \end{enumerate}
 
 \subsubsection{Distribuzione dei documenti}
-La distribuzione dei documenti avviene mediante l'utilizzo di un sito web disponibile al link \href{Documentazione}{Documentazione}.
+La distribuzione dei documenti avviene mediante l'utilizzo di un sito web disponibile al link \href{https://alt-f4-eng.github.io/Documentazione/}{https://alt-f4-eng.github.io/Documentazione/}.
 I documenti distribuiti vengono aggiornati ogni volta che viene modificata la baseline ovvero ogni volta che viene modificato il ramo \texttt{main}.
 L'aggiornamento dei documenti segue la procedura indicata alla sezione \hyperref[par:pubblicazione_documenti]{Pubblicazione dei documenti}
