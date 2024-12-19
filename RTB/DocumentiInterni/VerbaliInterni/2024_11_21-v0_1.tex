@@ -1,0 +1,171 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[italian]{babel}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{imakeidx}
+\usepackage{caption}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{tabularx}
+
+
+%--------------------VARIABILI--------------------
+\def\logo{../../../Immagini/logo.jpeg}
+\def\ultima-versione{v0.1}
+\def\titolo{Verbale interno}
+%------------------------------------------------
+
+\usetikzlibrary{calc}
+\definecolor{fp-blue}{HTML}{2885c8}
+\definecolor{fp-red}{HTML}{ea5f64}
+\makeindex[title=Indice]
+\hypersetup{
+    hidelinks,
+    colorlinks=true,
+    linkcolor=fp-red,
+    filecolor=magenta,      
+    urlcolor=fp-blue,
+    pdfpagemode=FullScreen,
+}
+
+\pagestyle{fancy}
+\fancyhead[L]{}
+\setlength{\headheight}{15pt}
+\fancyhead[R]{\titolo \space - \ultima-versione}
+
+\renewcommand{\familydefault}{\sfdefault}
+\newcommand{\glossario}[1]{\fontfamily{lmr}\selectfont{\textit{#1\textsubscript{\small G}}}}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+%--------------------INFORMAZIONI PRIMA PAGINA-------------------- 
+\title{\Huge \textbf{\titolo}}
+\author{\Large{Alt} \raisebox{0.3ex}{\normalsize  +} \Large{F4}}
+\date{21 Novembre 2024}
+%----------------------------------------------------------------
+
+\begin{document}
+
+\begin{titlepage}      
+    \maketitle
+    \thispagestyle{empty}  
+
+    \begin{tikzpicture}[remember picture, overlay]
+        \fill[fp-blue] 
+        ($(current page.south west) + (0, 10)$) 
+        -- ($(current page.center) + (0, -8)$)
+        -- ($(current page.center) + (0, -15)$)
+        -- (current page.south west);
+
+        \fill[fp-red]
+        ($(current page.south east) + (0, 10)$) 
+        -- ($(current page.center) + (0, -8)$)
+        -- ($(current page.center) + (0, -15)$)
+        -- (current page.south east);
+
+       \clip ($(current page.center) + (0, -8)$) circle (1cm) node 
+       {\includegraphics[width=.25\textwidth]{\logo}};
+        
+    \end{tikzpicture}    
+\end{titlepage}
+
+\thispagestyle{plain}
+\newgeometry{ignoreall, hmargin=20pt}
+\begin{table}[!h]
+    \centering
+    \caption*{\textbf{\Large Registro Modifiche}}
+    {\renewcommand{\arraystretch}{2}
+    \begin{tabularx}{\textwidth}{| c | c | C | C | C |}
+        \hline
+            \textbf{\normalsize Versione} & 
+            \textbf{\normalsize Data} & 
+            \textbf{\normalsize Autore/i} & 
+            \textbf{\normalsize Verificatore} &
+            \textbf{\normalsize Descrizione} \\ 
+        \hline \hline
+        \ultima-versione & 
+        26 Novembre 2024 & 
+        Francesco Savio &
+        Enrico Bianchi & 
+        Stesura verbale interno \\
+        \hline 
+    \end{tabularx}}
+\end{table}
+\restoregeometry
+
+\tableofcontents
+
+\newpage
+
+\section{Registro presenze}
+\begin{itemize}
+    \item[] \textbf{Data}: 21 Novembre 2024
+    \item[] \textbf{Ora inizio}:  21.00
+    \item[] \textbf{Ora fine}: 22.00
+    \item[] \textbf{Piattaforma}: Discord	
+\end{itemize}
+\begin{table}[!h]
+\centering
+{\renewcommand{\arraystretch}{2}
+\begin{tabularx}{\textwidth}{| X | X |}
+    \hline
+        \textbf{\large Componente} & 
+        \textbf{\large Presenza} \\ 
+    \hline 
+    \hline
+        Eghosa Matteo Igbinedion Osamwonyi&
+        Presente \\
+    \hline 
+        Guirong Lan&
+        Presente \\
+    \hline 
+        Enrico Bianchi&
+        Presente \\
+    \hline 
+        Francesco Savio&
+        Presente \\
+    \hline 
+        Marko Peric&
+        Presente \\
+    \hline 
+        Pedro Leoni&
+        Presente \\
+    \hline 
+
+\end{tabularx}}
+\end{table}
+
+\newpage
+
+\section{Verbale}
+\subsection{Argomenti trattati}
+\begin{itemize}
+    \item Anamnesi retrospettiva dello sprint che ha portato alla consapevolezza di non avere delle norme di progetto adeguate per un corretto lavoro collaborativo, inoltre manca completamente nelle norme di progetto la sezione dell'analisi dei requisiti che serve al gruppo per capire come stilare il documento correlato.
+    \item Proposta di investire i giorni successivi per riscrivere e ampliare le norme di progetto in base allo standard ISO 12207 : 1995
+    \item Analisi dello standard ISO 12207 : 1995
+    \item Suddivisione dei processi da analizzare tra i membri del gruppo
+\end{itemize}
+
+\subsection{Decisioni prese}
+\begin{itemize}
+    \item Il gruppo dopo aver analizzato i processi descritti nello standard ISO 12207 : 1995 decide di suddividersi lo studio, per poi effettuare la realizzazione di un documento google docs condiviso con la descrizione, per le norme di progetto, dei seguenti processi:
+    \begin{itemize}
+        \item Matteo - Processo di Development (analisi dei requisiti)
+        \item Enrico - Processo di Maintenance
+        \item Francesco - Processo di Configuration Management
+        \item Giovanni - Processo di Verification
+        \item Marko - Processo di Management
+        \item Pedro - Processo di Infrastructure
+    \end{itemize}
+    I processi di Validation, Joint Review e Audit invece sono da controllare.
+    Viene creato un file condiviso google docs per la scrittura dei vari processi con termine massimo lunedì 25 novembre 2024.
+\end{itemize}
+
+\section{To Do}
+    \begin{itemize}
+        \item Completare i file dei processi in base allo standard ISO 12207 : 1995 entro lunedì 25 novembre 2024
+        \item Fare diario di bordo (Francesco)
+    \end{itemize}
+\end{document}
