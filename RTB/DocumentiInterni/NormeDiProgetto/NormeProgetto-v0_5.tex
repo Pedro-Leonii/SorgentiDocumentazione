@@ -1,0 +1,36 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{custom}
+
+%--------------------VARIABILI--------------------
+\def\lastversion{v0.5}
+\def\title{Norme di progetto}
+\def\date{19 dicembre 2024}
+%------------------------------------------------
+
+\begin{document}
+
+\primapagina
+
+\begin{registromodifiche}
+       v0.5 & 11 dicembre 2024 & Pedro Leoni & Francesco Savio, Enrico Bianchi & Scrittura sezione: \hyperref[subsec:documentazione]{Documentazione}\\  
+    \hline
+    v0.4 & 11 dicembre 2024 & Pedro Leoni & Francesco Savio, Enrico Bianchi & Scrittura sezione: \hyperref[subsec:gestione_della_configurazione]{Gestione della configurazione}\\  
+    \hline
+       v0.3  & 11 dicembre 2024 & Pedro Leoni, Francesco Savio & Francesco Savio, Enrico Bianchi & Scrittura sezione: \hyperref[subsec:proc_infrastruttura]{Processo di infrastruttura}\\  
+    \hline
+        v0.2 & 11 dicembre 2024 & Pedro Leoni, Enrico Bianchi & Francesco Savio, Enrico Bianchi & Scrittura sezione: \hyperref[subsec:gestione_progetto]{Gestione di progetto}\\  
+    \hline
+        v0.1 & 11 dicembre 2024 & Pedro Leoni, Francesco Savio, Matteo Eghosa & Francesco Savio, Enrico Bianchi & Scrittura sezione: \hyperref[subsection:processo_sviluppo]{Processo di sviluppo}\\  
+    \hline
+\end{registromodifiche}
+
+\tableofcontents
+
+\newpage
+
+\input{Sezioni/ProcessiPrimari/ProcessiPrimari.tex}
+
+\input{Sezioni/ProcessiDiSupporto/ProcessiDiSupporto.tex}
+
+\end{document}
