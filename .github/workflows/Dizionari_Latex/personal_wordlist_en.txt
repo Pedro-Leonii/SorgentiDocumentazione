@@ -16,3 +16,10 @@ linkcolor
 pdfpagemode
 urlcolor
 vX
+home
+Nomic
+embedding
+online
+Matrix
+Factorization
+Lmarenaù
