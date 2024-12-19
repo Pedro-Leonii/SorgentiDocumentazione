@@ -1,0 +1,201 @@
+\subsection{Gestione di progetto}
+\label{subsec:gestione_progetto}
+
+\subsubsection{SCRUM}
+Il gruppo ha deciso di utilizzare alcuni concetti del \glossario{framework} di gestione di progetto \glossario{agile} chiamato SCRUM.
+SCRUM richiede l'utilizzo di un \glossario{modello di sviluppo a periodi} chiamati \textbf{sprint}.
+Il gruppo ha deciso di utilizzare sprint della durata di una settimana(da giovedì a giovedì) per i seguenti motivi:
+\begin{itemize}
+    \item Aumenta il coinvolgimento dei membri del gruppo.
+    \item Ottiene feedback continui riducendo la gravità di eventuali problematiche.
+\end{itemize}
+Il framework definisce un insieme di:
+\begin{enumerate}
+    \item \textbf{Artefatti}: informazioni e strumenti a supporto delle cerimonie.
+   
+    \item \textbf{Ruoli}: descrivono le responsabilità chiave dei membri del gruppo di lavoro.
+    
+    \item \textbf{Cerimonie}: incontri interni al gruppo eseguite in momenti precisi del ciclo di vita del software.
+\end{enumerate}
+Il gruppo come detto non segue il framework alla lettera ma prende spunto da alcuni dei suoi elementi.
+SCRUM è stato scelto perché è molto flessibile e molto utilizzato. 
+
+\subsubsection{Ruoli}
+\label{subsubsec:ruoli}
+Il gruppo seguendo le regole di progetto abbraccia una definizione e distinzione più rigida dei ruoli dei membri del gruppo rispetto a quella data da SCRUM.  
+Di seguito vengono elencate le definizioni dei ruoli e la regola di rotazione.
+
+\paragraph{Responsabile}
+Il responsabile del progetto è incaricato di coordinare le attività del gruppo di lavoro, pianificare e monitorare i progressi, e gestire efficacemente le risorse disponibili. In sintesi, egli si assicura che il progetto venga portato a termine nei tempi stabiliti e in conformità con le risorse assegnate.
+
+
+\paragraph{Amministratore}
+L'amministratore di progetto ha il compito di gestire il way of working del gruppo e gli strumenti a supporto dello stesso.
+
+\paragraph{Analista}
+L'analista è responsabile dell’analisi delle funzionalità del software, definendo i requisiti e i casi d’uso pertinenti.
+
+\paragraph{Progettista}
+Il progettista è responsabile della definizione dell’architettura del software, identificando le componenti e le relazioni tra di esse, sulla base dei requisiti stabiliti dall’analista. 
+
+\paragraph{Programmatore}
+Il programmatore si occupa di scrivere il codice sorgente del software, seguendo le specifiche elaborate dal progettista.
+
+\paragraph{Verificatore}
+Il verificatore di un progetto software ha il compito di garantire che il software prodotto e la documentazione associata siano conformi alle normative e alle specifiche definite. 
+
+\paragraph{Rotazione dei ruoli}
+Per aumentare la produttività il gruppo ha deciso di preassegnare solo il ruolo di responsabile.
+Ogni richiesta di modifica pianificata durante lo sprint specificherà il ruolo per il quale è competenza svolgerla.
+Di conseguenza, il membro che si auto-assegnerà la relativa issue assumerà il ruolo a essa associata per il tempo necessario al suo compimento.
+Così facendo è possibile massimizzare l'efficienza del gruppo, infatti ogni membro ha la possibilità di ottimizzare il tempo a disposizione realizzando le richieste di modifica libere.
+
+
+\subsubsection{Artefatti}
+Le cerimonie usate dal gruppo sono: product backlog e sprint backlog. 
+Di seguito vengono spiegati questi artefatti indicando:
+\begin{itemize}
+    \item Descrizione.
+    \item Scopo.
+\end{itemize}
+
+\paragraph{Product backlog}
+Il product backlog è una \glossario{Kanban board} che contiene tutte le richieste di modifica che riguardano il progetto.
+Le colonne del product backlog come implementato dal gruppo sono: "To Do", "In Progress", "To Review", "In Review", "Re Open" e "Done".
+Il significato delle colonne viene spiegato alla sezione \hyperref[par:ciclo_vita_richieste_di_modifica]{Ciclo di vita richieste di modifica}.
+L'implementazione concreta è indicata alla sezione \hyperref[subpar:project]{GitHub projects}.
+
+\paragraph{Sprint backlog}
+Kanban board uguale alla product backlog con la differenza che contiene le richieste di modifica dello sprint corrente.
+L'implementazione concreta è indicata alla sezione \hyperref[subpar:project]{GitHub projects}.
+
+\subsubsection{Cerimonie}
+Le cerimonie usate dal gruppo sono: retrospettiva, revisione e pianfiicazione. 
+Di seguito vengono spiegate le cerimonie indicando:
+\begin{itemize}
+    \item Momento in cui viene eseguita.
+    \item Membri del gruppo coinvolti.
+    \item Scopo.
+    \item Artefatti o documenti influenzati.
+\end{itemize}
+
+\paragraph{Retrospettiva}
+Riunione eseguita a fine sprint, coinvolge tutto il gruppo e ha lo scopo di discutere le problematiche riscontrate.
+I responsabili designati per lo sprint appena terminato devono riportare le problematiche riscontrate nella sezione retrospettiva dello sprint nel documento piano di progetto.
+
+
+\paragraph{Revisione}
+Eseguita a fine sprint, coinvolge i Responsabili designati per lo sprint.
+Questa cerimonia produce la modifica del \textbf{piano di progetto} eseguendo:
+\begin{enumerate}
+    \item Per ogni richiesta di modifica facente parte della sprint board indicare nella sezione consuntivo dello sprint corrente:
+    \begin{itemize}
+        \item Identificativo.
+        \item Figura professionale che lo ha preso in carico.
+        \item Risorse utilizzate.
+        \item Confronto tra risorse utilizzate e quelle preventivate.
+        \item Stato in cui si trova.
+    \end{itemize}
+    \item Aggiornamento delle risorse rimaste nella relativa sezione dello sprint corrente.
+    \item Modifica dei rischi nel piano di progetto.
+    \item Documentare gli eventuali rischi riscontrati e l'efficacia delle azioni di mitigazione applicate.
+    \item Analisi ed eventuale modifica del preventivo dei costi.
+\end{enumerate}
+
+\paragraph{Pianificazione}
+La pianificazione è la cerimonia principale, viene realizzata all’inizio di ogni sprint e coinvolge l'intero gruppo di lavoro.
+Lo scopo è quello di aggiornare il product backlog e definire quali richieste di modifica in esso contenute devono essere poste nello sprint backlog.
+La pianificazione delle attività segue la seguente mappatura:
+\begin{enumerate}
+    \item \textbf{Identificazione delle attività}.
+    
+    Durante questa fase il gruppo guidato dal responsabile ha il compito di valutare l’avanzamento del progetto identificando le nuove richieste di modifica.
+
+    \item \textbf{Analisi delle attività}.
+    
+    Il responsabile deve associare a ogni richiesta di modifica il ruolo che deve implementarla tra i ruoli definiti nella sezione \hyperref[subsubsec:ruoli]{Ruoli}.
+    Il responsabile deve anche associare a ogni richiesta di modifica un valore di priorità in una scala da 1(minimo) a 3(massimo) e una stima delle ore previste per il loro completamento.
+    Se una richiesta di modifica richiede una quantità di ore che supera le 8 è necessario suddividerla in più richieste di modifica.
+    Il risultato della identificazione e della analisi delle attività è un documento condiviso realizzato su Google Docs dove per ogni attività ne vengono indicate le seguenti caratteristiche:
+    \begin{itemize}
+        \item File coinvolti.
+        \item Descrizione a punti del lavoro da svolgere.
+        \item Ruolo di competenza.
+        \item Priorità.
+        \item Ore stimate per l'implementazione.
+    \end{itemize}
+
+    \item \textbf{Modifica product backlog}.
+    
+    Le richieste di modifica risultanti dalla precedente fase vengono registrate nel product backlog.
+    Questa operazione viene implementata usando le informazioni indicate alla sezione \hyperref[subpar:ITS]{Issue}.
+
+    \item \textbf{Pianificazione sprint}.
+    
+    Questa fase consiste nella realizzazione di un piano da seguire durante lo svolgimento dello sprint successivo.
+    Il responsabile deve:
+    \begin{enumerate}
+        \item \textbf{Calcolo ore disponibili per lo sprint}.
+        
+        Il responsabile deve chiedere ad ogni  membro le ore che può dedicare al successivo sprint.
+        Così facendo riesce a calcolare le ore totali produttive che il gruppo si impegna a dedicare nella settimana a venire.
+        Se le ore a disposizione si discostano troppo dal valore $\frac{Ore Totali RTB}{Settimane RTB}$ il responsabile deve identificare se possibile alcuni membri che danno disponibilità maggiore.
+        Le ore usate da ogni membro devono essere memorizzate di modo che nei successivi sprint l'impegno di ognuno venga ribilanciato.
+
+        \item \textbf{Calcolo ore totali svolgimento attività}.
+        
+        Il responsabile deve selezionare il maggior numero di attività con priorità maggiore che possono essere portate a termine nel prossimo sprint.
+    \end{enumerate}
+
+    \item \textbf{Popolazione sprint backlog}.
+    
+    Popolare lo sprint backlog usando le richieste di modifica risultanti dalla precedente fase.
+    Il popolamento viene fatto usando le informazioni indicate alla sezione \hyperref[subpar:ITS]{Issue}.
+\end{enumerate}
+
+\paragraph{Controllo}
+Il responsabile ha il compito di mantenersi in contatto con i membri del gruppo durante ogni sprint.
+In particolare deve monitorare giornalmente lo stato di avanzamento del lavoro prefissato contattando tutti i membri tramite i canali di comunicazione interni indicati nella sezione \hyperref[subpar:canali_interni]{Canali di comunicazione interni}.
+Ogni giorno il responsabile deve verificare di quali attività si è già iniziato lo svolgimento e monitorarne lo stato di avanzamento.
+Il responsabile deve:
+\begin{enumerate}
+    \item \textbf{Aggiornare la pianificazione sprint}.
+    
+    Se di uno o più membri del gruppo notificano la necessità di più ore di lavoro rispetto alla previsione per terminare un'attività, il responsabile se lo ritiene necessario, deve aggiornare la pianificazione dello sprint.  
+
+    Per fare ciò il responsabile deve richiedere ai membri del gruppo le ore in "eccedenza" necessarie per poi:
+    \begin{enumerate}
+        \item Identificare le attività di priorità minima che devono ancora essere assegnate a un membro.
+        \item Valutare il numero di attività che devono essere posticipate allo sprint successivo, basandosi sulle ore di lavoro totali disponibili rimaste e il preventivo di tempo necessario al completamento delle attività ancora da svolgere.
+        \item Aggiornare lo sprint backlog togliendo le attività che dovranno essere posticipate.
+    \end{enumerate}
+    In questo modo si porteranno a termine il maggior numero di attività possibili.
+
+    \item \textbf{Controllo dei rischi}.
+    
+    Il responsabile deve monitorare che i rischi individuati tramite l'attività di \hyperref[]{Gestione dei rischi} vengano gestiti correttamente.
+    
+    Il responsabile deve rendersi conto del verificarsi dei rischi.
+    Per fare ciò deve:
+    \begin{enumerate}
+        \item Tenersi in contatto con i membri del gruppo per assicurarsi dell'assenza di rischi.
+        \item Conoscere le strategie di rilevazione di ogni rischio che devono essere applicate giornalmente.
+    \end{enumerate}
+
+    Nel caso in cui un rischio si presenti il responsabile deve attuare nel minor tempo possibile tutte le attività di mitigazione specifiche indicate per il rischio stesso.
+    Le attività di mitigazione possono richiedere il coinvolgimento con uno o più membri del gruppo.
+    In tal caso il responsabile deve accertarsi che le attività vengano applicate correttamente. 
+\end{enumerate}
+
+\subsection{Gestione dei rischi}
+Lo standard ISO 31000 è uno standard internazionale per la gestione dei rischi, progettato per essere applicabile  in qualsiasi tipo di contesto, compresa la progettazione software.
+Nello specifico fornisce un quadro strutturato per la gestione dei rischi, composto dalle seguenti fasi principali: 
+\begin{itemize}
+    \item \textbf{definizione del contesto}: comprendere l'ambiente esterno e interno in cui si sta operando e gli obiettivi del sistema.
+    \item \textbf{identificazione dei rischi}: individuare i rischi e i fattori che potrebbero compromettere il raggiungimento degli obiettivi e dei requisiti necessari allo sviluppo.
+    \item \textbf{analisi dei rischi}:  comprendere la natura dei rischi, compresa la causa per cui potrebbero verificarsi e la probabilità, le conseguenze sul sistema e sull'attività di lavoro.
+    \item \textbf{ponderazione dei rischi}: valutare la gravità che comporterebbe il verificarsi di un rischio, identificare se è accettabile il verificarsi di uno o più rischi e quali invece dovrebbero richiedere un trattamento immediato.
+    \item \textbf{trattamento dei rischi}: identificare i ruoli che hanno responsabilità nel trattamento dei rischi, i processi di mitigazione e le azioni da svolgere, nel caso dovesse verificarsi un rischio, per ridurre l'impatto sul sistema e sullo svolgimento del prodotto software. 
+    \item \textbf{monitoraggio}: identificazione delle metodologie che permettono un continuo monitoraggio e rilevamento dei rischi, identificazione anche di eventuali nuovi rischi con conseguente aggiornamento della documentazione relativa alla analisi dei rischi.
+    \item \textbf{comunicazione}: indicare strategie di comunicazione e ruoli coinvolti a seguito del rilevamento di un rischio indicato all'interno dell'analisi dei rischi.
+\end{itemize}
