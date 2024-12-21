@@ -1,0 +1,42 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{custom}
+
+
+%--------------------VARIABILI--------------------
+\def\lastversion{v0.3}
+\def\title{Piano di progetto}
+\def\date{19 novembre 2024}
+%------------------------------------------------
+
+\begin{document}
+
+\primapagina
+
+\begin{registromodifiche}
+        v0.3 & 18 dicembre 2024 & Marko Peric & Guirong Lan & Sezioni \hyperref[sec:Sprint]{Sprint}, \hyperref[sec:PrimoPeriodo]{Primo Periodo} \\
+    \hline 
+        v0.2 & 13 dicembre 2024 & Enrico Bianchi & Pedro Leoni & Sezioni \hyperref[sec:stima_costi]{Stima dei costi}, \hyperref[sec:milestone_principali]{Milestone principali} \\
+    \hline
+        v0.1 & 19 novembre 2024  & Enrico Bianchi & Francesco Savio& Sezioni \hyperref[sec:introduzione]{Introduzione documento}, \hyperref[sec:analisi_rischi]{Analisi dei rischi} \\
+    \hline
+\end{registromodifiche}
+
+\tableofcontents
+
+\newpage
+
+\input{Sezioni/Introduzione/Introduzione.tex}
+
+\input{Sezioni/AnalisiDeiRischi/AnalisiDeiRischi.tex}
+
+\input{Sezioni/StimaDeiCosti/StimaDeiCosti.tex}
+
+\input{Sezioni/MilestonePrincipali/MilestonePrincipali.tex}
+
+\input{Sezioni/PrimoPeriodo/PrimoPeriodo.tex}
+
+\input{Sezioni/Sprint/Sprint.tex}
+
+
+\end{document}

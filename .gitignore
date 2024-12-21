@@ -2,4 +2,4 @@
 *.ilg
 *.ind
 *.pdf
-!*/Immagini/*.pdf
+!**/Immagini/*.pdf
