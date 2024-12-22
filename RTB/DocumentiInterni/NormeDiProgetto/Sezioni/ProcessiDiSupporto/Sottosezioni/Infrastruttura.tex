@@ -1122,7 +1122,6 @@ La comunicazione tra i membri del gruppo e l'azienda proponente avviene tramite 
     \item \textbf{Google Meet (comunicazione sincrona)}: utilizzata per effettuare videochiamate per il contatto diretto con l'azienda proponente, durante le quali verranno discussi eventuali dubbi dei membri del gruppo o verrà presentato il lavoro svolto dal gruppo per ricevere un feedback.
 \end{enumerate}
 
-
 \subsubsection{Sviluppo}
 A supporto del processo di sviluppo il gruppo ha scelto l'utilizzo dei seguenti strumenti:
 \begin{enumerate}
@@ -1134,3 +1133,17 @@ Drawio è un software che permette la creazione di diagrammi di diverso tipo.
 Questi diagrammi possono poi essere esportati usando diversi formati tra cui: pdf, png e jpeg.
 Questo strumento può essere usato in combinazione con un account google per definire diagrammi tramite un interfaccia web oppure installando un programma in locale.
 Nel secondo caso è necessario installare l'editor che può essere trovato nel Microsoft store. 
+
+\subsubsection{Dashboard excel}
+\paragraph{Dashboard excel per il calcolo delle ore}
+Il gruppo si è munito di un file excel condiviso dove è stata realizzata una dashboard per tenere traccia in un unico file degli sprint. Ogni sprint traccia a sua volta le seguenti informazioni per ogni issue appartenente allo sprint:
+\begin{enumerate}
+    \item Id issue.
+    \item Ruolo di chi ha svolto la issue.
+    \item Ore preventivate.
+    \item Ore effettive.
+\end{enumerate}
+Questo file excel aiuta il gruppo ad accumulare le informazioni utili per compilare e tenere aggiornato il documento Piano di progetto.
+La dashboard viene aggiornata in modo automatico attraverso una github action che preleva dalla issue il relativo sprint associato, l’id,
+ il ruolo e le ore preventivate, mentre le ore effettive vengono prese all'apertura della pull request della relativa issue che saranno scritte per convezione nel primo commento.
+
