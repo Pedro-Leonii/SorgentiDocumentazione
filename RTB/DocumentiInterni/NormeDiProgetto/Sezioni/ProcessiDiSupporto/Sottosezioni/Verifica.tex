@@ -1,0 +1,80 @@
+\subsection{Processo di Verifica}
+\label{subsec:proc_verifica}
+Il processo di verifica ha come obiettivo fondamentale l'accertamento che:
+\begin{itemize}
+    \item i \textbf{prodotti di lavoro} generati durante il ciclo di vita del software rispettino i requisiti specificati
+    \item i \textbf{processi seguiti} siano conformi agli standard, alle linee guida e ai piani definiti
+\end{itemize}
+\subsubsection{Descrizione}
+Questo processo consiste nel fornire prove oggettive che i risultati di una specifica fase dello sviluppo software rispettino tutti i requisiti previsti. 
+Si basa sull'analisi, revisione e testing, nel caso di codice, per valutare la coerenza, la completezza e la correttezza dei risultati, assicurandosi che siano conformi alle aspettative definite.
+I task fondamentali previsti dal processo sono:
+\begin{itemize}
+    \item verifica dei processi
+    \item verifica dei requisiti
+    \item verifica della progettazione
+    \item verifica del codice 
+    \item verifica dell'integrazione 
+    \item verifica della documentazione
+\end{itemize}
+Per garantire l'accertamento della conformità, ogni volta che si apporta una modifica, è necessario sottoporre l'intero contenuto aggiornato a una verifica. 
+L'incremento della versione del prodotto aggiornato avviene esclusivamente se la modifica viene verificata e la verifica ha esito positivo.
+il processo di verifica viene svolto dai membri incaricati come verificatori (che si segneranno all'interno del registro delle modifiche del documento). 
+i quali non possono essere la stessa persona a cui è stata assegnata la realizzazione del prodotto da verificare.
+\subsubsection{Analisi statica}
+L'analisi statica è un approccio alla verifica che non richiede l'esecuzione del codice dell'oggetto di verifica per individuare i difetti del prodotto software 
+e accertarne la sua completezza e coerenza.
+Si applica non solo al codice, ma anche alla documentazione, verificando la conformità alle regole del prodotto, l'assenza di difetti e la presenza delle proprietà desiderate.
+Dal team vengono utilizzate due tecniche standard per l'analisi statica dei prodotti software: \textbf{walkthrough} e \textbf{inspection}.
+\paragraph{Walkthrough}
+Il walkthrough è uno dei metodi di lettura nell'analisi statica utilizzato per esaminare e verificare una parte del prodotto, che sia documento o codice, per accertarne la conformità ai requisiti o vincoli stabiliti precedentemente.
+Si tratta di un approccio collaborativo tra autore e verificatore durante il quale viene esaminato un prodotto o una sua parte, seguendo un percorso prestabilito e cercando di identificare difetti attraverso una lettura critica ad ampio spettro, priva di assunzioni.
+Nel caso del controllo del codice, il verificatore deve simulare diverse possibili esecuzioni, mentre per i documenti deve analizzarne il contenuto.
+Le fasi che vengono svolte durante questa tecnica di analisi statica sono:
+\begin{itemize}
+    \item \textbf{lettura}: il verificatore effettua una lettura critica dell'oggetto in esame cercando eventuali errori
+    \item \textbf{discussione}: al termine della lettura, nel caso vengano rilevati problemi, il verificatore comunica con gli autori e propone eventuali suggerimenti, con l'obiettivo di correggere i difetti.
+    \item \textbf{correzione e repeat}: una volta terminata la discussione e rilevati i difetti, gli autori sono pregati di correggere tali difetti seguendo le indicazioni discusse. Successivamente, si passa di nuovo al passo 2.
+\end{itemize}
+\paragraph{Inspection}
+Inspection, in italiano ispezione, è una tecnica di lettura utilizzata per valutare un prodotto o una sua parte, assicurandosi che soddisfi determinati standard o criteri tramite una checklist (lista di controllo), 
+che può derivare da conoscenze pregresse ottenute tramite walkthrough.
+In questo modo è possibile risparmiare tempo e costi senza dover verificare ogni parte del documento o del codice, ma solo quelle definite nella lista.
+I passi che compongono la tecnica di inspection sono: 
+\begin{itemize}
+    \item \textbf{definizione lista di controllo}:  vengono definiti le parti importanti del codice o del documento essenziali da modificare e poi verificare; liste di controllo possono aumentare sulla base dell'esperienza acquisita e degli errori più frequenti. 
+    La lista di controllo verrà inserita all'interno della descrizione della issue relativa alla modifica del documento che si vuole verificare.
+    \item \textbf{lettura}: il verificatore esamina il prodotto da verificare, seguendo la lista di controllo realizzata precedentemente
+    \item \textbf{discussione}: al termine della lettura il verificatore spunterà i punti della lista di controllo che sono stati correttamente realizzati, i punti non spuntati serviranno all'autore per capire quali modifiche del prodotto non sono state realizzate correttamente
+    \item \textbf{correzione e repeat}:  una volta terminata la discussione e rilevati i difetti, gli autori sono pregati di correggere tali difetti seguendo le indicazioni discusse. Successivamente, si passa di nuovo al passo 2 eventualmente aggiornando la lista di controllo.
+\end{itemize}
+\paragraph{verifica della documentazione}
+La verifica della documentazione, composta solamente da analisi statica dei documenti realizzati e/o modificati, ha lo scopo di verificare
+la qualità, completezza, coerenza e conformità dei documenti tecnici realtivi al prodotto software da realizzare.
+Durante l'esecuzione delle tecniche di walkthrough e inspection descritte precedentemente, il verificatore ha lo scopo di 
+assicurarsi che vengano seguiti correttamente gli standard di scrittura e di forma, sia generici che specifici, indicati all'interno
+del \hyperref[subsec:documentazione]{processo di Documentazione}.
+Oltre a ciò, è stata realizzata una GitHub Action che, all'apertura di una pull request, realizza un'analisi grammaticale dei file 
+modificati e coinvolti nella pull request, fornendo successivamente un feedback al gruppo di lavoro.
+La GitHub Action assicura la correttezza grammaticale dei documenti verificati migliorando il processo di verifica, aumentandone l'efficienza 
+e riducendo il tempo richiesto per le revisioni manuali, permettendo al verificatore di concentrarsi maggiormente su aspetti 
+di forma e di contenuto.
+\subsubsection{Analisi dinamica}
+L'analisi dinamica è un approccio all'analisi di sitemi informatici e prodotti software che si concentra sull'osservazione e verifica
+del loro comportamento durante l'esecuzione.
+Quest'ultima è ampiamente impiegata per individuare errori di runtime, ottimizzare l'efficienza e testare la robustezza contro scenari imprevisti e,
+grazie alla sua capacità di fornire dati concreti e rilevanti, rappresenta un elemento fondamentale nel processo di sviluppo e manutenzione di applicazioni e sistemi complessi.
+Essa prevede la definizione di una suite di test, generalmente automatizzati e riproducibili, che vengono eseguiti durante il runtime per valutare il comportamento del sistema in risposta a specifici input, 
+verificando la correttezza delle funzionalità, l'efficienza delle prestazioni e l'assenza di errori o anomalie operative.
+I principali tipi di test che vengono utilizzati per l'analisi dinamica sono: 
+\begin{itemize}
+    \item \textbf{test di unità}: Mirano a verificare il corretto funzionamento di singole unità o componenti del software (ad esempio, funzioni o metodi). 
+    Sono solitamente automatizzati e si concentrano su un ambito ristretto per identificare errori locali.
+    \item \textbf{test di integrazione}: Valutano come le diverse unità o moduli del software interagiscono tra loro. 
+    L'obiettivo è assicurarsi che le componenti integrate funzionino correttamente come un sistema coerente.
+    \item \textbf{test di sistema}: Analizzano il comportamento dell'intero sistema per verificare che soddisfi i requisiti specificati. 
+    Considerano il software come un unico blocco, includendo interazioni con l'ambiente e altre applicazioni.
+\end{itemize}
+All'interno del \hyperref[subsection:processo_sviluppo]{processo di Sviluppo}, nello specifico nella sezione di testing, vi è una descrizione 
+più approfondita delle varie tipologie di test adottate durante lo sviluppo del prodotto software, ogni test utilizzato verrà poi 
+codificato e indicato all'interno del documento "Piano di Qualifica".
