@@ -1,0 +1,454 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{custom}
+\usepackage[nonumberlist,section=section]{glossaries}
+
+
+%--------------------VARIABILI--------------------
+\def\lastversion{v0.1}
+\def\title{Piano di progetto}
+\def\date{19 dicembre 2024}
+%------------------------------------------------
+
+% Definizione dei termini del glossario
+
+\newglossaryentry{Ciclo di vita}{
+    name=Ciclo di vita,
+    description={Ciclo di vita si riferisce all'insieme delle fasi che un sistema, un'applicazione o un componente software 
+    attraversa dalla sua concezione fino al termine del suo utilizzo. Queste fasi descrivono il processo completo di sviluppo, 
+    implementazione, gestione e dismissione del software o del sistema.
+    }
+}
+
+\newglossaryentry{Stakeholder}{
+    name=Stakeholder,
+    description={Uno stakeholder è qualsiasi individuo, gruppo o organizzazione che ha un interesse diretto o indiretto in un progetto
+    (portatore di interesse). Gli stakeholder sono essenziali perché definiscono i requisiti, gli obiettivi e i vincoli di un progetto, 
+    influenzandone la direzione e il successo. }
+}
+\newglossaryentry{UML}{
+    name=UML,
+    description={Un diagramma UML (Unified Modeling Language) è una rappresentazione grafica utilizzata per modellare, 
+    visualizzare, documentare e progettare sistemi software o processi. L'UML è uno standard internazionale che fornisce 
+    un linguaggio visuale per descrivere sia la struttura che il comportamento di un sistema, rendendo più chiara e 
+    condivisibile la progettazione tra sviluppatori, analisti, e stakeholder.}
+}
+\newglossaryentry{Best practices}{
+    name=Best practices,
+    description={Le best practices (in italiano, "migliori pratiche") sono un insieme di metodi, procedure, tecniche o regole 
+    riconosciute come le più efficaci e affidabili per ottenere risultati ottimali in un determinato ambito. Queste pratiche 
+    si basano su esperienze consolidate, studi, e casi di successo, e servono come guida per migliorare la qualità,
+     l'efficienza e l'affidabilità di un processo o di un'attività.}
+}
+\newglossaryentry{Report}{
+    name=Report,
+    description={Un report è un documento o una rappresentazione strutturata di dati e informazioni, generato in modo automatico
+     o manuale, con lo scopo di fornire una sintesi chiara e dettagliata su un determinato argomento, processo o sistema.}
+}
+\newglossaryentry{Label}{
+    name=Label,
+    description={Nna label (etichetta) è un identificatore utilizzato per rappresentare, descrivere o categorizzare un elemento,
+     un dato o un'area specifica all'interno di un sistema, un programma o un'interfaccia. Il significato e l'utilizzo di una 
+     label variano in base al contesto. }
+}
+\newglossaryentry{Caption}{
+    name=Caption,
+    description={una caption (didascalia) è un breve testo descrittivo associato a un elemento visivo o multimediale, 
+    utilizzato per fornire informazioni contestuali, esplicative o identificative. Le caption aiutano gli utenti a comprendere
+     meglio il contenuto a cui si riferiscono, migliorandone l'accessibilità e l'usabilità.}
+}
+\newglossaryentry{Sprint}{
+    name=Sprint,
+    description={Uno sprint è un'unità di lavoro a tempo determinato utilizzata nelle metodologie agili, in particolare nel
+     framework Scrum, per sviluppare e rilasciare incrementi di un prodotto o progetto. Lo sprint rappresenta un intervallo
+      di tempo fisso (solitamente da 1 a 4 settimane) durante il quale un team lavora per completare un set specifico di
+       attività o obiettivi definiti nel backlog dello sprint.}
+}
+\newglossaryentry{Capitolato}{
+    name=Capitolato,
+    description={Un capitolato è un documento formale che definisce in modo dettagliato i requisiti, le specifiche e le
+     condizioni tecniche, funzionali e organizzative di un progetto o di un sistema da sviluppare, acquisire o 
+     implementare. Viene utilizzato come base di riferimento per lo sviluppo, la fornitura o la valutazione di soluzioni 
+     informatiche.}
+}
+\newglossaryentry{IEEE 12207:1996}{
+    name=IEEE 12207:1996,
+    description={L'IEEE 12207:1996, noto anche come Software Life Cycle Processes, è uno standard internazionale sviluppato
+     dall'Institute of Electrical and Electronics Engineers (IEEE), in collaborazione con l'ISO/IEC, che definisce un quadro
+      di riferimento completo per i processi coinvolti nel ciclo di vita del software. Questo standard descrive tutte le
+       attività necessarie per lo sviluppo, la gestione, la manutenzione e la dismissione di sistemi software.}
+}
+\newglossaryentry{Milestone}{
+    name=Milestone,
+    description={Una milestone (o pietra miliare) è un punto di riferimento significativo all'interno di un progetto o di un 
+    ciclo di sviluppo software che segna il completamento di una fase importante o di un obiettivo specifico. Le milestone sono
+     utilizzate per monitorare il progresso del progetto, per garantire che vengano rispettati i tempi e gli obiettivi
+      prefissati e per facilitare la pianificazione delle fasi successive.}
+}
+\newglossaryentry{Baseline}{
+    name=Baseline,
+    description={Una baseline è una versione ufficiale e stabile di un sistema, di un software o di un progetto, che viene 
+    utilizzata come punto di riferimento per tutte le successive modifiche e sviluppi. Una baseline rappresenta un insieme 
+    di specifiche, documentazione, codice o configurazioni che sono stati approvati e che vengono considerati come "fissati"
+     a un certo momento del ciclo di vita del progetto.}
+}
+\newglossaryentry{Repository}{
+    name=Repository,
+    description={un repository è un luogo centrale dove vengono archiviati e gestiti file, dati, codice sorgente o altre 
+    risorse digitali, in modo strutturato e organizzato. Il repository permette di centralizzare e controllare l'accesso a
+     questi file, facilitando il lavoro collaborativo e il versionamento. È uno strumento essenziale per la gestione del ciclo
+      di vita del software e dei progetti, nonché per la conservazione e distribuzione dei dati.}
+}
+\newglossaryentry{Latex}{
+    name=Latex,
+    description={LaTeX è un linguaggio di markup e un sistema di preparazione di documenti, utilizzato principalmente per la 
+    composizione di documenti scientifici, tecnici e accademici. LaTeX è ampiamente preferito in ambiti come la matematica, 
+    la fisica, l'ingegneria e l'informatica grazie alla sua capacità di gestire complessi simboli matematici, formule, citazioni 
+    bibliografiche e riferimenti incrociati.}
+}
+\newglossaryentry{RTB}{
+    name=RTB,
+    description={In ingegneria del software, RTB sta per "Reason to Believe" (Motivazione per Credere) ed è un concetto 
+    utilizzato principalmente nell'ambito della valutazione della qualità e dell'affidabilità di un sistema software. 
+    L'RTB rappresenta la giustificazione, la base o le evidenze che supportano la fiducia nella capacità di un software 
+    di soddisfare i requisiti stabiliti.}
+}
+\newglossaryentry{Packages}{
+    name=Packages,
+    description={ il termine packages (pacchetti) si riferisce a un insieme di file o moduli software organizzati in una 
+    struttura di directory e distribuiti come unità singola, destinati a facilitare la gestione, l'installazione e l'uso di
+     componenti software. I pacchetti contengono tipicamente codice sorgente, librerie, configurazioni, documentazione e altre 
+     risorse necessarie per l'implementazione di una funzionalità o applicazione specifica.}
+}
+\newglossaryentry{Pascal case}{
+    name=Pascal case,
+    description={Pascal Case è una convenzione di denominazione utilizzata in informatica, soprattutto nella programmazione, 
+    in cui ogni parola che compone un nome o identificatore inizia con una lettera maiuscola, senza spazi o altri caratteri 
+    separatori. In Pascal Case, la prima lettera di ogni parola, inclusa la prima, è maiuscola, e le parole sono concatenate 
+    senza l'uso di underscore o altri simboli.}
+}
+\newglossaryentry{Configuration Item}{
+    name=Configuration Item,
+    description={Un Configuration Item (CI) è un elemento di un sistema informatico che viene gestito e monitorato come parte
+     di un processo di gestione della configurazione. Un CI può essere qualsiasi componente hardware, software, documentazione,
+      o altro elemento rilevante che influisce sul funzionamento di un sistema o di un progetto. Ogni CI è identificato in modo
+       univoco e contiene informazioni relative alla sua configurazione, stato e versione.}
+}
+\newglossaryentry{Strategia di branching}{
+    name=Strategia di branching,
+    description={una strategia di branching (o strategia di ramificazione) è una pratica o un insieme di regole utilizzate nella
+     gestione del controllo di versione del codice sorgente, in particolare quando si lavora con sistemi come Git. Essa
+      definisce come e quando creare branch (rami) separati nel codice, in modo che i team di sviluppo possano lavorare in
+       parallelo su diverse funzionalità, correzioni o versioni senza interferire con la versione principale del software.}
+}
+\newglossaryentry{Gitflow}{
+    name=Gitflow,
+    description={GitFlow è una strategia di branching che aiuta a gestire in modo strutturato lo sviluppo di 
+    software, organizzando il lavoro in vari rami dedicati a specifici scopi, come lo sviluppo di funzionalità, la preparazione
+     dei rilasci e la gestione delle correzioni di bug.}
+}
+\newglossaryentry{Codeline}{
+    name=Codeline,
+    description={Codeline è il termine utilizzato per riferirsi a una sequenza continua di versioni di codice sorgente che
+     viene sviluppata e mantenuta all'interno di un sistema di controllo di versione. Una codeline rappresenta una "linea" di
+      sviluppo del codice, che può evolversi con modifiche, miglioramenti e correzioni nel tempo.}
+}
+\newglossaryentry{Git}{
+    name=Git,
+    description={Git è un sistema di controllo versione distribuito open-source, utilizzato per gestire e tracciare le
+     modifiche apportate a file e progetti, in particolare nel contesto dello sviluppo software. Permette a più sviluppatori
+      di collaborare in modo efficace, tenendo traccia delle modifiche in un progetto e facilitando il lavoro su diverse
+       versioni del codice.}
+}
+\newglossaryentry{Issue tracking system}{
+    name=Issue tracking system,
+    description={Un Issue Tracking System (ITS) è un software utilizzato per registrare, tracciare, gestire e risolvere le 
+    problematiche, i bug, le richieste di funzionalità e altri tipi di "issue" (problemi) all'interno di un progetto o di 
+    un'organizzazione. Questi sistemi sono essenziali per monitorare il progresso delle attività, assegnare compiti e 
+    garantire che le problematiche vengano risolte in modo tempestivo ed efficiente.}
+}
+\newglossaryentry{Github}{
+    name=Github,
+    description={GitHub è una piattaforma di sviluppo software basata su Git, che fornisce un servizio di hosting per il 
+    codice sorgente e supporta il controllo versione distribuito. GitHub permette di
+     collaborare a progetti software in modo efficiente, mantenendo un repository centralizzato per il codice e facilitando 
+     la gestione delle versioni, la revisione del codice e la collaborazione tra team.}
+}
+
+
+\newglossaryentry{Check list}{
+    name=Check list,
+    description={Una checklist è un elenco di elementi, attività o passaggi che devono essere verificati, completati o 
+    controllati per assicurarsi che un processo o un'attività sia eseguito correttamente. Le checklist sono utilizzate per 
+    garantire che tutte le operazioni necessarie siano state eseguite, riducendo il rischio di errori e dimenticanze.}
+}
+\newglossaryentry{Markup}{
+    name=Markup,
+    description={Markup si riferisce a un insieme di simboli o codici usati per annotare o strutturare il contenuto di un
+     documento. Questi simboli o codici, noti come markup tags, indicano come il testo o gli altri contenuti devono essere
+      trattati, visualizzati o interpretati da un programma.}
+}
+\newglossaryentry{PDF}{
+    name=PDF,
+    description={PDF (Portable Document Format) è un formato di file sviluppato da Adobe che consente di visualizzare,
+     stampare e scambiare documenti in modo indipendente dal software, hardware e sistema operativo utilizzato. Il formato
+      PDF è progettato per mantenere la formattazione originale di un documento, inclusi testo, immagini, grafica vettoriale,
+       font e layout, in modo che appaia uguale su qualsiasi dispositivo o piattaforma.}
+}
+\newglossaryentry{Font}{
+    name=Font,
+    description={Un font è un insieme di caratteri tipografici che condividono uno stesso stile e dimensione. I font
+     determinano l'aspetto visivo del testo, influenzando l'estetica e la leggibilità di un documento, di un sito web o di 
+     un'applicazione. Ogni font include una varietà di simboli, lettere, numeri e segni di punteggiatura, tutti progettati 
+     con lo stesso stile grafico.}
+}
+\newglossaryentry{TLShell}{
+    name=TLShell,
+    description={TLShell offre un modo sicuro e intuitivo per interagire con i dispositivi di rete, eseguire configurazioni 
+    e monitorare lo stato dei dispositivi.}
+}
+\newglossaryentry{Radio button}{
+    name=Radio button,
+    description={Un radio button (o pulsante di opzione) è un tipo di controllo dell'interfaccia utente utilizzato nei moduli 
+    e nelle applicazioni per permettere all'utente di selezionare una sola opzione da un gruppo di scelte predefinite.}
+}
+\newglossaryentry{Variabile di ambiente}{
+    name=Variabile di ambiente,
+    description={Una variabile di ambiente è una variabile dinamica che viene utilizzata dal sistema operativo e dai programmi
+     in esecuzione per memorizzare informazioni di configurazione o parametri specifici relativi all'ambiente di esecuzione.
+      Le variabili di ambiente forniscono un modo per configurare il comportamento di software, applicazioni e script senza
+       dover modificare direttamente il codice.}
+}
+\newglossaryentry{IDE}{
+    name=IDE,
+    description={Un IDE (Integrated Development Environment) è un software che fornisce un insieme di strumenti integrati per
+     facilitare lo sviluppo di applicazioni. Gli IDE sono progettati per aiutare i programmatori a scrivere, testare, eseguire
+      e fare il debug del codice in modo più efficiente. Un IDE tipicamente combina diversi strumenti in un'unica interfaccia
+       utente, semplificando il flusso di lavoro durante la scrittura del software.}
+}
+\newglossaryentry{Visual Studio Code}{
+    name=Visual Studio Code,
+    description={Visual Studio Code (VS Code) è un editor di codice sorgente open-source sviluppato da Microsoft, progettato
+     per supportare una vasta gamma di linguaggi di programmazione e tecnologie. È leggero, altamente estensibile e dotato di 
+     funzionalità avanzate per lo sviluppo di software.}
+}
+\newglossaryentry{Spell checkin}{
+    name=Spell checkin,
+    description={Spell checking (verifica ortografica) è il processo di controllo e correzione automatica degli
+     errori di ortografia all'interno di un testo. Viene comunemente utilizzato in applicazioni come editor di testo, word
+      processor, e-mail e strumenti di programmazione per rilevare parole scritte in modo errato o che non corrispondono a 
+      quelle presenti in un dizionario di riferimento.}
+}
+\newglossaryentry{DVCS}{
+    name=DVCS,
+    description={DVCS (Distributed Version Control System) è un sistema di controllo di versione distribuito che consente a 
+    più sviluppatori di lavorare su un progetto in modo collaborativo, tracciando e gestendo le modifiche al codice sorgente
+     nel tempo. A differenza dei sistemi di controllo di versione centralizzati, in cui esiste un repository centrale, un DVCS
+      consente a ciascun sviluppatore di avere una copia completa del repository, inclusa la cronologia delle modifiche, sul 
+      proprio computer.}
+}
+\newglossaryentry{File system}{
+    name=File system,
+    description={Un file system è essenziale per la gestione dei dati su dispositivi di memorizzazione, permettendo di
+     archiviare, recuperare e organizzare i file in modo sicuro e strutturato.}
+}
+\newglossaryentry{Fast-forward}{
+    name=Fast-forward,
+    description={Il termine fast-forward si riferisce a una situazione in cui una serie di operazioni o aggiornamenti viene
+     applicata in modo diretto e senza conflitti, ovvero in modo che il risultato finale "avanzato" nel tempo sia una 
+     progressione lineare senza la necessità di risolvere conflitti tra modifiche parallele.
+    Nel contesto del controllo di versione (come Git), fast-forward indica una situazione in cui il ramo (branch) corrente
+     può essere aggiornato semplicemente "avanzando" la sua punta (tip) al commit più recente di un altro ramo, senza dover 
+     fare un "merge" (fusione) con risoluzione dei conflitti.}
+}
+\newglossaryentry{Console}{
+    name=Console,
+    description={La console è un'interfaccia utente che permette di interagire con un sistema operativo o un software tramite
+     comandi testuali. Solitamente è un'applicazione software o a una finestra di terminale che permette agli utenti di inviare 
+     comandi al sistema operativo o a un programma e ricevere risposte o output.}
+}
+\newglossaryentry{Keyword}{
+    name=Keyword,
+    description={ Keyword (parola chiave) si riferisce a una parola o a un termine che ha un significato speciale all'interno
+     di un linguaggio di programmazione o di un sistema. Le parole chiave sono riservate e non possono essere utilizzate come
+      identificatori (come nomi di variabili, funzioni o classi), poiché sono predefinite dal linguaggio per svolgere funzioni
+       specifiche.}
+}
+\newglossaryentry{Current working directory}{
+    name=Current working directory,
+    description={La current working directory è la cartella in cui un programma o sistema operativo opera attualmente e svolge
+     operazioni sui file.}
+}
+\newglossaryentry{ITS}{
+    name=ITS,
+    description={Un Issue Tracking System (ITS) è un software utilizzato per registrare, tracciare, gestire e risolvere le 
+    problematiche, i bug, le richieste di funzionalità e altri tipi di "issue" (problemi) all'interno di un progetto o di 
+    un'organizzazione. Questi sistemi sono essenziali per monitorare il progresso delle attività, assegnare compiti e 
+    garantire che le problematiche vengano risolte in modo tempestivo ed efficiente.}
+}
+\newglossaryentry{Issue}{
+    name=Issue,
+    description={un issue è un termine generico utilizzato per riferirsi a un problema, un bug, una richiesta o una questione
+     che deve essere risolta o gestita all'interno di un progetto software. Le issue possono riguardare vari aspetti dello
+      sviluppo software, come difetti nel codice, funzionalità da implementare, miglioramenti da apportare o discussioni
+       relative a decisioni progettuali.}
+}
+\newglossaryentry{Markdown}{
+    name=Markdown,
+    description={Markdown è un linguaggio di markup leggero che consente di scrivere testo formattato in modo semplice, con 
+    la possibilità di convertirlo facilmente in HTML o altri formati, ed è ampiamente utilizzato per la scrittura di
+     documentazione.}
+}
+\newglossaryentry{Pull request}{
+    name=Pull request,
+    description={Una pull request è un meccanismo di collaborazione in cui uno sviluppatore propone modifiche al codice, 
+    che vengono esaminate e potenzialmente integrate nel progetto principale, consentendo il controllo della qualità e 
+    la revisione collettiva del codice.}
+}
+\newglossaryentry{Diagramma di Gantt}{
+    name=Diagramma di Gantt,
+    description={Il diagramma di Gantt è uno strumento di pianificazione visiva utilizzato per rappresentare graficamente
+     le attività di un progetto nel tempo. Ideato da Henry L. Gantt negli anni 1910, questo diagramma è uno dei più comuni
+      metodi per il controllo e la gestione di progetti, ed è utilizzato principalmente in contesti di gestione dei progetti
+       per visualizzare la sequenza, la durata e il progresso delle attività.}
+}
+\newglossaryentry{Project back-log}{
+    name=Project back-log,
+    description={Il project backlog (o backlog del progetto) è un elenco prioritizzato di attività, requisiti, funzionalità
+     o task che devono essere completati in un progetto. Viene utilizzato principalmente nelle metodologie agili, come Scrum, 
+     per gestire e pianificare il lavoro da svolgere durante lo sviluppo di un prodotto o di una soluzione. Ogni voce nel
+      backlog rappresenta un elemento di lavoro che può essere un requisito del cliente, una correzione di bug, una funzionalità
+       nuova o un miglioramento da implementare.}
+}
+\newglossaryentry{Sprint backlog}{
+    name=Sprint backlog,
+    description={Lo Sprint Backlog è un elenco delle attività, dei task e delle funzionalità che il team di sviluppo si impegna 
+    a completare durante uno Sprint.  Lo Sprint Backlog deriva dal Product Backlog, che contiene tutte le attività necessarie
+     per completare un intero progetto. Durante la pianificazione dello Sprint, il team seleziona gli elementi dal Product
+      Backlog che possono essere completati entro la durata dello Sprint e li inserisce nello Sprint Backlog.}
+}
+\newglossaryentry{GitHub action}{
+    name=GitHub action,
+    description={Una GitHub Action è uno strumento di automazione che consente di eseguire flussi di lavoro (workflows)
+     direttamente all'interno di un repository GitHub. Le GitHub Actions sono utilizzate per automatizzare compiti ripetitivi,
+      come il testing del codice, il deployment (distribuzione), la compilazione, e altre attività legate al ciclo di vita del
+       software. Queste azioni si integrano con GitHub, facilitando l'integrazione continua (CI) e la distribuzione continua
+        (CD) nei progetti software.}
+}
+\newglossaryentry{Container}{
+    name=Container,
+    description={Un container è una tecnologia di virtualizzazione leggera che consente di eseguire applicazioni in ambienti 
+    isolati e portabili, chiamati contenitori. A differenza delle macchine virtuali tradizionali, i container condividono il
+     sistema operativo sottostante, ma sono separati a livello di processo, garantendo che le applicazioni all'interno di
+      ciascun container non interferiscano tra loro. Questa isolazione consente di eseguire applicazioni in modo consistente
+      su qualsiasi ambiente.}
+}
+\newglossaryentry{Workflow}{
+    name=Workflow,
+    description={Un workflow è una sequenza definita di attività, compiti o processi che vengono eseguiti per completare una 
+    specifica operazione o obiettivo. I workflow possono essere automatizzati o manuali e sono utilizzati per coordinare, 
+    ottimizzare e monitorare i flussi di lavoro all'interno di un sistema informatico, di un'applicazione o di 
+    un'organizzazione.}
+}
+\newglossaryentry{Host}{
+    name=Host,
+    description={Un host è qualsiasi dispositivo o sistema che fornisce risorse, servizi o capacità di comunicazione in 
+    una rete. Un host può essere un computer, un server, un dispositivo mobile, o qualsiasi altro dispositivo che possa
+     connettersi a una rete e interagire con altri dispositivi o sistemi.}
+}
+\newglossaryentry{OS}{
+    name=OS,
+    description={OS sta per Operating System (sistema operativo), che è un software di base fondamentale per la gestione 
+    delle risorse hardware e software di un computer o dispositivo. L'OS fornisce un'interfaccia tra l'utente e l'hardware,
+     gestendo operazioni come l'esecuzione di programmi, la gestione della memoria, il controllo dei dispositivi di
+      input/output, e la gestione dei file.}
+}
+\newglossaryentry{GitHub action marketplace}{
+    name=GitHub action marketplace,
+    description={Il GitHub Action Marketplace è una piattaforma integrata in GitHub che permette agli utenti di scoprire, 
+    acquistare e utilizzare azioni GitHub (GitHub Actions) }
+}
+\newglossaryentry{YAML}{
+    name=YAML,
+    description={YAML (Yet Another Markup Language) è un formato di serializzazione dei dati, leggibile dall'uomo,
+     utilizzato per rappresentare informazioni in modo strutturato. Viene spesso impiegato per configurazioni, scambi 
+     di dati e definizione di strutture nei contesti di sviluppo software.}
+}
+\newglossaryentry{Personal Access Token}{
+    name=Personal Access Token,
+    description={Un Personal Access Token (PAT) è un tipo di token di autenticazione che viene utilizzato per accedere a 
+    risorse protette su piattaforme e servizi, come GitHub, GitLab, o Azure DevOps, al posto di una password tradizionale.
+     I PAT vengono generati dall'utente e possono essere utilizzati per autentificarsi in modo sicuro e automatizzato quando
+      si interagisce con API o si eseguono operazioni come il push di codice o la gestione di repository.}
+}
+\newglossaryentry{Framework}{
+    name=Framework,
+    description={Un framework è un insieme di strumenti, librerie e convenzioni che forniscono una struttura
+     predefinita per lo sviluppo di applicazioni software. Si tratta di una piattaforma che semplifica e standardizza il 
+     processo di sviluppo, consentendo agli sviluppatori di concentrarsi sulla logica applicativa piuttosto che scrivere 
+     codice da zero per ogni singola funzionalità di base.}
+}
+\newglossaryentry{Agile}{
+    name=Agile,
+    description={Agile in informatica è un insieme di metodologie e pratiche di sviluppo software che promuovono iterazioni
+     rapide, adattabilità ai cambiamenti e una stretta collaborazione tra il team di sviluppo e i clienti. Il termine Agile si
+      riferisce a un approccio che enfatizza la flessibilità, la trasparenza e il miglioramento continuo, con l'obiettivo
+       di consegnare software di qualità in modo rapido e reattivo alle necessità del cliente.}
+}
+\newglossaryentry{Modello di sviluppo a periodi}{
+    name=Modello di sviluppo a periodi,
+    description={Il modello di sviluppo a periodi (o ciclo di vita del software iterativo e incrementale) è un approccio in
+     informatica che suddivide il processo di sviluppo del software in periodi o iterazioni ripetute, in cui ogni periodo
+      produce una versione parziale ma funzionante del sistema. Ogni ciclo o periodo include fasi di progettazione, sviluppo,
+       testing e revisione, e alla fine di ogni periodo viene rilasciato un incremento delle funzionalità del software.}
+}
+\newglossaryentry{Feedback}{
+    name=Feedback,
+    description={Il feedback è il processo attraverso il quale i risultati o le risposte di un sistema, applicazione o processo
+     vengono restituiti agli utenti, ai team di sviluppo o ad altri attori coinvolti, per informare, correggere o migliorare
+      il funzionamento del sistema stesso. Il feedback può essere positivo (quando il risultato è conforme alle aspettative)
+       o negativo (quando è necessario apportare modifiche o correzioni).}
+}
+\newglossaryentry{Way of working}{
+    name=Way of working,
+    description={Il termine "way of working" (WoW) in informatica si riferisce al modo in cui un team, un'organizzazione
+     o un progetto opera, gestisce e coordina le proprie attività per raggiungere i propri obiettivi. Include le metodologie,
+      le pratiche, gli strumenti, le comunicazioni e le procedure seguite nel corso dello sviluppo e della gestione del lavoro.}
+}
+\newglossaryentry{Kanban board}{
+    name=Kanban board,
+    description={La Kanban board è uno strumento visivo utilizzato per gestire e monitorare il flusso di lavoro in progetti,
+     tipicamente in contesti di sviluppo software o gestione dei processi aziendali. È una rappresentazione grafica che aiuta
+      i team a visualizzare le attività in corso, a tracciare il progresso e a identificare eventuali colli di bottiglia nel
+       processo.}
+}
+\newglossaryentry{ISO 31000}{
+    name=ISO 31000,
+    description={ ISO 31000 è uno standard che fornisce un approccio sistematico, integrato e continuo per la gestione del
+     rischio, aiutando le organizzazioni a identificare, valutare e gestire i rischi in modo efficace per raggiungere i
+      propri obiettivi.}
+}
+
+\makenoidxglossaries
+\glsaddall
+
+\begin{document}
+
+\primapagina
+
+\begin{registromodifiche}
+        v0.1 & 19 dicembre 2024  & Francesco Savio & Marko Peric & Sezioni \hyperref[sec:introduzione]{Introduzione},  \hyperref[sec:glossario]{Glossario}\\
+    \hline 
+\end{registromodifiche}
+
+
+\section*{Introduzione}
+\label{sec:introduzione}
+Questo glossario contiene termini contenuti nei documenti creati dal gruppo Alt+f4 che potrebbero richiedere una spiegazione più esaustiva,
+ la ricerca può essere fatta tramite la parola specifica utilizzando il comando Ctrl+f, oppure scorrendo il glossario in ordine alfabetico.
+
+
+\label{sec:glossario}
+\printnoidxglossaries
+
+\end{document}
