@@ -1,7 +1,8 @@
 \documentclass[a4paper,12pt]{article}
 \usepackage[T1]{fontenc}
-\usepackage[nonumberlist,section=section]{glossaries}
 \usepackage{custom}
+\usepackage[nonumberlist,section=section]{glossaries}
+
 
 %--------------------VARIABILI--------------------
 \def\lastversion{v0.1}
@@ -10,6 +11,7 @@
 %------------------------------------------------
 
 % Definizione dei termini del glossario
+
 \newglossaryentry{Ciclo di vita}{
     name=Ciclo di vita,
     description={Ciclo di vita si riferisce all'insieme delle fasi che un sistema, un'applicazione o un componente software 
@@ -172,6 +174,8 @@
      collaborare a progetti software in modo efficiente, mantenendo un repository centralizzato per il codice e facilitando 
      la gestione delle versioni, la revisione del codice e la collaborazione tra team.}
 }
+
+
 \newglossaryentry{Check list}{
     name=Check list,
     description={Una checklist è un elenco di elementi, attività o passaggi che devono essere verificati, completati o 
@@ -251,7 +255,7 @@
 \newglossaryentry{Fast-forward}{
     name=Fast-forward,
     description={Il termine fast-forward si riferisce a una situazione in cui una serie di operazioni o aggiornamenti viene
-     applicata in modo diretto e senza conflitti, ovvero, in modo che il risultato finale "avanzato" nel tempo sia una 
+     applicata in modo diretto e senza conflitti, ovvero in modo che il risultato finale "avanzato" nel tempo sia una 
      progressione lineare senza la necessità di risolvere conflitti tra modifiche parallele.
     Nel contesto del controllo di versione (come Git), fast-forward indica una situazione in cui il ramo (branch) corrente
      può essere aggiornato semplicemente "avanzando" la sua punta (tip) al commit più recente di un altro ramo, senza dover 
@@ -295,9 +299,9 @@
     la possibilità di convertirlo facilmente in HTML o altri formati, ed è ampiamente utilizzato per la scrittura di
      documentazione.}
 }
-\newglossaryentry{Pull reques}{
-    name=Pull reques,
-    description={Un pull request è un meccanismo di collaborazione in cui uno sviluppatore propone modifiche al codice, 
+\newglossaryentry{Pull request}{
+    name=Pull request,
+    description={Una pull request è un meccanismo di collaborazione in cui uno sviluppatore propone modifiche al codice, 
     che vengono esaminate e potenzialmente integrate nel progetto principale, consentendo il controllo della qualità e 
     la revisione collettiva del codice.}
 }
@@ -387,7 +391,7 @@
 \newglossaryentry{Agile}{
     name=Agile,
     description={Agile in informatica è un insieme di metodologie e pratiche di sviluppo software che promuovono iterazioni
-     rapide, adattabilità ai cambiamenti e una stretta collaborazione tra team di sviluppo e clienti. Il termine Agile si
+     rapide, adattabilità ai cambiamenti e una stretta collaborazione tra il team di sviluppo e i clienti. Il termine Agile si
       riferisce a un approccio che enfatizza la flessibilità, la trasparenza e il miglioramento continuo, con l'obiettivo
        di consegnare software di qualità in modo rapido e reattivo alle necessità del cliente.}
 }
@@ -433,7 +437,7 @@
 \primapagina
 
 \begin{registromodifiche}
-        v0.1 & 19 dicembre 2024  & Francesco Savio & & Sezioni \hyperref[sec:introduzione]{Introduzione},  \hyperref[sec:glossario]{Glossario}\\
+        v0.1 & 19 dicembre 2024  & Francesco Savio & Marko Peric & Sezioni \hyperref[sec:introduzione]{Introduzione},  \hyperref[sec:glossario]{Glossario}\\
     \hline 
 \end{registromodifiche}
 
@@ -442,6 +446,7 @@
 \label{sec:introduzione}
 Questo glossario contiene termini contenuti nei documenti creati dal gruppo Alt+f4 che potrebbero richiedere una spiegazione più esaustiva,
  la ricerca può essere fatta tramite la parola specifica utilizzando il comando Ctrl+f, oppure scorrendo il glossario in ordine alfabetico.
+
 
 \label{sec:glossario}
 \printnoidxglossaries
