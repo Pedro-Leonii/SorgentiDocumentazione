@@ -1136,14 +1136,14 @@ Nel secondo caso è necessario installare l'editor che può essere trovato nel M
 
 \subsubsection{Dashboard excel}
 \paragraph{Dashboard excel per il calcolo delle ore}
-Il gruppo si è munito di un file excel condiviso dove è stata realizzata una dashboard per tenere traccia in un unico file degli sprint. Ogni sprint traccia a sua volta le seguenti informazioni per ogni issue appartenente allo sprint:
+Il gruppo si è munito di un file excel condiviso dove è stata realizzata una dashboard per tenere traccia, in un unico file, degli sprint. Ogni sprint traccia, a sua volta, le seguenti informazioni per ogni issue appartenente allo sprint:
 \begin{enumerate}
-    \item Id issue.
+    \item ID issue.
     \item Ruolo di chi ha svolto la issue.
     \item Ore preventivate.
     \item Ore effettive.
 \end{enumerate}
 Questo file excel aiuta il gruppo ad accumulare le informazioni utili per compilare e tenere aggiornato il documento Piano di progetto.
-La dashboard viene aggiornata in modo automatico attraverso una github action che preleva dalla issue il relativo sprint associato, l’id,
- il ruolo e le ore preventivate, mentre le ore effettive vengono prese all'apertura della pull request della relativa issue che saranno scritte per convezione nel primo commento.
+La dashboard viene aggiornata in modo automatico attraverso una GitHub Action che preleva, dalla issue, il relativo sprint associato, l’ID,
+ il ruolo e le ore preventivate. Le ore effettive, invece, vengono prese all'apertura della pull request della relativa issue e, per convenzione, devono essere riportate nel primo commento.
 
