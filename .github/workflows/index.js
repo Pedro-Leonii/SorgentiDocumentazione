@@ -84,11 +84,11 @@ async function getProjectId() {
 
         const prBody = prResponse.data.body;
 
-        const timeSpentMatch = prBody.match(/tempo impiegato:\s*(\d+)/i);
+        const timeSpentMatch = prBody.match(/tempo impiegato:\s*(\d+(\.\d+)?)/i);
         if (!timeSpentMatch) {
             throw new Error('Tempo impiegato non trovato nella descrizione della pull request.');
         }
-        const timeSpent = parseInt(timeSpentMatch[1], 10);
+        const timeSpent = parseFloat(timeSpentMatch[1]);
 
         const issueMatch = prBody.match(/closes\s+#(\d+)/i);
         if (!issueMatch) {
@@ -110,11 +110,11 @@ async function getProjectId() {
         }
         const role = roleMatch[1].trim();
 
-        const idealTimeMatch = issueBody.match(/## Ore preventivate\s+(\d+)/i);
+        const idealTimeMatch = issueBody.match(/## Ore preventivate\s*(\d+(\.\d+)?)/i);
         if (!idealTimeMatch) {
             throw new Error('Ore preventivate non trovate nella descrizione della issue.');
         }
-        const idealTime = parseInt(idealTimeMatch[1], 10);
+        const idealTime = parseFloat(idealTimeMatch[1]);
 
         console.log("Recupero la lista dei progetti...", repoOwner, repoName, prNumber);
 
