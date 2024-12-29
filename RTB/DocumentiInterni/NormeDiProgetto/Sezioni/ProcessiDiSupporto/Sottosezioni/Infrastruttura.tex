@@ -157,20 +157,36 @@ La spiegazione della configurazione dell'ambiente per l'utilizzo del pacchetto Ã
 \end{figure}
 
 \subparagraph{Comandi personalizzati}
+\label{subpar:comandi_personalizzati}
 Nel pacchetto sono definiti i seguenti comandi necessari per la scrittura di un documento:
 \begin{enumerate}
     \item \lstinline|\primapagina|\ : inserisce nella posizione di invocazione la pagina iniziale dei documenti.
     Questo comando sfrutta le variabili indicate alla sezione \hyperref[par:struttura_di_base_documenti]{Struttura di base documenti}.
-    \item \lstinline|\glossario{<termine>}|\ : modifica lo stile del termine per indicare la sua presenza nel glossario.
-    
+    \item \lstinline|\glossario{<termine>}|\ : modifica lo stile del termine per indicare la sua presenza nel glossario    
+\end{enumerate}
+Per la stesura delle descrizioni dei casi d'uso il gruppo ha deciso di definire un insieme di comandi da utilizzare all'interno del ambiente personalizzato \lstinline|\begin{usecase} ...\end{usecase}|:
+\begin{enumerate}
+    \item \lstinline|\req{<link requisito utente>}|: genera in automatico la riga della tabella relativa al requisito di riferimento.
+    \item \lstinline|\pre{ \item <pre condizione 1> ... } |: genera in automatico la riga delle pre-condizioni mostrandole in una lista.
+    \item \lstinline|\post{ \item <post condizione 1> ... }|: genera in automatico la riga delle post-condizioni mostrandole in una lista..
+    \item \lstinline|\actor{<attore principale>}|: genera in automatico la riga per l'attore principale.
+    \item \lstinline|\subactors{<attori secondari>}|: genera in automatico la riga per gli attori secondari.
+    \item \lstinline|\trigger{<trigger>}|: genera in automatico la riga per il trigger.
+    \item \lstinline|\inc{<casi d'uso inclusi>}|: genera in automatico la riga per i casi d'uso inclusi.
+    \item \lstinline|\base{<caso d'uso base>}|: genera in automatico la riga per il caso d'uso base.
+    \item \lstinline|\scenario{\item <azione 1> ...}|: genera in automatico la riga per lo scenario principale la popola indicando le azioni in una lista.
+    \item \lstinline|\subscenario{\item <condizione 1> ...}|: genera in automatico la riga per per gli scenari secondari e la popola indicandoli in una lista.
 \end{enumerate}
 
 \subparagraph{Ambienti personalizzati}
+\label{subpar:ambienti_personalizzati}
 Il pacchetto definisce anche i seguenti ambienti necessari per la scrittura di un documento:
 \begin{enumerate}
     \item \lstinline|\begin{registromodifiche} ... \end{registromodifiche}|\ :
     permette di definire il registro delle modifiche tralasciando le impostazioni della tabella.
     All'interno di questo ambiente devono essere indicate le righe del \hyperref[par:registro_delle_modifiche]{registro delle modifiche}.
+    \item \lstinline|\begin{usecase}{<id>}{<descrizione>} ... \end{usecase}|:
+    genera in automatico la tabella per la descrizione dei casi d'uso.    
 \end{enumerate}
 
 \paragraph{Struttura di base documenti}
