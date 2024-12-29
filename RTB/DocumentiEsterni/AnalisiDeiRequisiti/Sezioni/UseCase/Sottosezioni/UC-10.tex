@@ -1,0 +1,38 @@
+\subsection{UC-10}
+\label{subsec:UC-10}
+
+\begin{usecase}{UC-10}{Sovrascrittura di un dataset archiviato}
+    \req{\hyperref[item:RU-3]{RU-3}} 
+
+    \pre{
+        \item Il sistema è attivo e funzionante
+        \item Il dataset corrente possiede già una versione archiviata
+    }
+
+    \post{
+        \item La versione archiviata del dataset corrente viene sovrascritta
+    }
+    
+    \actor{Utente}
+
+    \subactors{}
+
+    \trigger{L'utente deve aggiornare la versione archiviata di un dataset}
+    
+    \inc{\hyperref[subsec:UC-12]{UC-12}}
+
+    \base{}
+
+    \scenario{
+        \item L'utente richiede l'archiviazione del dataset corrente che possiede già una versione archiviata.
+        \item L'utente conferma la sovrascrittura
+        \item \texttt{<<include:UC-12>>}
+    }
+
+    \subscenario{
+        \item[2.1] \textbf{L'utente non conferma la sovrascrittura}
+        \begin{itemize}
+            \item [a.] L'operazione di sovrascrittura viene interrotta
+        \end{itemize}
+    }
+\end{usecase}

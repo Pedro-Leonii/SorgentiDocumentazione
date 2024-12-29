@@ -1,0 +1,30 @@
+\subsection{UC-3}
+\label{subsec:UC-3}
+
+\begin{usecase}{UC-3}{Visualizzazione errore nel contenuto di una coppia}
+            
+    \req{}
+    
+    \pre{
+        \item Il sistema è attivo e funzionante
+        \item Sia la domanda che la risposta di una coppia sono vuote
+    }
+    
+    \post {
+        \item Viene richiesta la correzione della coppia
+    }
+    
+    \actor{Utente}
+    
+    \subactors{}
+
+    \trigger{Una coppia è invalida}
+    
+    \inc{}
+    
+    \base{}
+    
+    \scenario{
+        \item Viene visualizzato un messaggio di errore che richiede la corretta compilazione di almeno una tra domanda e risposta
+    }
+\end{usecase}

@@ -2,11 +2,10 @@
 
 \usepackage{custom}
 
-
 %--------------------VARIABILI--------------------
-\def\lastversion{v0.1}
+\def\lastversion{v0.2}
 \def\title{Analisi dei requisiti}
-\def\date{13 dicembre 2024}
+\def\date{29 dicembre 2024}
 %------------------------------------------------
 
 \begin{document}
@@ -14,8 +13,10 @@
 \primapagina
 
 \begin{registromodifiche}
-       v0.1 & 13 dicembre 2024  & Pedro Leoni & Enrico Bianchi & Sezioni \hyperref[sec:descrizione_prodotto]{Descrizione del prodotto} \\
-    \hline 
+    v0.2 & 29 dicembre 2024 & Pedro Leoni, Francesco Savio & & Sezioni \hyperref[sec:requisiti_utente]{Requisiti utente} \hyperref[sec:use_case]{Use case} \\
+    \hline
+    v0.1 & 13 dicembre 2024  & Pedro Leoni & Enrico Bianchi & Sezioni \hyperref[sec:descrizione_prodotto]{Descrizione prodotto} \\
+    \hline
 \end{registromodifiche}
 
 \tableofcontents
@@ -23,5 +24,9 @@
 \newpage
 
 \input{Sezioni/DescrizioneProdotto/DescrizioneProdotto.tex}
+
+\input{Sezioni/RequisitiUtente/RequisitiUtente.tex}
+
+\input{Sezioni/UseCase/UseCase.tex}
 
 \end{document}

@@ -1,0 +1,37 @@
+\subsection{UC-12}
+\label{subsec:UC-12}
+
+\begin{usecase}{UC-12}{Salvataggio del dataset corrente nel sistema}
+    \req{\hyperref[item:RU-3]{RU-3}} 
+
+    \pre{
+        \item Il sistema è attivo e funzionante
+    }
+
+    \post{
+        \item Il dataset corrente viene salvato nel sistema
+        \item L'utente è a conoscenza del corretto salvataggio
+    }
+    
+    \actor{Utente}
+
+    \subactors{}
+
+    \trigger{Il sistema deve salvare il dataset corrente}
+    
+    \inc{}
+
+    \base{}
+
+    \scenario{
+        \item Il dataset corrente viene salvato nel sistema
+    }
+
+    \subscenario{
+        \item[1.1] \textbf{Avviene un errore durante il salvataggio del dataset}
+        \begin{itemize}
+            \item[a.] \hyperref[subsec:UC-13]{UC-13}
+        \end{itemize}
+    }
+
+\end{usecase}
