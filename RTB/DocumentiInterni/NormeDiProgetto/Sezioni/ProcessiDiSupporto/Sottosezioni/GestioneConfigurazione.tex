@@ -280,7 +280,7 @@ Gli stati che una richiesta di modifica attraversa durante il suo ciclo di vita 
     \label{fig:ciclo_di_vita_modifiche_documenti}
 \end{figure}
 
-\paragraph{Stati}
+\paragraph{Stati}\label{par:stati}
 In particolare gli stati di una richiesta di modifica sono:
 \begin{enumerate}
     \item \textbf{To do}: la richiesta di modifica è stata approvata dal gruppo, registrata in GitHub e appartiene ai compiti che portano al raggiungimento di una prossima baseline.
@@ -350,7 +350,12 @@ Questa operazione deve avvenire seguendo il processo che regola l'implementazion
 
 \item \hyperref[subpar:push]{Push ramo} \texttt{feature}.
 
-\item \hyperref[subpar:github_richiesta_di_verifica]{Richiesta di verifica}.
+\item \hyperref[subpar:github_richiesta_di_verifica]{Richiesta di verifica} aggiungendo nel primo commento della
+ pull request i seguenti campi:
+ \begin{enumerate}
+    \item closes \#\textless ID della issue che richiede la verifica\textgreater
+    \item Tempo impiegato: \textless numero delle ore effettive usate per svolgere la issue\textgreater
+ \end{enumerate}
 
 \end{enumerate}
 
