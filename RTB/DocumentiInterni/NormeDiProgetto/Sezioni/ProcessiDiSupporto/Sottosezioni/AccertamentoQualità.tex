@@ -24,10 +24,10 @@ Per la valutazione della qualità del software con conseguente stesura delle met
     \item \textbf{qualità interne}: si applicano al software non eseguibile, permettono di individuare eventuali problemi che potrebbero influire sulla qualità finale del prodotto prima che sia realizzato il software eseguibile
     \item \textbf{qualità in uso}: rappresentano il punto di vista dell'utente sul software, permettono di stabilire i seguenti obiettivi:
     \begin{itemize}
-        \item \textsl{Efficacia}: capacità del software di permettere agli autenti di raggiungere gli obiettivi specificati con accuratezza e completezza
-        \item \textsl{Produttività}: capcaità del software di permettere agli utenti spendere una quantità opportuna di risorse in relazione all'efficacia ottenuta
-        \item \textsl{Soddisfazione}: capacità del software si soddisfare gli utenti
-        \item \textsl{Sicurezza}: capacità del software di raggiungere livelli accettabili di rischi di danni a persone e apparecchiature
+        \item \textit{Efficacia}: capacità del software di permettere agli autenti di raggiungere gli obiettivi specificati con accuratezza e completezza
+        \item \textit{Produttività}: capcaità del software di permettere agli utenti spendere una quantità opportuna di risorse in relazione all'efficacia ottenuta
+        \item \textit{Soddisfazione}: capacità del software si soddisfare gli utenti
+        \item \textit{Sicurezza}: capacità del software di raggiungere livelli accettabili di rischi di danni a persone e apparecchiature
     \end{itemize}
 \end{itemize}
 
@@ -41,7 +41,7 @@ Lo standard normativo stabilisce un modello definendo un set di caratteristiche 
     \item \textbf{Portabilità}: capacità del software di essere di essere trasportato da un ambiente di lavoro ad un altro
 \end{itemize}
 \subsubsection{Notazione Metriche di Qualità}
-Ogni metrica è identificata in un modo univoco seguendo la notazione: \textsl{M}.[\textsl{Tipo}].[\textsl{Abbreviazione Nome}]
+Ogni metrica è identificata in un modo univoco seguendo la notazione: \textit{M}.[\textit{Tipo}].[\textit{Abbreviazione Nome}]
 Dove:
 \begin{itemize}
     \item \textbf{M}: indica "metrica"
@@ -54,48 +54,116 @@ Le metriche sono descritte tramite i seguenti campi:
     \item \textbf{Notazione}: seguendo le indicazioni sopra elencate
     \item \textbf{Nome}: nome completo della metrica 
     \item \textbf{Descrizione}: descrizione della metrica 
-    \item \textbf{caratteristiche}: presente unicamente nelle metriche di prodotto, indica a quale caratteristica, tra quelle indicate nella sezione relativa allo standard di riferimento, fa riferimento la metrica
+    \item \textbf{Caratteristiche}: presente unicamente nelle metriche di prodotto, indica a quale caratteristica, tra quelle indicate nella sezione relativa allo standard di riferimento, fa riferimento la metrica
     \item \textbf{Formula di misurazione}: formula per la misurazione del valore della metrica 
 \end{itemize}
-Verranno poi indicati all'interno del documento "Piano di Qualifica" i valori tollerabili e i valori ottimali per ogni metrica e, nel caso delle metriche di processo, anche il processo a cui fanno riferimento.
+Verranno poi indicati all'interno del documento "Piano di Qualifica" i valori tollerabili e i valori ottimali per ogni metrica e il processo a cui fanno riferimento.
 \subsubsection{Elenco delle Metriche di Qualità} 
 L'elenco delle metriche di qualità da adottare per il progetto è dettagliato secondo la struttura definita e copre diverse aree rilevanti per il processo di accertamento della qualità. Le metriche includono:
+\paragraph{Metriche di processo}
+\textbf{Planned Value}
 \begin{itemize}
-    \item \textbf{Planned Value (M.PC.PV):} Valore pianificato per monitorare il progresso del progetto.
-    \item \textbf{Earned Value (M.PC.EV):} Valore guadagnato, rappresenta il valore del lavoro effettivamente completato.
-    \item \textbf{Actual Cost (M.PC.AC):} Costo effettivo sostenuto per il lavoro completato.
-    \item \textbf{Schedule Variance (M.PC.SV):} Differenza tra il valore guadagnato e il valore pianificato.
-    \item \textbf{Cost Variance (M.PC.CV):} Differenza tra il valore guadagnato e il costo effettivo.
-    \item \textbf{Cost Performance Index (M.PC.CPI):} Indice di prestazione dei costi, calcolato come rapporto tra il valore guadagnato e il costo effettivo.
-    \item \textbf{Schedule Performance Index (M.PC.SPI):} Indice di prestazione della schedulazione, calcolato come rapporto tra il valore guadagnato e il valore pianificato.
-    \item \textbf{Estimate at Completion (M.PC.EAC):} Stima dei costi totali alla fine del progetto.
-    \item \textbf{Estimate to Complete (M.PC.ETC):} Stima dei costi necessari per completare il lavoro rimanente.
-    \item \textbf{On Time Delivery Rate (M.PC.OTDR):} Tasso di consegna puntuale, misura la percentuale di consegne effettuate nei tempi previsti.
-    \item \textbf{Percentuale requisiti obbligatori (M.PC.PRO):} Percentuale di requisiti obbligatori implementati rispetto al totale.
-    \item \textbf{Percentuale requisiti desiderabili (M.PC.PRD):} Percentuale di requisiti desiderabili implementati rispetto al totale.
-    \item \textbf{Percentuale requisiti opzionali (M.PC.PRO):} Percentuale di requisiti opzionali implementati rispetto al totale.
-    \item \textbf{Profondità delle Gerarchie (M.PR.PG):} Numero massimo di livelli gerarchici presenti in una struttura o un sistema.
-    \item \textbf{Parametri Per Metodo (M.PR.PPM):} Numero medio di parametri passati ai metodi. Un numero elevato di parametri può indicare che un metodo è troppo complesso o che potrebbe essere suddiviso in metodi più piccoli.
-    \item \textbf{Campi Per Classe (M.PR.CPC):} Numero medio di campi (variabili di istanza) per classe. Un numero elevato di campi dati può indicare che una classe sta facendo troppo e che potrebbe essere suddivisa in classi più piccole.
-    \item \textbf{Linee di Codice Per Metodo (M.PR.LCPM):} Numero medio di linee di codice per metodo. Metodi troppo lunghi possono essere difficili da leggere, capire e mantenere.
-    \item \textbf{Complessità Ciclomatica (M.PR.CCM):} La complessità ciclomatica rappresenta la complessità di un programma sulla base del numero di percorsi lineari indipendenti attraverso il codice sorgente. Un valore elevato indica un codice più complesso e potenzialmente più difficile da mantenere.
-    \item \textbf{Indice Gulpease (M.PR.IG):} L'indice Gulpease è un indice di leggibilità di un testo tarato sulla lingua italiana. Misura la lunghezza delle parole e delle frasi rispetto al numero di lettere.
-    \item \textbf{Correttezza Ortografica (M.PR.CO):} La correttezza ortografica indica la presenza di errori ortografici nei documenti.
-    \item \textbf{Facilità di Utilizzo (M.PR.FU):} Rappresenta il livello di usabilità del prodotto software mediante il numero di errori riscontrati durante l'utilizzo del prodotto da parte di un utente generico.
-    \item \textbf{Tempo di Apprendimento (M.PR.TA):} Indica il tempo massimo richiesto da parte di un utente generico per apprendere l’utilizzo del prodotto.
-    \item \textbf{Tempo di Risposta (M.PR.TR):} Indica il tempo massimo di risposta del sistema sotto carico rilevato.
-    \item \textbf{Tempo di Elaborazione (M.PR.TE):} Indica il tempo massimo di elaborazione di un dato grezzo fino alla sua presentazione rilevato.
-    \item \textbf{Metriche di Qualità Soddisfatte (M.PC.QMS):} Indica il numero di metriche implementate e soddisfatte, tra quelle definite.
-    \item \textbf{Code Coverage (M.PC.CC):} La Code Coverage indica quale percentuale del codice sorgente è stata eseguita durante i test. Serve per capire quanto del codice è stato verificato dai test automatizzati.
-    \item \textbf{Branch Coverage (M.PC.BC):} La Branch Coverage indica quale percentuale dei rami decisionali (percorsi derivanti da istruzioni condizionali come if, for, while) del codice è stata eseguita durante i test.
-    \item \textbf{Statement Coverage (M.PC.SC):} La Statement Coverage indica quale percentuale di istruzioni del codice è stata eseguita durante i test.
-    \item \textbf{Failure Density (M.PC.FD):} La Failure Density indica il numero di difetti trovati in un software o in una parte di esso durante il ciclo di sviluppo rispetto alla dimensione del software stesso.
-    \item \textbf{Passed Test Case Percentage (M.PC.PTCP):} La Passed Test Case Percentage indica la percentuale di test che sono stati eseguiti con successo su una base di test.
-    \item \textbf{Risk Mitigation Rate (M.PC.RMR):} La Risk Mitigation Rate indica la percentuale di rischi identificati che sono stati mitigati con successo.
-    \item \textbf{Rischi Non Calcolati (M.PC.NCR):} Indica il numero di rischi occorsi che non sono stati preventivati durante l’analisi dei rischi.
-    \item \textbf{Requirements Stability Index (M.PC.RSI):} Il Requirements Stability Index (RSI) indica la percentuale di requisiti che sono rimasti invariati rispetto al totale dei requisiti inizialmente definiti. Si tratta di una metrica utilizzata per misurare quanto i requisiti di un progetto rimangono stabili durante il ciclo di vita del progetto stesso, ed è particolarmente utile per comprendere l’impatto delle modifiche ai requisiti sul progetto.
-    \item \textbf{Variazione del budget tra preventivo e consuntivo (M.PC.BV):} Misura la variazione tra il costo pianificato e il costo effettivo di un progetto alla data corrente. Permette di valutare con che velocità il team sta spendendo il proprio budget rispetto al preventivo. Formula: $Variazione = \frac{Cp - Ca}{Cp} \times 100$, dove $Cp$ è il costo pianificato e $Ca$ è il costo attuale.
-    \item \textbf{Variazione del piano tra preventivo e consuntivo (M.PC.PV):} Misura la variazione tra il numero di task pianificati e quelli completati entro un certo periodo di tempo.
+    \item \textbf{Notazione}: M.PC.PV
+    \item \textbf{Descrizione}: rappresenta il costo stimato del lavoro programmato entro un determinato momento del progetto, secondo il piano di progetto originale
+    \item \textbf{Formula}: $BAC \times (\% Lavoro Pianificato)$, dove $BAC$ indica Budget at Completion cioè il budget previsto per la realizzazione del progetto
+\end{itemize}
+\textbf{Earned Value}
+\begin{itemize}
+    \item \textbf{Notazione}: M.PC.EV
+    \item \textbf{Descrizione}: rappresenta il valore del lavoro effettivamente completato alla data corrente
+    \item \textbf{Formula}: $BAC \times (\% Lavoro Completato)$, dove $BAC$ indica Budget at Completion cioè il budget previsto per la realizzazione del progetto
+\end{itemize}
+\textbf{Actual Cost}
+\begin{itemize}
+    \item \textbf{Notazione}: M.PC.AC
+    \item \textbf{Descrizione}: rappresenta il costo sostenuto fino alla data corrente
+    \item \textbf{Formula}: costo speso per la realizzazione delle attività svolte fino data corrente
+\end{itemize}
+\textbf{Schedule Variance}
+\begin{itemize}
+    \item \textbf{Notazione}: M.PC.SV
+    \item \textbf{Descrizione}: misura la variazione (in percentuale) tra il valore del lavoro effettivamente completato e il valore del lavoro pianificato, indica se il progetto è in ritardo o in anticipo rispetto a quanto preventivato
+    \item \textbf{Formula}: $\frac{EV - PV}{EV} \times 100$
+\end{itemize}
+\textbf{Cost Variance}
+\begin{itemize}
+    \item \textbf{Notazione}: M.PC.CV
+    \item \textbf{Descrizione}: misura la variazione (in percentuale) tra il valore del lavoro completato e il costo effettivo sostenuto per tale lavoro, indica se il progetto sta rispettando il budget pianificato
+    \item \textbf{Formula}: $\frac{EV - AC}{EV} \times 100$
+\end{itemize}
+\textbf{Variazione del piano}
+\begin{itemize}
+    \item \textbf{Notazione}: M.PC.VP
+    \item \textbf{Descrizione}: misura la variazione (in percentuale) tra il numero di task pianficati per un determinato periodo di tempo e il numero di task realmente realizzati, misura la qualità della pianificazione del lavoro per un periodo di tempo
+    \item \textbf{Formula}: $\frac{T_p - T_c}{T_p} \times 100$, dove $T_p$ indica il numero di task pianificati e $T_c$ il numero di task completati
+\end{itemize}
+\textbf{Estimated at Completion}
+\begin{itemize}
+    \item \textbf{Notazione}: M.PC.EAC
+    \item \textbf{Descrizione}: rappresenta una stima aggiornata del costo totale previsto per la realizzazione del progetto
+    \item \textbf{Formula}: $AC + (BAC - EV)$, (costo sostenuto + stima costi da sostenere), dove $BAC$ indica il Budget at Completion cioè il budget previsto per la realizzazione del progetto
+\end{itemize}
+\textbf{Rischi inattesi}
+\begin{itemize}
+    \item \textbf{Notazione}: M.PC.RI
+    \item \textbf{Descrizione}: indica il numero dei rischi che si sono verificati in un determinato periodo e che non erano stati preventivati tramite l'Analisi dei Rischi
+    \item \textbf{Formula}: N° Rischi occorsi e non preventivati
+\end{itemize}
+\textbf{Risk Mitigation Rate}
+\begin{itemize}
+    \item \textbf{Notazione}: M.PC.RMR
+    \item \textbf{Descrizione}: indica la percentuale dei rischi occorsi durante lo sviluppo in un determinato perioso che sono stati mitigati correttamente tramite le strategie di mitigazione indicate nella Analisi dei Rischi
+    \item \textbf{Formula}: $\frac{R_g}{R_t} \times 100$, dove $R_g$ indica il numero di rischi gestiti correttamente e $R_t$ il numero totale di rischi verifiacti nela periodo in analisi
+\end{itemize}
+\textbf{Metriche Soddisfatte}
+\begin{itemize}
+    \item \textbf{Notazione}: M.PC.MS
+    \item \textbf{Descrizione}: indica la percentuale di metriche soddisfatte, cioè con un valore calcolato che rispetta il valore minimo ammissibile indicato all'interno del Piano di Qualifica
+    \item \textbf{Formula}: $\frac{M_s}{M_t} \times 100$, dove $M_s$ indica il numero di metriche soddisfatte mentre $M_t$ il numero totale delle metriche analizzate 
+\end{itemize}
+\paragraph{Metriche di prodotto}
+\textbf{Percentuale Requisiti Obbligatori Soddisfatti}
+\begin{itemize}
+    \item \textbf{Notazione}: M.PR.PRM
+    \item \textbf{Descrizione}: rappresenta la percentuale di requisiti obbligatori soddisfatti rispetto i requisiti obbligatori totali inseriti all'interno del documento Analisi dei Requisiti
+    \item \textbf{Caratteristiche}: Funzionalità
+    \item \textbf{Formula}: $\frac{RMS}{RMT} \times 100$, dove $RMS$ indica il numero di requisiti obbligatori soddisfatti e $RMT$ il numero di requisiti obbligatori totale 
+\end{itemize}
+\textbf{Percentuale Requisiti Desiderabili Soddisfatti}
+\begin{itemize}
+    \item \textbf{Notazione}: M.PR.PRD
+    \item \textbf{Descrizione}:rappresenta la percentuale di requisiti desiderabili soddisfatti rispetto i requisiti desiderabili totali inseriti all'interno del documento di Analisi dei Requisiti
+    \item \textbf{Caratteristiche}: Funzionalità
+    \item \textbf{Formula}: $\frac{RDS}{RDT} \times 100$, dove $RDS$ indica il numero di requisiti desiderabili soddisfatti e $RDT$ il numero di requisiti desiderabili inseriti all'interno del documento Analisi dei Requisiti
+\end{itemize}
+\textbf{Percentuale Requisiti Opzionali Soddisfatti}
+\begin{itemize}
+    \item \textbf{Notazione}: M.PR.PRO
+    \item \textbf{Descrizione}: rappresenta la percentuale di requisiti opzionali soddisfatti rispetto al numero totale di requisiti opzionali inseriti all'interno del documento di Analisi dei Requisiti
+    \item \textbf{Caratteristiche}: Funzionalità
+    \item \textbf{Formula}: $\frac{ROs}{ROT} \times 100$, dove $ROS$ indica il numero di requisiti opzionali soddisfatti e $ROT$ il numero di requisiti opzionali totale 
+\end{itemize}
+\textbf{Correttezza Ortografica}
+\begin{itemize}
+    \item \textbf{Notazione}: M.PR.CO
+    \item \textbf{Descrizione}: rappresenta il numero di errori ortografici rilevato all'interno di un documento 
+    \item \textbf{Caratteristiche}: Usabilità
+    \item \textbf{Formula}: N° errori ortografici rilevati
 \end{itemize}
 
-\end{document}
+   
+% altre metriche di prodotto riguardanti codice sorgente che dovranno essere inserite
+
+%\textbf{Parametri Per Metodo (M.PR.PPM):} Numero medio di parametri passati ai metodi. Un numero elevato di parametri può indicare che un metodo è troppo complesso o che potrebbe essere suddiviso in metodi più piccoli.
+% \textbf{Campi Per Classe (M.PR.CPC):} Numero medio di campi (variabili di istanza) per classe. Un numero elevato di campi dati può indicare che una classe sta facendo troppo e che potrebbe essere suddivisa in classi più piccole.
+%  \textbf{Linee di Codice Per Metodo (M.PR.LCPM):} Numero medio di linee di codice per metodo. Metodi troppo lunghi possono essere difficili da leggere, capire e mantenere.
+% \textbf{Complessità Ciclomatica (M.PR.CCM):} La complessità ciclomatica rappresenta la complessità di un programma sulla base del numero di percorsi lineari indipendenti attraverso il codice sorgente. Un valore elevato indica un codice più complesso e potenzialmente più difficile da mantenere
+ % \textbf{Tempo di Apprendimento (M.PR.TA):} Indica il tempo massimo richiesto da parte di un utente generico per apprendere l’utilizzo del prodotto.
+ %  \textbf{Tempo di Risposta (M.PR.TR):} Indica il tempo massimo di risposta del sistema sotto carico rilevato.
+ % \textbf{Code Coverage (M.PC.CC):} La Code Coverage indica quale percentuale del codice sorgente è stata eseguita durante i test. Serve per capire quanto del codice è stato verificato dai test automatizzati.
+  %  \textbf{Branch Coverage (M.PC.BC):} La Branch Coverage indica quale percentuale dei rami decisionali (percorsi derivanti da istruzioni condizionali come if, for, while) del codice è stata eseguita durante i test.
+   %\textbf{Failure Density (M.PC.FD):} La Failure Density indica il numero di difetti trovati in un software o in una parte di esso durante il ciclo di sviluppo rispetto alla dimensione del software stesso.
+  % \textbf{Passed Test Case Percentage (M.PC.PTCP):} La Passed Test Case Percentage indica la percentuale di test che sono stati eseguiti con successo su una base di test.
+%
+
+
