@@ -1,39 +1,31 @@
 \subsection{UC-21}
 \label{subsec:UC-21}
 
-\begin{figure}[H]
-    \includegraphics{Sezioni/UseCase/Immagini/UC-21.pdf}
-    \caption{Diagramma UC-21.}
-\end{figure}
+\begin{usecase}{UC-21}{Visualizzazione errore di comunicazione con LLM}
 
-\begin{usecase}{UC-21}{Interazione con il grafico di dispersione}
-
-    \req{\hyperref[item:RU-6]{RU-6}} 
+    \req{} 
 
     \pre{
         \item Il sistema è attivo e funzionante
-        \item L'utente dispone del grafico di dispersione prodotto nella visualizzazione dei risultati del test
+        \item La comunicazione con il LLM non è andata a buon fine
     }
 
     \post{
-        \item Viene evidenziato il risultato relativo al punto del grafico di dispersione coinvolto nell'interazione.
+        \item L'utente conosce l'errore di comunicazione
     }
     
     \actor{Utente}
 
     \subactors{LLM}
 
-    \trigger{L'utente ha la necessità di visualizzare un preciso risultato}
+    \trigger{La comunicazione con il LLM produce un errore}
     
     \inc{}
 
     \base{}
 
     \scenario{
-        \item L'utente interagisce con un punto del grafico di dispersione.
-        
-        
-        \item Viene evidenziato l'elemento della lista dei risultati corrispondente al punto coinvolto nell'interazione.
+        \item Viene mostrato un messaggio di errore all'utente
     }
 
 \end{usecase}

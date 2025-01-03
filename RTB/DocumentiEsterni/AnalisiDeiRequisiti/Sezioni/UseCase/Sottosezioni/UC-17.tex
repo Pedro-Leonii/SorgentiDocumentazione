@@ -1,37 +1,30 @@
 \subsection{UC-17}
 \label{subsec:UC-17}
 
-\begin{figure}[H]
-    \includegraphics{Sezioni/UseCase/Immagini/UC-17.pdf}
-    \caption{Diagramma UC-17.}
-\end{figure}
-
-\begin{usecase}{UC-17}{Visualizzazione dei risultati di un test}
-
-    \req{\hyperref[item:RU-6]{RU-6}} 
+\begin{usecase}{UC-17}{Visualizzazione errore per contenuto invalido del dataset caricato}
+    \req{} 
 
     \pre{
         \item Il sistema è attivo e funzionante
-        \item Sono disponibili i risultati di un test
+        \item Il dataset caricato contiene almeno una coppia invalida ovvero avente domanda e/o risposta vuota
     }
 
     \post{
-        \item L'utente conosce l'esito del test
+        \item L'utente conosce le coppie invalide contenute nel dataset caricato
     }
     
     \actor{Utente}
 
     \subactors{}
 
-    \trigger{L'utente deve testare il LLM usando il dataset caricato}
+    \trigger{Il dataset caricato contiene almeno una coppia invalida}
     
-    \inc{\hyperref[subsec:UC-19]{UC-19}, \hyperref[subsec:UC-20]{UC-20}}
+    \inc{}
 
     \base{}
 
     \scenario{
-        \item \texttt{<<include:UC-19>>}
-        \item \texttt{<<include:UC-20>>}
+        \item Viene notificata all'utente la presenza di coppie invalide
+        \item Vengono evidenziate le coppie invalide
     }
-
 \end{usecase}

@@ -1,49 +1,37 @@
 \subsection{UC-16}
 \label{subsec:UC-16}
 
-\begin{figure}[H]
-    \includegraphics[scale=0.8]{Sezioni/UseCase/Immagini/UC-16.pdf}
-    \caption{Diagramma UC-16.}
-\end{figure}
-
-\begin{usecase}{UC-16}{Esecuzione del test sul dataset caricato}
-
-    \req{\hyperref[item:RU-5]{RU-5}} 
+\begin{usecase}{UC-16}{Salvataggio del dataset caricato nel sistema}
+    \req{} 
 
     \pre{
         \item Il sistema è attivo e funzionante
-        \item Il dataset caricato non è vuoto
     }
 
     \post{
-        \item L'utente conosce l'esito del test
+        \item Il dataset caricato viene salvato nel sistema
+        \item L'utente è a conoscenza del corretto salvataggio
     }
     
     \actor{Utente}
 
-    \subactors{LLM}
+    \subactors{}
 
-    \trigger{L'utente deve testare il LLM usando il dataset caricato}
+    \trigger{Il sistema deve salvare il dataset caricato}
     
-    \inc{\hyperref[subsec:UC-17]{UC-17}}
+    \inc{}
 
     \base{}
 
     \scenario{
-        \item L'utente richiede l'esecuzione del test
-        \item Per ogni coppia del dataset caricato si ottiene la risposta prodotta dal LLM sotto test
-        \item Per ogni coppia del dataset caricato si calcola il grado di somiglianza tra la risposta prodotta dal LLM sotto test rispetto alla risposta attesa
-        \item \texttt{<<include:UC-17>>}
+        \item Il dataset caricato viene salvato nel sistema
     }
 
     \subscenario{
-        \item[1.1] \textbf{Il dataset caricato contiene almeno una coppia invalida}
+        \item[1.1] \textbf{Avviene un errore durante il salvataggio del dataset caricato}
         \begin{itemize}
-            \item[a.] hyperref[subsec:UC-11]{UC-11}
-        \end{itemize}
-        \item[2.1] \textbf{La comunicazione con LLM produce un errore}
-        \begin{itemize}
-        \item[a.] \hyperref[subsec:UC-18]{UC-18}
+            \item[a.] \hyperref[subsec:UC-11]{UC-11}
         \end{itemize}
     }
+
 \end{usecase}

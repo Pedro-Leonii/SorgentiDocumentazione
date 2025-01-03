@@ -1,34 +1,49 @@
 \subsection{UC-20}
 \label{subsec:UC-20}
 
-\begin{usecase}{UC-20}{Visualizzazione lista dei risultati di un test}
+\begin{figure}[H]
+    \includegraphics[scale=0.8]{Sezioni/UseCase/Immagini/UC-20.pdf}
+    \caption{Diagramma UC-20.}
+\end{figure}
 
-    \req{\hyperref[item:RU-6]{RU-6}} 
+\begin{usecase}{UC-20}{Esecuzione del test sul dataset caricato}
+
+    \req{\hyperref[item:RU-7]{RU-7}} 
 
     \pre{
         \item Il sistema è attivo e funzionante
-        \item È stato eseguito correttamente il test sul dataset caricato
+        \item Il dataset caricato non è vuoto
     }
 
     \post{
-        \item L'utente visualizza la lista dei risultati del test
+        \item L'utente conosce l'esito del test
     }
     
     \actor{Utente}
 
     \subactors{LLM}
 
-    \trigger{}
+    \trigger{L'utente deve testare il LLM usando il dataset caricato}
     
-    \inc{}
+    \inc{\hyperref[subsec:UC-22]{UC-22}}
 
     \base{}
 
     \scenario{
-        \item Viene mostrata la lista dei risultati del test.
-        
-        
-        \item Ogni elemento è composto da: domanda, risposta attesa, risposta ottenuta dal LLM, grado di somiglianza tra le due risposte e valutazione di correttezza della risposta.
+        \item L'utente richiede l'esecuzione del test
+        \item Per ogni coppia del dataset caricato si ottiene la risposta prodotta dal LLM sotto test
+        \item Per ogni coppia del dataset caricato si calcola il grado di somiglianza tra la risposta prodotta dal LLM sotto test rispetto alla risposta attesa
+        \item \texttt{<<include:UC-22>>}
     }
 
+    \subscenario{
+        \item[1.1] \textbf{Il dataset caricato contiene almeno una coppia invalida}
+        \begin{itemize}
+            \item[a.] hyperref[subsec:UC-17]{UC-17}
+        \end{itemize}
+        \item[2.1] \textbf{La comunicazione con LLM produce un errore}
+        \begin{itemize}
+        \item[a.] \hyperref[subsec:UC-21]{UC-21}
+        \end{itemize}
+    }
 \end{usecase}

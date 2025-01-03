@@ -1,30 +1,29 @@
 \subsection{UC-11}
 \label{subsec:UC-11}
 
-\begin{usecase}{UC-11}{Visualizzazione errore per contenuto invalido del dataset caricato}
+\begin{usecase}{UC-11}{Visualizzazione errore di salvataggio del dataset}
     \req{} 
 
     \pre{
         \item Il sistema è attivo e funzionante
-        \item Il dataset caricato contiene almeno una coppia invalida ovvero avente domanda e/o risposta vuota
     }
 
     \post{
-        \item L'utente conosce le coppie invalide contenute nel dataset caricato
+        \item L'utente conosce la causa del errore di salvataggio
     }
     
     \actor{Utente}
 
     \subactors{}
 
-    \trigger{Il dataset caricato contiene almeno una coppia invalida}
+    \trigger{Il sistema riscontra un errore nel salvataggio del dataset }
     
     \inc{}
 
     \base{}
 
     \scenario{
-        \item Viene notificata all'utente la presenza di coppie invalide
-        \item Vengono evidenziate le coppie invalide
+        \item Viene notificato all'utente l'errore che ha impedito il corretto salvataggio del dataset 
     }
+
 \end{usecase}

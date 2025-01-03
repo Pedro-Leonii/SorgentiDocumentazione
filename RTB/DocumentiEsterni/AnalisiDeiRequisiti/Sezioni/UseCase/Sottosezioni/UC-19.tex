@@ -1,41 +1,39 @@
 \subsection{UC-19}
 \label{subsec:UC-19}
 
-\begin{usecase}{UC-19}{Visualizzazione diagramma di dispersione dei risultati di un test}
+\begin{usecase}{UC-19}{Sovrascrittura dataset caricato}
 
-    \req{\hyperref[item:RU-6]{RU-6}} 
+    \req{} 
 
     \pre{
         \item Il sistema è attivo e funzionante
-        \item È stato eseguito correttamente il test sul dataset caricato
+        \item Il dataset caricato non è vuoto
     }
 
     \post{
-        \item L'utente visualizza un diagramma di dispersione
+        \item Il dataset caricato viene sostituito
+        \item Il dataset sostituito non è più recuperabile
     }
     
     \actor{Utente}
 
-    \subactors{LLM}
+    \subactors{}
 
-    \trigger{}
+    \trigger{L'utente deve caricare un dataset tra quelli archiviati nel sistema senza salvare il dataset caricato}
     
     \inc{}
 
     \base{}
 
     \scenario{
-        \item Visualizzazione di un grafico di dispersione.
-        L'asse delle ordinate rappresenta il numero della domanda.
-        L'asse delle ascisse rappresenta il grado di somiglianza tra la risposta attesa e la risposta effettiva.
-        
-        \item Rappresentazione dei risultati come punti distinguibili tra risposta corretta e sbagliata.
-        
-        \item Calcolo della media e rappresentazione come una retta nel grafico.
-        
-        \item Calcolo della deviazione standard come una retta nel grafico.
-        
-        \item Mostrare la legenda del grafico.
+        \item L'utente conferma la sovrascrittura
+        \item Il dataset caricato viene sovrascritto
     }
 
+    \subscenario{
+        \item[1.1] \textbf{L'utente non conferma la sovrascrittura del dataset caricato}
+        \begin{itemize}
+            \item[a.] Il dataset caricato resta invariato
+        \end{itemize}
+    }
 \end{usecase}

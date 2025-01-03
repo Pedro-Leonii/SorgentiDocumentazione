@@ -1,44 +1,41 @@
 \subsection{UC-9}
 \label{subsec:UC-9}
 
-
 \begin{figure}[H]
-    \includegraphics[scale=0.75]{Sezioni/UseCase/Immagini/UC-9.pdf}
+    \includegraphics{Sezioni/UseCase/Immagini/UC-9.pdf}
     \caption{Diagramma UC-9.}
 \end{figure}
 
-\begin{usecase}{UC-9}{Archiviazione del dataset corrente}
-    
+\begin{usecase}{UC-9}{Visualizzazione dei dataset archiviati}
     \req{\hyperref[item:RU-3]{RU-3}} 
 
     \pre{
         \item Il sistema è attivo e funzionante
-        \item Il dataset corrente non è vuoto
     }
 
     \post{
-        \item Il dataset corrente viene archiviato nel sistema
+        \item L'utente visualizza la lista dei dataset archiviati
     }
     
     \actor{Utente}
 
     \subactors{}
 
-    \trigger{L'utente deve archiviare il dataset corrente per renderlo persistente}
+    \trigger{L'utente deve visualizzare i dataset archiviati}
     
-    \inc{\hyperref[subsec:UC-12]{UC-12}}
+    \inc{}
 
     \base{}
 
     \scenario{
-        \item L'utente richiede l'archiviazione del dataset corrente.
-        \item \texttt{<<include:UC-12>>}
+        \item L'utente richiede la visualizzazione dei dataset archiviati
+        \item Viene visualizzata la lista dei dataset archiviati in ordine lessicografico
     }
 
     \subscenario{
-        \item[1.1] \textbf{Il dataset corrente contiene almeno una coppia con domanda e/o risposta vuota}
+        \item[1.1] \textbf{Non esistono dataset archiviati}
         \begin{itemize}
-            \item[a.] \hyperref[subsec:UC-11]{UC-11}
+            \item [a.] Viene indicato all'utente che non esistono dataset archiviati
         \end{itemize}
     }
 \end{usecase}

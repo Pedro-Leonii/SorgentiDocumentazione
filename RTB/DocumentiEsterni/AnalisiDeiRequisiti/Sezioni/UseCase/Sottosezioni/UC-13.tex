@@ -1,37 +1,43 @@
 \subsection{UC-13}
 \label{subsec:UC-13}
 
-\begin{usecase}{UC-13}{Copia di un dataset archiviato}
-    \req{} 
+\begin{figure}[H]
+    \includegraphics{Sezioni/UseCase/Immagini/UC-13.pdf}
+    \caption{Diagramma UC-13.}
+\end{figure}
+
+\begin{usecase}{UC-13}{Creazione di un nuovo dataset}
+
+    \req{\hyperref[item:RU-3]{RU-3}} 
 
     \pre{
         \item Il sistema è attivo e funzionante
-        \item Il dataset da copiare esiste
     }
 
     \post{
-        \item Viene archiviata una nuova copia del dataset selezionato usando un nome di default
+        \item Il nuovo dataset temporaneo viene caricato
     }
     
     \actor{Utente}
 
     \subactors{}
 
-    \trigger{L'utente deve creare una copia di un dataset precedentemente archiviato}
+    \trigger{L'utente deve creare un nuovo dataset}
     
     \inc{}
 
     \base{}
 
     \scenario{
-        \item L'utente richiede di copiare un dataset archiviato
-        \item Viene salvata nel sistema una copia del dataset selezionato con un nome di default
+        \item L'utente richiede la creazione di un nuovo dataset
+        \item Viene creato un nuovo dataset temporaneo vuoto
+        \item Il dataset temporaneo viene caricato
     }
 
     \subscenario{
-        \item[2.1] \textbf{Avviene un errore durante il salvataggio del dataset caricato}
+        \item[2.1] \textbf{Il dataset caricato non possiede una versione aggiornata archiviata e non è vuoto}
         \begin{itemize}
-            \item[a.] \hyperref[subsec:UC-23]{UC-23}
+            \item[a.] \hyperref[subsec:UC-19]{UC-19}
         \end{itemize}
     }
 

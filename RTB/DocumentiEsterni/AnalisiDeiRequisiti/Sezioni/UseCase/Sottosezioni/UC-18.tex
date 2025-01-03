@@ -1,31 +1,44 @@
 \subsection{UC-18}
 \label{subsec:UC-18}
 
-\begin{usecase}{UC-18}{Visualizzazione errore di comunicazione con LLM}
+\begin{figure}[H]
+    \includegraphics{Sezioni/UseCase/Immagini/UC-18.pdf}
+    \caption{Diagramma UC-18.}
+\end{figure}
 
-    \req{} 
+\begin{usecase}{UC-18}{Caricamento di un dataset archiviato}
+
+    \req{\hyperref[item:RU-6]{RU-6}} 
 
     \pre{
         \item Il sistema è attivo e funzionante
-        \item La comunicazione con il LLM non è andata a buon fine
+        \item Il dataset da caricare è stato precedentemente archiviato
     }
 
     \post{
-        \item L'utente conosce l'errore di comunicazione
+        \item Il dataset viene caricato
     }
     
     \actor{Utente}
 
-    \subactors{LLM}
+    \subactors{}
 
-    \trigger{La comunicazione con il LLM produce un errore}
+    \trigger{L'utente deve caricare un dataset tra quelli archiviati nel sistema}
     
     \inc{}
 
     \base{}
 
     \scenario{
-        \item Viene mostrato un messaggio di errore all'utente
+        \item L'utente richiede di caricare un dataset archiviato nel sistema
+        \item L'utente seleziona il nome del dataset tra quelli archiviati
+        \item Il dataset scelto viene caricato
     }
 
+    \subscenario{
+        \item[3.1] \textbf{Il dataset caricato non possiede una versione aggiornata archiviata e non è vuoto}
+        \begin{itemize}
+            \item[a.] \hyperref[subsec:UC-19]{UC-19}
+        \end{itemize}
+    }
 \end{usecase}
