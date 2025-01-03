@@ -1100,6 +1100,22 @@ Notare che quindi una modifica alla struttura delle cartelle del progetto può r
 \end{enumerate}
 Oltre alle variabili questa GitHub action utilizza un \textbf{Personal Access Token} memorizzato nel secret chiamato \texttt{PAT\_COMPILATI}.
 
+\paragraph{Correzione grammaticale dei documenti}
+\label{par:correzione_grammaticale}
+La correzione grammaticale dei documenti viene facilitata tramite un workflow definito nel file \texttt{ControlloOrtografico.yaml}.
+Questo workflow viene eseguito ogni volta che viene effettuato il push o viene creata una pull request di un file .tex nei rami \textit{feature} e \textit{develop}.
+Il workflow utilizza aspell per effettuare il controllo e in caso trovasse errori questi vengono segnalati come output della action e anche come commento alla pull request.
+Il workflow non ha lo scopo di correggere automaticamente gli errori ma di segnalarli per una correzione manuale andando a rendere il lavoro efficente ed efficace. 
+
+\paragraph{Calcolo delle ore di lavoro}
+\label{par:calcolo_ore_lavoro}
+Il workflow è definito nel file \texttt{CalcoloOre.yaml} e viene eseguito ogni volta che viene effettuato il merge di una pull request.
+Per facilitare la determinazione delle ore di lavoro impiegate da ogni ruolo si è deciso di utilizzare un file excel condiviso.
+Questo file excel contiene una dashboard che permette di tenere traccia delle ore preventivate ed effettive per ogni ruolo.
+Ciò facilita la stesura degli sprint all'interno del documento Piano di progetto.
+La compilazione dei campi della dashboard nel file excel è automatizzata tramite una GitHub action che preleva lo sprint di riferimento della issue,
+l'id della issue, il ruolo che ha risolto la issue, le ore preventivate dal primo commento della issue, le ore impiegate dal primo commento della pull request relativa.
+
 \subsubsection{Gestione}
 \paragraph{Canali di comunicazione}
 I canali di coumunicazione si dividono in canali interni usati per le riunioni del gruppo e canali esterni usati per le riunioni tra il gruppo e il proponente.
