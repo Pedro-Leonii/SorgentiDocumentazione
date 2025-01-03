@@ -40,7 +40,7 @@ Di seguito vengono elencati i comandi di base che devono essere noti per la stes
 \subparagraph{Tabelle}
 \begin{lstlisting}
 
-        \begin{table}[!h]
+        \begin{table}[H]
             \begin{tabularx}[| X | c | l | r |]
                 \hline
 
@@ -67,7 +67,7 @@ Di seguito vengono elencati i comandi di base che devono essere noti per la stes
 \end{lstlisting}
 Dove:
 \begin{itemize}
-    \item \lstinline+[!h]+ indica che il posizionamento della tabella nel pdf deve essere dove si trova nel codice.
+    \item \lstinline+[H]+ indica che il posizionamento della tabella nel pdf deve essere dove si trova nel codice.
     
     \item \lstinline+[| X | c | l | r |]+ indica le colonne della tabella.
 
@@ -144,7 +144,7 @@ I pacchetti usati devono essere installati manualmente usando il processo spiega
 In \hyperref[fig:pacchetto_latex]{Figura \ref{fig:pacchetto_latex}} viene mostrata la struttura del pacchetto LaTeX.
 \textbf{Nota bene}: Il pacchetto per poter essere importato deve essere indicato con il comando \lstinline|\usepackage| e il suo percorso deve essere indicato nella variabile di ambiente TEXINPUTS.
 La spiegazione della configurazione dell'ambiente per l'utilizzo del pacchetto è spiegata nella sezione \hyperref[par:IDE]{Integrated Development Environment IDE}.
-\begin{figure}[!h]
+\begin{figure}[H]
     \dirtree{%
         .1 Packages.
         .2 Immagini.
@@ -216,7 +216,7 @@ Le sezioni saranno divise a loro volta in sottosezioni contenute nella cartella 
 Inoltre ogni cartella di sottosezione conterrà una cartella chiamata \texttt{Immagini}.
 La divisione segue la struttura indicata in \hyperref[fig:struttura_file_lungi]{Figura \ref{fig:struttura_file_lungi}} dove \texttt{F} indica il nome di un file da dividere:
 
-\begin{figure}[!h]
+\begin{figure}[H]
     \dirtree{%
     .1 cartella di F.
     .2 F.tex.
@@ -270,7 +270,7 @@ Per fare ciò è necessario seguire le azioni:
     \end{lstlisting}
 \end{enumerate}
 
-\begin{figure}[!h]
+\begin{figure}[H]
     \center
     \includegraphics[scale=0.4]{Sezioni/ProcessiDiSupporto/Immagini/texinputs_setup.png}
     \includegraphics[]{Sezioni/ProcessiDiSupporto/Immagini/texinputs_setup_json.jpg}
@@ -1151,6 +1151,7 @@ Questo strumento può essere usato in combinazione con un account google per def
 Nel secondo caso è necessario installare l'editor che può essere trovato nel Microsoft store. 
 
 \subsubsection{Dashboard excel}
+\label{subpar:dashboard_excel}
 \paragraph{Dashboard excel per il calcolo delle ore}
 Il gruppo si è munito di un file excel condiviso dove è stata realizzata una dashboard per tenere traccia, in un unico file, degli sprint. Ogni sprint traccia, a sua volta, le seguenti informazioni per ogni issue appartenente allo sprint:
 \begin{enumerate}
