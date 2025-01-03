@@ -1,7 +1,7 @@
 \subsection{UC-12}
 \label{subsec:UC-12}
 
-\begin{usecase}{UC-12}{Salvataggio del dataset corrente nel sistema}
+\begin{usecase}{UC-12}{Salvataggio del dataset caricato nel sistema}
     \req{\hyperref[item:RU-3]{RU-3}} 
 
     \pre{
@@ -9,7 +9,7 @@
     }
 
     \post{
-        \item Il dataset corrente viene salvato nel sistema
+        \item Il dataset caricato viene salvato nel sistema
         \item L'utente è a conoscenza del corretto salvataggio
     }
     
@@ -17,20 +17,20 @@
 
     \subactors{}
 
-    \trigger{Il sistema deve salvare il dataset corrente}
+    \trigger{Il sistema deve salvare il dataset caricato}
     
     \inc{}
 
     \base{}
 
     \scenario{
-        \item Il dataset corrente viene salvato nel sistema
+        \item Il dataset caricato viene salvato nel sistema
     }
 
     \subscenario{
-        \item[1.1] \textbf{Avviene un errore durante il salvataggio del dataset}
+        \item[1.1] \textbf{Avviene un errore durante il salvataggio del dataset caricato}
         \begin{itemize}
-            \item[a.] \hyperref[subsec:UC-13]{UC-13}
+            \item[a.] \hyperref[subsec:UC-23]{UC-23}
         \end{itemize}
     }
 

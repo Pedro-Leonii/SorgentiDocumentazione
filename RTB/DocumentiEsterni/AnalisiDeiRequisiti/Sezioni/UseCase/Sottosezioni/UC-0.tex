@@ -5,37 +5,38 @@
     \caption{Diagramma UC-0.}
 \end{figure}
 
-\begin{usecase}{UC-0}{Visualizzazione del dataset corrente}
+\begin{usecase}{UC-0}{Visualizzazione di un dataset}
     
     \req{\hyperref[item:RU-1]{RU-1}} 
 
     \pre{
         \item Il sistema è attivo e funzionante
+        \item Il dataset esiste
     }
 
     \post{
-        \item Viene visualizzato il dataset corrente
+        \item Viene visualizzato il dataset
     }
     
     \actor{Utente}
 
     \subactors{}
 
-    \trigger{L'utente deve visualizzare il dataset corrente}
+    \trigger{L'utente deve visualizzare il dataset}
     
     \inc{}
 
     \base{}
 
     \scenario{
-        \item L'utente richiede la visualizzazione del dataset corrente
-        \item Le coppie del dataset corrente vengono mostrate in una lista
+        \item L'utente richiede la visualizzazione del dataset
+        \item Le coppie del dataset vengono mostrate in una lista
     }
 
     \subscenario{
-        \item[2.1] \textbf{Il dataset corrente è vuoto}
+        \item[2.1] \textbf{Il dataset è vuoto}
         \begin{itemize}
-            \item[a.] Viene indicato all'utente che il dataset corrente è vuoto
+            \item[a.] Viene indicato all'utente che il dataset è vuoto
         \end{itemize}
     }
 \end{usecase}

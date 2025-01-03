@@ -6,13 +6,13 @@
     \caption{Diagramma UC-16.}
 \end{figure}
 
-\begin{usecase}{UC-16}{Esecuzione del test sul dataset corrente}
+\begin{usecase}{UC-16}{Esecuzione del test sul dataset caricato}
 
     \req{\hyperref[item:RU-5]{RU-5}} 
 
     \pre{
         \item Il sistema è attivo e funzionante
-        \item Il dataset corrente non è vuoto
+        \item Il dataset caricato non è vuoto
     }
 
     \post{
@@ -23,7 +23,7 @@
 
     \subactors{LLM}
 
-    \trigger{L'utente deve testare il LLM usando il dataset corrente}
+    \trigger{L'utente deve testare il LLM usando il dataset caricato}
     
     \inc{\hyperref[subsec:UC-17]{UC-17}}
 
@@ -31,13 +31,13 @@
 
     \scenario{
         \item L'utente richiede l'esecuzione del test
-        \item Per ogni coppia del dataset corrente si ottiene la risposta prodotta dal LLM sotto test
-        \item Per ogni coppia del dataset corrente si calcola il grado di somiglianza tra la risposta prodotta dal LLM sotto test rispetto alla risposta attesa
+        \item Per ogni coppia del dataset caricato si ottiene la risposta prodotta dal LLM sotto test
+        \item Per ogni coppia del dataset caricato si calcola il grado di somiglianza tra la risposta prodotta dal LLM sotto test rispetto alla risposta attesa
         \item \texttt{<<include:UC-17>>}
     }
 
     \subscenario{
-        \item[1.1] \textbf{Il dataset corrente contiene almeno una coppia invalida}
+        \item[1.1] \textbf{Il dataset caricato contiene almeno una coppia invalida}
         \begin{itemize}
             \item[a.] hyperref[subsec:UC-11]{UC-11}
         \end{itemize}

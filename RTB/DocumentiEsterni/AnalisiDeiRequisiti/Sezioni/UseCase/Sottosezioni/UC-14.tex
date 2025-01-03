@@ -6,17 +6,17 @@
     \caption{Diagramma UC-14.}
 \end{figure}
 
-\begin{usecase}{UC-14}{Caricamento di un dataset precedentemente archiviato come dataset corrente}
+\begin{usecase}{UC-14}{Caricamento di un dataset archiviato}
 
     \req{\hyperref[item:RU-4]{RU-4}} 
 
     \pre{
         \item Il sistema è attivo e funzionante
-        \item Esiste almeno un dataset archiviato nel sistema
+        \item Il dataset da caricare è stato precedentemente archiviato
     }
 
     \post{
-        \item Il dataset da caricare diventa il dataset corrente
+        \item Il dataset viene caricato
     }
     
     \actor{Utente}
@@ -32,11 +32,11 @@
     \scenario{
         \item L'utente richiede di caricare un dataset archiviato nel sistema
         \item L'utente seleziona il nome del dataset tra quelli archiviati
-        \item Il dataset scelto viene caricato come dataset corrente
+        \item Il dataset scelto viene caricato
     }
 
     \subscenario{
-        \item[3.1] \textbf{Il dataset corrente non è vuoto e non possiede una versione aggiornata archiviata}
+        \item[3.1] \textbf{Il dataset caricato non possiede una versione aggiornata archiviata e non è vuoto}
         \begin{itemize}
             \item[a.] \hyperref[subsec:UC-15]{UC-15}
         \end{itemize}

@@ -5,23 +5,24 @@
 \end{figure}
 
 
-\begin{usecase}{UC-1}{Inserimento di una nuova coppia nel dataset corrente}
+\begin{usecase}{UC-1}{Inserimento di una nuova coppia nel dataset caricato}
     
     \req{\hyperref[item:RU-1]{RU-1}} 
 
     \pre{
         \item Il sistema è attivo e funzionante
+        \item Il dataset è stato caricato
     }
 
     \post{
-        \item Viene inserita una nuova coppia nel dataset corrente
+        \item Viene inserita una nuova coppia nel dataset caricato
     }
     
     \actor{Utente}
 
     \subactors{}
 
-    \trigger{L'utente vuole inserire una nuova coppia nel dataset corrente}
+    \trigger{L'utente vuole inserire una nuova coppia nel dataset caricato}
     
     \inc{}
 
@@ -31,7 +32,7 @@
         \item L'utente richiede l'inserimento di una nuova coppia
         \item L'utente specifica il contenuto per la nuova coppia
         \item L'utente conferma l'inserimento della nuova coppia
-        \item La coppia viene inserita nel dataset corrente
+        \item La coppia viene inserita nel dataset caricato
     }
 
     \subscenario{

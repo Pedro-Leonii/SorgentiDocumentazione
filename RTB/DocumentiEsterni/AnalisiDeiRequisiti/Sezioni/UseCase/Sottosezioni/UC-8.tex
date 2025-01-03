@@ -1,24 +1,24 @@
 \subsection{UC-8}
 \label{subsec:UC-8}
 
-\begin{usecase}{UC-8}{Visualizzazione errore nel nome del dataset corrente}
+\begin{usecase}{UC-8}{Visualizzazione errore nel nome di un dataset}
     
     \req{} 
 
     \pre{
         \item Il sistema è attivo e funzionante
-        \item Il nome del dataset corrente è vuoto
+        \item Il nome del dataset è invalido
     }
 
     \post{
-        \item Viene richiesto all'utente di fornire un nome non vuoto per il dataset corrente
+        \item Viene richiesto all'utente di fornire un nome valido
     }
     
     \actor{Utente}
 
     \subactors{}
 
-    \trigger{Il nome del dataset corrente è invalido}
+    \trigger{Il nome del dataset è invalido}
     
     \inc{}
 
@@ -26,6 +26,6 @@
 
     \scenario{
         \item Viene visualizzato un messaggio di errore che richiede
-        la corretta compilazione del nome del dataset corrente
+        la corretta compilazione del nome del dataset
     }
 \end{usecase}

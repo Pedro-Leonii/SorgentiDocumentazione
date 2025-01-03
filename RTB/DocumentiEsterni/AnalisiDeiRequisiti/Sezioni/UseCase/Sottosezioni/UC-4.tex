@@ -5,36 +5,34 @@
     \caption{Diagramma UC-4.}
 \end{figure}
 
-\begin{usecase}{UC-4}{Modifica di una coppia contenuta nel dataset corrente}
+\begin{usecase}{UC-4}{Modifica di una coppia contenuta nel dataset caricato}
     
     \req{\hyperref[item:RU-1]{RU-1}} 
 
     \pre{
         \item Il sistema è attivo e funzionante
-        \item Il dataset corrente non è vuoto
-        \item La coppia da modificare esiste
+        \item La coppia da modificare è contenuta nel dataset caricato
     }
 
     \post{
-        \item La coppia viene aggiornata
-        \item Il dataset corrente viene aggiornato
+        \item La coppia da modificare nel dataset caricato viene aggiornata
     }
     
     \actor{Utente}
 
     \subactors{}
 
-    \trigger{L'utente deve modificare una coppia contenuta nel dataset corrente}
+    \trigger{L'utente deve modificare una coppia contenuta nel dataset caricato}
     
     \inc{}
 
     \base{}
 
     \scenario{
-        \item L'utente richiede la modifica di una coppia
+        \item L'utente richiede la modifica di una coppia del dataset caricato
         \item L'utente modifica il contenuto della coppia
         \item L'utente conferma la modifica della coppia
-        \item La coppia viene aggiornata nel dataset corrente
+        \item La coppia viene aggiornata nel dataset caricato
 
     }
 

@@ -1,28 +1,23 @@
-\subsection{UC-6}
+\subsection{UC-24}
 
-\begin{figure}[H]
-    \includegraphics{Sezioni/UseCase/Immagini/UC-6.pdf}
-    \caption{Diagramma UC-6.}
-\end{figure}
-
-\begin{usecase}{UC-6}{Ricerca tramite parole chiave di un sottoinsieme del dataset caricato}
+\begin{usecase}{UC-24}{Ricerca tramite parole chiave di un sottoinsieme dei dataset archiviati}
     
     \req{\hyperref[item:RU-2]{RU-2}} 
 
     \pre{
         \item Il sistema è attivo e funzionante
-        \item Il dataset caricato non è vuoto
+        \item Esiste almeno un dataset archiviato
     }
 
     \post{
-        \item Viene mostrato il sottoinsieme del dataset caricato risultante dall'operazione di ricerca
+        \item Viene mostrato il sottoinsieme dei dataset archiviati risultante dall'operazione di ricerca
     }
     
     \actor{Utente}
 
     \subactors{}
 
-    \trigger{L'utente deve cercare una o più coppie contenute nel dataset caricato}
+    \trigger{L'utente deve cercare il nome di un dataset archiviato}
     
     \inc{}
 
@@ -31,14 +26,14 @@
     \scenario{
         \item L'utente specifica le parole chiave
         \item L'utente conferma l'esecuzione della ricerca
-        \item Viene mostrata la lista di coppie che contengono le parole chiave nella domanda e/o nella risposta
+        \item Viene mostrata la lista dei dataset che contengono le parole chiave
     }
 
     \subscenario{
         \item[1.1] \textbf{Non vengono indicate parole chiave}
         \begin{itemize}
             \item [a.] L'utente conferma l'esecuzione della ricerca
-            \item [b.] Viene mostrato l'intero dataset caricato
+            \item [b.] Viene mostrata l'intera lista dei dataset archiviati
         \end{itemize}
         \item[3.1]\textbf{Il sottoinsieme risultante è vuoto}
         \begin{itemize}

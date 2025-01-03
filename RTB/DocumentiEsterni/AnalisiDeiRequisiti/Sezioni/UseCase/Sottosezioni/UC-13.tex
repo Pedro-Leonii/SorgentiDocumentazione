@@ -1,29 +1,38 @@
 \subsection{UC-13}
 \label{subsec:UC-13}
 
-\begin{usecase}{UC-13}{Visualizzazione errore di salvataggio del dataset}
+\begin{usecase}{UC-13}{Copia di un dataset archiviato}
     \req{} 
 
     \pre{
         \item Il sistema è attivo e funzionante
+        \item Il dataset da copiare esiste
     }
 
     \post{
-        \item L'utente conosce la causa del errore di salvataggio
+        \item Viene archiviata una nuova copia del dataset selezionato usando un nome di default
     }
     
     \actor{Utente}
 
     \subactors{}
 
-    \trigger{Il sistema riscontra un errore nel salvataggio del dataset corrente}
+    \trigger{L'utente deve creare una copia di un dataset precedentemente archiviato}
     
     \inc{}
 
     \base{}
 
     \scenario{
-        \item Viene notificato all'utente l'errore che ha impedito il corretto salvataggio del dataset corrente
+        \item L'utente richiede di copiare un dataset archiviato
+        \item Viene salvata nel sistema una copia del dataset selezionato con un nome di default
+    }
+
+    \subscenario{
+        \item[2.1] \textbf{Avviene un errore durante il salvataggio del dataset caricato}
+        \begin{itemize}
+            \item[a.] \hyperref[subsec:UC-23]{UC-23}
+        \end{itemize}
     }
 
 \end{usecase}

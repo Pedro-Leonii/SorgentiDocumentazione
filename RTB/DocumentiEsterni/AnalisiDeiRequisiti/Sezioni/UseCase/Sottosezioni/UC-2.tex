@@ -1,17 +1,17 @@
 \subsection{UC-2}
 \label{subsec:UC-2}
-\begin{usecase}{UC-2}{Annullamento di un'operazione sul dataset corrente}
+\begin{usecase}{UC-2}{Annullamento di un'operazione sul dataset caricato}
 
         \req{\hyperref[item:RU-1]{RU-1}}
         
         \pre{
             \item Il sistema è attivo e funzionante     
-            \item L'utente è coinvolto in un'operazione di modifica del dataset corrente
+            \item L'utente è coinvolto in un'operazione di modifica del dataset caricato
         }
         
         \post{ 
             \item L'operazione viene interrotta 
-            \item Il dataset corrente resta invariato
+            \item Il dataset caricato resta invariato
         }
 
         \actor{Utente}
@@ -25,9 +25,9 @@
         \base{}
         
         \scenario{
-            \item L'utente richiede l'annullamento dell'operazione sul dataset corrente 
-            \item La modifica al dataset viene annullata 
-            \item Il dataset corrente resta invariato 
+            \item L'utente richiede l'annullamento dell'operazione sul dataset caricato 
+            \item La modifica al dataset caricato viene annullata 
+            \item Il dataset caricato resta invariato 
         }
         
         

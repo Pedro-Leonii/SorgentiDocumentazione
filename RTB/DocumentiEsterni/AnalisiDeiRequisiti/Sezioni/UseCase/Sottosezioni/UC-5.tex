@@ -5,40 +5,43 @@
     \caption{Diagramma UC-5.}
 \end{figure}
 
-\begin{usecase}{UC-5}{Eliminazione di una coppia contenuta nel dataset corrente}
+\begin{usecase}{UC-5}{Eliminazione di una coppia contenuta nel dataset caricato}
     
     \req{\hyperref[item:RU-1]{RU-1}} 
 
     \pre{
         \item Il sistema è attivo e funzionante
-        \item Il dataset corrente non è vuoto
-        \item La coppia da eliminare esiste
+        \item La coppia da eliminare è contenuta nel dataset caricato
     }
 
     \post{
-        \item La coppia viene eliminata dal dataset corrente
+        \item La coppia viene eliminata dal dataset caricato
     }
     
     \actor{Utente}
 
     \subactors{}
 
-    \trigger{L'utente deve eliminare una coppia contenuta nel dataset corrente}
+    \trigger{L'utente deve eliminare una coppia contenuta nel dataset caricato}
     
     \inc{}
 
     \base{}
 
     \scenario{
-        \item L'utente richiede l'eliminazione della coppia
+        \item L'utente richiede l'eliminazione di una coppia contenuta nel dataset caricato
         \item L'utente conferma l'eliminazione
-        \item La coppia viene eliminata dal dataset corrente
+        \item La coppia viene eliminata dal dataset caricato
     }
 
     \subscenario{
         \item[2.1] \textbf{L'utente annulla l'eliminazione della coppia:} 
         \begin{itemize}
             \item[a.] \hyperref[subsec:UC-2]{UC-2}
+        \end{itemize}
+        \item[3.1] \textbf{Il dataset caricato è vuoto:} 
+        \begin{itemize}
+            \item[a.] Viene indicato all'utente che il dataset caricato è vuoto
         \end{itemize}
     }
 \end{usecase}

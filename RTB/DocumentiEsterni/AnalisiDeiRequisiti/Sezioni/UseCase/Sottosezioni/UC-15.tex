@@ -1,25 +1,25 @@
 \subsection{UC-15}
 \label{subsec:UC-15}
 
-\begin{usecase}{UC-15}{Sovrascrittura dataset corrente}
+\begin{usecase}{UC-15}{Sovrascrittura dataset caricato}
 
     \req{\hyperref[item:RU-3]{RU-3}} 
 
     \pre{
         \item Il sistema è attivo e funzionante
-        \item Il dataset corrente non è vuoto
+        \item Il dataset caricato non è vuoto
     }
 
     \post{
-        \item Il dataset corrente viene sostituito dal dataset caricato
-        \item Il dataset corrente non è più recuperabile
+        \item Il dataset caricato viene sostituito
+        \item Il dataset sostituito non è più recuperabile
     }
     
     \actor{Utente}
 
     \subactors{}
 
-    \trigger{L'utente deve caricare un dataset tra quelli archiviati nel sistema senza salvare il dataset corrente}
+    \trigger{L'utente deve caricare un dataset tra quelli archiviati nel sistema senza salvare il dataset caricato}
     
     \inc{}
 
@@ -27,13 +27,13 @@
 
     \scenario{
         \item L'utente conferma la sovrascrittura
-        \item Il dataset corrente viene sovrascritto
+        \item Il dataset caricato viene sovrascritto
     }
 
     \subscenario{
-        \item[1.1] \textbf{L'utente non conferma la sovrascrittura del dataset corrente}
+        \item[1.1] \textbf{L'utente non conferma la sovrascrittura del dataset caricato}
         \begin{itemize}
-            \item[a.] Il dataset corrente resta invariato
+            \item[a.] Il dataset caricato resta invariato
         \end{itemize}
     }
 \end{usecase}
