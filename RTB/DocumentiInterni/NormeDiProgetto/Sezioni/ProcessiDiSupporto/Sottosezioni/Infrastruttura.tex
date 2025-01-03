@@ -1107,13 +1107,14 @@ Questo workflow viene eseguito ogni volta che viene effettuato il push o viene c
 Il workflow utilizza aspell per effettuare il controllo e in caso trovasse errori questi vengono segnalati come output della action e anche come commento alla pull request.
 Il workflow non ha lo scopo di correggere automaticamente gli errori ma di segnalarli per una correzione manuale andando a rendere il lavoro efficente ed efficace. 
 
-\paragraph{Calcolo delle oredi lavoro}
+\paragraph{Calcolo delle ore di lavoro}
 \label{par:calcolo_ore_lavoro}
 Il workflow è definito nel file \texttt{CalcoloOre.yaml} e viene eseguito ogni volta che viene effettuato il merge di una pull request.
 Per facilitare la determinazione delle ore di lavoro impiegate da ogni ruolo si è deciso di utilizzare un file excel condiviso.
 Questo file excel contiene una dashboard che permette di tenere traccia delle ore preventivate ed effettive per ogni ruolo.
 Ciò facilita la stesura degli sprint all'interno del documento Piano di progetto.
-L'azione di riempire la dashboard del file excel è automatizzata tramite una GitHub action che preleva le ore preventivate da ogni issue, le ore impiegate dalla pull request relativa e le inserisce nella dashboard.
+La compilazione dei campi della dashboard nel file excel è automatizzata tramite una GitHub action che preleva lo sprint di riferimento della issue,
+l'id della issue, il ruolo che ha risolto la issue, le ore preventivate dal primo commento della issue, le ore impiegate dal primo commento della pull request relativa.
 
 \subsubsection{Gestione}
 \paragraph{Canali di comunicazione}
