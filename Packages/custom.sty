@@ -109,21 +109,18 @@
 
 
 \NewEnviron{requisitiFunzionali}{
-    \thispagestyle{plain}
-    \newgeometry{ignoreall, hmargin=20pt}
-    
     \begin{center}
-        \textbf{\Large Tabella dei Requisiti Funzionali}
-        \begin{tabularx}{\textwidth}{| c | c | C |}
+        \begin{tabularx}{\textwidth}{| c | c | c | C |}
             \hline
-                \textbf{\normalsize{Codice}} & 
-                \textbf{\normalsize{Fonte}} & 
-                \textbf{\normalsize{Descrizione}} \\ 
+                \textbf{Codice} & 
+                \textbf{Fonte} & 
+                \textbf{Specifica} &
+                \textbf{Descrizione} \\ 
             \hline 
             \BODY
+            \hline
         \end{tabularx}
     \end{center}
-    \restoregeometry
 }
             
 %-------------------------------------------------------------------------------------------  
