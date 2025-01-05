@@ -1,37 +1,31 @@
 \subsection{UC-22}
 \label{subsec:UC-22}
 
-\begin{figure}[H]
-    \includegraphics{Sezioni/UseCase/Immagini/UC-22.pdf}
-    \caption{Diagramma UC-22.}
-\end{figure}
+\begin{usecase}{UC-22}{Visualizzazione errore di comunicazione con LLM}
 
-\begin{usecase}{UC-22}{Visualizzazione dei risultati di un test}
-
-    \req{\hyperref[item:RU-8]{RU-8}} 
+    \req{} 
 
     \pre{
         \item Il sistema è attivo e funzionante
-        \item Sono disponibili i risultati di un test
+        \item La comunicazione con il LLM non è andata a buon fine
     }
 
     \post{
-        \item L'utente conosce l'esito del test
+        \item L'utente conosce l'errore di comunicazione
     }
     
     \actor{Utente}
 
-    \subactors{}
+    \subactors{LLM}
 
-    \trigger{L'utente deve testare il LLM usando il dataset caricato}
+    \trigger{La comunicazione con il LLM produce un errore}
     
-    \inc{\hyperref[subsec:UC-23]{UC-23}, \hyperref[subsec:UC-24]{UC-24}}
+    \inc{}
 
     \base{}
 
     \scenario{
-        \item \texttt{<<include:UC-23>>}
-        \item \texttt{<<include:UC-24>>}
+        \item Viene mostrato un messaggio di errore all'utente
     }
 
 \end{usecase}

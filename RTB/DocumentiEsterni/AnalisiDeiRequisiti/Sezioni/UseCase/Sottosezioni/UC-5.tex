@@ -5,33 +5,34 @@
     \caption{Diagramma UC-5.}
 \end{figure}
 
-\begin{usecase}{UC-5}{Eliminazione di una coppia contenuta nel dataset caricato}
+\begin{usecase}{UC-5}{Eliminazione di una coppia contenuta nel dataset corrente}
     
     \req{\hyperref[item:RU-1]{RU-1}} 
 
     \pre{
         \item Il sistema è attivo e funzionante
-        \item La coppia da eliminare è contenuta nel dataset caricato
+        \item Il dataset da modificare è stato caricato come dataset corrente
+        \item La coppia da eliminare è contenuta nel dataset corrente
     }
 
     \post{
-        \item La coppia viene eliminata dal dataset caricato
+        \item La coppia viene eliminata dal dataset corrente
     }
     
     \actor{Utente}
 
     \subactors{}
 
-    \trigger{L'utente deve eliminare una coppia contenuta nel dataset caricato}
+    \trigger{L'utente deve eliminare una coppia contenuta nel dataset corrente}
     
     \inc{}
 
     \base{}
 
     \scenario{
-        \item L'utente richiede l'eliminazione di una coppia contenuta nel dataset caricato
+        \item L'utente richiede l'eliminazione di una coppia contenuta nel dataset corrente
         \item L'utente conferma l'eliminazione
-        \item La coppia viene eliminata dal dataset caricato
+        \item La coppia viene eliminata dal dataset corrente
     }
 
     \subscenario{

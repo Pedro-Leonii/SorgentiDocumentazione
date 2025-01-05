@@ -1,17 +1,17 @@
 \subsection{UC-24}
 \label{subsec:UC-24}
 
-\begin{usecase}{UC-24}{Visualizzazione diagramma di dispersione dei risultati di un test}
+\begin{usecase}{UC-24}{Visualizzazione lista dei risultati di un test}
 
     \req{} 
 
     \pre{
         \item Il sistema è attivo e funzionante
-        \item È stato eseguito correttamente il test sul dataset caricato
+        \item È stato eseguito correttamente il test sul dataset corrente
     }
 
     \post{
-        \item L'utente visualizza un diagramma di dispersione
+        \item L'utente visualizza la lista dei risultati del test
     }
     
     \actor{Utente}
@@ -25,17 +25,10 @@
     \base{}
 
     \scenario{
-        \item Visualizzazione di un grafico di dispersione.
-        L'asse delle ordinate rappresenta il numero della domanda.
-        L'asse delle ascisse rappresenta il grado di somiglianza tra la risposta attesa e la risposta effettiva.
+        \item Viene mostrata la lista dei risultati del test
         
-        \item Rappresentazione dei risultati come punti distinguibili tra risposta corretta e sbagliata.
         
-        \item Calcolo della media e rappresentazione come una retta nel grafico.
-        
-        \item Calcolo della deviazione standard come una retta nel grafico.
-        
-        \item Mostrare la legenda del grafico.
+        \item Ogni elemento è composto da: domanda, risposta attesa, risposta ottenuta dal LLM, grado di somiglianza tra le due risposte e valutazione di correttezza della risposta
     }
 
 \end{usecase}

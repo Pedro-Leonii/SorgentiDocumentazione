@@ -1,34 +1,37 @@
 \subsection{UC-23}
 \label{subsec:UC-23}
 
-\begin{usecase}{UC-23}{Visualizzazione lista dei risultati di un test}
+\begin{figure}[H]
+    \includegraphics{Sezioni/UseCase/Immagini/UC-23.pdf}
+    \caption{Diagramma UC-23.}
+\end{figure}
 
-    \req{} 
+\begin{usecase}{UC-23}{Visualizzazione dei risultati di un test}
+
+    \req{\hyperref[item:RU-8]{RU-8}} 
 
     \pre{
         \item Il sistema è attivo e funzionante
-        \item È stato eseguito correttamente il test sul dataset caricato
+        \item Sono disponibili i risultati di un test
     }
 
     \post{
-        \item L'utente visualizza la lista dei risultati del test
+        \item L'utente conosce l'esito del test
     }
     
     \actor{Utente}
 
-    \subactors{LLM}
+    \subactors{}
 
-    \trigger{}
+    \trigger{L'utente deve testare il LLM usando il dataset caricato}
     
-    \inc{}
+    \inc{\hyperref[subsec:UC-24]{UC-24}, \hyperref[subsec:UC-25]{UC-25}}
 
     \base{}
 
     \scenario{
-        \item Viene mostrata la lista dei risultati del test.
-        
-        
-        \item Ogni elemento è composto da: domanda, risposta attesa, risposta ottenuta dal LLM, grado di somiglianza tra le due risposte e valutazione di correttezza della risposta.
+        \item \texttt{<<include:UC-24>>}
+        \item \texttt{<<include:UC-25>>}
     }
 
 \end{usecase}

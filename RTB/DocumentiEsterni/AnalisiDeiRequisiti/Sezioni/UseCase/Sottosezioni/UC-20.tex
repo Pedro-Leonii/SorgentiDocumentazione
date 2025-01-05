@@ -1,49 +1,39 @@
 \subsection{UC-20}
 \label{subsec:UC-20}
 
-\begin{figure}[H]
-    \includegraphics[scale=0.8]{Sezioni/UseCase/Immagini/UC-20.pdf}
-    \caption{Diagramma UC-20.}
-\end{figure}
+\begin{usecase}{UC-20}{Sovrascrittura dataset corrente}
 
-\begin{usecase}{UC-20}{Esecuzione del test sul dataset caricato}
-
-    \req{\hyperref[item:RU-7]{RU-7}} 
+    \req{} 
 
     \pre{
         \item Il sistema è attivo e funzionante
-        \item Il dataset caricato non è vuoto
+        \item Il dataset corrente non è vuoto
     }
 
     \post{
-        \item L'utente conosce l'esito del test
+        \item Il dataset corrente viene sostituito
+        \item Il dataset sostituito non è più recuperabile
     }
     
     \actor{Utente}
 
-    \subactors{LLM}
+    \subactors{}
 
-    \trigger{L'utente deve testare il LLM usando il dataset caricato}
+    \trigger{L'utente deve caricare un dataset tra quelli archiviati nel sistema senza salvare il dataset corrente}
     
-    \inc{\hyperref[subsec:UC-22]{UC-22}}
+    \inc{}
 
     \base{}
 
     \scenario{
-        \item L'utente richiede l'esecuzione del test
-        \item Per ogni coppia del dataset caricato si ottiene la risposta prodotta dal LLM sotto test
-        \item Per ogni coppia del dataset caricato si calcola il grado di somiglianza tra la risposta prodotta dal LLM sotto test rispetto alla risposta attesa
-        \item \texttt{<<include:UC-22>>}
+        \item L'utente conferma la sovrascrittura
+        \item Il dataset corrente viene sovrascritto
     }
 
     \subscenario{
-        \item[1.1] \textbf{Il dataset caricato contiene almeno una coppia invalida}
+        \item[1.1] \textbf{L'utente non conferma la sovrascrittura del dataset corrente}
         \begin{itemize}
-            \item[a.] hyperref[subsec:UC-17]{UC-17}
-        \end{itemize}
-        \item[2.1] \textbf{La comunicazione con LLM produce un errore}
-        \begin{itemize}
-        \item[a.] \hyperref[subsec:UC-21]{UC-21}
+            \item[a.] Il dataset corrente resta invariato
         \end{itemize}
     }
 \end{usecase}

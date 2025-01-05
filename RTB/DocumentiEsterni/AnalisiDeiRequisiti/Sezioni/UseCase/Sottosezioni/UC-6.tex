@@ -5,24 +5,25 @@
     \caption{Diagramma UC-6.}
 \end{figure}
 
-\begin{usecase}{UC-6}{Ricerca tramite parole chiave di un sottoinsieme del dataset caricato}
+\begin{usecase}{UC-6}{Ricerca tramite parole chiave di un sottoinsieme del dataset corrente}
     
     \req{\hyperref[item:RU-2]{RU-2}} 
 
     \pre{
         \item Il sistema è attivo e funzionante
-        \item Il dataset caricato non è vuoto
+        \item Il dataset su cui effettuare la ricerca è stato caricato come dataset corrente
+        \item Il dataset corrente non è vuoto
     }
 
     \post{
-        \item Viene mostrato il sottoinsieme del dataset caricato risultante dall'operazione di ricerca
+        \item Viene mostrato il sottoinsieme del dataset corrente risultante dall'operazione di ricerca
     }
     
     \actor{Utente}
 
     \subactors{}
 
-    \trigger{L'utente deve cercare una o più coppie contenute nel dataset caricato}
+    \trigger{L'utente deve cercare una o più coppie contenute nel dataset corrente}
     
     \inc{}
 
@@ -38,7 +39,7 @@
         \item[1.1] \textbf{Non vengono indicate parole chiave}
         \begin{itemize}
             \item [a.] L'utente conferma l'esecuzione della ricerca
-            \item [b.] Viene mostrato l'intero dataset caricato
+            \item [b.] Viene mostrato l'intero dataset corrente
         \end{itemize}
         \item[3.1]\textbf{Il sottoinsieme risultante è vuoto}
         \begin{itemize}

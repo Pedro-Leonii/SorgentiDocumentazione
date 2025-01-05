@@ -1,39 +1,41 @@
 \subsection{UC-25}
 \label{subsec:UC-25}
 
-\begin{figure}[H]
-    \includegraphics{Sezioni/UseCase/Immagini/UC-25.pdf}
-    \caption{Diagramma UC-25.}
-\end{figure}
-
-\begin{usecase}{UC-25}{Interazione con il grafico di dispersione}
+\begin{usecase}{UC-25}{Visualizzazione diagramma di dispersione dei risultati di un test}
 
     \req{} 
 
     \pre{
         \item Il sistema è attivo e funzionante
-        \item L'utente dispone del grafico di dispersione prodotto nella visualizzazione dei risultati del test
+        \item È stato eseguito correttamente il test sul dataset corrente
     }
 
     \post{
-        \item Viene evidenziato il risultato relativo al punto del grafico di dispersione coinvolto nell'interazione.
+        \item L'utente visualizza un diagramma di dispersione
     }
     
     \actor{Utente}
 
     \subactors{LLM}
 
-    \trigger{L'utente ha la necessità di visualizzare un preciso risultato}
+    \trigger{}
     
     \inc{}
 
     \base{}
 
     \scenario{
-        \item L'utente interagisce con un punto del grafico di dispersione.
+        \item Visualizzazione di un grafico di dispersione.
+        L'asse delle ordinate rappresenta il numero della domanda.
+        L'asse delle ascisse rappresenta il grado di somiglianza tra la risposta attesa e la risposta effettiva
         
+        \item Rappresentazione dei risultati come punti distinguibili tra risposta corretta e sbagliata
         
-        \item Viene evidenziato l'elemento della lista dei risultati corrispondente al punto coinvolto nell'interazione.
+        \item Calcolo della media e rappresentazione come una retta nel grafico
+        
+        \item Calcolo della deviazione standard come una retta nel grafico
+        
+        \item Mostrare la legenda del grafico
     }
 
 \end{usecase}
