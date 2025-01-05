@@ -18,6 +18,9 @@
 \RequirePackage{ifthen}
 \RequirePackage{amssymb}
 \RequirePackage{float}
+\RequirePackage{ltablex}
+\RequirePackage{environ}
+\RequirePackage{enumitem} 
 \ProcessOptions\relax
 
 
@@ -63,6 +66,7 @@
 
 %---------------------------------IMPOSTAZIONI TABELLE----------------------------------------
 \newcolumntype{C}{>{\centering\arraybackslash}X}
+\keepXColumns
 %---------------------------------------------------------------------------------------------
 
 %---------------------------------IMPOSTAZIONI SEZIONI----------------------------------------
@@ -81,26 +85,45 @@
 
 
 %-----------------------------------DEFINIZIONI ENVIRONMENT-----------------------------------
-\newenvironment{registromodifiche}
-    {
-        \thispagestyle{plain}
-        \newgeometry{ignoreall, hmargin=20pt}
-        \table[!h]
-            \center
-            \caption*{\textbf{\Large Registro delle Modifiche}}
-            \tabularx{\textwidth}{| c | c | C | C | C |}
-                \hline
-                    \textbf{\normalsize Versione} & 
-                    \textbf{\normalsize Data} & 
-                    \textbf{\normalsize Autore/i} & 
-                    \textbf{\normalsize Verificatore/i} &
-                    \textbf{\normalsize Descrizione} \\ 
-                \hline \hline
-        }
-        {
-            \endtabularx
-            \endcenter
-            \endtable
-        \restoregeometry
-        }
+\NewEnviron{registromodifiche}{
+    \thispagestyle{plain}
+    \newgeometry{ignoreall, hmargin=20pt}
+    
+    \begin{center}
+        \textbf{\Large Registro modifiche}
+        \begin{tabularx}{\textwidth}{| c | c | C | C | C |}
+            \hline
+                \textbf{\normalsize{Versione}} & 
+                \textbf{\normalsize{Data}} & 
+                \textbf{\normalsize{Autore/i}} & 
+                \textbf{\normalsize{Verificatore/i}} &
+                \textbf{\normalsize{Descrizione}} \\ 
+            \hline 
+            \BODY
+        \end{tabularx}
+    \end{center}
+    \restoregeometry
+}
+
+
+
+
+\NewEnviron{requisitiFunzionali}{
+    \thispagestyle{plain}
+    \newgeometry{ignoreall, hmargin=20pt}
+    
+    \begin{center}
+        \textbf{\Large Tabella dei Requisiti Funzionali}
+        \begin{tabularx}{\textwidth}{| c | c | C |}
+            \hline
+                \textbf{\normalsize{Codice}} & 
+                \textbf{\normalsize{Fonte}} & 
+                \textbf{\normalsize{Descrizione}} \\ 
+            \hline 
+            \BODY
+        \end{tabularx}
+    \end{center}
+    \restoregeometry
+}
+            
 %-------------------------------------------------------------------------------------------  
