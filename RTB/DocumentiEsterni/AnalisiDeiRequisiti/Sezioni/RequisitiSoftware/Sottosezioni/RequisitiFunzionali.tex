@@ -4,7 +4,7 @@ In questa sezione vengono inserite le funzionalità e i comportamenti che il sis
 \begin{requisitiFunzionali}
     RF-0 & UC-0 & \hyperref[subsubsec:RF-0]{Specifica RF-0} & Il sistema deve permettere la visualizzazione del dataset corrente \\ \hline
     RF-1 & UC-1 & \hyperref[subsubsec:RF-1]{Specifica RF-1} &  Il sistema deve permettere l'inserimento di una nuova coppia nel dataset corrente \\ \hline
-    RF-2 & UC-2 & \hyperref[subsubsec:RF-2]{Specifica RF-2} &   \\ \hline
+    RF-2 & UC-2 & \hyperref[subsubsec:RF-2]{Specifica RF-2} & Il sistema deve permettere di annullare un'operazione sul dataset corrente  \\ \hline
     RF-3 & UC-3 & \hyperref[subsubsec:RF-3]{Specifica RF-3} &  Il sistema deve mostrare un errore se l'utente tenta di registrare una coppia composta da domanda e risposta vuote \\ \hline
     RF-4 & UC-4 & \hyperref[subsubsec:RF-4]{Specifica RF-4} & Il sistema deve permettere la modifica di una coppia contenuta nel dataset corrente \\ \hline
     RF-5 & UC-5 & \hyperref[subsubsec:RF-5]{Specifica RF-5} & Il sistema deve permettere l'eliminazione di una coppia contenuta nel dataset corrente \\ \hline
@@ -14,7 +14,16 @@ In questa sezione vengono inserite le funzionalità e i comportamenti che il sis
     RF-9 & UC-9 & \hyperref[subsubsec:RF-9]{Specifica RF-9} & Il sistema deve permettere la visualizzazione dei dataset archiviati\\ \hline
     RF-10 & UC-10 & \hyperref[subsubsec:RF-10]{Specifica RF-10} & Il sistema deve permettere la copia di un dataset archiviato\\ \hline
     RF-11 & UC-11 & \hyperref[subsubsec:RF-11]{Specifica RF-11} & Il sistema deve mostrare un errore se il salvataggio delle informazioni di un dataset fallisce \\ \hline
-    RF-12 & UC-12 & \hyperref[subsubsec:RF-12]{Specifica RF-12} &  \\ \hline
+    RF-12 & UC-12 & \hyperref[subsubsec:RF-12]{Specifica RF-12} & Il sistema deve permettere di eliminare un dataset archiviato \\ \hline
+    RF-13 & UC-13 & \hyperref[subsubsec:RF-13]{Specifica RF-13} & Il sistema deve permettere di creare un nuovo dataset temporaneo \\ \hline
+    RF-14 & UC-14 & \hyperref[subsubsec:RF-14]{Specifica RF-14} & Il sistema deve permettere la ricerca di un sottoinsieme dei dataset archiviati tramite parole chiave \\ \hline
+    RF-15 & UC-15 & \hyperref[subsubsec:RF-15]{Specifica RF-15} & Il sistema deve permettere di archiviare il dataset corrente \\ \hline
+    RF-16 & UC-16 & \hyperref[subsubsec:RF-16]{Specifica RF-16} & Il sistema deve permettere di archiviare il datatset corrente come aggiornamento di un dataset archiviato in precedenza \\ \hline
+    RF-17 & UC-17 & \hyperref[subsubsec:RF-17]{Specifica RF-17} & Il sistema deve mostrare un errore per contenuto invalido del dataset corrente \\ \hline
+    RF-18 & UC-18 & \hyperref[subsubsec:RF-18]{Specifica RF-18} & Il sistema deve permettere di archiviare il dataset corrente come nuovo dataset archiviato \\ \hline
+    RF-19 & UC-19 & \hyperref[subsubsec:RF-19]{Specifica RF-19} & Il sistema deve permettere di caricare come dataset corrente un dataset precedentemente archiviato\\ \hline
+    RF-20 & UC-20 & \hyperref[subsubsec:RF-20]{Specifica RF-20} & Il sistema deve permettere la sovrascrittura del dataset corrente \\ \hline
+
 
 \end{requisitiFunzionali}
 
@@ -43,7 +52,7 @@ In questa sezione vengono inserite le funzionalità e i comportamenti che il sis
 \subsubsection{Specifica RF-2}
 \label{subsubsec:RF-2}
 \begin{enumerate}
-    \item[RF-2.1] L'operazione sul dataset corrente viene annulata
+    \item[RF-2.1] L'operazione sul dataset corrente viene annullata
     \item[RF-2.2] L'annullamento di un operazione sul dataset corrente lascia invariate le informazioni a esso associate 
 \end{enumerate}
 
@@ -125,5 +134,95 @@ In questa sezione vengono inserite le funzionalità e i comportamenti che il sis
 \begin{enumerate}
     \item[RF-11.1] Il sistema notifica l'errore di salvataggio all'utente
 \end{enumerate}
+
+\subsubsection{Specifica RF-12}
+\label{subsubsec:RF-12}
+\begin{enumerate}
+    \item[RF-12.1] Il sistema deve permettere di eliminare un dataset archiviato selezionato
+    \item[RF-12.2] Il sistema deve chiedere la conferma prima di eliminare in modo definitivo il dataset
+    \item[RF-12.3] Il sistema deve permettere di annullare l'eliminazione del dataset
+    \item[RF-12.4] Il sistema aggiorna la lista dei dataset archiviati
+    \item[RF-12.5] Se il sistema riscontra errori durante l'eliminazione del dataset selezionato deve notificarlo all'utente seguendo \hyperref[subsubsec:RF-11]{Specifica RF-11}
+\end{enumerate}
+
+
+\subsubsection{Specifica RF-13}
+\label{subsubsec:RF-13}
+\begin{enumerate}
+    \item[RF-13.1] Il sistema deve permettere di creare un nuovo dataset temporaneo
+    \item[RF-13.2] Il nuovo dataset temporaneo inizialmente è vuoto
+    \item[RF-13.3] Il nuovo dataset temporaneo viene caricato come dataset corrente
+    \item[RF-13.4] Se esiste un dataset corrente e non possiede una versione aggiornata archiviata e non è vuoto il sistema deve chiedere
+    la conferma per la sovrascrittura del dataset corrente seguendo \hyperref[subsubsec:RF-20]{Specifica RF-20}
+\end{enumerate}
+
+\subsubsection{Specifica RF-14}
+\label{subsubsec:RF-14}
+\begin{enumerate}
+    \item[RF-14.1] Il sistema deve fornire una barra di ricerca per permettere la ricerca dei dataset archiviati
+    \item[RF-14.2] Il sistema deve mostrare il sottoinsieme dei dataset archiviati composto dai nomi che contengono le parole chiave
+    \item[RF-14.3] Nel caso in cui il sottoinsieme sia vuoto il sistema deve notificare all'utente che la ricerca non ha prodotto risultati
+    \item[RF-14.4] Se non vengono indicate parole chiave la ricerca produce l'intera lista dei dataset archiviati
+\end{enumerate}
+
+
+\subsubsection{Specifica RF-15}
+\label{subsubsec:RF-15}
+\begin{enumerate}
+    \item[RF-15.1] Il sistema deve permettere di archiviare un dataset corrente
+    \item[RF-15.2] Il sistema deve controllare che ci sia presente almeno una coppia di domanda e risposta
+    \item[RF-15.3] Il sistema deve controllare che tutte le coppie del dataset corrente siano complete altrimenti deve visualizzare l'errore seguendo \hyperref[subsubsec:RF-17]{Specifica RF-17} e interrompere l'operazione di archiviazione
+    \item[RF-15.4] Il sistema archivia il dataset corrente come aggiornamento di un dataset già esistente seguendo \hyperref[subsubsec:RF-16]{Specifica RF-16}
+    o come nuovo salvataggio seguendo \hyperref[subsubsec:RF-18]{Specifica RF-18}
+\end{enumerate}
+
+\subsubsection{Specifica RF-16}
+\label{subsubsec:RF-16}
+\begin{enumerate}
+    \item[RF-16.1] Se il dataset corrente possiede già una versione salvata nell'archivio il sistema deve permettere di aggiornarla sovrascrivendola con il dataset corrente
+    \item[RF-16.2] Il sistema deve chiedere all'utente la conferma per procedere con l'aggiornamento del dataset archiviato
+    \item[RF-16.3] Il sistema deve permettere di annullare l'aggiornamento del dataset archiviato
+    \item[RF-16.4] Il sistema aggiorna la versione salvata nel sistema del dataset corrente
+    \item[RF-16.5] Il sistema notifica l'utente del corretto aggiornamento
+    \item[RF-16.6] Se il sistema riscontra errori durante l'archiviazione del dataset deve notificarlo all'utente seguendo \hyperref[subsubsec:RF-11]{Specifica RF-11}
+\end{enumerate}
+
+\subsubsection{Specifica RF-17}
+\label{subsubsec:RF-17}
+\begin{enumerate}
+    \item[RF-17.1] Il sistema notifica l'errore della presenza di coppie invalide
+    \item[RF-17.2] Il sistema evidenzia tutte le coppie invalide
+\end{enumerate}
+
+\subsubsection{Specifica RF-18}
+\label{subsubsec:RF-18}
+\begin{enumerate}
+    \item[RF-18.1] Se il dataset corrente è temporaneo e non possiede già una versione salvata nell'archivio il sistema deve permettere di archiviare il dataset corrente come nuovo salvataggio
+    \item[RF-18.2] Il sistema deve permettere l'inserimento di un nome da associare al dataset corrente 
+    \item[RF-18.3] Il sistema deve controllare che il nome inserito sia valido (il nome non è vuoto e non esiste già) altrimenti deve segnalarlo seguendo \hyperref[subsubsec:RF-8]{Specifica RF-8}
+    \item[RF-18.4] Il sistema salva nel sistema il dataset corrente con il nome inserito dall'utente
+    \item[RF-18.5] Il sistema deve permettere di annullare il salvataggio del dataset temporaneo
+    \item[RF-18.6] Se il sistema riscontra errori durante l'archiviazione del dataset deve notificarlo all'utente seguendo \hyperref[subsubsec:RF-11]{Specifica RF-11}
+\end{enumerate}
+
+\subsubsection{Specifica RF-19}
+\label{subsubsec:RF-19}
+\begin{enumerate}
+    \item[RF-19.1] Il sistema deve permettere di caricare un dataset archiviato
+    \item[RF-19.2] Il sistema deve permettere di selezionare un nome tra quelli dei dataset archiviati
+    \item[RF-19.3] Il sistema deve caricare come dataset corrente il dataset selezionato
+    \item[RF-19.4] Il sistema deve permettere di annullare il caricamento del dataset selezionato
+    \item[RF-19.5] Se il dataset caricato non possiede una versione aggiornata archiviata e non è vuoto il sistema deve chiedere
+    la conferma per la sovrascrittura del dataset corrente seguendo \hyperref[subsubsec:RF-20]{Specifica RF-20}
+\end{enumerate}
+
+\subsubsection{Specifica RF-20}
+\label{subsubsec:RF-20}
+\begin{enumerate}
+    \item[RF-20.1] 
+    \item[RF-20.2] 
+\end{enumerate}
+
+
 
 
