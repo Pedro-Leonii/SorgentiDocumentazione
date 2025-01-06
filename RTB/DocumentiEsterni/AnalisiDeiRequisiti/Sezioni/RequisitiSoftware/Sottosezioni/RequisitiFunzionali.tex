@@ -23,6 +23,13 @@ In questa sezione vengono inserite le funzionalità e i comportamenti che il sis
     RF-18 & UC-18 & \hyperref[subsubsec:RF-18]{Specifica RF-18} & Il sistema deve permettere di archiviare il dataset corrente come nuovo dataset archiviato \\ \hline
     RF-19 & UC-19 & \hyperref[subsubsec:RF-19]{Specifica RF-19} & Il sistema deve permettere di caricare come dataset corrente un dataset precedentemente archiviato\\ \hline
     RF-20 & UC-20 & \hyperref[subsubsec:RF-20]{Specifica RF-20} & Il sistema deve permettere la sovrascrittura del dataset corrente \\ \hline
+    RF-21 & UC-21 & \hyperref[subsubsec:RF-21]{Specifica RF-21} & Il sistema deve permettere l'esecuzione del test sul dataset corrente \\ \hline
+    RF-22 & UC-22 & \hyperref[subsubsec:RF-22]{Specifica RF-22} & Il sistema deve mostrare un errore di comunicazione con LLM \\ \hline
+    RF-23 & UC-23 & \hyperref[subsubsec:RF-23]{Specifica RF-23} & Il sistema deve permettere la visualizzazione dei risultati di un test \\ \hline
+    RF-24 & UC-24 & \hyperref[subsubsec:RF-24]{Specifica RF-24} & Il sistema deve permettere di visualizzare la lista dei risultati di un test \\ \hline
+    RF-25 & UC-25 & \hyperref[subsubsec:RF-25]{Specifica RF-25} & Il sistema deve permettere di visualizzare il diagramma di dispersione dei risultati di un test \\ \hline
+    RF-26 & UC-26 & \hyperref[subsubsec:RF-26]{Specifica RF-26} & Il sistema deve permettere di interagire con il grafico di dispersione \\ \hline
+
 
 
 \end{requisitiFunzionali}
@@ -212,15 +219,77 @@ In questa sezione vengono inserite le funzionalità e i comportamenti che il sis
     \item[RF-19.2] Il sistema deve permettere di selezionare un nome tra quelli dei dataset archiviati
     \item[RF-19.3] Il sistema deve caricare come dataset corrente il dataset selezionato
     \item[RF-19.4] Il sistema deve permettere di annullare il caricamento del dataset selezionato
-    \item[RF-19.5] Se il dataset caricato non possiede una versione aggiornata archiviata e non è vuoto il sistema deve chiedere
-    la conferma per la sovrascrittura del dataset corrente seguendo \hyperref[subsubsec:RF-20]{Specifica RF-20}
+    \item[RF-19.5] Se il dataset caricato non possiede una versione aggiornata archiviata e non è vuoto il sistema deve prima
+    chiedere la conferma seguendo \hyperref[subsubsec:RF-20]{Specifica RF-20}
 \end{enumerate}
 
 \subsubsection{Specifica RF-20}
 \label{subsubsec:RF-20}
 \begin{enumerate}
-    \item[RF-20.1] 
-    \item[RF-20.2] 
+    \item[RF-20.1] Il sistema deve permettere di confermare la sovrascrittura del dataset corrente
+    \item[RF-20.2] Il sistema deve permettere di annullare l'operazione di sovrascrittura
+    \item[RF-20.3] Il dataset corrente viene sovrascritto 
+    \item[RF-20.4] Il dataset sovrascritto non è più recuperabile
+\end{enumerate}
+
+\subsubsection{Specifica RF-21}
+\label{subsubsec:RF-21}
+\begin{enumerate}
+    \item[RF-21.1] Il sistema deve permettere di eseguire il test del dataset corrente
+    \item[RF-21.2] Il sistema deve controllare che ci sia presente almeno una coppia di domanda e risposta
+    \item[RF-21.3] Il sistema deve controllare che tutte le coppie del dataset corrente siano complete altrimenti deve visualizzare l'errore seguendo \hyperref[subsubsec:RF-17]{Specifica RF-17} e interrompere l'esecuzione del test
+    \item[RF-21.4] Il sistema deve richiedere le risposte date dal LLM sotto test tramite interrogazioni HTTP seguendo lo standard OpenAPI 3.1 inviando le domande del dataset corrente
+    \item[RF-21.5] Se la comunicazione con LLM produce qualche errore il sistema notifica l'utente spiegando la natura del'errore seguendo \hyperref[subsubsec:RF-22]{Specifica RF-22}
+    \item[RF-21.6] Il sistema per ogni risposta ottenuta deve confrontarla con la risposta attesa producendo due valori:
+    \begin{enumerate}
+        \item Grado di similarità tra risposta attesa e risposta ricevuta
+        \item Valore booleano che indica se la risposta ricevuta è corretta
+    \end{enumerate}
+    \item[RF-21.7] Il sistema mostra i risultati del test in un'apposita schermata seguendo \hyperref[subsubsec:RF-23]{Specifica RF-23}
+\end{enumerate}
+
+\subsubsection{Specifica RF-22}
+\label{subsubsec:RF-22}
+\begin{enumerate}
+    \item[RF-22.1] Il sistema deve notificare l'errore prodotto dal LLM
+\end{enumerate}
+
+\subsubsection{Specifica RF-23}
+\label{subsubsec:RF-23}
+\begin{enumerate}
+    \item[RF-23.1] Il sistema deve permettere di mostrare i risultati prodotti dal test in un'apposita schermata
+    \item[RF-23.2] Il sistema deve mostrare una lista dei risultati del teste seguendo \hyperref[subsubsec:RF-24]{Specifica RF-24}
+    \item[RF-23.3] Il sistema deve mostrare un diagramma dei risultati del teste seguendo \hyperref[subsubsec:RF-25]{Specifica RF-25}
+    \item[RF-23.4] Il sistema deve permettere di tornare al dataset caricato
+\end{enumerate}
+
+\subsubsection{Specifica RF-24}
+\label{subsubsec:RF-24}
+\begin{enumerate}
+    \item[RF-24.1] Il sistema deve mostrare i singoli risultati del test in una lista ordinata per il numero di domanda
+    \item[RF-24.2] Il sistema deve mostrare i risultati del test rappresentati in questo modo: domanda, risposta attesa, risposta ottenuta, grado di somiglianza tra le due risposte e il valore booleano di correttezza
+\end{enumerate}
+
+\subsubsection{Specifica RF-25}
+\label{subsubsec:RF-25}
+\begin{enumerate}
+    \item[RF-25.1] Il sistema deve mostrare un grafico di dispersione avente l'asse delle ordinate che rappresenta il numero della
+     domanda e l'asse delle ascisse che rappresenta il grado di somiglianza tra la risposta attesa e la risposta effettiva
+    \item[RF-25.2] Il sistema deve mostrare un grafico di dispersione che contiene i risultati del test come punti composti dalle coordinate numero domanda e grado similarità.
+    \item[RF-25.3] Il sistema deve calcolare la media dei gradi di similarità risultanti dal test
+    \item[RF-25.4] Il sistema deve calcolare la deviazione standard di similarità risultanti dal test
+    \item[RF-25.5] Il sistema deve rappresentare la media nel grafico come una linea retta
+    \item[RF-25.6] Il sistema deve rappresentare la deviazione standard nel grafico come un linea retta
+    \item[RF-25.7] Il sistema deve rappresentare i punti in modo differente in base al valore booleano che indica la correttezza della risposta ottenuta dal LLM
+    \item[RF-25.8] Il sistema deve permettere di interagire con il grafico seguendo \hyperref[subsubsec:RF-26]{Specifica RF-26}
+    \item[RF-25.9] Il sistema deve fornire a fianco al grafico una legenda che spiega la sua composizione
+\end{enumerate}
+
+\subsubsection{Specifica RF-26}
+\label{subsubsec:RF-26}
+\begin{enumerate}
+    \item[RF-26.1] Il sistema deve permettere di interagire con i singoli punti del grafico di dispersione
+    \item[RF-26.2] Il sistema deve evidenziare l'elemento della lista dei risultati corrispondente al punto coinvolto nell'interazione
 \end{enumerate}
 
 
