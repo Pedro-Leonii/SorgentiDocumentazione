@@ -1,15 +1,16 @@
 
 
 \subsection{Introduzione}
-In questa sezione vengono elencati i requisiti software trovati dal gruppo per la realizzazione del progetto ArificalQI.
-I requisiti sono stati trovati tramite l'analisi degli use case individuati dal gruppo, dal'analisi del capitolato fornito dall'azienda
-e dalle riunioni esterne.
-Ogni requisito software ha una nomenclatura composta come segue:\\[1em]
-R[\textit{Tipologia}]-[\textit{ID\_Fonte}].[\textit{ID\_RequisitoSoftware}]\\[1em]
+In questa sezione vengono elencati i requisiti software trovati dal gruppo per la realizzazione del progetto ArtificalQI.
+I requisiti sono stati trovati tramite l'analisi degli use case individuati dal gruppo, dall'analisi del capitolato fornito dall'azienda e dalle riunioni esterne.
+Ogni requisito software ha una nomenclatura composta come segue:
+\begin{lstlisting}
+    R[Tipologia]-[ID_RequisitoSoftware]
+\end{lstlisting}
 Dove:
 \begin{enumerate}
-    \item R stà per requisito
-    \item Tipologia si divide in tre categorie
+    \item \lstinline|R| stà per requisito
+    \item \lstinline|Tipologia| si divide in tre categorie
     \begin{enumerate}
         \item Funzionali (F): sono i requisiti software che soddisfano i comportamenti o le funzionalità del sistema.
         \item Qualitativi (Q): sono i requisiti software che servono per soddisfare gli standard qualitativi e di manutenibilità
@@ -17,4 +18,11 @@ Dove:
         \item Di Vincolo/Dominio (V): sono i requisiti che delineano le restrizione che gli Stakeholders o il capitolato impongono
          per la realizzazione del progetto software.
     \end{enumerate}
+    \item \lstinline|ID_requisito| è un numero progressivo a partire da 0 che individua il requisito software.
 \end{enumerate}  
+Per ogni requisito software viene indicata una specifica che definisce i sotto requisiti di cui esso è composto.
+L'identificazione dei sotto requisiti segue la nomeclatura:
+\begin{lstlisting}
+R[Tipologia]-[ID_RequisitoSoftware].[ID_SottoRequisito]
+\end{lstlisting} 
+Dove \lstinline|ID_SottoRequisito| è un numero progressivo a partire da 0 che identifica il sotto requisito.
