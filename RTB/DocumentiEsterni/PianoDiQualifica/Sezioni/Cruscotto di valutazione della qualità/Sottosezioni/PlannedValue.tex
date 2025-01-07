@@ -1,0 +1,21 @@
+\subsection{M.PC.PV - Planned Value}
+
+\begin{tikzpicture}
+    \begin{axis}[
+        width=12cm, height=8cm,
+        ymin=0, ymax=11250,
+        xtick={1, 2, 3},
+        xticklabels={Sprint 1, Sprint 2, Sprint 3},
+        xlabel={},
+        ylabel={},
+        grid=major,
+        legend style={at={(0.5,1.05)}, anchor=south, legend columns=-1},
+    ]
+    \addplot coordinates {(1, 1125) (2, 3937.5), (3, 6187.5)};
+    \addlegendentry{Valore misurato}
+    \end{axis}
+\end{tikzpicture}
+
+\subsection*{RTB}
+
+\subsection*{PB}
