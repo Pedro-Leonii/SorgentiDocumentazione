@@ -38,13 +38,13 @@ L'installazione di pacchetti tramite TLShell è abbastanza intuitiva e segue i p
 Di seguito vengono elencati i comandi di base che devono essere noti per la stesura di documenti in LaTeX.
 
 \subparagraph{Tabelle}
+\label{subpar:tabelle}
 \begin{lstlisting}
 
         \begin{table}[H]
             \begin{tabularx}[| X | c | l | r |]
                 \hline
-
-                Intestazione1 &
+                \makecell{Intestazione1 \\ Intestazione1} &
                 Intestazione2 &
                 Intestazione3 &
                 Intestazione4 \\
@@ -53,7 +53,7 @@ Di seguito vengono elencati i comandi di base che devono essere noti per la stes
 
                 prima colonna prima riga   &
                 seconda colonna prima riga &
-                terza coolonna prima riga  &
+                terza colonna prima riga  &
                 quarta colonna prima riga  &
 
                 \hline
@@ -76,6 +76,8 @@ Dove:
     \lstinline+X+ indica una colonna che si allarga dinamicamente.
 
     \lstinline+c+, \lstinline+l+ e \lstinline+r+ indicano rispettivamente colonne in cui il posizionamento del testo è centrale, a sinistra e a destra.
+    
+    \item \lstinline+\makecell{... \\ ...}+ permette di creare celle con testo su più righe, usando \textbackslash\textbackslash{} per andare a capo. 
 
     \item \lstinline+\hline+ crea una linea orizzontale.
 \end{itemize}
@@ -132,6 +134,61 @@ L'inclusione di file .tex permette di dividere un documento in più file rendend
 \begin{lstlisting}
     \input{PercorsoAlFile}
 \end{lstlisting} 
+
+\subparagraph{Grafici}
+\label{subpar:grafici}
+\begin{lstlisting}
+
+
+\begin{axis}[
+    title={Titolo del grafico},
+    xlabel={Nome dell'asse x}, 
+    ylabel={Nome dell'asse y},
+    xmin=, xmax=,  
+    ymin=, ymax=,
+    xtick={assex1, assex2, ...},
+    ytick={assey1, assey2, ...},
+    grid=, 
+    grid style={},
+    width=, height=, 
+    legend pos= 
+]
+
+\addplot[color=] coordinates {
+    (x1, y1) (x2, y2) ...
+};
+\addlegendentry{}
+
+\end{lstlisting}
+
+Dove:
+\begin{itemize}
+    \item \lstinline+title+ indica il titolo del grafico. 
+    
+    \item \lstinline+xlabel+ e \lstinline+ylabel+ indicano i nomi degli assi x e y. 
+    
+    \item \lstinline+xmin+ e \lstinline+xmax+ indicano i valori minimi e massimi dell'asse x. 
+
+    \item \lstinline+ymin+ e \lstinline+ymax+ indicano i valori minimi e massimi dell'asse y.
+    
+    \item \lstinline+xtick+ e \lstinline+ytick+ indicano i valori sull'asse x e y.
+    
+    \item \lstinline+grid+ indica se mostrare la griglia che può essere \texttt{major}, \texttt{minor} o \texttt{both}.
+    
+    \item \lstinline+grid style+ indica lo stile della griglia che può essere \texttt{dotted}, \texttt{dashed}, \texttt{solid}, \texttt{none} e se ne può specificare il colore, es. \texttt{gray}.
+     
+    \item \lstinline+width+ e \lstinline+height+ indicano la larghezza e l'altezza del grafico.
+     
+    \item \lstinline+legend pos+ indica la posizione della legenda che può essere \texttt{north east}, \texttt{north west}, \texttt{south east}, \texttt{south west}.
+    
+    \item \lstinline+addplot+ \lstinline+coordinates+ indica i valori da aggiungere al grafico.
+    
+    \item \lstinline+[]+ subito dopo addplot contiene le caratteristiche del grafico tracciato, come il colore.
+    
+    \item \lstinline+addlegendentry+ indica il nome del grafico tracciato.
+\end{itemize}
+
+
 
 \paragraph{Pacchetto LaTeX}
 Per rendere i file sorgenti meno complessi è stato deciso di definire un pacchetto LaTeX che contiene:
