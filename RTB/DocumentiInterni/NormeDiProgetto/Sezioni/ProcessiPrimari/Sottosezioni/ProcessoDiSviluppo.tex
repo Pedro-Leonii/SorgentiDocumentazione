@@ -30,6 +30,7 @@ I requisiti vengono categorizzati in:
 
 
 \paragraph{Casi d'uso}
+\label{par:casi_uso}
 I casi d'uso forniscono una descrizione dettagliata delle funzionalità del sistema dal punto di vista degli utenti, delineando come il sistema risponda a specifiche azioni o scenari. 
 In particolare un caso d'uso rappresenta un uso completo del sistema dalla prospettiva dell'utente.
 I casi d'uso vengono rappresentati tramite una combinazione di descrizione e diagramma UML.
@@ -51,6 +52,10 @@ Ogni descrizione di caso d'uso deve includere:
         \item \texttt{<ID sotto caso>}: identificativo numerico del sotto caso d'uso (presente solo se si tratta di un sotto caso d'uso).
     \end{enumerate}
 
+    \item \textbf{Requisito utente}.
+    
+    Requisito utente a cui fa riferimento il diagramma.
+
     \item \textbf{Pre-condizioni}.
     
     Stato iniziale del sistema o vincoli necessari per l'attivazione del caso d'uso.
@@ -59,12 +64,8 @@ Ogni descrizione di caso d'uso deve includere:
     
     Stato finale del sistema dopo un esecuzione normale(priva di errori) del caso d'uso.
 
-    \item \textbf{Post-condizioni errore}.
-    
-    Stato finale del sistema dopo un esecuzione fallita del caso d'uso.
-
     \item \textbf{Attori}.
-    Un attore è un entità esterna(\underline{umana o meno}) al sistema che interagisce con il sistema per iniziare o per contribuire al compimento l'esecuzione di un caso d'uso.  
+    Un attore è un entità esterna(\underline{umana o meno}) al sistema che interagisce con il sistema per iniziare o per contribuire al compimento dell'esecuzione di un caso d'uso.  
     Gli attori si dividono in:
     \begin{enumerate}
         \item  \textbf{Attori primari}: attori principali che partecipano al caso d'uso, solitamente contengono gli attori che iniziano l'interazione e/o sono i destinatari delle informazioni in output del caso d'uso.
@@ -74,53 +75,62 @@ Ogni descrizione di caso d'uso deve includere:
     \item \textbf{Trigger}.
     
     Evento eseguito da un attore che attiva il caso d'uso.
-    
-    \item \textbf{User story}.
-    
-    Una breve descrizione di una funzionalità del software, scritta dal punto di vista dell'utente, che fornisce contesto, obiettivi e valore.
-    L'user story viene scritta nella forma:
-    \begin{center}
-        \small
-        \texttt{\textit{"Come <utente> desidero poter <funzionalità> per <valore aggiunto>"}}.
-    \end{center}
 
     \item \textbf{Scenario principale}.
     
     La sequenza di step importanti che vengono portati a termine in un esecuzione normale del caso d'uso.
     
-    \item \textbf{Scenario alternativo}.
+    \item \textbf{Scenari alternativi}.
 
     Eventuali deviazioni o eccezioni rispetto allo scenario principale.
 \end{enumerate}
 
-\begin{table}[H]
-    \resizebox{\textwidth}{!}{
-    \begin{tabular}{l l l}
-       
-            \rowcolor{lightgray}
-            \textbf{Nome caso d'uso} & & \texttt{\textbf{<identificativo caso d'uso>}} \\ 
+\begin{usecase}{\texttt{<identificativo caso d'uso>}}{\texttt{<descrizione caso d'uso>}}
+            
+    \req{\texttt{<link requisito utente>}}
+    
+    \pre{
+        \item \texttt{<pre condizione>}
+        \item \texttt{<pre condizione>}
+    }
+    
+    \post {
+        \item \texttt{<post condizione>}
+        \item \texttt{<post condizione>}
+    }
+    
+    \actor{\texttt{<attore principale>}}
+    
+    \subactors{\texttt{<lista attori secondari>}}
 
-            Pre-condizioni & & \texttt{<pre-condizioni>} \\
-            Post-condizioni & & \texttt{<post-condizioni>} \\
-            Post-condizioni errore & & \texttt{<post-condizioni errore>} \\
-            Attori principali & & \texttt{<lista attori principali>} \\
-            Attori secondari & & \texttt{<lista attori secondari>} \\
-            Trigger & & \texttt{<trigger>} \\
-            Casi d'uso inclusi & & \texttt{<lista casi d'uso inclusi>}\\
-            Caso d'uso base & & \texttt{<caso d'uso di base>}\\
-            Scenario principale & \textbf{Step} & \textbf{Azione} \\
-            & 1 & \texttt{<$1^a$ azione>} \\
-            & \texttt{\textbf{include::<nome caso d'uso>}} & \\
-            & 2 & \texttt{<$2^a$ azione>} \\
-            & ... & ... \\
-            Estensioni & \textbf{Step} & \textbf{Azione alternativa} \\ 
-            & 2.1 & \texttt{<$1^a$ azione a partire dal $2^o$ step>} \\
-            & 2.2 & \texttt{<$2^a$ azione a partire dal $2^o$ step>} \\
-            & ... & ... \\
-    \end{tabular}}
-    \caption{Template tabella dei casi d'uso.}
+    \trigger{\texttt{<trigger>}}
+    
+    \inc{\texttt{<lista casi d'uso inclusi>}}
+    
+    \base{\texttt{<caso d'uso di base>}}
+    
+    \scenario{
+        \item \texttt{<$1^a$ azione>}
+        \item \texttt{<$2^a$ azione>}
+        \item \texttt{<<include:id>>}
+    }
+
+    \subscenario{
+        \item[1.1] \texttt{<condizione branch dalla $1^a$ azione>}
+        \begin{itemize}
+            \item [a.] \texttt{$1^a$ azione del scenario secondario}
+            \item [b.] \texttt{$2^a$ azione del scenario secondario}
+        \end{itemize} 
+        \item[2.1] \texttt{<condizione branch dalla $2^a$ azione>}
+        \begin{itemize}
+            \item [a.] \texttt{$1^a$ azione del scenario secondario}
+            \item [b.] \texttt{$2^a$ azione del scenario secondario}
+        \end{itemize} 
+    }
+    \caption{Template casi d'uso.}
     \label{tab:template_casi_uso}
-\end{table}
+\end{usecase}
+
 
 \subparagraph{Diagrammi dei casi d'uso}
 I diagrammi dei casi d'uso sono strumenti grafici utilizzati nell'ingegneria del software per rappresentare in modo intuitivo le interazioni tra gli utenti (attori) e un sistema. Basati sul linguaggio UML (Unified Modeling Language), questi diagrammi illustrano i principali scenari operativi del sistema e aiutano a identificare e chiarire i requisiti funzionali.
