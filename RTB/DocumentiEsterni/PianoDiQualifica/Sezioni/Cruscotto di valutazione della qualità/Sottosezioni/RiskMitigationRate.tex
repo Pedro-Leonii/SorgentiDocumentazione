@@ -3,7 +3,7 @@
 \begin{tikzpicture}
     \begin{axis}[
         width=12cm, height=8cm,
-        ymin=0, ymax=5,
+        ymin=0, ymax=100,
         xtick={1, 2, 3},
         xticklabels={Sprint 1, Sprint 2, Sprint 3},
         xlabel={},
@@ -11,7 +11,7 @@
         grid=major,
         legend style={at={(0.5,1.05)}, anchor=south, legend columns=-1},
     ]
-    \addplot coordinates {(1, 50) (2, 100), (3, 100)};
+    \addplot coordinates {(1, 50) (2, 100) (3, 100)};
     \addlegendentry{Valore misurato}
     \end{axis}
 \end{tikzpicture}
