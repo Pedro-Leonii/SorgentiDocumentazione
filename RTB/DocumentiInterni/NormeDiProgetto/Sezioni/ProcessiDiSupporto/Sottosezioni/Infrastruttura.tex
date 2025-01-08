@@ -27,7 +27,7 @@ L'installazione di pacchetti tramite TLShell è abbastanza intuitiva e segue i p
     \item Selezionare il radio button del pacchetto da installare \hyperref[fig:installazione_pacchetti]{Figura \ref{fig:installazione_pacchetti} (3)}.
     \item Cliccare il pulsante \texttt{Install marked} \hyperref[fig:installazione_pacchetti]{Figura \ref{fig:installazione_pacchetti} (4)}.
 \end{enumerate}
-\begin{figure}
+\begin{figure}[H]
     \includegraphics[scale=0.7]{Sezioni/ProcessiDiSupporto/Immagini/installazione_pacchetti.png}
     \caption{Installazione pacchetti LaTeX..}
     \label{fig:installazione_pacchetti}
@@ -40,7 +40,7 @@ Di seguito vengono elencati i comandi di base che devono essere noti per la stes
 \subparagraph{Tabelle}
 \begin{lstlisting}
 
-        \begin{table}[!h]
+        \begin{table}[H]
             \begin{tabularx}[| X | c | l | r |]
                 \hline
 
@@ -67,7 +67,7 @@ Di seguito vengono elencati i comandi di base che devono essere noti per la stes
 \end{lstlisting}
 Dove:
 \begin{itemize}
-    \item \lstinline+[!h]+ indica che il posizionamento della tabella nel pdf deve essere dove si trova nel codice.
+    \item \lstinline+[H]+ indica che il posizionamento della tabella nel pdf deve essere dove si trova nel codice.
     
     \item \lstinline+[| X | c | l | r |]+ indica le colonne della tabella.
 
@@ -115,7 +115,7 @@ Listati di codice inline:
 
 \subparagraph{Figure}
 \begin{lstlisting}
-    \begin{figure}[h!]
+    \begin{figure}[H]
         \includegraphics[scale=1.2]{pathImmagine}
         \caption{Riassunto immagine.}
         \label{fig:IdFigura}
@@ -123,7 +123,7 @@ Listati di codice inline:
 \end{lstlisting}
 Dove:
 \begin{itemize}
-    \item \texttt{[h!]} permette di posizionare la figura nel pdf dove si trova nel codice.
+    \item \texttt{[H]} permette di posizionare la figura nel pdf dove si trova nel codice.
     \item \texttt{scale=x.y} indica la scala da applicare all'immagine.
 \end{itemize}
 
@@ -144,7 +144,7 @@ I pacchetti usati devono essere installati manualmente usando il processo spiega
 In \hyperref[fig:pacchetto_latex]{Figura \ref{fig:pacchetto_latex}} viene mostrata la struttura del pacchetto LaTeX.
 \textbf{Nota bene}: Il pacchetto per poter essere importato deve essere indicato con il comando \lstinline|\usepackage| e il suo percorso deve essere indicato nella variabile di ambiente TEXINPUTS.
 La spiegazione della configurazione dell'ambiente per l'utilizzo del pacchetto è spiegata nella sezione \hyperref[par:IDE]{Integrated Development Environment IDE}.
-\begin{figure}[!h]
+\begin{figure}[H]
     \dirtree{%
         .1 Packages.
         .2 Immagini.
@@ -233,7 +233,7 @@ Le sezioni saranno divise a loro volta in sottosezioni contenute nella cartella 
 Inoltre ogni cartella di sottosezione conterrà una cartella chiamata \texttt{Immagini}.
 La divisione segue la struttura indicata in \hyperref[fig:struttura_file_lungi]{Figura \ref{fig:struttura_file_lungi}} dove \texttt{F} indica il nome di un file da dividere:
 
-\begin{figure}[!h]
+\begin{figure}[H]
     \dirtree{%
     .1 cartella di F.
     .2 F.tex.
@@ -287,7 +287,7 @@ Per fare ciò è necessario seguire le azioni:
     \end{lstlisting}
 \end{enumerate}
 
-\begin{figure}[!h]
+\begin{figure}[H]
     \center
     \includegraphics[scale=0.4]{Sezioni/ProcessiDiSupporto/Immagini/texinputs_setup.png}
     \includegraphics[]{Sezioni/ProcessiDiSupporto/Immagini/texinputs_setup_json.jpg}
@@ -1117,6 +1117,22 @@ Notare che quindi una modifica alla struttura delle cartelle del progetto può r
 \end{enumerate}
 Oltre alle variabili questa GitHub action utilizza un \textbf{Personal Access Token} memorizzato nel secret chiamato \texttt{PAT\_COMPILATI}.
 
+\paragraph{Correzione grammaticale dei documenti}
+\label{par:correzione_grammaticale}
+La correzione grammaticale dei documenti viene facilitata tramite un workflow definito nel file \texttt{ControlloOrtografico.yaml}.
+Questo workflow viene eseguito ogni volta che viene effettuato il push o viene creata una pull request di un file .tex nei rami \textit{feature} e \textit{develop}.
+Il workflow utilizza aspell per effettuare il controllo e in caso trovasse errori questi vengono segnalati come output della action e anche come commento alla pull request.
+Il workflow non ha lo scopo di correggere automaticamente gli errori ma di segnalarli per una correzione manuale andando a rendere il lavoro efficente ed efficace. 
+
+\paragraph{Calcolo delle ore di lavoro}
+\label{par:calcolo_ore_lavoro}
+Il workflow è definito nel file \texttt{CalcoloOre.yaml} e viene eseguito ogni volta che viene effettuato il merge di una pull request.
+Per facilitare la determinazione delle ore di lavoro impiegate da ogni ruolo si è deciso di utilizzare un file excel condiviso.
+Questo file excel contiene una dashboard che permette di tenere traccia delle ore preventivate ed effettive per ogni ruolo.
+Ciò facilita la stesura degli sprint all'interno del documento Piano di progetto.
+La compilazione dei campi della dashboard nel file excel è automatizzata tramite una GitHub action che preleva lo sprint di riferimento della issue,
+l'id della issue, il ruolo che ha risolto la issue, le ore preventivate dal primo commento della issue, le ore impiegate dal primo commento della pull request relativa.
+
 \subsubsection{Gestione}
 \paragraph{Canali di comunicazione}
 I canali di coumunicazione si dividono in canali interni usati per le riunioni del gruppo e canali esterni usati per le riunioni tra il gruppo e il proponente.
@@ -1152,6 +1168,7 @@ Questo strumento può essere usato in combinazione con un account google per def
 Nel secondo caso è necessario installare l'editor che può essere trovato nel Microsoft store. 
 
 \subsubsection{Dashboard excel}
+\label{subpar:dashboard_excel}
 \paragraph{Dashboard excel per il calcolo delle ore}
 Il gruppo si è munito di un file excel condiviso dove è stata realizzata una dashboard per tenere traccia, in un unico file, degli sprint. Ogni sprint traccia, a sua volta, le seguenti informazioni per ogni issue appartenente allo sprint:
 \begin{enumerate}
