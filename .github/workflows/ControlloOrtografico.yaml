@@ -26,7 +26,7 @@ jobs:
 
         - name: Controllo grammaticale
           run: |
-            python3 .github/workflows/Scripts/controlloOrtografico.py 
+            python3 .github/workflows/dipendenze/controlloOrtografico.py 
           working-directory: sorgenti
 
         - name: Aggiunge alla pr il commento con errori

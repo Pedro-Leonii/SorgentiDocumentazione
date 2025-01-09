@@ -1,0 +1,131 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{custom}
+
+
+%--------------------VARIABILI--------------------
+\def\lastversion{v3.0}
+\def\title{Preventivo costi e assunzione impegni}
+\def\date{11 novembre 2024}
+%------------------------------------------------
+
+
+\begin{document}
+
+\primapagina
+
+\begin{registromodifiche}
+
+        v3.0 & 11 novembre 2024 & Pedro Leoni & & Approvazione documento\\
+    \hline
+        v2.1 & 11 novembre 2024 & Guirong Lan & Pedro Leoni & Modifica sezione:  \hyperref[sec:dichiarazione_impegni]{Dichiarazione degli impegni}\\
+    \hline
+        v2.0 & 5 novembre 2024 & Marko Peric & & Approvazione documento \\
+    \hline
+        v1.1 & 4 novembre 2024 & Pedro Leoni & Guirong Lan & Modifica sezioni: \hyperref[sec:costi]{Costi} e \hyperref[sec:scadenza]{Scadenza di consegna} Aggiunta sezione: \hyperref[sec:criteri_rotazione_ruoli]{Criteri di rotazione dei ruoli} \\
+    \hline
+        v1.0 & 1 novembre 2024 & Guirong Lan & & Approvazione documento \\ 
+    \hline 
+        v0.1 & 31 ottobre 2024 & Marko Peric & Francesco Savio & Prima stesura \\
+    \hline
+\end{registromodifiche}
+
+\tableofcontents
+\newpage
+
+\section{Considerazioni sui ruoli}
+
+\subsection{Responsabile}
+Il responsabile del progetto è incaricato di coordinare le attività del gruppo di lavoro, pianificare e monitorare i progressi, e gestire efficacemente le risorse disponibili. 
+In sintesi, egli si assicura che il progetto venga portato a termine nei tempi stabiliti e in conformità con le risorse assegnate. La sua partecipazione è prevista come frequente, caratterizzata da attività di breve durata,
+poiché la sua figura è fondamentale per garantire l’ottimizzazione dei tempi e dei costi.
+
+\subsection{Amministratore}
+L’amministratore ha la responsabilità della gestione delle risorse e delle infrastrutture del progetto, inclusa la configurazione e il supporto degli strumenti utilizzati nella produzione del software. 
+Questo ruolo è cruciale per garantire l'adozione efficace delle procedure operative, assicurando così un elevato livello di efficienza e produttività nel gruppo di lavoro. 
+Si prevede un coinvolgimento intenso nelle fasi iniziali del progetto, per poi assestarsi su un impegno più moderato man mano che le attività proseguono.
+
+\subsection{Analista}
+L’analista ricopre un ruolo fondamentale, specialmente nelle fasi iniziali del progetto. Egli è responsabile dell’analisi delle funzionalità del software, definendo i requisiti e i casi d’uso pertinenti. 
+La complessità del capitolato richiede un impegno considerevole nella fase di analisi dei requisiti, essenziale per garantire che il progetto soddisfi le esigenze degli stakeholder e per delineare una base solida su cui costruire il lavoro successivo.
+
+\subsection{Progettista}
+Il progettista è responsabile della definizione dell'architettura del software, identificando le componenti e le relazioni tra di esse, sulla base dei requisiti stabiliti dall’analista. 
+L'integrazione di molteplici tecnologie e prodotti di terze parti richiede un approccio meticoloso e un significativo dispendio di tempo. 
+È fondamentale disporre di una base progettuale solida, che permetta l'integrazione di ulteriori funzionalità e garantisca un corretto sviluppo del progetto.
+
+\subsection{Programmatore}
+Il programmatore si occupa di scrivere il codice sorgente del software, seguendo le specifiche elaborate dal progettista. Data la complessità del progetto, si prevede un significativo impegno temporale nella fase di sviluppo. 
+Un'attenta codifica è essenziale per garantire la funzionalità e l'affidabilità del software finale, poiché eventuali errori in questa fase possono compromettere il funzionamento del prodotto.
+
+\subsection{Verificatore}
+Il verificatore ha il compito di garantire che il software prodotto e la documentazione associata siano conformi alle normative e alle specifiche definite. 
+La sua attività sarà parallela a quella del programmatore, con un focus sulla verifica continua durante tutto il processo di sviluppo. 
+Questo approccio è cruciale per assicurare la qualità del prodotto finale e per affrontare tempestivamente eventuali problematiche emerse durante le fasi di sviluppo.
+
+\newpage
+\section{Dichiarazione degli impegni}
+\label{sec:dichiarazione_impegni}
+Ogni componente del gruppo \textbf{Alt+F4} si impegna a contribuire con \textbf{95} ore di lavoro per lo sviluppo del capitolato
+\textbf{ Artificial QI (C1)}, ricoprendo ciascun ruolo per un numero minimo di ore prestabilito, in modo da assicurare un’equa distribuzione delle attività e delle responsabilità.
+
+\section{Costi}
+\label{sec:costi}
+\subsection{Costi orari e suddivisione delle ore}
+Dopo un’attenta analisi del capitolato e delle responsabilità associate a ciascun ruolo, è stata stabilita la suddivisione oraria riportata nella \hyperref[tab:ore]{Tabella \ref{tab:ore}}.
+
+\begin{table}[!h]
+    \centering
+    \begin{tabularx}{\textwidth}{| X | X | X | X |}
+        \hline
+            \textbf{Ruolo} & 
+            \textbf{Costo orario} & 
+            \textbf{Ore per ruolo} & 
+            \textbf{Ore per membro} \\ 
+        \hline
+        \hline
+            Responsabile & 30€ & 48 & 8 \\
+        \hline
+            Amministratore & 20€ & 48 &  8 \\
+        \hline 
+            Analista & 25€ & 78 & 13 \\
+        \hline 
+            Progettista & 25€ & 96 & 16 \\
+        \hline 
+            Programmatore & 15€ & 150 & 25 \\
+        \hline 
+            Verificatore & 15€ & 150 & 25 \\
+        \hline 
+        \textbf{Totale} & \textbf{11.250€} & \textbf{570} & \textbf{95} \\ 
+        \hline  
+    \end{tabularx}
+    \caption{Ripartizione ore e costi.}
+    \label{tab:ore} 
+\end{table}
+
+In \hyperref[fig:pie]{Figura \ref{fig:pie}} viene mostrato un grafico a torta che illustra la ripartizione dei ruoli in percentuale rispetto alle ore totali a disposizione.
+\begin{figure}[!h]
+    \centering
+    \begin{tikzpicture}
+        \pie{8.42/Responsabile, 8.42/Amministratore, 13.68/Analista, 16.84/Progettista, 26.31/Programmatore, 26.31/Verificatore}
+    \end{tikzpicture}
+    \caption{Ripartizione ore e ruoli.}
+    \label{fig:pie}
+\end{figure}
+
+\subsection{Costi totali}
+Considerato che il gruppo è composto da 6 membri, il costo minimo per lo sviluppo del 
+progetto ammonta a 6/7 di \textbf{12.000€}, pari a \textbf{10.285€}. 
+Data la precedente ripartizione delle ore per ruolo si ha che il costo minimo stimato è pari a \textbf{11.250€}.
+
+\section{Criteri di rotazione dei ruoli}
+\label{sec:criteri_rotazione_ruoli}
+Dato che nessun membro del gruppo ha una chiara idea del compito pratico di ogni ruolo di progetto è stato deciso che ogni membro ricoprirà per lo stesso monte ore(indicato nella sezione \hyperref[tab:ore]{\textbf{\underline{Costi orari e suddivisione delle ore}}}).
+Il gruppo ha deciso, almeno nella fase iniziale del progetto, di cambiare i ruoli a turno con cadenza bisettimanale. In questo modo, ogni componente avrà il tempo di apprendere i diversi ruoli.
+
+\section{Scadenza di consegna}
+\label{sec:scadenza}
+Il gruppo ha pianificato un periodo di lavoro di 21 settimane, includendo alcune settimane di slack per affrontare eventuali ritardi o imprevisti che potrebbero sorgere durante lo sviluppo del progetto.
+Questa strategia di gestione del tempo dovrebbe consentire di mantenere il progetto allineato con le scadenze previste, garantendo una conduzione efficace delle attività.
+Pertanto, ci si impegna a completare il progetto entro il \textbf{7 aprile 2025}.
+\end{document}

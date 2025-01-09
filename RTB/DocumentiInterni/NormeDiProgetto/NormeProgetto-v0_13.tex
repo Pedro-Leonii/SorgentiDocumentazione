@@ -1,0 +1,53 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{custom}
+
+%--------------------VARIABILI--------------------
+\def\lastversion{v0.13}
+\def\title{Norme di progetto}
+\def\date{9 Gennaio 2025}
+%------------------------------------------------
+
+\begin{document}
+
+\primapagina
+
+\begin{registromodifiche}
+    \hline
+        \lastversion & 9 Gennaio 2025 & Enrico Bianchi, Matteo Eghosa & Marko Peric & Scrittura sezione: \hyperref[subsec:accertamento_qualità]{Processo di accertamento qualità}\\
+    \hline
+        v0.12 & 8 Gennaio 2025 & Pedro Leoni & Marko Peric & Modifica sezione: \hyperref[par:casi_uso]{Casi d'uso}, \hyperref[subpar:comandi_personalizzati]{Comandi personalizzati}, \hyperref[subpar:ambienti_personalizzati]{Ambienti personalizzati}\\
+    \hline    
+        v0.11 & 7 Gennaio 2025 & Marko Peric & Enrico Bianchi & Modifica sezione: \hyperref[subpar:tabelle]{Creazione delle tabelle}, Aggiunta sezione: \hyperref[subpar:grafici]{Creazione dei grafici}\\
+    \hline
+        v0.10 & 31 Dicembre 2024 & Marko Peric & Francesco Savio & Modifica sezioni: \hyperref[par:calcolo_ore_lavoro]{Github action controllo delle ore di lavoro}, \hyperref[par:correzione_grammaticale]{Github action del controllo ortografico dei documenti LaTeX}\\
+    \hline
+        v0.9 & 26 Dicembre 2024 & Marko Peric & Enrico Bianchi & Modifica sezione: \hyperref[subsec:documentazione]{Documentazione}, introdotta descrizione struttura documento Piano di Progetto\\
+    \hline
+        v0.8 & 23 dicembre 2024 & Francesco Savio & Marko Peric & Modifica sezione: \hyperref[sec:Processi_di_supporto]{Processi di supporto}, \hyperref[subsec:proc_infrastruttura]{Processo di infrastruttura}\\ 
+    \hline
+        v0.7 & 22 dicembre 2024 & Enrico Bianchi, Guirong Lan & Marko Peric & Scrittura sezione: \hyperref[subsec:proc_verifica]{Processo di Verifica}\\
+    \hline
+        v0.6 & 21 dicembre 2024 & Guirong Lan & Marko Peric & Scrittura sezione: \hyperref[sec:Processi_Primari]{Descrizione Processi Primari}, \hyperref[subsection:Processo_acquisizione]{Processo di acquisizione}, \hyperref[subsection:processo_fornitura]{Processo di fornitura}\\ 
+    \hline
+        v0.5 & 11 dicembre 2024 & Pedro Leoni & Francesco Savio, Enrico Bianchi & Scrittura sezione: \hyperref[subsec:documentazione]{Documentazione}\\  
+    \hline
+        v0.4 & 11 dicembre 2024 & Pedro Leoni & Francesco Savio, Enrico Bianchi & Scrittura sezione: \hyperref[subsec:gestione_della_configurazione]{Gestione della configurazione}\\  
+    \hline
+        v0.3  & 11 dicembre 2024 & Pedro Leoni, Francesco Savio & Francesco Savio, Enrico Bianchi & Scrittura sezione: \hyperref[subsec:proc_infrastruttura]{Processo di infrastruttura}\\  
+    \hline
+        v0.2 & 11 dicembre 2024 & Pedro Leoni, Enrico Bianchi & Francesco Savio, Enrico Bianchi & Scrittura sezione: \hyperref[subsec:gestione_progetto]{Gestione di progetto}\\  
+    \hline
+        v0.1 & 11 dicembre 2024 & Pedro Leoni, Francesco Savio, Matteo Eghosa & Francesco Savio, Enrico Bianchi & Scrittura sezione: \hyperref[subsection:processo_sviluppo]{Processo di sviluppo}\\  
+    \hline
+\end{registromodifiche}
+
+\tableofcontents
+
+\newpage
+
+\input{Sezioni/ProcessiPrimari/ProcessiPrimari.tex}
+
+\input{Sezioni/ProcessiDiSupporto/ProcessiDiSupporto.tex}
+
+\end{document}

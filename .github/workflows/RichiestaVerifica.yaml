@@ -1,0 +1,46 @@
+name: Richiesta di verifica
+
+on: 
+  pull_request:
+    types: [opened, reopened]
+  
+jobs:
+  move_issue:
+     if: startsWith(github.head_ref, 'feature/') 
+     runs-on: ubuntu-latest
+     env:
+       GH_TOKEN: ${{ secrets.PAT_ALT_F4 }}
+       
+     steps:   
+        - name: Clona la repository dei docuemnti sorgenti
+          run: | 
+            gh repo clone https://github.com/ALT-F4-eng/SorgentiDocumentazione
+        
+        - name: Ottiene il numero del project
+          working-directory: SorgentiDocumentazione
+          run: |
+            project_number=$(gh project list --owner ALT-F4-eng --format json | jq '.projects[] | select(.title=="ArtificialQI") | .number')
+            echo "PROJECT_NUMBER=$project_number" >> $GITHUB_ENV
+            
+        - name: Ottiene l'id della issue relativa alla pull request
+          working-directory: SorgentiDocumentazione
+          run: |
+            issue_number=$(echo "${{github.head_ref}}" | grep -E -o -m 1 '[0-9]+')
+            issue_id=$(gh project item-list $PROJECT_NUMBER --owner ALT-F4-eng --format json --jq ".items[] | select(.content.number==$issue_number) | .id")
+            echo "ISSUE_ID=$issue_id" >> $GITHUB_ENV
+            
+        - name: Ottiene l'id del project
+          working-directory: SorgentiDocumentazione
+          run: |
+            project_id=$(gh project list --owner ALT-F4-eng --format json | jq ".projects[] | select(.number==$PROJECT_NUMBER) | .id")
+            echo "PROJECT_ID=$project_id" >> $GITHUB_ENV
+        
+        - name: Cambia lo stato della issue in To Review
+          working-directory: SorgentiDocumentazione
+          run: |
+            review_value_id=$(gh project field-list $PROJECT_NUMBER --owner ALT-F4-eng --format json --jq '.fields[] | select(.name=="Status") | .options[] | select(.name=="To Review") | .id')
+
+            field_status_id=$(gh project field-list $PROJECT_NUMBER --owner ALT-F4-eng --format json --jq '.fields[] | select(.name=="Status") | .id')
+
+            gh project item-edit --id $ISSUE_ID --field-id $field_status_id --project-id $PROJECT_ID --single-select-option-id $review_value_id
+          

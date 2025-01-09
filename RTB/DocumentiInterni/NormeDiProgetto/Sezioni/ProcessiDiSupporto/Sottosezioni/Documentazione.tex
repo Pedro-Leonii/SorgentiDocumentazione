@@ -1,0 +1,290 @@
+\subsection{Documentazione}
+\label{subsec:documentazione}
+Il processo di documentazione ha lo scopo di registrare le informazioni prodotte da un processo primario garantendo la produzione di documenti coerenti e di qualità.
+
+\subsubsection{Standard di formato}
+I seguenti standard di formato sono validi per tutte le tipologie di documenti.
+Questi standard devono sottostare agli standard specifici per ogni tipologia di documento indicata nel piano di documentazione.
+Gli standard più specifici possono sovrascrivere i seguenti o specializzarli(es. data).
+
+\paragraph{Standard di scrittura}
+\begin{itemize}
+    \item Le tabelle e le immagini devono preferibilmente comparire nella posizione in cui sono specificate all'interno del codice sorgente.
+    \item Le tabelle e le immagini devono essere identificate da una label che deve essere usata ogni qual volta sia necessario farvi riferimento.
+    \item Le tabelle e le immagini devono essere accompagnate da una caption che ne riassume il contenuto.
+    \item Si devono utilizzare frasi non più lunghe di tre righe.
+    \item I termini che appartengono al glossario devono essere indicati con una G a pedice e in corsivo.
+    \item Si devono usare dei link per fare riferimento a elementi del documento.
+\end{itemize}
+Per informazioni pratiche sui punti sopra indicati leggere la sezione \hyperref[par:comandi_di_base]{Comandi di base}.
+
+\paragraph{Standard di forma}
+
+\subparagraph{Intestazione}
+Ogni pagina deve contenere nell'intestazione le seguenti informazioni:
+\begin{lstlisting}
+    Nome documento - <versione>
+\end{lstlisting}
+Dove la versione rispetta le regole indicate alla sezione \hyperref[par:versione_documenti]{Versione dei documenti}. 
+
+\subparagraph{Prima pagina}
+La prima pagina deve contenere le seguenti informazioni:
+\begin{itemize}
+    \item Nome documento.     
+    \item Nome gruppo.
+    \item Data. 
+    \item Versione.
+    \item Logo del gruppo.
+\end{itemize}
+
+\subparagraph{Seconda pagina}
+La seconda pagina deve contenere il registro delle modifiche per ogni file sottoposto a controllo di configurazione.
+Il contenuto e la gestione del registro è indicato alla sezione \hyperref[par:registro_delle_modifiche]{Registro delle modifiche}.
+
+\subparagraph{Terza pagina}
+La terza pagina deve contenere l'indice.
+
+\subsubsection{Macro categorie di documenti}
+Di seguito vengono elencate le due macro categorie di documenti. 
+
+\paragraph{Documenti interni}
+Servono al team di lavoro.
+Sono:
+\begin{itemize}
+    \item Verbali interni.
+    \item Norme di progetto.
+\end{itemize}
+
+\paragraph{Documenti esterni}
+Servono al team di lavoro e alla proponente.
+Sono:
+\begin{itemize}
+    \item Piano di progetto.
+    \item Verbali esterni.
+    \item Analisi dei requisiti.
+    \item Piano di qualifica.
+\end{itemize}
+
+\subsubsection{Piano di documentazione}
+Di seguito viene riportato il piano di documentazione in cui si definiscono le tipologie di documenti che verranno prodotti durante il ciclo di vita del prodotto e le loro caratteristiche.
+
+\paragraph{Verbali interni}
+
+\subparagraph{Scopo}
+I verbali interni sono documenti che hanno lo scopo di registrare il prodotto di una riunione interna al team di lavoro.
+Permettono quindi di avere una conoscenza condivisa delle decisioni prese e delle cose da fare.
+
+\subparagraph{Autore}
+L'autore dei verbali interni deve essere il Responsabile.
+
+\subparagraph{Input}
+Gli input per la stesura di questi documenti derivano direttamente dalla riunione interna eseguita solitamente a fine sprint ovvero ogni giovedì.
+
+\subparagraph{Struttura}
+I verbali interni sono composti dalle seguenti sezioni e sottosezioni:
+\begin{enumerate}
+    \item \textbf{Registro presenze}.
+    
+    Contiene le seguenti informazioni:
+    \begin{enumerate}
+        \item Data.
+        \item Ora inizio.
+        \item Ora fine.
+        \item Piattaforma usata.
+        \item Tabella che attesta la presenza dei membri del team.
+        Intestazioni: Componente e Presenza.
+    \end{enumerate}
+    \item \textbf{Verbale}.
+    \begin{enumerate}
+        \item \textbf{Argomenti trattati}
+        
+        Contiene un riassunto dei temi trattati durante la riunione.
+        Indica anche eventuali perplessità o difficoltà da introdurre nel diario di bordo.
+        \item \textbf{Decisioni prese}.
+        Contiene un riassunto delle decisioni prese durante la riunione indicando anche una giustificazione.
+    \end{enumerate}
+
+    \item \textbf{To Do}.
+    
+    Indica una lista delle cose da fare nel prossimo sprint collegandole alle informazioni di gestione della configurazione.
+\end{enumerate}
+
+\subparagraph{Standard di scrittura specifici}
+\begin{itemize}
+    \item La data del documento riguarda il giorno in cui è avvenuta la riunione interna.
+\end{itemize}
+
+\paragraph{Verbali esterni}
+
+\subparagraph{Scopo}
+I verbali esterni sono documenti che hanno lo scopo di registrare la conoscenza del team sulle necessità della proponente a seguito di una riunione esterna.
+Permettono quindi la conferma di una conoscenza comune(team e proponente) sulle necessità che il prodotto colma.
+Funzionano quindi da garanzia al team sul fatto che la sua direzione sia corretta.
+
+\subparagraph{Autore}
+L'autore dei verbali esterni deve essere il Responsabile.
+
+\subparagraph{Input}
+Gli input per la stesura di questi documenti derivano direttamente dalla riunione esterna che deve essere concordata in anticipo con la proponente.
+
+\subparagraph{Struttura}
+I verbali esterni sono composti dalle seguenti sezioni e sottosezioni:
+\begin{enumerate}
+    \item \textbf{Registro presenze}.
+    
+    Contiene le seguenti informazioni:
+    \begin{enumerate}
+        \item Data.
+        \item Ora inizio.
+        \item Ora fine.
+        \item Piattaforma.
+        \item Tabella che attesta la presenza dei membri del team.
+        Intestazioni: Componente e Presenza.
+        \item Tabella che attesta i rappresentati della proponente che hanno partecipato alla riunione.
+        Intestazioni: Componente e Presenza.
+    \end{enumerate}
+    A fondo pagina viene lasciato spazio per permettere al proponente di firmare il verbale esterno.
+
+    \item \textbf{Domande}.
+    
+    Lista delle domande esposte dal team.
+
+    \item \textbf{Conclusioni}.
+    
+    Lista delle conclusioni che il team ha tratto dalle risposte date dai rappresentati della proponente.
+\end{enumerate}
+
+\subparagraph{Standard di scrittura specifici}
+\begin{itemize}
+    \item La data del documento riguarda il giorno in cui è avvenuta la riunione esterna.
+\end{itemize}
+
+\paragraph{Analisi dei requisiti}
+
+\subparagraph{Scopo}
+Questo documento ha lo scopo di racchiudere i requisiti utente e i requisiti software sul prodotto oggetto del capitolato.
+
+\subparagraph{Autore}
+Gli autori di questo documento sono gli Analisti.
+
+\subparagraph{Input}
+Gli input per la stesura del documento di analisi dei requisiti derivano dall'attività di analisi dei requisiti.
+
+\subparagraph{Struttura}
+La struttura del documento di analisi dei requisiti è composta dalle seguenti sezioni:
+\begin{enumerate}
+    \item \textbf{Descrizione prodotto}.
+    
+    Ha lo scopo di descrivere il sistema a un alto livello di astrazione.
+    Questa sezione è composta dalle seguenti sottosezioni:
+    \begin{enumerate}
+        \item \textbf{Obiettivi prodotto}.
+        
+        Descrive il bisogno che ha portato alla stesura del capitolato e come il prodotto le soddisfa.
+        
+        \item \textbf{Funzioni prodotto}.
+
+        Descrive le funzioni principali del prodotto.
+
+        \item \textbf{Caratteristiche utente}.
+        
+        Descrive gli utenti che useranno il sistema e le loro caratteristiche.
+    \end{enumerate}
+
+    \item \textbf{Use case}.
+    
+    Descrive i requisiti utente e l'analisi che porta ai requisiti software.
+    
+
+    \item \textbf{Requisiti funzionali di qualità e di vincolo}.
+    
+    Elenca i requisiti funzionali e non.
+    
+\end{enumerate}
+
+\paragraph{Norme di progetto}
+Il presente documento ha lo scopo indicato nell'introduzione.
+
+\subparagraph{Autore} 
+L'autore di questo documento è l'Amministratore.
+
+\subparagraph{Input}
+Gli input per la stesura del documento delle norme di progetto derivano dal processo di gestione.
+
+\subparagraph{Struttura}
+Deve esistere una sezione per ogni categoria di processo e una sottosezione per ogni processo indicato nello standard IEEE 12207:1996 usato dal team.
+
+\paragraph{Piano di progetto}
+Il documento piano di progetto contiene le informazioni che permettono la gestione di progetto da parte del Responsabile.
+
+\subparagraph{Autore} 
+L’autore di questo documento è il Responsabile.
+
+\subparagraph{Input}
+Gli input per la stesura del documento delle norme di progetto derivano dal processo di gestione.
+
+\subparagraph{Struttura}
+\label{subsec:struttura_piano}
+Il piano di progetto è composto dalle seguenti sezioni:
+\begin{enumerate}
+    \item \textbf{Analisi dei rischi}.
+    
+    Contiene l'output dell'attività di analisi dei rischi.
+
+    \item \textbf{Stima dei costi}.
+    
+    Contiene la stima delle ore che il gruppo ritiene di consumare e i costi che derivano dalle stesse. 
+    
+    \item \textbf{Milestone principali}.
+    
+    Definisce le milestone principali che devono essere sottoposte alla validazione del proponente e/o del committente.
+    Per ogni milestone vengono indicate:
+    \begin{itemize}
+        \item Data di consegna.
+        \item Baseline.
+        \item Risorse preventivate.
+    \end{itemize}
+    
+    \item \textbf{Primo periodo}. \label{par:primo_periodo}
+    
+    Indica l'insieme di risorse utilizzate nel primo periodo di progetto durante il quale la pianificazione era ancora confusionaria.
+    
+    Viene quindi mostrato lo stato delle risorse col termine del primo periodo nelle sottosezioni:
+    \begin{enumerate}
+        \item \textbf{Consuntivo}.
+        
+        Tabella composta dalle colonne: "Ruolo", "Ore consumate".
+
+        \item \textbf{Aggiornamento rimaste}.
+        
+        Tabella composta dalle colonne: "Ruolo", "Ore rimaste".
+    \end{enumerate}
+    
+    \item \textbf{Sprint} \label{par:sprint}
+    
+    Per ogni sprint contiene una sottosezione chiamata \texttt{sprint n} che a sua volta contiene le seguenti sottosezioni:
+    \begin{enumerate}
+        \item \textbf{Obbiettivi}.
+        
+        Descrizione degli obbiettivi dello sprint tramite una lista puntata contenente la descrizione di essi e le issue assegnate a ogni obbiettivo.
+        \item \textbf{Pianificazione}.
+        
+        Tabella composta dalle colonne: "Identificativo richiesta di modifica", "Ore preventivate" e "Ruolo".
+
+        \item \textbf{Consuntivo}.
+        
+        Tabella composta dalle colonne: "Identificativo richiesta di modifica", "Ruolo", "Ore sviluppo", "Ore verifica" e "Stato".
+        Dove "Stato" viene indicato seguendo la convenzione \hyperref[par:stati]{Stati delle richieste di modifica}.
+        
+        \item \textbf{Retrospettiva}.
+        
+        Descrizione dei problemi e dei rischi verificati durante lo sprint.
+
+        \item \textbf{Aggiornamento risorse rimaste}.
+        
+        Aggiornamento delle risorse restanti in seguito allo sprint tramite la tabella:
+        "Ruolo", "Ore rimanenti".
+        
+    \end{enumerate}
+
+\end{enumerate}

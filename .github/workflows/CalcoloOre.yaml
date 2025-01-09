@@ -1,0 +1,29 @@
+name: Calculate Time Difference
+
+on:
+  pull_request:
+    types: [opened, edited]
+
+jobs:
+  calculate-time-difference:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install dependencies
+      run: |
+        npm install googleapis @octokit/rest graphql-request
+
+    - name: Calculate time difference and update Google Sheets
+      env:
+        GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+        ACTIONS_STEP_DEBUG: true
+      run: node ./.github/workflows/dipendenze/index.js
