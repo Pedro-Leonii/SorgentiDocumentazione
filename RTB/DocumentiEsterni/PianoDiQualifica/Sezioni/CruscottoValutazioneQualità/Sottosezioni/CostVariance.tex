@@ -3,16 +3,26 @@
 \begin{tikzpicture}
     \begin{axis}[
         width=12cm, height=8cm,
-        ymin=-50, ymax=100,
+        ymin=-20, ymax=100,
         xtick={1, 2},
         xticklabels={Sprint 1, Sprint 2},
         xlabel={},
-        ylabel={},
+        ylabel={Percentuale (\%)},
         grid=major,
-        legend style={at={(0.5,1.05)}, anchor=south, legend columns=-1},
+        scaled ticks=false,
+        legend style={at={(0.5,1.1)}, anchor=south, legend columns=-1},
     ]
-    \addplot coordinates {(1, 10.3) (2, 58.8) (3, 67.6)};
+
+    \pgfmathsetmacro{\EVA}{\BAC*\PercEA} 
+    \pgfmathsetmacro{\EVB}{\BAC*\PercEB}
+    \pgfmathsetmacro{\EVC}{\BAC*\PercEC} 
+
+    \addplot coordinates {(1, {((\EVA - \SpesaEA)/\EVA)*100}) (2, {((\EVB - \SpesaEB)/\EVB)*100}) (3, {((\EVC - \SpesaEC)/\EVC)*100})};
     \addlegendentry{Valore misurato}
+    \addplot[red, thick] coordinates {(0, -15) (4, -15)};
+    \addlegendentry{Valore ammissibile}
+    \addplot[orange, thick] coordinates {(0, 0) (4, 0)};
+    \addlegendentry{Valore ottimo}
     \end{axis}
 \end{tikzpicture}
 

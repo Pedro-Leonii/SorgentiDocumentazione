@@ -3,16 +3,21 @@
 \begin{tikzpicture}
     \begin{axis}[
         width=12cm, height=8cm,
-        ymin=0, ymax=100,
+        ymin=0, ymax=110,
         xtick={1, 2, 3},
         xticklabels={Sprint 1, Sprint 2, Sprint 3},
         xlabel={},
-        ylabel={},
+        ylabel={Percentuale (\%)},
         grid=major,
-        legend style={at={(0.5,1.05)}, anchor=south, legend columns=-1},
+        scaled ticks=false,
+        legend style={at={(0.5,1.1)}, anchor=south, legend columns=-1},
     ]
-    \addplot coordinates {(1, 100) (2, 100) (3, 100)};% ci vogliono prima i valori ammissibili e non, non sono sicuro della formula scritta su RTB/DocumentiInterni/NormeDiProgetto/Sezioni/ProcessiDiSupporto/Sottosezioni/AccertamentoQualità.tex riguardo le MetricheSoddisfatte
+    \addplot coordinates {(1, 80) (2, 70) (3, 90)};% ci vogliono prima i valori ammissibili e non, non sono sicuro della formula scritta su RTB/DocumentiInterni/NormeDiProgetto/Sezioni/ProcessiDiSupporto/Sottosezioni/AccertamentoQualità.tex riguardo le MetricheSoddisfatte
     \addlegendentry{Valore misurato}
+    \addplot[red, thick] coordinates {(0, 75) (4, 75)};
+    \addlegendentry{Valore ammissibile}
+    \addplot[orange, thick] coordinates {(0, 100) (4, 100)};
+    \addlegendentry{Valore ottimo}
     \end{axis}
 \end{tikzpicture}
 

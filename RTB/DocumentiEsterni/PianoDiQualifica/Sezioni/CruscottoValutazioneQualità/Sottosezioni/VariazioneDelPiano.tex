@@ -7,12 +7,17 @@
         xtick={1, 2, 3},
         xticklabels={Sprint 1, Sprint 2, Sprint 3},
         xlabel={},
-        ylabel={},
+        ylabel={Percentuale (\%)},
         grid=major,
-        legend style={at={(0.5,1.05)}, anchor=south, legend columns=-1},
+        scaled ticks=false,
+        legend style={at={(0.5,1.1)}, anchor=south, legend columns=-1},
     ]
     \addplot coordinates {(1, 0) (2, 22) (3, 0)};
     \addlegendentry{Valore misurato}
+    \addplot[red, thick] coordinates {(0, 20) (4, 20)};
+    \addlegendentry{Valore ammissibile}
+    \addplot[orange, thick] coordinates {(0, 5) (4, 5)};
+    \addlegendentry{Valore ottimo}
     \end{axis}
 \end{tikzpicture}
 

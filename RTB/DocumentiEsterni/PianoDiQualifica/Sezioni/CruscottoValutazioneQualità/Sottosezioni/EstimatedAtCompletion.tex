@@ -3,16 +3,26 @@
 \begin{tikzpicture}
     \begin{axis}[
         width=12cm, height=8cm,
-        ymin=0, ymax=11250,
+        ymin=0, ymax=14000,
         xtick={1, 2, 3},
         xticklabels={Sprint 1, Sprint 2, Sprint 3},
         xlabel={},
-        ylabel={},
+        ylabel={Costo (\euro)},
         grid=major,
-        legend style={at={(0.5,1.05)}, anchor=south, legend columns=-1},
+        scaled ticks=false,
+        legend style={at={(0.5,1.1)}, anchor=south, legend columns=-1},
     ]
-    \addplot coordinates {(1, 11133.75) (2, 9262.5) (3, 7067.5)};
+
+    \pgfmathsetmacro{\EVA}{\BAC*\PercEA} 
+    \pgfmathsetmacro{\EVB}{\BAC*\PercEB}
+    \pgfmathsetmacro{\EVC}{\BAC*\PercEC} 
+
+    \addplot coordinates {(1, {\SpesaEA+(\BAC-\EVA)}) (2, {\SpesaEB+(\BAC-\EVB)}) (3, {\SpesaEC+(\BAC-\EVC)})};
     \addlegendentry{Valore misurato}
+    \addplot[red, thick] coordinates {(0, {\BAC + (\BAC*0.2)}) (4, {\BAC + (\BAC*0.2)})};
+    \addlegendentry{Valore ammissibile}
+    \addplot[orange, thick] coordinates {(0, \BAC) (4, \BAC)};
+    \addlegendentry{Valore ottimo}
     \end{axis}
 \end{tikzpicture}
 
