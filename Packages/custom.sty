@@ -120,6 +120,21 @@
     \restoregeometry
 }
 
+\NewEnviron{requisitiFunzionali}{
+    \begin{center}
+        \begin{tabularx}{\textwidth}{| c | c | c | C |}
+            \hline
+                \textbf{Codice} & 
+                \textbf{Fonte} & 
+                \textbf{Specifica} &
+                \textbf{Descrizione} \\ 
+            \hline 
+            \BODY
+            \hline
+        \end{tabularx}
+    \end{center}
+}
+            
 \NewEnviron{usecase}[2]{
     \begin{tabularx}{\textwidth}{|l | X|}
             \hline
