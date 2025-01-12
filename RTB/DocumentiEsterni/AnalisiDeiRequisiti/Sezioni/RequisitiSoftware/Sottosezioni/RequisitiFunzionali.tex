@@ -8,7 +8,7 @@ In questa sezione vengono inserite le funzionalità e i comportamenti che il sis
     RF-3 & UC-3 & \hyperref[subsubsec:RF-3]{Specifica RF-3} &  Il sistema deve mostrare un errore se l'utente tenta di registrare una coppia composta da domanda e risposta vuote \\ \hline
     RF-4 & UC-4 & \hyperref[subsubsec:RF-4]{Specifica RF-4} & Il sistema deve permettere la modifica di una coppia contenuta nel dataset corrente \\ \hline
     RF-5 & UC-5 & \hyperref[subsubsec:RF-5]{Specifica RF-5} & Il sistema deve permettere l'eliminazione di una coppia contenuta nel dataset corrente \\ \hline
-    RF-6 & UC-6 & \hyperref[subsubsec:RF-6]{Specifica RF-6} & Il sistema deve permettere la ricerca di un sottoinsieme del dataset corrente tramite parole chiave \\ \hline
+    RF-6 & UC-6 & \hyperref[subsubsec:RF-6]{Specifica RF-6} & Il sistema deve permettere la ricerca di un sottoinsieme di coppie del dataset corrente tramite parole chiave \\ \hline
     RF-7 & UC-7 & \hyperref[subsubsec:RF-7]{Specifica RF-7} & Il sistema deve permettere la modifica del nome di un dataset archiviato\\ \hline
     RF-8 & UC-8 & \hyperref[subsubsec:RF-8]{Specifica RF-8} & Il sistema deve mostrare un errore se l'utente tenta di registrare un nome vuoto o già esistente per un dataset\\ \hline
     RF-9 & UC-9 & \hyperref[subsubsec:RF-9]{Specifica RF-9} & Il sistema deve permettere la visualizzazione dei dataset archiviati\\ \hline
@@ -174,7 +174,7 @@ In questa sezione vengono inserite le funzionalità e i comportamenti che il sis
 \begin{enumerate}
     \item[RF-15.1] Il sistema deve controllare che il dataset corrente non sia vuoto
     \item[RF-15.2] Il sistema deve controllare che tutte le coppie del dataset corrente siano valide ovvero composte da domanda e risposta non vuote.
-    Se il dataset corrente contiene almeno una coppia invalida il sistema deve notificare l'errore seguenfo \hyperref[subsubsec:RF-17]{Specifica RF-17} e interrompere l'operazione di archiviazione
+    Se il dataset corrente contiene almeno una coppia invalida il sistema deve notificare l'errore seguendo \hyperref[subsubsec:RF-17]{Specifica RF-17} e interrompere l'operazione di archiviazione
     \item[RF-15.3] Se il dataset corrente possiede già una versione archiviata il sistema deve aggiornarla seguendo \hyperref[subsubsec:RF-18]{Specifica RF-18}
     \item[RF-15.4] Se il dataset corrente è temporaneo ovvero non possiede una versione archiviata il sistema deve crearla seguendo \hyperref[subsubsec:RF-18]{Specifica RF-18} 
 \end{enumerate}
@@ -210,7 +210,7 @@ In questa sezione vengono inserite le funzionalità e i comportamenti che il sis
 \label{subsubsec:RF-19}
 \begin{enumerate}
     \item[RF-19.1] Il sistema deve caricare come dataset corrente il dataset scelto
-    \item[RF-19.2] Se il dataset caricato non possiede una versione aggiornata archiviata e non è vuoto il sistema deve iniziare la procedura di sovrascrittura seguendo \hyperref[subsubsec:RF-20]{Specifica RF-20}
+    \item[RF-19.2] Se il dataset caricato non è vuoto e non possiede una versione aggiornata archiviata, il sistema deve iniziare la procedura di sovrascrittura seguendo \hyperref[subsubsec:RF-20]{Specifica RF-20}
 \end{enumerate}
 
 \subsubsection{Specifica RF-20}
@@ -228,7 +228,7 @@ In questa sezione vengono inserite le funzionalità e i comportamenti che il sis
     \item[RF-21.1] Se il dataset corrente è vuoto il sistema non inizia il test e lo notifica all'utente
     \item[RF-21.2] Il sistema deve controllare che tutte le coppie del dataset corrente siano complete altrimenti deve visualizzare un errore seguendo \hyperref[subsubsec:RF-17]{Specifica RF-17} e interrompere l'esecuzione del test
     \item[RF-21.2] Il sistema deve richiedere le risposte date dal LLM sotto test tramite interrogazioni HTTP seguendo lo standard OpenAPI 3.1 inviando le domande del dataset corrente
-    \item[RF-21.3] Se la comunicazione con LLM produce qualche errore il sistema notifica l'utente spiegando la natura del'errore seguendo \hyperref[subsubsec:RF-22]{Specifica RF-22}
+    \item[RF-21.3] Se la comunicazione con il LLM produce qualche errore il sistema notifica l'utente spiegando la natura del'errore seguendo \hyperref[subsubsec:RF-22]{Specifica RF-22}
     \item[RF-21.4] Il sistema deve confrontare ogni risposta ottenuta con la risposta attesa producendo due valori:
     \begin{enumerate}
         \item Grado di similarità tra risposta attesa e risposta ricevuta
@@ -277,7 +277,7 @@ In questa sezione vengono inserite le funzionalità e i comportamenti che il sis
 \label{subsubsec:RF-26}
 \begin{enumerate}
     \item[RF-26.1] Il sistema deve permettere di interagire con i singoli punti del diagramma di dispersione
-    \item[RF-26.2] Il sistema a seguito di un interazione con un punto deve evidenziare l'elemento della lista dei risultati corrispondente al punto coinvolto nell'interazione
+    \item[RF-26.2] Il sistema a seguito di un interazione con un punto, deve evidenziare l'elemento della lista dei risultati corrispondente al punto coinvolto nell'interazione
 \end{enumerate}
 
 
