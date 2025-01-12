@@ -27,7 +27,7 @@ L'installazione di pacchetti tramite TLShell è abbastanza intuitiva e segue i p
     \item Selezionare il radio button del pacchetto da installare \hyperref[fig:installazione_pacchetti]{Figura \ref{fig:installazione_pacchetti} (3)}.
     \item Cliccare il pulsante \texttt{Install marked} \hyperref[fig:installazione_pacchetti]{Figura \ref{fig:installazione_pacchetti} (4)}.
 \end{enumerate}
-\begin{figure}
+\begin{figure}[H]
     \includegraphics[scale=0.7]{Sezioni/ProcessiDiSupporto/Immagini/installazione_pacchetti.png}
     \caption{Installazione pacchetti LaTeX..}
     \label{fig:installazione_pacchetti}
@@ -38,13 +38,13 @@ L'installazione di pacchetti tramite TLShell è abbastanza intuitiva e segue i p
 Di seguito vengono elencati i comandi di base che devono essere noti per la stesura di documenti in LaTeX.
 
 \subparagraph{Tabelle}
+\label{subpar:tabelle}
 \begin{lstlisting}
 
-        \begin{table}[!h]
+        \begin{table}[H]
             \begin{tabularx}[| X | c | l | r |]
                 \hline
-
-                Intestazione1 &
+                \makecell{Intestazione1 \\ Intestazione1} &
                 Intestazione2 &
                 Intestazione3 &
                 Intestazione4 \\
@@ -53,7 +53,7 @@ Di seguito vengono elencati i comandi di base che devono essere noti per la stes
 
                 prima colonna prima riga   &
                 seconda colonna prima riga &
-                terza coolonna prima riga  &
+                terza colonna prima riga  &
                 quarta colonna prima riga  &
 
                 \hline
@@ -67,7 +67,7 @@ Di seguito vengono elencati i comandi di base che devono essere noti per la stes
 \end{lstlisting}
 Dove:
 \begin{itemize}
-    \item \lstinline+[!h]+ indica che il posizionamento della tabella nel pdf deve essere dove si trova nel codice.
+    \item \lstinline+[H]+ indica che il posizionamento della tabella nel pdf deve essere dove si trova nel codice.
     
     \item \lstinline+[| X | c | l | r |]+ indica le colonne della tabella.
 
@@ -76,6 +76,8 @@ Dove:
     \lstinline+X+ indica una colonna che si allarga dinamicamente.
 
     \lstinline+c+, \lstinline+l+ e \lstinline+r+ indicano rispettivamente colonne in cui il posizionamento del testo è centrale, a sinistra e a destra.
+    
+    \item \lstinline+\makecell{... \\ ...}+ permette di creare celle con testo su più righe, usando \textbackslash\textbackslash{} per andare a capo. 
 
     \item \lstinline+\hline+ crea una linea orizzontale.
 \end{itemize}
@@ -115,7 +117,7 @@ Listati di codice inline:
 
 \subparagraph{Figure}
 \begin{lstlisting}
-    \begin{figure}[h!]
+    \begin{figure}[H]
         \includegraphics[scale=1.2]{pathImmagine}
         \caption{Riassunto immagine.}
         \label{fig:IdFigura}
@@ -123,7 +125,7 @@ Listati di codice inline:
 \end{lstlisting}
 Dove:
 \begin{itemize}
-    \item \texttt{[h!]} permette di posizionare la figura nel pdf dove si trova nel codice.
+    \item \texttt{[H]} permette di posizionare la figura nel pdf dove si trova nel codice.
     \item \texttt{scale=x.y} indica la scala da applicare all'immagine.
 \end{itemize}
 
@@ -132,6 +134,61 @@ L'inclusione di file .tex permette di dividere un documento in più file rendend
 \begin{lstlisting}
     \input{PercorsoAlFile}
 \end{lstlisting} 
+
+\subparagraph{Grafici}
+\label{subpar:grafici}
+\begin{lstlisting}
+
+
+\begin{axis}[
+    title={Titolo del grafico},
+    xlabel={Nome dell'asse x}, 
+    ylabel={Nome dell'asse y},
+    xmin=, xmax=,  
+    ymin=, ymax=,
+    xtick={assex1, assex2, ...},
+    ytick={assey1, assey2, ...},
+    grid=, 
+    grid style={},
+    width=, height=, 
+    legend pos= 
+]
+
+\addplot[color=] coordinates {
+    (x1, y1) (x2, y2) ...
+};
+\addlegendentry{}
+
+\end{lstlisting}
+
+Dove:
+\begin{itemize}
+    \item \lstinline+title+ indica il titolo del grafico. 
+    
+    \item \lstinline+xlabel+ e \lstinline+ylabel+ indicano i nomi degli assi x e y. 
+    
+    \item \lstinline+xmin+ e \lstinline+xmax+ indicano i valori minimi e massimi dell'asse x. 
+
+    \item \lstinline+ymin+ e \lstinline+ymax+ indicano i valori minimi e massimi dell'asse y.
+    
+    \item \lstinline+xtick+ e \lstinline+ytick+ indicano i valori sull'asse x e y.
+    
+    \item \lstinline+grid+ indica se mostrare la griglia che può essere \texttt{major}, \texttt{minor} o \texttt{both}.
+    
+    \item \lstinline+grid style+ indica lo stile della griglia che può essere \texttt{dotted}, \texttt{dashed}, \texttt{solid}, \texttt{none} e se ne può specificare il colore, es. \texttt{gray}.
+     
+    \item \lstinline+width+ e \lstinline+height+ indicano la larghezza e l'altezza del grafico.
+     
+    \item \lstinline+legend pos+ indica la posizione della legenda che può essere \texttt{north east}, \texttt{north west}, \texttt{south east}, \texttt{south west}.
+    
+    \item \lstinline+addplot+ \lstinline+coordinates+ indica i valori da aggiungere al grafico.
+    
+    \item \lstinline+[]+ subito dopo addplot contiene le caratteristiche del grafico tracciato, come il colore.
+    
+    \item \lstinline+addlegendentry+ indica il nome del grafico tracciato.
+\end{itemize}
+
+
 
 \paragraph{Pacchetto LaTeX}
 Per rendere i file sorgenti meno complessi è stato deciso di definire un pacchetto LaTeX che contiene:
@@ -144,7 +201,7 @@ I pacchetti usati devono essere installati manualmente usando il processo spiega
 In \hyperref[fig:pacchetto_latex]{Figura \ref{fig:pacchetto_latex}} viene mostrata la struttura del pacchetto LaTeX.
 \textbf{Nota bene}: Il pacchetto per poter essere importato deve essere indicato con il comando \lstinline|\usepackage| e il suo percorso deve essere indicato nella variabile di ambiente TEXINPUTS.
 La spiegazione della configurazione dell'ambiente per l'utilizzo del pacchetto è spiegata nella sezione \hyperref[par:IDE]{Integrated Development Environment IDE}.
-\begin{figure}[!h]
+\begin{figure}[H]
     \dirtree{%
         .1 Packages.
         .2 Immagini.
@@ -157,20 +214,37 @@ La spiegazione della configurazione dell'ambiente per l'utilizzo del pacchetto �
 \end{figure}
 
 \subparagraph{Comandi personalizzati}
+\label{subpar:comandi_personalizzati}
 Nel pacchetto sono definiti i seguenti comandi necessari per la scrittura di un documento:
 \begin{enumerate}
     \item \lstinline|\primapagina|\ : inserisce nella posizione di invocazione la pagina iniziale dei documenti.
     Questo comando sfrutta le variabili indicate alla sezione \hyperref[par:struttura_di_base_documenti]{Struttura di base documenti}.
-    \item \lstinline|\glossario{<termine>}|\ : modifica lo stile del termine per indicare la sua presenza nel glossario.
-    
+    \item \lstinline|\glossario{<termine>}|\ : modifica lo stile del termine per indicare la sua presenza nel glossario    
+\end{enumerate}
+Per la stesura delle descrizioni dei casi d'uso il gruppo ha deciso di definire un insieme di comandi da utilizzare all'interno del ambiente personalizzato \lstinline|\begin{usecase} ...\end{usecase}|:
+\label{subpar:casi_uso}
+\begin{enumerate}
+    \item \lstinline|\req{<link requisito utente>}|: genera in automatico la riga della tabella relativa al requisito di riferimento.
+    \item \lstinline|\pre{ \item <pre condizione 1> ... }|: genera in automatico la riga delle pre-condizioni mostrandole in una lista.
+    \item \lstinline|\post{ \item <post condizione 1> ... }|: genera in automatico la riga delle post-condizioni mostrandole in una lista.
+    \item \lstinline|\actor{<attore principale>}|: genera in automatico la riga per l'attore principale.
+    \item \lstinline|\subactors{<attori secondari>}|: genera in automatico la riga per gli attori secondari.
+    \item \lstinline|\trigger{<trigger>}|: genera in automatico la riga per il trigger.
+    \item \lstinline|\inc{<casi d'uso inclusi>}|: genera in automatico la riga per i casi d'uso inclusi.
+    \item \lstinline|\base{<caso d'uso base>}|: genera in automatico la riga per il caso d'uso base.
+    \item \lstinline|\scenario{\item <azione 1> ...}|: genera in automatico la riga per lo scenario principale e la popola indicando le azioni in una lista.
+    \item \lstinline|\subscenario{\item <condizione 1> ...}|: genera in automatico la riga per per gli scenari secondari e la popola indicandoli in una lista.
 \end{enumerate}
 
 \subparagraph{Ambienti personalizzati}
+\label{subpar:ambienti_personalizzati}
 Il pacchetto definisce anche i seguenti ambienti necessari per la scrittura di un documento:
 \begin{enumerate}
     \item \lstinline|\begin{registromodifiche} ... \end{registromodifiche}|\ :
     permette di definire il registro delle modifiche tralasciando le impostazioni della tabella.
     All'interno di questo ambiente devono essere indicate le righe del \hyperref[par:registro_delle_modifiche]{registro delle modifiche}.
+    \item \lstinline|\begin{usecase}{<id>}{<descrizione>} ... \end{usecase}|:
+    genera in automatico la tabella per la descrizione dei casi d'uso.    
 \end{enumerate}
 
 \paragraph{Struttura di base documenti}
@@ -216,7 +290,7 @@ Le sezioni saranno divise a loro volta in sottosezioni contenute nella cartella 
 Inoltre ogni cartella di sottosezione conterrà una cartella chiamata \texttt{Immagini}.
 La divisione segue la struttura indicata in \hyperref[fig:struttura_file_lungi]{Figura \ref{fig:struttura_file_lungi}} dove \texttt{F} indica il nome di un file da dividere:
 
-\begin{figure}[!h]
+\begin{figure}[H]
     \dirtree{%
     .1 cartella di F.
     .2 F.tex.
@@ -270,7 +344,7 @@ Per fare ciò è necessario seguire le azioni:
     \end{lstlisting}
 \end{enumerate}
 
-\begin{figure}[!h]
+\begin{figure}[H]
     \center
     \includegraphics[scale=0.4]{Sezioni/ProcessiDiSupporto/Immagini/texinputs_setup.png}
     \includegraphics[]{Sezioni/ProcessiDiSupporto/Immagini/texinputs_setup_json.jpg}
@@ -1100,6 +1174,22 @@ Notare che quindi una modifica alla struttura delle cartelle del progetto può r
 \end{enumerate}
 Oltre alle variabili questa GitHub action utilizza un \textbf{Personal Access Token} memorizzato nel secret chiamato \texttt{PAT\_COMPILATI}.
 
+\paragraph{Correzione grammaticale dei documenti}
+\label{par:correzione_grammaticale}
+La correzione grammaticale dei documenti viene facilitata tramite un workflow definito nel file \texttt{ControlloOrtografico.yaml}.
+Questo workflow viene eseguito ogni volta che viene effettuato il push o viene creata una pull request di un file .tex nei rami \textit{feature} e \textit{develop}.
+Il workflow utilizza aspell per effettuare il controllo e in caso trovasse errori questi vengono segnalati come output della action e anche come commento alla pull request.
+Il workflow non ha lo scopo di correggere automaticamente gli errori ma di segnalarli per una correzione manuale andando a rendere il lavoro efficente ed efficace. 
+
+\paragraph{Calcolo delle ore di lavoro}
+\label{par:calcolo_ore_lavoro}
+Il workflow è definito nel file \texttt{CalcoloOre.yaml} e viene eseguito ogni volta che viene effettuato il merge di una pull request.
+Per facilitare la determinazione delle ore di lavoro impiegate da ogni ruolo si è deciso di utilizzare un file excel condiviso.
+Questo file excel contiene una dashboard che permette di tenere traccia delle ore preventivate ed effettive per ogni ruolo.
+Ciò facilita la stesura degli sprint all'interno del documento Piano di progetto.
+La compilazione dei campi della dashboard nel file excel è automatizzata tramite una GitHub action che preleva lo sprint di riferimento della issue,
+l'id della issue, il ruolo che ha risolto la issue, le ore preventivate dal primo commento della issue, le ore impiegate dal primo commento della pull request relativa.
+
 \subsubsection{Gestione}
 \paragraph{Canali di comunicazione}
 I canali di coumunicazione si dividono in canali interni usati per le riunioni del gruppo e canali esterni usati per le riunioni tra il gruppo e il proponente.
@@ -1135,6 +1225,7 @@ Questo strumento può essere usato in combinazione con un account google per def
 Nel secondo caso è necessario installare l'editor che può essere trovato nel Microsoft store. 
 
 \subsubsection{Dashboard excel}
+\label{subpar:dashboard_excel}
 \paragraph{Dashboard excel per il calcolo delle ore}
 Il gruppo si è munito di un file excel condiviso dove è stata realizzata una dashboard per tenere traccia, in un unico file, degli sprint. Ogni sprint traccia, a sua volta, le seguenti informazioni per ogni issue appartenente allo sprint:
 \begin{enumerate}
