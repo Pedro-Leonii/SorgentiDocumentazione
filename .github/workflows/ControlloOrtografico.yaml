@@ -1,4 +1,4 @@
-name: Controllo ortografico file latex
+name: Controllo ortografico file LaTeX
 
 on:
   pull_request:
@@ -15,19 +15,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Fetch branch remote
+        run: |
+          git fetch origin develop
+          git branch --set-upstream-to=origin/develop develop
+
       - name: Installa aspell
         run: |
           sudo apt-get update
           sudo apt-get install -y aspell aspell-it
 
-      - name: Installa python
-        run: |
-          sudo apt-get install -y python3
-
       - name: Controllo grammaticale
         run: |
           python3 .github/workflows/dipendenze/controlloOrtografico.py
-        working-directory: . # Assicurati che sia la root del progetto
+        working-directory: .
 
       - name: Aggiunge alla PR il commento con errori
         run: |
