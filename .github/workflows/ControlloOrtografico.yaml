@@ -27,11 +27,10 @@ jobs:
       - name: Controllo grammaticale
         run: |
           python3 .github/workflows/dipendenze/controlloOrtografico.py
-        working-directory: sorgenti
+        working-directory: . # Assicurati che sia la root del progetto
 
       - name: Aggiunge alla PR il commento con errori
         run: |
           gh pr comment ${{ github.event.pull_request.number }} -F errori.md
-        working-directory: sorgenti
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
