@@ -4,34 +4,34 @@ on:
   pull_request:
     paths:
       - '**/*.tex'
+
 jobs:
   controllo_grammaticale:
     if: startsWith(github.head_ref, 'feature/')
     runs-on: ubuntu-latest
     env:
-        GH_TOKEN: ${{ secrets.PAT_CONTR_GRAM }}
+      GH_TOKEN: ${{ secrets.PAT_CONTR_GRAM }}
     steps:
-        - name: Clona repository
-          run: |  
-            gh repo clone ${{ github.repositoryUrl }}
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-        - name: Installa aspell
-          run: |
-            sudo apt-get install aspell
-            sudo apt-get install aspell-it
+      - name: Installa aspell
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y aspell aspell-it
 
-        - name: Installa python
-          run: |
-            sudo apt-get install python3
+      - name: Installa python
+        run: |
+          sudo apt-get install -y python3
 
-        - name: Controllo grammaticale
-          run: |
-            python3 .github/workflows/dipendenze/controlloOrtografico.py 
-          working-directory: sorgenti
+      - name: Controllo grammaticale
+        run: |
+          python3 .github/workflows/dipendenze/controlloOrtografico.py
+        working-directory: sorgenti
 
-        - name: Aggiunge alla pr il commento con errori
-          run: |
-            gh pr comment ${{ github.event.pull_request.number }} -F errori.md
-          working-directory: sorgenti
-
-
+      - name: Aggiunge alla PR il commento con errori
+        run: |
+          gh pr comment ${{ github.event.pull_request.number }} -F errori.md
+        working-directory: sorgenti
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
