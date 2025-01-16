@@ -1,0 +1,113 @@
+\subsection{Metriche per processo}
+\label{subsec:processi_metriche}
+Per ciascun processo delineato dallo standard ISO/IEC 12207 e descritto nel documento delle Norme di Progetto, 
+vengono indicate le metriche di riferimento, se disponibili.
+
+\subsubsection{Processi primari}
+\paragraph{Fornitura}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| l | l | l | l |}
+    \hline
+    \textbf{Identificativo} & 
+    \textbf{Nome} &
+    \textbf{Valore ammissible} &
+    \textbf{Valore ottimo}\\
+    \hline
+        M.PC.PV & Planned Value & $\geq 0$ & $\leq BAC$ \\
+    \hline
+        M.PC.EV & Earned Value & $\geq 0$ & $\leq EAC$ \\
+    \hline
+        M.PC.AC & Actual Cost & $\geq 0$ & $\leq EAC$ \\
+    \hline
+        M.PC.SV & Schedule Variance & $\geq -15\%$ & $0\%$ \\
+    \hline
+        M.PC.CV & Cost Variance & $\geq -15\%$ & $0\%$ \\
+    \hline  
+        M.PC.VP & Variazione del Piano & $\leq 20\%$ & $\leq 5\%$ \\
+    \hline
+        M.PC.EAC & Estimated at Completion & $\leq BAC+5\% BAC$ & $\leq BAC$ \\
+    \hline
+\end{tabular}
+\caption{Metriche per processo di Fornitura}
+\label{tab:metriche_fornitura} 
+\end{table}
+
+\paragraph{Sviluppo}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| l | l | l | l |}
+    \hline
+    \textbf{Identificativo} & 
+    \textbf{Nome} &
+    \textbf{Valore ammissible} &
+    \textbf{Valore ottimo}\\
+    \hline
+        M.PR.PRM & \makecell{Percentuale requisiti \\ obbligatori soddisfatti} & $100\%$ & $100\%$ \\
+    \hline
+        M.PR.PRD & \makecell{Percentuale requisiti \\ desiderabili soddisfatti} & $\geq 25\%$ & $100\%$ \\
+    \hline    
+        M.PR.PRO & \makecell{Percentuale requisiti \\ opzionali soddisfatti} & $\geq 0\%$ & $100\%$ \\
+    \hline
+\end{tabular}
+\caption{Metriche per processo di Sviluppo}
+\label{tab:metriche_sviluppo} 
+\end{table}
+
+\subsubsection{Processi di supporto}
+\paragraph{Documentazione}
+\begin{table}[H]
+    \centering
+    \resizebox{\textwidth}{!}{
+    \begin{tabular}{| l | l | l | l |}
+    \hline
+        \textbf{Identificativo} & 
+        \textbf{Nome} &
+        \textbf{Valore ammissible} &
+        \textbf{Valore ottimo}\\
+    \hline
+        M.PR.CO & Correttezza Ortografica & $0$ & $0$ \\
+    \hline
+\end{tabular}}
+\caption{Metriche per processo di Documentazione}
+\label{tab:metriche_documentazione} 
+\end{table}
+
+\paragraph{Accertamento della Qualità}
+\begin{table}[H]
+    \centering
+    \resizebox{\textwidth}{!}{
+    \begin{tabular}{| l | l | l | l |}
+    \hline
+        \textbf{Identificativo} & 
+        \textbf{Nome} &
+        \textbf{Valore ammissible} &
+        \textbf{Valore ottimo}\\
+    \hline
+        M.PC.MS & Metriche Soddisfatte & $\geq 75\%$ & $100\%$ \\
+    \hline
+\end{tabular}}
+\caption{Metriche per processo di Accertamento della Qualità}
+\label{tab:metriche_accertamento} 
+\end{table}
+
+\subsubsection{Processi Organizzativi}
+\paragraph{Gestione dei Rischi}
+\begin{table}[H]
+    \centering
+    \resizebox{\textwidth}{!}{
+    \begin{tabular}{| l | l | l | l |}
+    \hline
+        \textbf{Identificativo} & 
+        \textbf{Nome} &
+        \textbf{Valore ammissible} &
+        \textbf{Valore ottimo}\\
+    \hline
+        M.PC.RI & Rischi inattesi & $\leq 3$ & $0$ \\
+    \hline
+        M.PC.RMR & Risk Mitigation Rate & $\geq 75\%$ & $100\%$ \\
+    \hline
+\end{tabular}}
+\caption{Metriche per processo di Gestione dei Rischi}
+\label{tab:metriche_rischi} 
+\end{table}
