@@ -68,5 +68,3 @@ for diff in diffs:  # scorre le diff di git dal HEAD del ramo feature fino al su
 
 with open('errori.md', 'w') as er_file:
 	er_file.write("\n".join(pull_req_msg))
-
-
