@@ -1,9 +1,43 @@
 \subsection{Qualità di processo}
+\label{subsec:obiettivi_processo}
 La qualità di processo si riferisce all'efficacia con cui vengono implementati e gestiti i processi durante il ciclo di vita dello sviluppo software, 
 con l'obiettivo di garantire che il prodotto finale soddisfi i requisiti prefissati. 
 Per monitorare e migliorare i processi, vengono adottate metriche di processo, ovvero indicatori chiave che misurano l'efficienza, l'affidabilità 
 e la conformità delle attività svolte. 
 Questi parametri, selezionati dal team, consentono di identificare aree critiche, ottimizzare le procedure operative e migliorare la produttività complessiva. 
 L'uso delle metriche di processo contribuisce al controllo della qualità e alla riduzione dei rischi associati a ritardi o difetti.
-Per ogni metrica di processo sarà indicato anche il processo specifico a cui essa si applica, evidenziando come la metrica contribuisca a monitorare 
-e valutare la qualità delle attività svolte all'interno di quel contesto operativo.
+
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| l | l | l | l |}
+    \hline
+    \textbf{Identificativo} & 
+    \textbf{Nome} &
+    \textbf{Valore ammissible} &
+    \textbf{Valore ottimo}\\
+    \hline
+        M.PC.PV & Planned Value & $\geq 0$ & $\leq BAC$ \\
+    \hline
+        M.PC.EV & Earned Value & $\geq 0$ & $\leq EAC$ \\
+    \hline
+        M.PC.AC & Actual Cost & $\geq 0$ & $\leq EAC$ \\
+    \hline
+        M.PC.SV & Schedule Variance & $\geq -15\%$ & $0\%$ \\
+    \hline
+        M.PC.CV & Cost Variance & $\geq -15\%$ & $0\%$ \\
+    \hline  
+        M.PC.VP & \makecell{Variazione del Piano \\ tra costo effettivo \\ e costo preventivato} & $\leq 20\%$ & $\leq 5\%$ \\
+    \hline
+        M.PC.EAC & Estimated at Completion & $\leq BAC+5\% BAC$ & $\leq BAC$ \\
+    \hline
+        M.PC.RI & Rischi inattesi & $\leq 3$ & $0$ \\
+    \hline
+        M.PC.RMR & Risk Mitigation Rate & $\geq 75\%$ & $100\%$ \\
+    \hline
+        M.PC.MS & Metriche Soddisfatte & $\geq 75\%$ & $100\%$ \\
+    \hline
+    \end{tabular}
+    \caption{Metriche di processo}
+    \label{tab:metriche_processo} 
+\end{table}
