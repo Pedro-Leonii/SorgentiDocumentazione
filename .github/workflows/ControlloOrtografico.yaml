@@ -9,7 +9,7 @@ jobs:
     if: startsWith(github.head_ref, 'feature/')
     runs-on: ubuntu-latest
     env:
-        GH_TOKEN: ${{ secrets.PAT_CONTR_GRAM }}
+        GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
     steps:
         - name: Clona repository
           run: |  
@@ -24,12 +24,20 @@ jobs:
           run: |
             sudo apt-get install python3
 
+        - name: Installa dos2unix
+          run: |
+            sudo apt-get install dos2unix
+
         - name: Controllo grammaticale
           run: |
+            dos2unix $(find . -type f -name "*.pws")
             python3 .github/workflows/dipendenze/controlloOrtografico.py 
-          working-directory: sorgenti
+          working-directory: SorgentiDocumentazione
 
         - name: Aggiunge alla pr il commento con errori
           run: |
+            cat errori.md 
             gh pr comment ${{ github.event.pull_request.number }} -F errori.md
-          working-directory: sorgenti
+          working-directory: SorgentiDocumentazione
+
+
