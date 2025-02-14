@@ -3,14 +3,12 @@
 
 \RequirePackage[italian]{babel}
 \RequirePackage{tikz}
-\RequirePackage[table]{xcolor}
 \RequirePackage{graphicx}
 \RequirePackage{hyperref}
 \RequirePackage{imakeidx}
 \RequirePackage{caption}
 \RequirePackage{fancyhdr}
 \RequirePackage{geometry}
-\RequirePackage{tabularx}
 \RequirePackage{listings}
 \RequirePackage{setspace}
 \RequirePackage{dirtree}
@@ -18,6 +16,9 @@
 \RequirePackage{ifthen}
 \RequirePackage{amssymb}
 \RequirePackage{float}
+\RequirePackage{ltablex}
+\RequirePackage{environ}
+\RequirePackage{enumitem} 
 \RequirePackage{makecell}
 \RequirePackage{pgfplots}
 \ProcessOptions\relax
@@ -36,6 +37,17 @@
    {-3.25ex plus -1ex minus -0.2ex}%
    {1.5ex plus 0.2ex}%
    {\normalfont\footnotesize\bfseries}}
+
+\newcommand{\req}[1]{\textbf{Requisito utente} & #1 \\ \hline}
+\newcommand{\pre}[1]{\textbf{Pre-condizioni} & \begin{itemize}[noitemsep,topsep=-10pt]#1\end{itemize} \\ \hline}
+\newcommand{\post}[1]{\textbf{Post-condizioni} & \begin{itemize}[noitemsep,topsep=-10pt]#1\end{itemize} \\ \hline}
+\newcommand{\actor}[1]{\textbf{Attore principale} & #1 \\ \hline}
+\newcommand{\subactors}[1]{\textbf{Attori secondari} & #1 \\ \hline}
+\newcommand{\trigger}[1]{\textbf{Trigger} & #1 \\ \hline}
+\newcommand{\inc}[1]{\textbf{Casi d'uso inclusi} & #1 \\ \hline}
+\newcommand{\base}[1]{\textbf{Caso d'uso base} & #1 \\ \hline}
+\newcommand{\scenario}[1]{\textbf{Scenario principale} & \begin{enumerate}[noitemsep,topsep=-10pt]#1\end{enumerate} \\ \hline}
+\newcommand{\subscenario}[1]{\textbf{Scenari secondari} & \begin{itemize}[noitemsep,topsep=-10pt]#1\end{itemize} \\ \hline}
 %-------------------------------------------------------------------------------------------
 
 %----------------------------------IMPOSTAZIONI FANCYHDR-------------------------------------
@@ -63,12 +75,13 @@
     linkcolor=fp-red,
     filecolor=magenta,      
     urlcolor=fp-blue,
-    pdfpagemode=FullScreen,
+    pdfpagemode=FullScreen
 }
 %---------------------------------------------------------------------------------------------
 
 %---------------------------------IMPOSTAZIONI TABELLE----------------------------------------
 \newcolumntype{C}{>{\centering\arraybackslash}X}
+\keepXColumns
 %---------------------------------------------------------------------------------------------
 
 %---------------------------------IMPOSTAZIONI SEZIONI----------------------------------------
@@ -87,26 +100,47 @@
 
 
 %-----------------------------------DEFINIZIONI ENVIRONMENT-----------------------------------
-\newenvironment{registromodifiche}
-    {
-        \thispagestyle{plain}
-        \newgeometry{ignoreall, hmargin=20pt}
-        \table[!h]
-            \center
-            \caption*{\textbf{\Large Registro delle Modifiche}}
-            \tabularx{\textwidth}{| c | c | C | C | C |}
-                \hline
-                    \textbf{\normalsize Versione} & 
-                    \textbf{\normalsize Data} & 
-                    \textbf{\normalsize Autore/i} & 
-                    \textbf{\normalsize Verificatore/i} &
-                    \textbf{\normalsize Descrizione} \\ 
-                \hline \hline
-        }
-        {
-            \endtabularx
-            \endcenter
-            \endtable
-        \restoregeometry
-        }
+\NewEnviron{registromodifiche}{
+    \thispagestyle{plain}
+    \newgeometry{ignoreall, hmargin=20pt}
+    
+    \begin{center}
+        \textbf{\Large Registro modifiche}
+        \begin{tabularx}{\textwidth}{| c | c | C | C | C |}
+            \hline
+                \textbf{\normalsize{Versione}} & 
+                \textbf{\normalsize{Data}} & 
+                \textbf{\normalsize{Autore/i}} & 
+                \textbf{\normalsize{Verificatore/i}} &
+                \textbf{\normalsize{Descrizione}} \\ 
+            \hline 
+            \BODY
+        \end{tabularx}
+    \end{center}
+    \restoregeometry
+}
+
+\NewEnviron{requisitiFunzionali}{
+    \begin{center}
+        \begin{tabularx}{\textwidth}{| c | c | c | C |}
+            \hline
+                \textbf{Codice} & 
+                \textbf{Fonte} & 
+                \textbf{Specifica} &
+                \textbf{Descrizione} \\ 
+            \hline 
+            \BODY
+            \hline
+        \end{tabularx}
+    \end{center}
+}
+            
+\NewEnviron{usecase}[2]{
+    \begin{tabularx}{\textwidth}{|l | X|}
+            \hline
+            \multicolumn{2}{|c|}{\textbf{#1}: #2}\\
+            \hline \hline
+            \BODY
+    \end{tabularx}
+}
 %-------------------------------------------------------------------------------------------  

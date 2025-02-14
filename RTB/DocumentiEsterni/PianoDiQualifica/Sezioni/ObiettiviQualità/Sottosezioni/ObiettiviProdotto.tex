@@ -1,8 +1,65 @@
 \subsection{Qualità di prodotto}
+\label{subsec:obiettivi_prodotto}
 La qualità di prodotto si riferisce al grado in cui un software soddisfa i requisiti specificati e le aspettative degli utenti.
-Per valutarla vengono utilizzate metriche di prodotto, che rappresentano indicatori chiave per valutare le caratteristiche principali del software, come 
-funzionalità, affidabilità, efficienza e manutenibilità.
+Per valutarla vengono utilizzate metriche di prodotto, che rappresentano indicatori chiave per valutare le caratteristiche principali del software, che sono:
+funzionalità, affidabilità, efficienza, usabilità, manutenibilità e portabilità.
 Questi indicatori permettono di identificare lacune all'interno del codice permettendo un monitoraggio e un miglioramento continuo del prodotto
 e assicurando che rispetti i requisiti funzionali e non funzionali prefissati.
 L'adozione di metriche di prodotto permette quindi di assicurare la qualità del prodotto software realizzato e di ottimizzare l'esperienza 
 dell'utente finale.
+
+\begin{table}[H]
+    \centering
+    \resizebox{\textwidth}{!}{
+    \begin{tabular}{| l | l | l | l |}
+    \hline
+        \textbf{Identificativo} & 
+        \textbf{Nome} &
+        \textbf{Valore ammissible} &
+        \textbf{Valore ottimo}\\
+    \hline
+        M.PR.PRM & Percentuale requisiti obbligatori soddisfatti & $100\%$ & $100\%$ \\
+    \hline
+        M.PR.PRD & Percentuale requisiti desiderabili soddisfatti & $\geq 25\%$ & $100\%$ \\
+    \hline    
+        M.PR.PRO & Percentuale requisiti opzionali soddisfatti & $\geq 0\%$ & $100\%$ \\
+    \hline
+        M.PR.CO & Correttezza Ortografica & $0$ & $0$ \\
+    \hline
+    \end{tabular}}
+    \caption{Metriche di prodotto}
+    \label{tab:metriche_prodotto} 
+\end{table}
+
+\subsubsection{Caratteristiche di prodotto}
+Di seguito vengono elencate le metriche di prodotto associate a ciascuna delle caratteristiche generali descritte dallo standard ISO/IEC 9126, 
+come indicato nel processo di Accertamento della Qualità nelle Norme di Progetto.
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth}{| X | X | X |}
+    \hline
+        \textbf{Caratteristica} & 
+        \textbf{Descrizione} &
+        \textbf{Metriche associate}\\
+    \hline
+        Funzionalità & Capacità del software di fornire funzioni adatte a rispettare i requisiti sviluppati nel documento Analisi dei Requisiti & M.PR.PRM, M.PR.PRD, M.PR.PRO \\
+    \hline
+        Affidabilità & Capacità del software di mantenere uno specificato livello di prestazioni in presenza di errori o malfunzionamenti & \\
+    \hline
+        Efficienza & Capacità del software di fornire appropriate prestazioni in relazione alle risorse usate & \\
+    \hline
+        Usabilità & Capacità del software di facilitare il reperimento delle informazioni dall'utente in modo che siano propriamente comprese & M.PR.CO, M.PR.IG \\
+    \hline
+        Manutenibilità & Facilità nella modifica del software per l'aggiunta di nuove funzionalità & \\
+    \hline
+        Portabilità & Capacità del software di essere adattato a differenti ambienti operativi & \\
+    \hline
+    \end{tabularx}
+    \caption{Caratterisitiche di prodotto}
+    \label{tab:caratteristiche_prodotto} 
+\end{table}
+
+
+
+
+

@@ -54,6 +54,7 @@ jobs:
 
                 if [ $files_n -eq 1 ]; then
                         mv "$dir/$files_child" "$dir/../"
+                        rmdir $dir
                 fi
               done
               cd ..
