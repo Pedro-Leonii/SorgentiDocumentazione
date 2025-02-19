@@ -25,7 +25,7 @@ i quali non possono essere la stessa persona a cui è stata assegnata la realizz
 L'analisi statica è un approccio alla verifica che non richiede l'esecuzione del codice dell'oggetto di verifica per individuare i difetti del prodotto software 
 e accertarne la sua completezza e coerenza.
 Si applica non solo al codice, ma anche alla documentazione, verificando la conformità alle regole del prodotto, l'assenza di difetti e la presenza delle proprietà desiderate.
-Dal team vengono utilizzate due tecniche standard per l'analisi statica dei prodotti software: \textbf{Walkthrough} e \textbf{Inspection}.
+Dal team viene utilizzata una tecnica standard per l'analisi statica dei prodotti: \textbf{Walkthrough}.
 \paragraph{Walkthrough}
 Il walkthrough è uno dei metodi di lettura nell'analisi statica utilizzato per esaminare e verificare una parte del prodotto, che sia documento o codice, per accertarne la conformità ai requisiti o vincoli stabiliti precedentemente.
 Si tratta di un approccio collaborativo tra autore e verificatore durante il quale viene esaminato un prodotto o una sua parte, seguendo un percorso prestabilito e cercando di identificare difetti attraverso una lettura critica ad ampio spettro, priva di assunzioni.
@@ -36,22 +36,10 @@ Le fasi che vengono svolte durante questa tecnica di analisi statica sono:
     \item \textbf{discussione}: al termine della lettura, nel caso vengano rilevati problemi, il verificatore comunica con gli autori e propone eventuali suggerimenti, con l'obiettivo di correggere i difetti;
     \item \textbf{correzione e repeat}: una volta terminata la discussione e rilevati i difetti, gli autori sono pregati di correggere tali difetti seguendo le indicazioni discusse. Successivamente, si passa di nuovo al passo 2.
 \end{itemize}
-\paragraph{Inspection}
-L'inspection, in italiano ispezione, è una tecnica di lettura utilizzata per valutare un prodotto o una sua parte, assicurandosi che soddisfi determinati standard o criteri.
-Questa valutazione avviene tramite una checklist (lista di controllo), che può essere basata su conoscenze pregresse ottenute tramite walkthrough.
-In questo modo è possibile risparmiare tempo e costi senza dover verificare ogni parte del documento o del codice, ma solo quelle definite nella lista.
-I passi che compongono la tecnica di inspection sono: 
-\begin{itemize}
-    \item \textbf{definizione della lista di controllo}:  vengono definite le parti importanti del codice o del documento essenziali da modificare e poi verificare; le liste di controllo possono aumentare sulla base dell'esperienza acquisita e degli errori più frequenti. 
-    La lista di controllo verrà inserita all'interno della descrizione della issue relativa alla modifica del documento che si vuole verificare;
-    \item \textbf{lettura}: il verificatore esamina il prodotto da verificare, seguendo la lista di controllo realizzata precedentemente;
-    \item \textbf{discussione}: al termine della lettura il verificatore spunterà i punti della lista di controllo che sono stati correttamente realizzati, i punti non spuntati serviranno all'autore per capire quali modifiche del prodotto non sono state realizzate correttamente;
-    \item \textbf{correzione e repeat}:  una volta terminata la discussione e rilevati i difetti, gli autori sono pregati di correggere tali difetti seguendo le indicazioni discusse. Successivamente, si passa di nuovo al passo 2 eventualmente aggiornando la lista di controllo.
-\end{itemize}
 \paragraph{verifica della documentazione}
 La verifica della documentazione, composta solamente da analisi statica dei documenti realizzati e/o modificati, ha lo scopo di verificare
 la qualità, completezza, coerenza e conformità dei documenti tecnici relativi al prodotto software da realizzare.
-Durante l'esecuzione delle tecniche di walkthrough e inspection descritte precedentemente, il verificatore ha lo scopo di 
+Durante l'esecuzione della tecnica di walkthrough descritta precedentemente, il verificatore ha lo scopo di 
 assicurarsi che vengano seguiti correttamente gli standard di scrittura e di forma, sia generici che specifici, indicati all'interno
 del \hyperref[subsec:documentazione]{processo di Documentazione}.
 Oltre a ciò, è stata realizzata una GitHub Action che, all'apertura di una pull request, realizza un'analisi grammaticale dei file 
