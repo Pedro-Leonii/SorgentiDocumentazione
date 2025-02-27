@@ -28,7 +28,6 @@ I requisiti vengono categorizzati in:
     Alcuni esempi sono: la velocità, il tempo di risposta, la capacità di carico, e altre caratteristiche misurabili legate all'efficienza.
 \end{enumerate}
 
-
 \paragraph{Casi d'uso}
 \label{par:casi_uso}
 I casi d'uso forniscono una descrizione dettagliata delle funzionalità del sistema dal punto di vista degli utenti, delineando come il sistema risponda a specifiche azioni o scenari. 
@@ -257,3 +256,24 @@ L'identificazione dei casi d'uso avviene attraverso i seguenti passaggi:
     \item \textbf{Scomposizione in sotto-casi}: I casi d'uso principali possono venire successivamente scomposti in sotto-casi, se necessario, per dettagliare specifiche eccezioni, varianti o processi secondari. Questa scomposizione permette di descrivere scenari più specifici o complessi che possono verificarsi durante l'interazione. Ad esempio, il caso d'uso principale "Gestione di un ordine" può essere suddiviso nei sotto-casi "Modifica di un ordine esistente" e "Cancellazione di un ordine in attesa". Questo livello di dettaglio consente di rappresentare in modo accurato e completo tutti i comportamenti attesi del sistema.
 
 \end{enumerate}
+
+\paragraph{Requisiti Software}
+\label{par:requisiti_software}
+I requisiti software sono le specifiche che il sistema software deve soddisfare per essere accettato dagli utenti finali, dagli stakeholder e dagli altri sistemi con cui interagisce.
+In particolare i requisiti software rappresentano le funzionalità, le prestazioni, la sicurezza e le altre caratteristiche che il sistema deve avere per soddisfare i requisiti utente analizzati.
+Presentano una struttura del tipo:
+
+\begin{lstlisting}
+    \begin{swreq}
+        [] {<...>}
+        
+        {RXY-Z}{<Descrizione della funzione del requisito>}
+    
+        (<X e Y indicano il tipo di requisito, Z la versione>)
+
+        \subreq{RZY-Z.01}{<Descrizione della sottofunzione>}
+    
+        \subreq{RXY-Z.02}{<Descrizione della sottofunzione>}
+    
+    \end{swreq}
+\end{lstlisting}
