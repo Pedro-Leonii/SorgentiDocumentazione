@@ -1,28 +1,19 @@
 
-
 \subsection{Introduzione}
+\label{sec:requisiti_software}
 In questa sezione vengono elencati i requisiti software individuati dal gruppo per la realizzazione del progetto ArtificialQI.
-I requisiti sono stati definiti tramite l'analisi degli use case individuati dal gruppo, l'analisi del capitolato fornito dall'azienda e le riunioni esterne.
-Ogni requisito software ha una nomenclatura composta come segue:
-\begin{lstlisting}
-    R[Tipologia]-[ID_RequisitoSoftware]
-\end{lstlisting}
-Dove:
-\begin{enumerate}
-    \item \lstinline|R| sta per requisito.
-    \item \lstinline|Tipologia| si suddivide in tre categorie:
-    \begin{enumerate}
-        \item Funzionali (F): requisiti software che soddisfano i comportamenti o le funzionalità del sistema.
-        \item Qualitativi (Q): requisiti software necessari per garantire standard qualitativi e di manutenibilità
-        del prodotto software.
-        \item Di Vincolo/Dominio (V): requisiti che delineano le restrizioni imposte dagli Stakeholder o dal capitolato 
-        per la realizzazione del progetto software.
-    \end{enumerate}
-    \item \lstinline|ID_Requisito| è un numero progressivo a partire da 0 che identifica il requisito software.
-\end{enumerate}  
-Per ogni requisito software viene indicata una specifica che definisce i sotto-requisiti di cui esso è composto.
-L'identificazione dei sotto-requisiti segue la nomenclatura:
-\begin{lstlisting}
-R[Tipologia]-[ID_RequisitoSoftware].[ID_SottoRequisito]
-\end{lstlisting} 
-Dove \lstinline|ID_SottoRequisito| è un numero progressivo a partire da 0 che identifica il sotto-requisito.
+I requisiti sono stati definiti tramite l'analisi dei requisiti utente mediante lo strumento dei diagrammi dei casi d'uso.
+Per rendere la presentazione dei requisiti software più fruibile si è deciso di raggrupparli in insiemi coerenti.
+Il raggruppamento si basa su una divisione informale del sistema in due componenti:
+\begin{itemize}
+    \item Logica di presentazione
+    \item Logica di business
+\end{itemize} 
+Per ogni requisito software verrà fornito;
+\begin{itemize}
+    \item Un identificativo univoco
+    \item Una descrizione testuale 
+    \item Una specifica ovvero un insieme di sotto requisiti che possono fare riferimento ad altri requisiti 
+    \item Una lista di dipendenze verso altri requisiti facoltativi
+\end{itemize}
+

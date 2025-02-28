@@ -1,0 +1,119 @@
+\subsection{Cambio dataset caricato}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.23]{Sezioni/UseCase/Immagini/CambioDatasetCaricato.png}
+    \caption{Diagramma cambio dataset caricato.}
+\end{figure}
+
+\begin{usecase}{UC-28}{Crea nuovo dataset temporaneo}
+    \label{uc:UC-28}
+    
+    \req{\hyperref[ru:RUO-3]{RUO-3}} 
+
+    \pre{
+        \item L'utente sta visualizzando la lista dei dataset salvati
+    }
+
+    \post{
+        \item Il sistema carica un nuovo dataset vuoto
+    }
+    
+    \actor{Utente}
+
+    \subactors{}
+
+    \trigger{L'utente vuole creare un nuovo dataset temporaneo}
+
+    \inc{}
+
+    \base{}
+
+    \scenario{
+        \item L'utente richiede la creazione di un nuovo dataset
+        \item Il sistema verifica che il dataset attualmente caricato non abbia modifiche non salvate
+        \item Il sistema carica un nuovo dataset vuoto temporaneo
+    }
+
+    \subscenario{
+        \item[2.1] Il dataset caricato contiene modifiche non salvate:
+        \begin{itemize}
+            \item \hyperref[uc:UC-30]{UC-30}
+        \end{itemize}
+    }
+\end{usecase}
+
+\begin{usecase}{UC-29}{Carica un dataset salvato}
+    \label{uc:UC-29}
+    
+    \req{\hyperref[ru:RUO-6]{RUO-6}} 
+
+    \pre{
+        \item L'utente sta visualizzando la lista dei dataset salvati
+    }
+
+    \post{
+        \item Viene caricato il dataset salvato indicato
+    }
+    
+    \actor{Utente}
+
+    \subactors{}
+
+    \trigger{L'utente richiede il caricamento di un dataset salvato}
+
+    \inc{}
+
+    \base{}
+
+    \scenario{
+        \item L'utente richiede il caricamento di un dataset salvato
+        \item Il sistema verifica che il dataset attualmente caricato non abbia modifiche non salvate
+        \item Il sistema carica il dataset salvato indicato
+    }
+
+    \subscenario{
+        \item[2.1] Il dataset caricato contiene modifiche non salvate:
+        \begin{itemize}
+            \item \hyperref[uc:UC-30]{UC-30}
+        \end{itemize}
+    }
+\end{usecase}
+
+\begin{usecase}{UC-30}{Sovrascrivi dataset caricato}
+    \label{uc:UC-30}
+    
+    \req{} 
+
+    \pre{
+        \item Esiste un dataset caricato con modifiche non salvate
+    }
+
+    \post{
+        \item Il dataset caricato viene sovrascritto e le modifiche non salvate vengono perse
+    }
+    
+    \actor{Utente}
+
+    \subactors{}
+
+    \trigger{Il dataset caricato contiene delle modifiche non salvate e il sistema deve caricarne un altro}
+
+    \inc{}
+
+    \base{}
+
+    \scenario{
+        \item Il sistema richiede all'utente la conferma della sovrascrittura
+        \item L'utente conferma la sovrascrittura
+        \item Il sistema sovrascrive il dataset caricato
+    }
+
+    \subscenario{
+        \item[2.1] L'utente annulla la sovrascrittura:
+        \begin{itemize}
+            \item Il sistema interrompe l'operazione di caricamento
+            \item Il dataset caricato resta invariato
+        \end{itemize}
+    }
+\end{usecase}

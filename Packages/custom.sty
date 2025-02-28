@@ -21,6 +21,8 @@
 \RequirePackage{enumitem} 
 \RequirePackage{makecell}
 \RequirePackage{pgfplots}
+\RequirePackage[table]{xcolor}
+\RequirePackage{etoolbox}
 \ProcessOptions\relax
 
 
@@ -38,16 +40,32 @@
    {1.5ex plus 0.2ex}%
    {\normalfont\footnotesize\bfseries}}
 
-\newcommand{\req}[1]{\textbf{Requisito utente} & #1 \\ \hline}
-\newcommand{\pre}[1]{\textbf{Pre-condizioni} & \begin{itemize}[noitemsep,topsep=-10pt]#1\end{itemize} \\ \hline}
-\newcommand{\post}[1]{\textbf{Post-condizioni} & \begin{itemize}[noitemsep,topsep=-10pt]#1\end{itemize} \\ \hline}
-\newcommand{\actor}[1]{\textbf{Attore principale} & #1 \\ \hline}
-\newcommand{\subactors}[1]{\textbf{Attori secondari} & #1 \\ \hline}
+\newcommand{\req}[1]{\textbf{Requisito utente} & \if\relax\detokenize{#1}\relax N/A \else #1 \fi \\ \hline}
+
+\newcommand{\pre}[1]{
+    \textbf{Pre-condizioni} & \if\relax\detokenize{#1}\relax N/A \else\begin{itemize}[noitemsep,topsep=-10pt]#1\end{itemize}\fi \\ \hline
+}
+\newcommand{\post}[1]{
+    \textbf{Post-condizioni} &  \if\relax\detokenize{#1}\relax N/A \else\begin{itemize}[noitemsep,topsep=-10pt]#1\end{itemize}\fi \\ \hline
+}
+
+\newcommand{\actor}[1]{\textbf{Attore principale} & \if\relax\detokenize{#1}\relax N/A \else #1 \fi \\ \hline}
+\newcommand{\subactors}[1]{\textbf{Attori secondari} & \if\relax\detokenize{#1}\relax N/A \else #1 \fi \\ \hline}
 \newcommand{\trigger}[1]{\textbf{Trigger} & #1 \\ \hline}
-\newcommand{\inc}[1]{\textbf{Casi d'uso inclusi} & #1 \\ \hline}
-\newcommand{\base}[1]{\textbf{Caso d'uso base} & #1 \\ \hline}
-\newcommand{\scenario}[1]{\textbf{Scenario principale} & \begin{enumerate}[noitemsep,topsep=-10pt]#1\end{enumerate} \\ \hline}
-\newcommand{\subscenario}[1]{\textbf{Scenari secondari} & \begin{itemize}[noitemsep,topsep=-10pt]#1\end{itemize} \\ \hline}
+\newcommand{\inc}[1]{\textbf{Casi d'uso inclusi} & \if\relax\detokenize{#1}\relax N/A \else #1 \fi \\ \hline}
+\newcommand{\base}[1]{\textbf{Caso d'uso base} & \if\relax\detokenize{#1}\relax N/A \else #1 \fi \\ \hline}
+
+\newcommand{\scenario}[1]{
+    \textbf{Scenario principale} &  \if\relax\detokenize{#1}\relax N/A \else\begin{enumerate}[noitemsep,topsep=-10pt]#1\end{enumerate}\fi \\ \hline
+}
+
+\newcommand{
+    \subscenario}[1]{\textbf{Scenari secondari} &  \if\relax\detokenize{#1}\relax N/A \else\begin{itemize}[noitemsep,topsep=-10pt]#1\end{itemize}\fi \\ \hline
+}
+
+\newcommand{\subreq}[2]{ #1 & #2 \\ \hline }
+\newcommand{\dependency}[1]{ \multicolumn{2}{|p{\textwidth}|}{#1} \\ \hline}
+
 %-------------------------------------------------------------------------------------------
 
 %----------------------------------IMPOSTAZIONI FANCYHDR-------------------------------------
@@ -119,28 +137,33 @@
     \end{center}
     \restoregeometry
 }
-
-\NewEnviron{requisitiFunzionali}{
-    \begin{center}
-        \begin{tabularx}{\textwidth}{| c | c | c | C |}
-            \hline
-                \textbf{Codice} & 
-                \textbf{Fonte} & 
-                \textbf{Specifica} &
-                \textbf{Descrizione} \\ 
-            \hline 
-            \BODY
-            \hline
-        \end{tabularx}
-    \end{center}
-}
             
 \NewEnviron{usecase}[2]{
     \begin{tabularx}{\textwidth}{|l | X|}
             \hline
             \multicolumn{2}{|c|}{\textbf{#1}: #2}\\
-            \hline \hline
+            \hline
             \BODY
+    \end{tabularx}
+}
+
+\NewEnviron{swreq}[3][]{
+    \begin{tabularx}{\textwidth}{|l|X|}
+            \hline
+            \rowcolor{lightgray}\multicolumn{2}{|c|}{\textbf{#2}} \\
+            \hline
+            \multicolumn{2}{|p{\textwidth}|}{#3} \\
+            \hline
+            \rowcolor{lightgray}\multicolumn{2}{|c|}{\textbf{Specifica}} \\
+            \hline
+            \textbf{ID} & \textbf{Descrizione} \\
+            \hline
+            \BODY
+            \if\relax\detokenize{#1}\relax\else
+                \rowcolor{lightgray}\multicolumn{2}{|c|}{\textbf{Dipendenze da requisiti facoltativi}} \\
+                \hline
+                #1
+            \fi
     \end{tabularx}
 }
 %-------------------------------------------------------------------------------------------  
