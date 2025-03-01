@@ -16,29 +16,29 @@ Di seguito viene riportata la lista dei requisiti funzionali che riguardano la l
 
     \subreq{RFO-1.01}{Il sistema deve visualizzare il nome del dataset caricato se non è temporaneo altrimenti indicare il fatto che è temporaneo}
     
-    \subreq{RFO-1.02}{Se il dataset caricato è vuoto il sistema deve visualizzare un messaggio che lo indica}
+    \subreq{RFO-1.02}{Se il dataset caricato è vuoto, il sistema deve visualizzare un messaggio che lo indica}
 
-    \subreq{RFO-1.03}{Se l'utente ha già visualizzato il dataset a partire dal suo caricamento il sistema deve visualizzare l'ultima pagina richiesta \hyperref[rf:RFO-2]{RFO-2}}
+    \subreq{RFO-1.03}{Se l'utente ha già visualizzato il dataset a partire dal suo caricamento, il sistema deve visualizzare l'ultima pagina richiesta \hyperref[rf:RFO-2]{RFO-2}}
     
-    \subreq{RFO-1.04}{Se l'utente visualizza per la prima volta il dataset a partire dal suo caricamento il sistema deve visualizzare la prima pagina \hyperref[rf:RFO-2]{RFO-2}}
+    \subreq{RFO-1.04}{Se l'utente visualizza per la prima volta il dataset a partire dal suo caricamento, il sistema deve visualizzare la prima pagina \hyperref[rf:RFO-2]{RFO-2}}
     
     \subreq{RFO-1.05}{Il sistema deve visualizzare un elemento che permetta la navigazione tra le pagine del dataset}
     
-    \subreq{RFO-1.06}{Se il dataset caricato non è vuoto il sistema deve visualizzare una barra di ricerca che specifichi all'utente le informazioni necessarie per l'esecuzione della stessa}
+    \subreq{RFO-1.06}{Se il dataset caricato non è vuoto, il sistema deve visualizzare una barra di ricerca che fornisca all'utente le informazioni necessarie per il suo utilizzo}
     
     \subreq{RFO-1.07}{Il sistema deve visualizzare un pulsante che permetta l'aggiunta di un elemento al dataset caricato \hyperref[rf:RFO-4]{RFO-4}} 
     
-    \subreq{RFO-1.08}{Se il dataset non è vuoto il sistema deve visualizzare un pulsante che permetta l'esecuzione di un test} 
+    \subreq{RFO-1.08}{Se il dataset non è vuoto, il sistema deve visualizzare un pulsante che permetta l'esecuzione di un test} 
     
     \subreq{RFO-1.09}{Se l'utente cerca di eseguire un test su un dataset incompleto il sistema deve visualizzare una lista contenente i link agli elementi incompleti presenti nel dataset caricato \hyperref[rf:RFO-5]{RFO-5}}
 
-    \subreq{RFO-1.10}{Se il sistema riscontra un errore durante l'esecuzione del test deve visualizzare un messaggio di errore}
+    \subreq{RFO-1.10}{Se il sistema riscontra un errore durante l'esecuzione del test, deve visualizzare un messaggio di errore}
     
-    \subreq{RFO-1.11}{Se il dataset caricato contiene delle modifiche non ancora salvate il sistema deve visualizzare un pulsante che permette il salvataggio dello stesso}
+    \subreq{RFO-1.11}{Se il dataset caricato contiene modifiche non ancora salvate, il sistema deve visualizzare un pulsante che ne consenta il salvataggio}
 
-    \subreq{RFO-1.12}{Se l'utente richiede il salvataggio di un dataset temporaneo il sistema richiede il nome da assegnargli \hyperref[rf:RFO-6]{RFO-6}}
+    \subreq{RFO-1.12}{Se l'utente richiede il salvataggio di un dataset temporaneo, il sistema richiede il nome da assegnargli \hyperref[rf:RFO-6]{RFO-6}}
 
-    \subreq{RFO-1.13}{Se il sistema riscontra un errore durante il salvataggio del dataset caricato deve visualizzare un messaggio di errore}
+    \subreq{RFO-1.13}{Se il sistema riscontra un errore durante il salvataggio del dataset caricato, deve visualizzare un messaggio di errore}
 \end{swreq}
 
 \begin{swreq}
@@ -47,9 +47,9 @@ Di seguito viene riportata la lista dei requisiti funzionali che riguardano la l
     
     \subreq{RFO-2.01}{Il sistema deve visualizzare la pagina del dataset sotto forma di una lista scorrevole di elementi \hyperref[rf:RFO-3]{RFO-3}}
 
-    \subreq{RFO-2.02}{Se il sistema verifica che è stata richiesta una pagina invalida visualizza un messaggio di errore}
+    \subreq{RFO-2.02}{Se il sistema verifica che è stata richiesta una pagina non valida visualizza un messaggio di errore}
         
-    \subreq{RFO-2.03}{Se il sistema riscontra un errore durante l'ottenimento degli elementi appartenenti alla pagina deve visualizzare un messaggio di errore}
+    \subreq{RFO-2.03}{Se il sistema riscontra un errore durante il recupero degli elementi appartenenti alla pagina, deve visualizzare un messaggio di errore}
 
 \end{swreq}
 
@@ -69,13 +69,13 @@ Di seguito viene riportata la lista dei requisiti funzionali che riguardano la l
     
     \subreq{RFO-3.05}{Il sistema deve visualizzare un bottone che permette l'eliminazione di un elemento}
 
-    \subreq{RFO-3.06}{Se l'utente richiede l'eliminazione di un elemento il sistema richiedere la conferma}
+    \subreq{RFO-3.06}{Se l'utente richiede l'eliminazione di un elemento il sistema deve richiedere la conferma}
 
 \end{swreq}
 
 \begin{swreq}
     {RFO-4}
-    {Il sistema deve poter visualizzare gli elementi per l'inserimento/modifica di un elemento nel dataset caricato}
+    {Il sistema deve poter visualizzare gli elementi necessari per l'inserimento o la modifica di un elemento nel dataset caricato}
     \label{rf:RFO-4}%
     
     \subreq{RFO-4.01}{Il sistema deve visualizzare un elemento di input che permetta di specificare la domanda}
@@ -86,7 +86,7 @@ Di seguito viene riportata la lista dei requisiti funzionali che riguardano la l
     
     \subreq{RFO-4.04}{Il sistema deve visualizzare un bottone che permetta l'annullamento}
     
-    \subreq{RFO-4.05}{Se si cerca di confermare un elemento invalido il sistema deve visualizzare un messaggio di errore in cui viene indicato come compilare correttamente l'elemento}
+    \subreq{RFO-4.05}{Se si cerca di confermare un elemento non valido, il sistema deve visualizzare un messaggio di errore in cui viene indicato come compilare correttamente l'elemento}
 
 \end{swreq}
 
@@ -105,7 +105,7 @@ Di seguito viene riportata la lista dei requisiti funzionali che riguardano la l
 
 \begin{swreq}
     {RFO-6}
-    {Il sistema deve poter visualizzare gli elementi necessari per nominare/rinominare un dataset}
+    {Il sistema deve poter visualizzare gli elementi necessari per nominare e/o rinominare un dataset}
     \label{rf:RFO-6}%
     
     \subreq{RFO-6.01}{Il sistema deve visualizzare un elemento di input che permetta di specificare il nome}
@@ -114,7 +114,7 @@ Di seguito viene riportata la lista dei requisiti funzionali che riguardano la l
     
     \subreq{RFO-6.03}{Il sistema deve visualizzare un bottone che permetta l'annullamento}
     
-    \subreq{RFO-6.04}{Se si cerca di confermare un elemento invalido il sistema deve visualizzare un messaggio di errore}
+    \subreq{RFO-6.04}{Se si cerca di confermare un elemento non valido il sistema deve visualizzare un messaggio di errore}
 
 \end{swreq}
 
@@ -132,7 +132,7 @@ Di seguito viene riportata la lista dei requisiti funzionali che riguardano la l
     
     \subreq{RFO-7.03}{Il sistema deve visualizzare i dataset salvati sotto forma di una lista scorrevole \hyperref[rf:RFO-8]{RFO-8}}
         
-    \subreq{RFO-7.04}{Il sistema se esistono dataset salvati deve visualizzare una barra di ricerca che specifichi all'utente le informazioni necessarie per l'esecuzione della ricerca stessa}
+    \subreq{RFO-7.04}{Il sistema, se esistono dataset salvati, deve visualizzare una barra di ricerca che specifichi all'utente le informazioni necessarie per l'esecuzione della ricerca stessa}
 
 \end{swreq}
 
@@ -151,21 +151,21 @@ Di seguito viene riportata la lista dei requisiti funzionali che riguardano la l
     
     \subreq{RFO-8.05}{Il sistema deve visualizzare un bottone che permetta di eliminare il dataset salvato}
 
-    \subreq{RFO-8.06}{Se l'utente richiede l'eliminazione di un dataset salvato il sistema deve richiedere la conferma}
+    \subreq{RFO-8.06}{Se l'utente richiede l'eliminazione di un dataset salvato, il sistema deve richiedere la conferma}
     
     \subreq{RFO-8.07}{Il sistema deve visualizzare un bottone che permetta di caricare e visualizzare il dataset salvato \hyperref[rf:RFO-1]{RFO-1}}
 
-    \subreq{RFO-8.08}{Se viene richiesto il caricamento di un dataset salvato quando il dataset attualmente caricato contiene modifiche non salvate il sistema deve richiedere conferma della sovrascrittura}
+    \subreq{RFO-8.08}{Se viene richiesto il caricamento di un dataset salvato quando il dataset attualmente caricato contiene modifiche non salvate, il sistema deve richiedere conferma della sovrascrittura}
 
-    \subreq{RFO-8.09}{Se il sistema riscontra un errore interno durante l'ottenimento delle informazioni del dataset salvato deve visualizzare un messaggio di errore}
+    \subreq{RFO-8.09}{Se il sistema riscontra un errore interno durante l'ottenimento delle informazioni del dataset salvato, il sistema deve visualizzare un messaggio di errore}
 
  \end{swreq}
 
  \begin{swreq}
     [
-        \dependency{Se il sistema può gestire un insieme di test salvati deve indicare il nome del test caricato se non è temporaneo altrimenti indicare il fatto che è temporaneo}
+        \dependency{Se il sistema può gestire un insieme di test salvati, deve indicare il nome del test caricato, se non è temporaneo, altrimenti deve indicare il fatto che è temporaneo}
         \dependency{Se il sistema può gestire un insieme di LLM salvati deve visualizzare il nome dell'LLM testato}
-        \dependency{Se il sistema può gestire il confronto tra test deve visualizzare un pulsante che permetta il confronto del test caricato con un test salvato \hyperref[rf:RFF-9]{RFF-9}}
+        \dependency{Se il sistema può gestire il confronto tra test, deve visualizzare un pulsante che permetta il confronto del test caricato con un test salvato \hyperref[rf:RFF-9]{RFF-9}}
     ]
     {RFO-10}
     {Il sistema deve permettere la visualizzazione del test caricato}
@@ -175,7 +175,7 @@ Di seguito viene riportata la lista dei requisiti funzionali che riguardano la l
 
     \subreq{RFO-10.02}{Il sistema deve visualizzare l'indice riassuntivo \hyperref[rf:RFO-11]{RFO-11}}
     
-    \subreq{RFO-10.03}{Se l'utente ha già visualizzato il test a partire dal suo caricamento il sistema deve visualizzare l'ultima pagina richiesta \hyperref[rf:RFO-12]{RFO-12}}
+    \subreq{RFO-10.03}{Se l'utente ha già visualizzato il test a partire dal suo caricamento, il sistema deve visualizzare l'ultima pagina richiesta \hyperref[rf:RFO-12]{RFO-12}}
     
     \subreq{RFO-10.04}{Se l'utente visualizza per la prima volta il test a partire dal suo caricamento il sistema deve visualizzare la prima pagina \hyperref[rf:RFO-12]{RFO-12}}
     
@@ -200,7 +200,7 @@ Di seguito viene riportata la lista dei requisiti funzionali che riguardano la l
     
     \subreq{RFO-11.05}{Il sistema deve visualizzare un grafico a barre delle frequenze relative dei risultati rispetto ai seguenti cinque range di valori di similarità: $[0, 0.2], [0.2, 0.4], [0.4, 0.6], [0.6, 0.8], [0.8, 1]$}
     
-    \subreq{RFO-11.06}{Se il sistema riscontra un errore nell'ottenimento delle statistiche deve mostrare un messaggio di errore}
+    \subreq{RFO-11.06}{Se il sistema riscontra un errore nell'ottenimento delle statistiche, deve mostrare un messaggio di errore}
 
  \end{swreq}
 
@@ -213,9 +213,9 @@ Di seguito viene riportata la lista dei requisiti funzionali che riguardano la l
     
     \subreq{RFO-12.02}{Il sistema deve visualizzare i risultati appartenenti alla pagina come una lista scorrevole \hyperref[rf:RFO-13]{RFO-13}}
 
-    \subreq{RFO-12.03}{Se il sistema verifica che è stata richiesta una pagina invalida visualizza un messaggio di errore}
+    \subreq{RFO-12.03}{Se il sistema verifica che è stata richiesta una pagina non valida visualizza un messaggio di errore}
         
-    \subreq{RFO-12.04}{Se il sistema riscontra un errore durante l'ottenimento degli elementi appartenenti alla pagina deve visualizzare un messaggio di errore}
+    \subreq{RFO-12.04}{Se il sistema riscontra un errore durante l'ottenimento degli elementi appartenenti alla pagina, deve visualizzare un messaggio di errore}
 
  \end{swreq}
 
@@ -228,7 +228,7 @@ Di seguito viene riportata la lista dei requisiti funzionali che riguardano la l
     
     \subreq{RFO-13.02}{Il sistema deve visualizzare la risposta attesa}
     
-    \subreq{RFO-13.03}{Il sistema deve visualizzate la risposta ottenuta}
+    \subreq{RFO-13.03}{Il sistema deve visualizzare la risposta ottenuta}
     
     \subreq{RFO-13.04}{Il sistema deve visualizzare il grado di similarità tra la risposta attesa e quella ottenuta}
     
@@ -283,7 +283,7 @@ Di seguito viene riportata la lista dei requisiti funzionali che riguardano la l
     
     \subreq{RFF-2.03}{Per ogni LLM salvato il sistema deve visualizzare un bottone per l'eliminazione}
 
-    \subreq{RFF-2.04}{Se l'utente richiede l'eliminazione di un LLM associato a uno o più test salvati il sistema deve notificare che i test verranno eliminati}
+    \subreq{RFF-2.04}{Se l'utente richiede l'eliminazione di un LLM associato a uno o più test salvati, il sistema deve notificare che tali test verranno eliminati}
 
     \subreq{RFF-2.05}{Se l'utente richiede l'eliminazione di un LLM il sistema deve richiedere la conferma}
     
@@ -310,7 +310,7 @@ Di seguito viene riportata la lista dei requisiti funzionali che riguardano la l
     
     \subreq{RFF-3.06}{Il sistema deve visualizzare la chiave da utilizzare per specificare la domanda da porre all'LLM nel body delle richieste HTTP}
     
-    \subreq{RFF-3.07}{Il sistema deve visualizzare la chiave da utilizzare per estrarre la risposta data dall'LLM contenuta risposte HTTP}
+    \subreq{RFF-3.07}{Il sistema deve visualizzare la chiave da utilizzare per estrarre la risposta data dall'LLM contenuta nelle risposte HTTP}
     
     \subreq{RFF-3.08}{Il sistema deve visualizzare un bottone per la modifica dell'LLM visualizzato \hyperref[rf:RFF-4]{RFF-4}}
 
@@ -341,9 +341,9 @@ Di seguito viene riportata la lista dei requisiti funzionali che riguardano la l
 
     \subreq{RFF-4.10}{Il sistema deve visualizzare un bottone che permetta di annullare le modifiche sull'LLM}
 
-    \subreq{RFF-4.11}{Se si cerca di salvare un URL con formato invalido il sistema deve mostrare un messaggio di errore}
+    \subreq{RFF-4.11}{Se si cerca di salvare un URL con formato non valido il sistema deve mostrare un messaggio di errore}
 
-    \subreq{RFF-4.12}{Se si cerca di salvare una coppia chiave valore invalida il sistema deve mostrare un messaggio di errore}
+    \subreq{RFF-4.12}{Se si cerca di salvare una coppia chiave-valore non valida, il sistema deve mostrare un messaggio di errore}
 
     \subreq{RFF-4.13}{Se avviene un errore durante la modifica dell'LLM il sistema deve visualizzare un messaggio di errore}
 
@@ -351,7 +351,7 @@ Di seguito viene riportata la lista dei requisiti funzionali che riguardano la l
 
 \begin{swreq}
     {RFF-5}
-    {Il sistema dovrebbe poter visualizzare gli elementi necessari alla creazione di un nuovo LLM}
+    {Il sistema dovrebbe poter visualizzare gli elementi necessari per la creazione di un nuovo LLM}
     \label{rf:RFF-5}%
     
     \subreq{RFF-5.01}{Il sistema deve visualizzare un elemento di input che permetta di specificare il nome}
@@ -370,9 +370,9 @@ Di seguito viene riportata la lista dei requisiti funzionali che riguardano la l
 
     \subreq{RFF-5.08}{Il sistema deve visualizzare un bottone che permetta di annullare la creazione del nuovo LLM}
 
-    \subreq{RFF-5.09}{Se si cerca di salvare un URL con formato invalido il sistema deve mostrare un messaggio di errore}
+    \subreq{RFF-5.09}{Se si cerca di salvare un URL con formato non valido il sistema deve mostrare un messaggio di errore}
 
-    \subreq{RFF-5.10}{Se si cerca di salvare una coppia chiave valore invalida il sistema deve mostrare un messaggio di errore}
+    \subreq{RFF-5.10}{Se si cerca di salvare una coppia chiave-valore non valida, il sistema deve mostrare un messaggio di errore}
 
     \subreq{RFF-5.11}{Se avviene un errore durante la creazione dell'LLM il sistema deve visualizzare un messaggio di errore}
 
@@ -424,7 +424,7 @@ Di seguito viene riportata la lista dei requisiti funzionali che riguardano la l
     
     \subreq{RFF-8.03}{Il sistema deve visualizzare un bottone per l'annullamento della denominazione}
 
-    \subreq{RFF-8.04}{Se si cerca di utilizzare un nome invalido il sistema deve visualizzare un messaggio di errore}
+    \subreq{RFF-8.04}{Se si cerca di utilizzare un nome non valido il sistema deve visualizzare un messaggio di errore}
 
 \end{swreq}
 
@@ -436,7 +436,7 @@ Di seguito viene riportata la lista dei requisiti funzionali che riguardano la l
     {Il sistema dovrebbe poter permettere di confrontare il test caricato con un test salvato}
     \label{rf:RFF-9}%
     
-    \subreq{RFF-9.01}{Il sistema deve visualizzare sotto forma di lista i test salvati che possono essere confrontati con il test caricato indicando nome del dataset di test, data di esecuzione e nome dell'LLM utilizzato}
+    \subreq{RFF-9.01}{Il sistema deve visualizzare, sotto forma di lista, i test salvati che possono essere confrontati con il test caricato, indicando il nome del dataset di test, la data di esecuzione e il nome dell'LLM utilizzato}
 
     \subreq{RFF-9.02}{Il sistema deve permettere la selezione di un test salvato da confrontare con il test caricato}
 
@@ -466,11 +466,11 @@ Di seguito viene riportata la lista dei requisiti funzionali che riguardano la l
     
     \subreq{RFO-11.01}{Il sistema deve visualizzare una pagina del confronto tra i singoli risultati di due test sotto forma di una lista scorrevole di elementi \hyperref[rf:RFF-12]{RFF-12}}
 
-    \subreq{RFO-11.02}{Il sistema deve visualizzare un diagramma di dispersione che rappresenta i singoli risultati confrontati nella pagina \hyperref[rf:RFO-14]{RFO-14}}
+    \subreq{RFO-11.02}{Il sistema deve visualizzare un diagramma di dispersione che rappresenti i singoli risultati confrontati nella pagina \hyperref[rf:RFO-14]{RFO-14}}
 
-    \subreq{RFO-11.03}{Se il sistema verifica che è stata richiesta una pagina invalida visualizza un messaggio di errore}
+    \subreq{RFO-11.03}{Se il sistema verifica che è stata richiesta una pagina non valida visualizza un messaggio di errore}
         
-    \subreq{RFO-11.04}{Se il sistema riscontra un errore durante l'ottenimento degli elementi appartenenti alla pagina deve visualizzare un messaggio di errore}
+    \subreq{RFO-11.04}{Se il sistema riscontra un errore durante l'ottenimento degli elementi appartenenti alla pagina, deve visualizzare un messaggio di errore}
 
 \end{swreq}
 
@@ -479,9 +479,9 @@ Di seguito viene riportata la lista dei requisiti funzionali che riguardano la l
     {Il sistema dovrebbe poter visualizzare un confronto tra due risultati}
     \label{rf:RFF-12}%
     
-    \subreq{RFO-12.01}{Il sistema deve visualizzare domanda, risposta ottenuta e risposta attesa del primo risultato}
+    \subreq{RFO-12.01}{Il sistema deve visualizzare la domanda, la risposta ottenuta e la risposta attesa del primo risultato}
 
-    \subreq{RFO-12.02}{Il sistema deve visualizzare domanda, risposta ottenuta e risposta attesa del secondo risultato}
+    \subreq{RFO-12.02}{Il sistema deve visualizzare la domanda, la risposta ottenuta e la risposta attesa del secondo risultato}
 
     \subreq{RFO-12.03}{Il sistema deve visualizzare il confronto tra i valori di similarità dei due risultati}
 
@@ -498,7 +498,7 @@ Di seguito viene riportata la lista dei requisiti funzionali che riguardano la l
 
     \subreq{RFO-13.02}{Il sistema deve visualizzare gli elementi necessari per la denominazione del nuovo dataset \hyperref[rf:RFO-6]{RFO-6}}
 
-    \subreq{RFO-13.03}{Se il file JSON non rispecchia il formato supportato il sistema deve generare un messaggio di errore}
+    \subreq{RFO-13.03}{Se il file JSON non rispetta il formato supportato, il sistema deve generare un messaggio di errore}
 
     \subreq{RFO-13.04}{Se avviene un errore durante il salvataggio del nuovo dataset il sistema deve visualizzare un messaggio di errore}
 

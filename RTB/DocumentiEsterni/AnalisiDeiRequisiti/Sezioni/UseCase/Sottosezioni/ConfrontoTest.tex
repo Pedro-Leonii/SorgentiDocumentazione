@@ -13,7 +13,7 @@
     
     \pre{
         \item L'utente sta visualizzando i risultati del test caricato
-        \item Il test caricato condivide il dataset e/o l'LLM usati nel test con almeno un altro test salvato
+        \item Il test caricato condivide il dataset e/o l'LLM utilizzati nel test con almeno un altro test salvato
     }
     
     \post{
@@ -34,7 +34,7 @@
     
     \scenario{
         \item L'utente richiede l'esecuzione di un confronto con il test caricato
-        \item Il  sistema richiede la selezione di un test salvato tra quelli che condividono dataset e/o LLM con il test caricato
+        \item Il sistema richiede la selezione di un test salvato tra quelli che condividono dataset e/o LLM con il test caricato
         \item Il sistema ottiene le statistiche riassuntive del test selezionato
         \item L'utente visualizza i due indici riassuntivi dei test a confronto 
         \item Il sistema verifica che i due test confrontati non siano stati eseguiti sulla stessa versione del dataset
@@ -158,7 +158,7 @@
     }
     
     \subscenario{
-        \item[2.1] La pagina richiesta non è valida ovvero è minore di uno o maggiore della pagina massima:
+        \item[2.1] La pagina richiesta non è valida ovvero è inferiore a uno o superiore alla pagina massima:
         \begin{itemize}
             \item \hyperref[uc:UC-5]{UC-5}
         \end{itemize}

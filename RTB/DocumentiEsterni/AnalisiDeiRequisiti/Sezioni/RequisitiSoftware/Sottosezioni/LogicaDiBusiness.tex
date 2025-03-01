@@ -20,7 +20,7 @@ Di seguito viene riportata la lista dei requisiti funzionali che riguardano la l
 
     \subreq{RFO-15.05}{Il sistema deve poter inserire un nuovo elemento nel dataset caricato \hyperref[rf:RFO-16]{RFO-16}}
 
-    \subreq{RFO-1506}{Il sistema deve ottenere gli elementi incompleti contenuti nel dataset caricato \hyperref[rf:RFO-16]{RFO-16}}
+    \subreq{RFO-15.06}{Il sistema deve ottenere gli elementi incompleti contenuti nel dataset caricato \hyperref[rf:RFO-16]{RFO-16}}
     
     \subreq{RFO-15.07}{Il sistema deve poter eliminare un elemento contenuto nel dataset caricato}
 
@@ -32,11 +32,11 @@ Di seguito viene riportata la lista dei requisiti funzionali che riguardano la l
 
     \subreq{RFO-15.11}{Il sistema deve poter risalire all'ultima pagina richiesta del dataset caricato}    
 
-    \subreq{RFO-15.12}{Il sistema deve poter determinare e ottenere gli elementi del dataset caricato che appartengono a una data pagina}
+    \subreq{RFO-15.12}{Il sistema deve poter identificare e recuperare gli elementi del dataset caricato che appartengono a una specifica pagina}
 
     \subreq{RFO-15.13}{Il sistema deve poter determinare la pagina a cui un dato elemento appartiene}
 
-    \subreq{RFO-15.14}{Il sistema deve poter selezionare un sotto insieme degli elementi del dataset caricato che contengono una data stringa nella propria domanda e/o risposta}
+    \subreq{RFO-15.14}{Il sistema deve poter selezionare un sottoinsieme degli elementi del dataset caricato che contengono una data stringa nella propria domanda e/o risposta}
 \end{swreq}
 
 \begin{swreq}
@@ -76,7 +76,7 @@ Di seguito viene riportata la lista dei requisiti funzionali che riguardano la l
 
     \subreq{RFO-17.06}{Il sistema deve poter determinare se esistono dataset salvati}
 
-    \subreq{RFO-17.07}{Il sistema deve poter selezionare un sotto insieme dei dataset salvati che contengono una data stringa nel proprio nome}
+    \subreq{RFO-17.07}{Il sistema deve poter selezionare un sottoinsieme dei dataset salvati che contengono una data stringa nel proprio nome}
 
 \end{swreq}
 
@@ -86,11 +86,11 @@ Di seguito viene riportata la lista dei requisiti funzionali che riguardano la l
     
     \subreq{RFO-18.01}{Il sistema deve poter ottenere il nome del dataset}
     
-    \subreq{RFO-18.02}{Il sistema deve poter determinare la data di ultimo aggiornamento del dataset}
+    \subreq{RFO-18.02}{Il sistema deve poter determinare la data dell'ultimo aggiornamento del dataset}
 
     \subreq{RFO-18.03}{Il sistema deve poter rinominare un dataset}
 
-    \subreq{RFO-18.04}{Il sistema deve poter determinare se un nome di dataset è valido ovvero non è già associato a un altro dataset e non è vuoto o composto da soli spazi}
+    \subreq{RFO-18.04}{Il sistema deve poter determinare se un nome di dataset è valido, ovvero se non è già associato a un altro dataset e non è vuoto o composto da soli spazi}
     
     \subreq{RFO-18.05}{Il sistema deve poter caricare un dataset salvato eventualmente sovrascrivendo il dataset attualmente caricato}
 
@@ -110,7 +110,7 @@ Di seguito viene riportata la lista dei requisiti funzionali che riguardano la l
 
     \subreq{RFO-19.03}{Il sistema deve poter calcolare il numero della pagina massima dei risultati del test caricato}
 
-    \subreq{RFO-19.04}{Il sistema data una pagina deve poter determinare se appartiene al range di pagine valide dei risultati del test caricato}  
+    \subreq{RFO-19.04}{Il sistema, data una pagina, deve poter determinare se appartiene al range di pagine valide dei risultati del test caricato}  
 
     \subreq{RFO-19.05}{Il sistema deve poter risalire all'ultima pagina di risultati richiesta}    
 
@@ -125,9 +125,9 @@ Di seguito viene riportata la lista dei requisiti funzionali che riguardano la l
     
     \subreq{RFO-20.01}{Dato un LLM da testare il sistema deve poterci comunicare usando le informazioni a esso associate per ottenere le risposte alle domande contenute nel dataset caricato}
     
-    \subreq{RFO-20.02}{Il sistema per ogni risposta ottenuta dall'LLM da testare deve calcolare il grado similarità con la risposta attesa e rappresentarlo come un valore nell'intervallo $[0,1]$}
+    \subreq{RFO-20.02}{Il sistema, per ogni risposta ottenuta dall'LLM da testare, deve calcolare il grado similarità con la risposta attesa e rappresentarlo come un valore nell'intervallo $[0,1]$}
     
-    \subreq{RFO-20.03}{Il sistema per ogni risposta ottenuta deve richiedere all'oracolo la correttezza della stessa}
+    \subreq{RFO-20.03}{Il sistema, per ogni risposta ottenuta, deve richiedere all'oracolo la correttezza della stessa}
     
     \subreq{RFO-20.04}{Il sistema deve calcolare la media dei gradi di similarità dei risultati}
     
@@ -137,7 +137,7 @@ Di seguito viene riportata la lista dei requisiti funzionali che riguardano la l
     
     $[0, 0.2], [0.2, 0.4], [0.4, 0.6], [0.6, 0.8], [0.8, 1]$}
 
-    \subreq{RFO-20.07}{Il sistema deve calcolare la percentuale di risposte corrette}
+    \subreq{RFO-20.07}{Il sistema deve calcolare la percentuale di risposte corrette rispetto al totale}
 
 \end{swreq}
 
@@ -253,7 +253,7 @@ Di seguito viene riportata la lista dei requisiti funzionali che riguardano la l
 {RFF-20}{Il sistema dovrebbe poter gestire il confronto tra il test caricato e un test salvato}
     \label{rf:RFF-20}%
     
-    \subreq{RFF-20.01}{Il sistema deve poter determinare i test salvati che possono essere confrontati con il test caricato ovvero quelli che condividono dataset o LLM usato nel test}
+    \subreq{RFF-20.01}{Il sistema deve poter determinare quali test salvati possono essere confrontati con il test caricato, ovvero quelli che condividono il dataset o l'LLM utilizzato nel test}
     
     \subreq{RFF-20.02}{Il sistema deve poter determinare se il test caricato condivide con un dato test salvato la stessa versione di dataset utilizzato}
 
