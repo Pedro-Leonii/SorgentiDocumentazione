@@ -35,9 +35,9 @@
     }
 
     \subscenario{
-        \item[1.1] I'ultima versione del dataset caricato è vuoto:
+        \item[1.1] I'ultima versione del dataset caricato è vuota:
         \begin{itemize}
-            \item[a.] Viene indicato all'utente che il datataset caricato è vuoto
+            \item[a.] Viene indicato all'utente che il dataset caricato è vuoto
         \end{itemize}
     }
 \end{usecase}
@@ -144,7 +144,7 @@
     }
 
     \subscenario{
-        \item[2.1] La pagina richiesta non esiste ovvero è minore di uno o maggiore della pagina massima:
+        \item[2.1] La pagina richiesta non esiste ovvero è inferiore a uno o superiore alla pagina massima:
         \begin{itemize}
             \item[a.] \hyperref[uc:UC-5]{UC-5}
         \end{itemize}
@@ -162,7 +162,7 @@
     }
 
     \post{
-        \item L'utente capisce che la pagina richiesta non esiste e conosce il range di pagine valide
+        \item L’utente capisce che la pagina richiesta non esiste e viene informato sull’intervallo di pagine valide
     }
 
     \actor{Utente}
@@ -210,7 +210,7 @@
     \base{}
 
     \scenario{
-        \item L'utente specifica le parole chiave da utilizzare nella ricerca
+        \item L’utente specifica le parole chiave da usare per la ricerca
         \item Il sistema ricerca gli elementi che contengono le parole chiave nella propria domanda e/o risposta
         \item Il sistema restringe internamente il dataset caricato agli elementi risultanti dalla ricerca
         \item Viene visualizzato il dataset caricato ristretto secondo \hyperref[uc:UC-1]{UC-1}
