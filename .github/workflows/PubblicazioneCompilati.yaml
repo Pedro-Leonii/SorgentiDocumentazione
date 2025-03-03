@@ -1,11 +1,6 @@
 name: Pubblicazione dei documenti LaTeX compilati
 
-on:
-    push: 
-        branches:
-          - main
-        paths:
-          - '**/*.tex'
+on: workflow_dispatch
     
 jobs:
     pubblicazione_compilati:
