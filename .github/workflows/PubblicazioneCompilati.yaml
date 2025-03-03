@@ -10,8 +10,8 @@ on:
 jobs:
     pubblicazione_compilati:
       env: 
-        DIRS_TO_IGNORE: ${{vars.DIRS_TO_IGNORE_FORK}}
-        DIRS_TO_DEL: ${{vars.DIRS_TO_DEL_FORK}}
+        DIRS_TO_IGNORE: ${{vars.DIR_TO_IGNORE_FORK}}
+        DIRS_TO_DEL: ${{vars.DIR_TO_DEL_FORK}}
           
       runs-on: ubuntu-latest
       steps:
