@@ -1,0 +1,260 @@
+\subsection{Logica di business}
+Contiene tutti i requisiti software che riguardano l'elaborazione delle informazioni mostrate agli utenti e ottenute dagli utenti.
+
+\subsubsection{Requisiti funzionali}
+Di seguito viene riportata la lista dei requisiti funzionali che riguardano la logica di business divisi in requisiti funzionali obbligatori e requisiti funzionali facoltativi.
+
+
+\paragraph{Obbligatori}
+\begin{swreq}
+{RFO-15}{Il sistema deve poter gestire il dataset caricato}
+    \label{rf:RFO-15}%
+    
+    \subreq{RFO-15.01}{Il sistema deve poter determinare se il dataset caricato è vuoto}
+    
+    \subreq{RFO-15.02}{Il sistema deve poter determinare se il dataset caricato è temporaneo}
+    
+    \subreq{RFO-15.03}{Il sistema deve poter determinare se il dataset caricato è incompleto e quindi non può essere usato in un test \hyperref[rf:RFO-16]{RFO-16}}
+    
+    \subreq{RFO-15.04}{Il sistema deve poter determinare se il dataset caricato contiene modifiche non salvate}
+
+    \subreq{RFO-15.05}{Il sistema deve poter inserire un nuovo elemento nel dataset caricato \hyperref[rf:RFO-16]{RFO-16}}
+
+    \subreq{RFO-15.06}{Il sistema deve ottenere gli elementi incompleti contenuti nel dataset caricato \hyperref[rf:RFO-16]{RFO-16}}
+    
+    \subreq{RFO-15.07}{Il sistema deve poter eliminare un elemento contenuto nel dataset caricato}
+
+    \subreq{RFO-15.08}{Il sistema deve poter modificare un elemento contenuto nel dataset caricato \hyperref[rf:RFO-16]{RFO-16}}
+
+    \subreq{RFO-15.09}{Il sistema deve poter calcolare il numero della pagina massima del dataset caricato}
+
+    \subreq{RFO-15.10}{Il sistema data una pagina deve poter determinare se appartiene al range di pagine valide per il dataset caricato}  
+
+    \subreq{RFO-15.11}{Il sistema deve poter risalire all'ultima pagina richiesta del dataset caricato}    
+
+    \subreq{RFO-15.12}{Il sistema deve poter identificare e recuperare gli elementi del dataset caricato che appartengono a una specifica pagina}
+
+    \subreq{RFO-15.13}{Il sistema deve poter determinare la pagina a cui un dato elemento appartiene}
+
+    \subreq{RFO-15.14}{Il sistema deve poter selezionare un sottoinsieme degli elementi del dataset caricato che contengono una data stringa nella propria domanda e/o risposta}
+\end{swreq}
+
+\begin{swreq}
+{RFO-16}{Il sistema deve poter gestire un elemento del dataset caricato}
+    \label{rf:RFO-16}%
+    
+    \subreq{RFO-16.01}{Il sistema deve poter verificare che l'elemento sia valido ovvero non contenga domanda e risposta entrambe vuote o composte da soli spazi}
+    
+    \subreq{RFO-16.02}{Il sistema deve poter verificare che un elemento sia completo ovvero contenga domanda e risposta entrambe non vuote e non composte da soli spazi}
+
+    \subreq{RFO-16.03}{Il sistema deve poter ottenere la domanda di un elemento}
+
+    \subreq{RFO-16.04}{Il sistema deve poter ottenere la risposta di un elemento}
+    
+    \subreq{RFO-16.05}{Il sistema deve poter modificare la risposta di un elemento}
+
+    \subreq{RFO-16.06}{Il sistema deve poter modificare la domanda di un elemento}
+
+\end{swreq}
+
+\begin{swreq}
+[
+    \dependency{Il sistema dovrebbe poter salvare un nuovo dataset a partire da un file il formato JSON}
+]
+{RFO-17}{Il sistema deve poter gestire l'insieme di dataset salvati}
+    \label{rf:RFO-17}%
+
+    \subreq{RFO-17.01}{Il sistema deve poter salvare un nuovo dataset}
+
+    \subreq{RFO-17.02}{Il sistema deve poter aggiornare un dataset salvato senza perdere le sue versioni precedenti}
+
+    \subreq{RFO-17.03}{Il sistema deve poter eliminare un dataset salvato}
+
+    \subreq{RFO-17.04}{Il sistema deve poter modificare un dataset salvato \hyperref[rf:RFO-18]{RFO-18}}
+
+    \subreq{RFO-17.05}{Il sistema deve poter ottenere i dataset salvati}
+
+    \subreq{RFO-17.06}{Il sistema deve poter determinare se esistono dataset salvati}
+
+    \subreq{RFO-17.07}{Il sistema deve poter selezionare un sottoinsieme dei dataset salvati che contengono una data stringa nel proprio nome}
+
+\end{swreq}
+
+\begin{swreq}
+    {RFO-18}{Il sistema deve poter gestire un dataset salvato}
+    \label{rf:RFO-18}%
+    
+    \subreq{RFO-18.01}{Il sistema deve poter ottenere il nome del dataset}
+    
+    \subreq{RFO-18.02}{Il sistema deve poter determinare la data dell'ultimo aggiornamento del dataset}
+
+    \subreq{RFO-18.03}{Il sistema deve poter rinominare un dataset}
+
+    \subreq{RFO-18.04}{Il sistema deve poter determinare se un nome di dataset è valido, ovvero se non è già associato a un altro dataset e non è vuoto o composto da soli spazi}
+    
+    \subreq{RFO-18.05}{Il sistema deve poter caricare un dataset salvato eventualmente sovrascrivendo il dataset attualmente caricato}
+
+\end{swreq}
+
+\begin{swreq}
+    [
+        \dependency{Il sistema dovrebbe poter determinare l'LLM utilizzato nel test caricato}
+        \dependency{Il sistema deve poter determinare se il test è stato salvato}
+    ]
+    {RFO-19}{Il sistema deve poter gestire il test caricato}
+    \label{rf:RFO-19}%
+    
+    \subreq{RFO-19.01}{Il sistema deve poter determinare la versione del dataset su cui è stato eseguito il test caricato}
+
+    \subreq{RFO-19.02}{Il sistema deve poter determinare il nome del dataset su cui è stato eseguito il test caricato}
+
+    \subreq{RFO-19.03}{Il sistema deve poter calcolare il numero della pagina massima dei risultati del test caricato}
+
+    \subreq{RFO-19.04}{Il sistema, data una pagina, deve poter determinare se appartiene al range di pagine valide dei risultati del test caricato}  
+
+    \subreq{RFO-19.05}{Il sistema deve poter risalire all'ultima pagina di risultati richiesta}    
+
+    \subreq{RFO-19.06}{Il sistema deve poter determinare e ottenere i singoli risultati del test caricato che appartengono a una data pagina}
+
+    \subreq{RFO-19.07}{Il sistema deve poter ottenere le statistiche del test caricato \hyperref[rf:RFO-20]{RFO-20}}    
+\end{swreq}
+
+\begin{swreq}
+    {RFO-20}{Il sistema deve poter eseguire il test sul dataset caricato}
+    \label{rf:RFO-20}%
+    
+    \subreq{RFO-20.01}{Dato un LLM da testare il sistema deve poterci comunicare usando le informazioni a esso associate per ottenere le risposte alle domande contenute nel dataset caricato}
+    
+    \subreq{RFO-20.02}{Il sistema, per ogni risposta ottenuta dall'LLM da testare, deve calcolare il grado similarità con la risposta attesa e rappresentarlo come un valore nell'intervallo $[0,1]$}
+    
+    \subreq{RFO-20.03}{Il sistema, per ogni risposta ottenuta, deve richiedere all'oracolo la correttezza della stessa}
+    
+    \subreq{RFO-20.04}{Il sistema deve calcolare la media dei gradi di similarità dei risultati}
+    
+    \subreq{RFO-20.05}{Il sistema deve calcolare la deviazione standard dei gradi di similarità dei risultati}
+    
+    \subreq{RFO-20.06}{Il sistema deve calcolare il numero di risultati che appartiene a ognuno dei seguenti range di similarità: 
+    
+    $[0, 0.2], [0.2, 0.4], [0.4, 0.6], [0.6, 0.8], [0.8, 1]$}
+
+    \subreq{RFO-20.07}{Il sistema deve calcolare la percentuale di risposte corrette rispetto al totale}
+
+\end{swreq}
+
+\paragraph{Facoltativi}
+
+\begin{swreq}
+    {RFF-14}{Il sistema dovrebbe poter gestire un insieme di test salvati}
+    \label{rf:RFF-14}%
+    
+    \subreq{RFF-14.01}{Il sistema deve poter salvare un test}
+    
+    \subreq{RFF-14.02}{Il sistema deve poter ottenere i test salvati}
+    
+    \subreq{RFF-14.03}{Il sistema deve poter eliminare un test salvato}
+
+    \subreq{RFF-14.04}{Il sistema deve poter modificare un test salvato \hyperref[rf:RFF-15]{RFF-15}}
+
+    \subreq{RFF-14.05}{Il sistema deve poter caricare un test salvato eventualmente sovrascrivendo il test attualmente caricato}
+
+    \subreq{RFF-14.06}{Il sistema deve poter determinare se esistono test salvati}
+
+\end{swreq}
+
+\begin{swreq}
+    [\dependency{Il sistema deve poter ottenere l'LLM utilizzato nel test}]
+    {RFF-15}{Il sistema dovrebbe poter gestire un test salvato}
+        \label{rf:RFF-15}%
+        
+        
+        \subreq{RFF-15.01}{Il sistema deve poter ottenere il nome del test}
+                
+        \subreq{RFF-15.02}{Il sistema deve poter ottenere il nome del dataset utilizzato}
+        
+        \subreq{RFF-15.03}{Il sistema deve poter ottenere la data di esecuzione del test}
+        
+        \subreq{RFF-15.04}{Il sistema deve poter rinominare un test salvato }
+        
+        \subreq{RFF-15.05}{Il sistema deve poter determinare se il nome di un test salvato è valido ovvero non è associato a un altro test salvato e non è vuoto o composto da soli spazi}
+
+        \subreq{RFF-15.06}{Il sistema dato un numero di pagina deve poter determinare i risultati del test che vi appartengono}
+
+        \subreq{RFF-15.07}{Il sistema deve poter determinare il numero di pagina massima dei risultati del test}
+
+        \subreq{RFF-15.08}{Il sistema dato un numero di pagina deve poter determinare se appartiene al range di pagine valide}
+
+\end{swreq}
+
+\begin{swreq}
+{RFF-16}{Il sistema dovrebbe poter gestire un insieme di LLM salvati}
+    \label{rf:RFF-16}%
+    
+    \subreq{RFF-16.01}{Il sistema deve poter ottenere gli LLM salvati}
+    
+    \subreq{RFF-16.02}{Il sistema deve poter eliminare un LLM salvato}
+
+    \subreq{RFF-16.03}{Il sistema deve poter modificare un LLM salvato \hyperref[rf:RFF-17]{RFF-17}}
+
+    \subreq{RFF-16.04}{Il sistema deve poter salvare un nuovo LLM}
+
+    \subreq{RFF-16.05}{Il sistema deve poter determinare se esistono LLM salvati}
+
+\end{swreq}
+
+\begin{swreq}
+{RFF-17}{Il sistema dovrebbe poter gestire un LLM salvato}
+    \label{rf:RFF-17}%
+    
+    \subreq{RFF-17.01}{Il sistema deve poter ottenere/modificare il nome dell'LLM}
+
+    \subreq{RFF-17.02}{Il sistema deve poter determinare se il nome di un LLM è valido ovvero non è vuoto o composto da soli spazi e non è già assegnato a un altro LLM}
+    
+    \subreq{RFF-17.03}{Il sistema deve poter ottenere la data di ultima modifica dell'LLM}
+    
+    \subreq{RFF-17.04}{Il sistema deve poter ottenere/modificare l'URL associato all'LLM}
+
+    \subreq{RFF-17.05}{Il sistema deve poter determinare se un URL è in un formato valido}
+
+    \subreq{RFF-17.06}{Il sistema deve poter ottenere/modificare le chiavi associate alla domanda e alla risposta}
+
+    \subreq{RFF-17.07}{Il sistema deve poter determinare se le chiavi associate alla domanda e alla risposta sono valide ovvero non sono vuote o composte da soli spazi}
+    
+    \subreq{RFF-17.08}{Il sistema deve poter gestire gli insiemi di coppie chiave-valore associate alla creazione degli header e dei body delle richieste HTTP verso l'LLM \hyperref[rf:RFF-18]{RFF-18}}
+
+\end{swreq}
+
+\begin{swreq}
+{RFF-18}{Il sistema dovrebbe poter gestire un insieme di coppie chiave-valore da utilizzare nella comunicazione HTTP con l'LLM}
+    \label{rf:RFF-18}%
+    
+    
+    \subreq{RFF-18.01}{Il sistema deve poter ottenere le coppie chiave-valore}
+    
+    \subreq{RFF-18.02}{Il sistema deve poter aggiungere una coppia chiave-valore}
+    
+    \subreq{RFF-18.03}{Il sistema deve poter modificare una coppia chiave-valore}
+    
+    \subreq{RFF-18.04}{Il sistema deve poter determinare se una coppia chiave-valore è valida ovvero è composta da chiave e valore non vuoti oppure composti da soli spazi}
+
+\end{swreq}
+
+\begin{swreq}
+{RFF-19}{Il sistema dovrebbe poter determinare la correttezza del formato di un file JSON che specifica un dataset}
+    \label{rf:RFF-19}%
+    
+    
+    \subreq{RFF-19.01}{Il sistema deve verificare che il file JSON contenga una lista di oggetti}
+
+    \subreq{RFF-19.02}{Il sistema deve verificare che ogni oggetto contenga i due attributi "domanda" e "risposta"} 
+
+\end{swreq}
+
+\begin{swreq}
+{RFF-20}{Il sistema dovrebbe poter gestire il confronto tra il test caricato e un test salvato}
+    \label{rf:RFF-20}%
+    
+    \subreq{RFF-20.01}{Il sistema deve poter determinare quali test salvati possono essere confrontati con il test caricato, ovvero quelli che condividono il dataset o l'LLM utilizzato nel test}
+    
+    \subreq{RFF-20.02}{Il sistema deve poter determinare se il test caricato condivide con un dato test salvato la stessa versione di dataset utilizzato}
+
+\end{swreq}

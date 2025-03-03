@@ -1,0 +1,39 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{custom}
+
+%--------------------VARIABILI--------------------
+\def\lastversion{v0.4}
+\def\title{Analisi dei requisiti}
+\def\date{28 Febbraio 2025}
+%------------------------------------------------
+
+\begin{document}
+
+\primapagina
+
+
+\begin{registromodifiche}
+    \lastversion & 28 Febbraio 2024  & Pedro Leoni, Enrico Bianchi & Francesco Savio, Marko Peric & Sezioni \hyperref[sec:use_case]{Use case}, \hyperref[sec:requisiti_software]{Requisiti software} \\
+    \hline
+    v0.3 & 12 Gennaio 2025 & Pedro Leoni, Francesco Savio, Guirong Lan & Marko Peric & Sezione \hyperref[sec:requisiti_software]{Requisiti Software} \\
+    \hline
+    v0.2 & 8 Gennaio 2025 & Pedro Leoni, Francesco Savio & Marko Peric & Sezioni \hyperref[sec:requisiti_utente]{Requisiti utente} \hyperref[sec:use_case]{Use case} \\
+    \hline
+    v0.1 & 13 Dicembre 2024  & Pedro Leoni & Enrico Bianchi & Sezioni \hyperref[sec:descrizione_prodotto]{Descrizione prodotto} \\
+    \hline
+\end{registromodifiche}
+
+\tableofcontents
+
+\newpage
+
+\input{Sezioni/DescrizioneProdotto/DescrizioneProdotto.tex}
+
+\input{Sezioni/RequisitiUtente/RequisitiUtente.tex}
+
+\input{Sezioni/UseCase/UseCase.tex}
+
+\input{Sezioni/RequisitiSoftware/RequisitiSoftware.tex}
+
+\end{document}
