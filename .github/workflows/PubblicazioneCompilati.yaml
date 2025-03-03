@@ -10,8 +10,8 @@ on:
 jobs:
     pubblicazione_compilati:
       env: 
-        DIRS_TO_IGNORE: ${{vars.DIRS_TO_IGNORE}}
-        DIRS_TO_DEL: ${{vars.DIRS_TO_DEL}}
+        DIRS_TO_IGNORE: ${{vars.DIRS_TO_IGNORE_FORK}}
+        DIRS_TO_DEL: ${{vars.DIRS_TO_DEL_FORK}}
           
       runs-on: ubuntu-latest
       steps:
@@ -23,9 +23,9 @@ jobs:
         - name: Clona la repository dei documenti compilati
           uses: actions/checkout@v4
           with:
-            repository: ALT-F4-eng/Documentazione
+            repository: Pedro-Leonii/Documentazione/
             path: dst
-            token: ${{ secrets.PAT_ALT_F4 }}
+            token: ${{ secrets.FORK_TOKEN  }}
         
         - name: Seleziona i documenti da compilare
           id: setup_tex
@@ -77,6 +77,4 @@ jobs:
         - name: Commit dei documenti compilati
           uses: EndBug/add-and-commit@v9
           with:
-            committer_email: altf4.eng@gmail.com
-            committer_name: altf4
             cwd: dst
