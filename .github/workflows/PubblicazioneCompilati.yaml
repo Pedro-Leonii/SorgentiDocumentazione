@@ -30,7 +30,7 @@ jobs:
                 echo "EOF" >> $GITHUB_OUTPUT
 
         - name: Print dei file latex da compilare
-          run: echo "$steps.setup_tex.outputs.TEX_PATH"
+          run: echo "${{steps.setup_tex.outputs.TEX_PATH}}"
               
         - name: Compila i documenti
           uses: xu-cheng/latex-action@v3
