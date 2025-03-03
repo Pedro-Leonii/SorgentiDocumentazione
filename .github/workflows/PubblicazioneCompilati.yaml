@@ -21,6 +21,9 @@ jobs:
             repository: Pedro-Leonii/Documentazione
             path: dst
             token: ${{ secrets.FORK_TOKEN  }}
+
+        - name: Print dei file latex da compilare
+          run: echo "$steps.setup_tex.outputs.TEX_PATH"
         
         - name: Seleziona i documenti da compilare
           id: setup_tex
