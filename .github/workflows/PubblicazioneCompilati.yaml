@@ -45,8 +45,9 @@ jobs:
           run: |
               cd src
               rm -rf $DIRS_TO_DEL
-              rm -rf '*Sezioni/'
               find * -type f ! -name "*.pdf" -delete
+              rm -rf '*/Sezioni/*'
+              
               for dir in */; do
                 files_child=$(ls -A "$dir")
                 files_n=$(echo "$files_child" | wc -l)
