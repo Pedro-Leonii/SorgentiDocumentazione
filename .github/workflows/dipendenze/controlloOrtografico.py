@@ -33,7 +33,7 @@ for diff in diffs:  # scorre le diff di git dal HEAD del ramo feature fino al su
 	if diff.endswith('.tex') and os.path.exists(diff):  # file è un file latex ed è stato modificato
 		with open(diff, 'r') as f:  # aperto il file da controllare
 
-			link = f'https://github.com/Pedro-Leonii/SorgentiDocumentazione/blob/{urllib.parse.quote(curr_br, safe='/')}{diff}'
+			link = f'https://github.com/Pedro-Leonii/SorgentiDocumentazione/blob/{urllib.parse.quote(curr_br, safe='/')}/{diff}'
 
 			errors = exec_commands(['cat', diff], command_aspell_it, command_aspell_en)	
 
