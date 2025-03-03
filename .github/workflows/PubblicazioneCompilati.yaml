@@ -23,7 +23,7 @@ jobs:
         - name: Clona la repository dei documenti compilati
           uses: actions/checkout@v4
           with:
-            repository: Pedro-Leonii/Documentazione/
+            repository: Pedro-Leonii/Documentazione
             path: dst
             token: ${{ secrets.FORK_TOKEN  }}
         
