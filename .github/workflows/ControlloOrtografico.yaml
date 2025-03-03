@@ -32,8 +32,7 @@ jobs:
 
         - name: Aggiunge alla pr il commento con errori
           run: |
-            tree ./
-            cat SorgentiDocumentazione/errori.md 
+            cat errori.md 
             gh pr comment ${{ github.event.pull_request.number }} -F errori.md
           working-directory: SorgentiDocumentazione
 
