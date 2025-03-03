@@ -21,9 +21,6 @@ jobs:
             repository: Pedro-Leonii/Documentazione
             path: dst
             token: ${{ secrets.FORK_TOKEN  }}
-
-        - name: Print dei file latex da compilare
-          run: echo "$steps.setup_tex.outputs.TEX_PATH"
         
         - name: Seleziona i documenti da compilare
           id: setup_tex
@@ -31,6 +28,9 @@ jobs:
                 echo "TEX_PATH<<EOF" >> $GITHUB_OUTPUT
                 echo "$(find -type f -name "*.tex" | grep -v $(echo ${DIRS_TO_IGNORE} ${DIRS_TO_DEL}| sed 's/ /\\|/g'))" >> $GITHUB_OUTPUT
                 echo "EOF" >> $GITHUB_OUTPUT
+
+        - name: Print dei file latex da compilare
+          run: echo "$steps.setup_tex.outputs.TEX_PATH"
               
         - name: Compila i documenti
           uses: xu-cheng/latex-action@v3
