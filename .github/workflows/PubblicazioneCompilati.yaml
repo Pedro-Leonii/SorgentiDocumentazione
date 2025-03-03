@@ -70,7 +70,7 @@ jobs:
               done
           
         - name: Copia i documenti nella repo di destinazione
-          run: cp -R src/* dst
+          run: rsync -a --delete src/ dst/
         
         - name: Commit dei documenti compilati
           uses: EndBug/add-and-commit@v9
