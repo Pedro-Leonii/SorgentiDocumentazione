@@ -32,7 +32,7 @@ jobs:
 
         - name: Aggiunge alla pr il commento con errori
           run: |
-            gh pr comment "${{github.event.pull_request.number}}" -F errori.md  -R Pedro-Leonii/SorgentiDocumentazione
+            gh pr comment "${{github.event.pull_request.number}}" -F errori.md  -R ${{ github.repositoryUrl }}
           working-directory: SorgentiDocumentazione
 
 
