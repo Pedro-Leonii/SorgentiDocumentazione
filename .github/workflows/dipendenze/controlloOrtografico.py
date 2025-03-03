@@ -27,6 +27,7 @@ command_aspell_en = [
 exec_commands(['git', 'fetch', 'origin', 'main'])
 diffs = exec_commands(['git', 'diff', '--merge-base', 'origin/main', '--name-only']).split('\n')
 curr_br = exec_commands(['git', 'rev-parse', '--abbrev-ref', 'HEAD'])
+print('diffs:', diffs)
 
 for diff in diffs:  # scorre le diff di git dal HEAD del ramo feature fino al suo commit di origine
 	if diff.endswith('.tex') and os.path.exists(diff):  # file è un file latex ed è stato modificato
@@ -38,7 +39,6 @@ for diff in diffs:  # scorre le diff di git dal HEAD del ramo feature fino al su
 
 			errors = list(dict.fromkeys(errors.split('\n')))
 			errors = [e for e in errors if e]
-			print('errors:', errors)
 
 			if errors:
 				pull_req_msg.append(f'## Il file {diff} contiene i seguenti potenziali errori:')
