@@ -26,6 +26,7 @@ jobs:
           
         - name: Controllo grammaticale
           run: |
+            git checkout ${{ github.head_ref }}
             python3 .github/workflows/dipendenze/controlloOrtografico.py 
           working-directory: SorgentiDocumentazione
 
