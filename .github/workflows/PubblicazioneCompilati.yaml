@@ -71,7 +71,7 @@ jobs:
           
         - name: Copia i documenti nella repo di destinazione
           run: |
-              rm -rf $(ls -d dst/* | grep -v 'Js|Assets|Style|README.md')
+              rm -rf $(ls -d dst/* | grep -v 'Js\|Assets\|Style\|README.md\|index.html')
               cp -r src/* dst/
         
         - name: Commit dei documenti compilati
