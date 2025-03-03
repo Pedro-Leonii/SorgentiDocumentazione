@@ -1,0 +1,90 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{custom}
+
+
+%--------------------VARIABILI--------------------
+\def\lastversion{v0.1}
+\def\title{Verbale interno}
+\def\date{23 gennaio 2025}
+%------------------------------------------------
+
+\begin{document}
+
+\primapagina
+
+\begin{registromodifiche}
+        \lastversion & 11 Febbraio 2025 & Marko Peric & Enrico Bianchi & Stesura verbale interno \\
+        \hline 
+\end{registromodifiche}
+
+\tableofcontents
+
+\newpage
+
+\section{Registro presenze}
+\begin{itemize}
+    \item[] \textbf{Data}: 23 gennaio 2025
+    \item[] \textbf{Ora inizio}:  10:00
+    \item[] \textbf{Ora fine}: 11:00
+    \item[] \textbf{Piattaforma}: Discord	
+\end{itemize}
+
+\begin{table}[H]
+\centering
+{\renewcommand{\arraystretch}{2}
+\begin{tabularx}{\textwidth}{| X | X |}
+    \hline
+        \textbf{\large Componente} & 
+        \textbf{\large Presenza} \\
+    \hline 
+    \hline
+        Eghosa Matteo Igbinedion Osamwonyi&
+        Presente \\
+    \hline 
+        Guirong Lan&
+        Assente \\
+    \hline 
+        Enrico Bianchi&
+        Presente \\
+    \hline 
+        Francesco Savio&
+        Assente \\
+    \hline 
+        Marko Peric&
+        Presente \\
+    \hline 
+        Pedro Leoni&
+        Presente \\
+    \hline 
+
+\end{tabularx}}
+\end{table}
+
+\newpage
+
+\section{Verbale}
+\subsection{Argomenti trattati}
+Gli argomenti trattati sono stati i seguenti:
+\begin{itemize}
+    \item Come gestire le \glossario{issue} rimaste indietro nello \glossario{sprint} precedente senza impattare sullo \glossario{sprint} attuale, considerati gli esami in corso;
+    \item Come gestire la visualizzazione di un grande set di coppie di domande risposte nella web app;
+    \item Quali altri valori sono necessari al front-end per una visualizzazione dei dati completa;
+\end{itemize}
+
+\subsection{Decisioni prese}
+In seguito sono state prese le seguenti decisioni:
+\begin{itemize}
+    \item I membri che hanno meno esami da sostenere si occuperanno di risolvere più \glossario{issue} possibili tra quelle rimaste indietro nello \glossario{sprint} precedente;
+    \item Si è deciso di utilizzare un sistema di impaginazione per visualizzare le coppie di domande risposte nella web app;
+    \item Si è deciso che il front-end necessita dei valori della media e della deviazione standard per visualizzare i dati in modo completo.
+    \item L'obbiettivo attuale del gruppo è completare il \glossario{PoC} entro la fine del mese di febbraio a causa dei ritardi.
+\end{itemize}
+
+\section{To Do}
+\begin{itemize}
+    \item finire le attività pianificate ma non completate
+    \item completare lo sviluppo del \glossario{Proof of Concept(PoC)}
+\end{itemize}
+
+\end{document}

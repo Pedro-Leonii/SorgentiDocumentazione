@@ -233,7 +233,7 @@ Per la stesura delle descrizioni dei casi d'uso il gruppo ha deciso di definire 
     \item \lstinline|\inc{<casi d'uso inclusi>}|: genera in automatico la riga per i casi d'uso inclusi.
     \item \lstinline|\base{<caso d'uso base>}|: genera in automatico la riga per il caso d'uso base.
     \item \lstinline|\scenario{\item <azione 1> ...}|: genera in automatico la riga per lo scenario principale e la popola indicando le azioni in una lista.
-    \item \lstinline|\subscenario{\item <condizione 1> ...}|: genera in automatico la riga per per gli scenari secondari e la popola indicandoli in una lista.
+    \item \lstinline|\subscenario{\item <condizione 1> ...}|: genera in automatico la riga per gli scenari secondari e la popola indicandoli in una lista.
 \end{enumerate}
 
 \subparagraph{Ambienti personalizzati}
@@ -277,7 +277,7 @@ Di seguito viene mostrato il codice necessario per la definizione dello scheletr
 \textbf{Nota bene}: I valori delle variabili devono seguire le regole indicate nelle sezioni \hyperref[subsec:documentazione]{Documentazione} e \hyperref[par:versione_documenti]{Versione dei documenti}.
 
 \subparagraph{Gestione documenti "lunghi"}
-Per rendere più semplice la gestione di documenti molto lunghi il gruppo ha deciso di dividerene il contenuto in più file .tex.
+Per rendere più semplice la gestione di documenti molto lunghi il gruppo ha deciso di dividere il contenuto in più file .tex.
 I documenti soggetti a questa divisione sono:
 \begin{enumerate}
     \item Norme di progetto.
@@ -369,7 +369,7 @@ Git è un Distributed Version Control System DVCS  utilizzabile tramite interfac
 I DVCS hanno la caratteristica di permettere ai membri del gruppo di lavoro di mantenere una propria copia locale del repository e della sua storia.
 Una volta modificata la copia locale del repository è necessario registrare le modifche nella copia centralizzata del repository.
 Le operazioni e gli elementi di base comuni a tutti i DVCS: \textbf{repository}, \textbf{ramo}, \textbf{push}, \textbf{pull}, \textbf{conflitto} e \textbf{commit}.
-Nelle sezioni succesive viene mostrato come Git implementa questi concetti e altri concetti caratteristici.
+Nelle sezioni successive viene mostrato come Git implementa questi concetti e altri concetti caratteristici.
 
 \subparagraph{repository}
 Un repository in Git è una cartella contenente:
@@ -381,7 +381,7 @@ In git esistono due diverse declinazioni di repository:
 \begin{enumerate}
     \item \textbf{remota}: esiste in un server remoto a cui i membri del team possono attingere tramite le operazioni di push e pull.
     
-    \item \textbf{locale}: esiste solo sul file system locale e può essere associata ad un repository remoto usato come default per le operazioni di psuh e pull. 
+    \item \textbf{locale}: esiste solo sul file system locale e può essere associata a un repository remoto usato come default per le operazioni di psuh e pull. 
 \end{enumerate} 
 Per creare un repository è possibile eseguire uno dei seguenti comandi:
 \begin{lstlisting}
@@ -399,7 +399,7 @@ Dove:
 Un commit rappresenta una istantanea del contenuto di uno o più file utente di cui è stata indicata l'esistenza a Git.
 In Git ogni commit è associato alle seguenti informazioni:
 \begin{enumerate}
-    \item \textbf{hash SHA-1}: sequenza di 40 caretteri alfanumerici che identifica univocamente il commit all'interno del repository.
+    \item \textbf{hash SHA-1}: sequenza di 40 caratteri alfanumerici che identifica univocamente il commit all'interno del repository.
     \item \textbf{autore}.
     \item \textbf{data di creazione}.
     \item \textbf{messaggio}: usato per segnalare cosa fa il contenuto del commit.
@@ -418,12 +418,12 @@ Questo comando utilizza come commit padre il commit foglia del ramo corrente.
 \subparagraph{ramo}
 \label{subpar:branch}
 Un ramo in Git è un commit a cui è stata associata un etichetta mobile che funziona da alias per lo stesso.
-Tramite questa etichetta mobile è possibile fare riferimento al commit ad essa associato.
+Tramite questa etichetta mobile è possibile fare riferimento al commit a essa associato.
 Un ramo è un etichetta mobile nel senso che Git la sposta in automatico quando viene generato un commit figlio.
 Questo crea una biforcazione nella storia dei commit(ramo) dove l'etichetta punta sempre all'ultimo commit(foglia) del nuovo flusso.
 
 Git mantiene internamente un puntatore all'etichetta del ramo corrente chiamato commit \textbf{HEAD}.
-Così facendo riesce ad operare nel modo atteso quando si eseguono comandi che agiscono rispetto al ramo corrente.
+Così facendo riesce a operare nel modo atteso quando si eseguono comandi che agiscono rispetto al ramo corrente.
 Git permette di ottenere riferimenti a commit padre del commit HEAD tramite le seguenti sintassi:
 \begin{lstlisting}
     # riferimento al commit padre di HEAD
@@ -514,7 +514,7 @@ Git lavora su tre diversi livelli:
 
 \subparagraph{push}
 \label{subpar:push}
-L'operazione di push permette di pubblicare le modifiche apportate ad un repository locale al repository remoto a cui è associato.
+L'operazione di push permette di pubblicare le modifiche apportate a un repository locale al repository remoto a cui è associato.
 Le declinazioni del comando di Git che permette di eseguire un push sono:
 \begin{lstlisting}
     # pubblica il contenuto del ramo locale 
@@ -714,7 +714,7 @@ Di seguito vengono indicate l'insieme di operazioni che possono essere eseguite 
 
     \item \textbf{Commentare un issue}
     
-    Per aggiungere un commento ad una issue è necessario eseguire i seguenti passi a partire dalla pagina web del repository:
+    Per aggiungere un commento a una issue è necessario eseguire i seguenti passi a partire dalla pagina web del repository:
     \begin{enumerate}
         \item Selezionare finestra "Issues".
         \item Selezionare la issue che si vuole commentare.
@@ -1215,14 +1215,15 @@ La comunicazione tra i membri del gruppo e l'azienda proponente avviene tramite 
 \subsubsection{Sviluppo}
 A supporto del processo di sviluppo il gruppo ha scelto l'utilizzo dei seguenti strumenti:
 \begin{enumerate}
-    \item drawio: \href{https://www.drawio.com/blog/diagrams-offline}{https://www.drawio.com/blog/diagrams-offline}.
+    \item StarUML: \href{https://staruml.io/blog/staruml-6-3-1-release/}{https://staruml.io/blog/staruml-6-3-1-release/}.
 \end{enumerate}
 
-\paragraph{drawio}
-Drawio è un software che permette la creazione di diagrammi di diverso tipo.
-Questi diagrammi possono poi essere esportati usando diversi formati tra cui: pdf, png e jpeg.
-Questo strumento può essere usato in combinazione con un account google per definire diagrammi tramite un interfaccia web oppure installando un programma in locale.
-Nel secondo caso è necessario installare l'editor che può essere trovato nel Microsoft store. 
+\paragraph{StarUML}
+\label{par:staruml}
+StarUML è un software che permette la creazione di diagrammi di diverso tipo.
+Questi diagrammi possono poi essere esportati usando diversi formati tra cui: PDF, PNG e JPEG.
+Il gruppo ha deciso di utilizzare questo software invece di Draw.io come deciso precedentemente per la sua maggiore semplicità d'uso.
+In particolare, StarUML offre strumenti dedicati per la creazione e gestione di relazioni tra elementi, ereditarietà e associazioni, rendendo il processo di modellazione più chiaro e strutturato.
 
 \subsubsection{Dashboard excel}
 \label{subpar:dashboard_excel}
