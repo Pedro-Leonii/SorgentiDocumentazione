@@ -30,7 +30,7 @@ jobs:
                 echo "EOF" >> $GITHUB_OUTPUT
 
         - name: Print dei file latex da compilare
-          run: echo "${{steps.setup_tex.outputs.TEX_PATH}}"
+          run: echo "$(find -type f -name "*.tex" | grep -v $(echo ${DIRS_TO_IGNORE} ${DIRS_TO_DEL}| sed 's/ /\\|/g'))" 
               
         - name: Compila i documenti
           uses: xu-cheng/latex-action@v3
