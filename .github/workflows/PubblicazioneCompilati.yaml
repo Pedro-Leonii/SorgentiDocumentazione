@@ -44,7 +44,9 @@ jobs:
         - name: Rimuove file inutili in src
           run: |
               cd src
-              rm -rf $DIRS_TO_DEL
+              for dir in $DIRS_TO_DEL; do
+                  rm -rf "*$dir"
+              done
               find * -type f ! -name "*.pdf" -delete
               for dir in */; do
                 files_child=$(ls -A "$dir")
