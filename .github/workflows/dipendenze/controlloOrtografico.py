@@ -44,7 +44,7 @@ for diff in diffs:  # scorre le diff di git dal HEAD del ramo feature fino al su
 				pull_req_msg.append(f'## Il file {diff} contiene i seguenti potenziali errori:')
 				for e in errors:
 					lines_n = exec_commands(['cat', diff], ['grep', '-nw', e], ['cut', '-d:', '-f1']).split('\n')
-					pull_req_msg.extend([f'- ⚠️ - parola: ***{e}*** - riga: ***{line_n}*** - [link alla riga]({link}#{line_n})' for line_n in lines_n])
+					pull_req_msg.extend([f'- ⚠️ - parola: ***{e}*** - riga: ***{line_n}*** - [link alla riga]({link}#L{line_n})' for line_n in lines_n])
 print('msg', pull_req_msg)
 with open('errori.md', 'w') as er_file:
 	er_file.write("\n".join(pull_req_msg))
