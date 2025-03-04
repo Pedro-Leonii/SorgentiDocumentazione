@@ -1,7 +1,5 @@
 name: Pubblicazione dei documenti LaTeX compilati
-
-on: workflow_dispatch
-    
+on: workflow_dispatch 
 jobs:
     pubblicazione_compilati:
       env: 
@@ -48,8 +46,10 @@ jobs:
             post_compile: 'find * -type f ! -name "*.pdf" -delete'
           env:
             TEXINPUTS: "/home/runner/work/SorgentiDocumentazione/SorgentiDocumentazione/src/Packages:"
-        - name: Rimuove file latex e directory da eliminare
-              rm -rf $( find . -type -f | grep "${{steps.dirs.outputs.TO_DEL}}")
+          
+        - name: Elimina le directory che non devono essere pubblicate
+          run: |
+            rm -rf $( find . -type -f | grep "${{steps.dirs.outputs.TO_DEL}}")
               
         - name: Muove le cartelle da ignorare da dst a src
           run: |
