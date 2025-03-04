@@ -21,9 +21,6 @@ jobs:
             repository: Pedro-Leonii/Documentazione
             path: dst
             token: ${{ secrets.FORK_TOKEN  }}
-            
-        - name: print tree
-          run: tree .
 
         - name: Prepara mette le directory da eliminare e da ignorare in OR
           id: dirs
@@ -62,6 +59,8 @@ jobs:
               PATHS_TO_SRC=()
 
               TMP_PATHS=$(find dst | grep "$TO_IGNORE" | sed ':a;N;$!ba;s/\n/ /g')
+
+              echo $TMP_PATHS
 
               read -a PATHS_FROM_DST <<< $TMP_PATHS
               read -a PATHS_TO_SRC <<< $(echo $TMP_PATHS | sed 's/dst/src/g')
