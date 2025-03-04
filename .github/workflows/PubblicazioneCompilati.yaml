@@ -51,7 +51,7 @@ jobs:
         - name: Rimuove i file contenuti in src che non devono essere pubblicati
           working-directory: src
           run: |
-            rm -rf $( find . | grep "${{ steps.dirs.output.TO_DEL }}")
+            rm -rf $( find . | grep "${{ steps.dirs.outputs.TO_DEL }}")
 
         - name: Muove le cartelle da ignorare da dst a src
           run: |
