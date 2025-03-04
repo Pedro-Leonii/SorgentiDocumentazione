@@ -43,13 +43,13 @@ jobs:
             work_in_root_file_dir: true
             root_file: |
               ${{ steps.setup_tex.outputs.TEX_PATH }}
-            post_compile: 'find * -type f ! -name "*.pdf" -delete'
           env:
             TEXINPUTS: "/home/runner/work/SorgentiDocumentazione/SorgentiDocumentazione/src/Packages:"
           
         - name: Elimina le directory che non devono essere pubblicate
           run: |
-            rm -rf $( find . -type -f | grep "${{steps.dirs.outputs.TO_DEL}}")
+            rm -rf $( find src -type -d -not -path '*/.*' | grep "${{steps.dirs.outputs.TO_DEL}}")
+            find src -type -f -not -path '*/*.pdf' -delete
               
         - name: Muove le cartelle da ignorare da dst a src
           run: |
