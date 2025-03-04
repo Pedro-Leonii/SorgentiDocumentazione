@@ -45,8 +45,7 @@ jobs:
             work_in_root_file_dir: true
             root_file: |
               ${{ steps.setup_tex.outputs.TEX_PATH }}
-            post_compile: |
-              find * -type f ! -name "*.pdf" -delete
+            post_compile: 'find * -type f ! -name "*.pdf" -delete'
           env:
             TEXINPUTS: "/home/runner/work/SorgentiDocumentazione/SorgentiDocumentazione/src/Packages:"
         - name: Rimuove file latex e directory da eliminare
