@@ -25,8 +25,8 @@ jobs:
         - name: Prepara mette le directory da eliminare e da ignorare in OR
           id: dirs
           run: |
-            echo "$TO_DEL=$(sed 's/ /\\|/g' <<< "$DIRS_TO_DEL")" >> $GITHUB_OUTPUT 
-            echo "$TO_IGNORE=$(sed 's/ /\\|/g' <<< "$DIRS_TO_IGNORE")" >> $GITHUB_OUTPUT 
+            echo "$TO_DEL=$(echo "$DIRS_TO_DEL" | sed 's/ /\\|/g')" >> $GITHUB_OUTPUT 
+            echo "$TO_IGNORE=$(echo "$DIRS_TO_IGNORE" | sed 's/ /\\|/g')" >> $GITHUB_OUTPUT 
         
         - name: Seleziona i documenti da compilare
           id: setup_tex
