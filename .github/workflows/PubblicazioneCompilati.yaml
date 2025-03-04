@@ -58,7 +58,7 @@ jobs:
               PATHS_FROM_DST=()
               PATHS_TO_SRC=()
 
-              TMP_PATHS=$(find dst | grep "$TO_IGNORE" | sed ':a;N;$!ba;s/\n/ /g')
+              TMP_PATHS=$(find dst -not -path '*/.*' | grep "${{ steps.dirs.outputs.TO_IGNORE }}" | sed ':a;N;$!ba;s/\n/ /g')
 
               echo $TMP_PATHS
 
