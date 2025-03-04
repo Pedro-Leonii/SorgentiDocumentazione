@@ -21,7 +21,10 @@ jobs:
             repository: Pedro-Leonii/Documentazione
             path: dst
             token: ${{ secrets.FORK_TOKEN  }}
-        
+            
+        - name: print tree
+          run: tree .
+
         - name: Prepara mette le directory da eliminare e da ignorare in OR
           id: dirs
           run: |
