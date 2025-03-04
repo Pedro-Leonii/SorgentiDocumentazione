@@ -22,59 +22,50 @@ jobs:
             path: dst
             token: ${{ secrets.FORK_TOKEN  }}
         
+        - name: Prepara mette le directory da eliminare e da ignorare in OR
+          id: dirs
+          run: |
+            echo "$TO_DEL=$(sed 's/ /\\|/g' <<< "$DIRS_TO_DEL")" >> $GITHUB_OUTPUT 
+            echo "$TO_IGNORE=$(sed 's/ /\\|/g' <<< "$DIRS_TO_IGNORE")" >> $GITHUB_OUTPUT 
+        
         - name: Seleziona i documenti da compilare
           id: setup_tex
           run: |
-                echo "TEX_PATH<<EOF" >> $GITHUB_OUTPUT
-                echo "$(find -type f -name "*.tex" | grep -v $(echo ${DIRS_TO_IGNORE} ${DIRS_TO_DEL}| sed 's/ /\\|/g'))" >> $GITHUB_OUTPUT
-                echo "EOF" >> $GITHUB_OUTPUT
-
-        - name: Print dei file latex da compilare
-          run: echo "$(find -type f -name "*.tex" | grep -v $(echo ${DIRS_TO_IGNORE} ${DIRS_TO_DEL}| sed 's/ /\\|/g'))" 
+            TO_COMPILE=$(find -type f -name "*.tex" \
+            | grep -v "${{ steps.dirs.output.TO_DEL }}" \
+            | grep -v "${{ steps.dirs.output.TO_IGNORE }}")
+            
+            echo "TEX_PATH<<EOF" >> $GITHUB_OUTPUT
+            echo $TO_COMPILE >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
               
         - name: Compila i documenti
           uses: xu-cheng/latex-action@v3
           with:
             work_in_root_file_dir: true
             root_file: |
-                ${{ steps.setup_tex.outputs.TEX_PATH }}
+              ${{ steps.setup_tex.outputs.TEX_PATH }}
           env:
             TEXINPUTS: "/home/runner/work/SorgentiDocumentazione/SorgentiDocumentazione/src/Packages:"
   
-        - name: Rimuove file inutili in src
+        - name: Rimuove i file contenuti in src che non devono essere pubblicati
+          working-directory: src
           run: |
-              cd src
-              rm -rf $DIRS_TO_DEL
-              find * -type f ! -name "*.pdf" -delete
-              rm -rf '*/Sezioni/*'
-              
-              for dir in */; do
-                files_child=$(ls -A "$dir")
-                files_n=$(echo "$files_child" | wc -l)
+            rm -rf $( find . | grep "${{ steps.dirs.output.TO_DEL }}")
 
-                if [ $files_n -eq 1 ]; then
-                        mv "$dir/$files_child" "$dir/../"
-                        rmdir $dir
-                fi
-              done
-              cd ..
-            
-        - name: Copia le cartelle da ignorare
+        - name: Muove le cartelle da ignorare da dst a src
           run: |
-              i=0
-              for d in $DIRS_TO_IGNORE; do
-                dest_dirs=$(find ./dst -type d -name "*${d}")
-                src_dirs=($(find ./src -type d -name "*${d}"))
-                for dest_dir in $dest_dirs; do
-                    cp -rf $dest_dir "${src_dirs[$i]}/.."
-                    i=$((i + 1)) 
-                done
+              PATHS_FROM_DST=()
+              PATHS_TO_SRC=()
+
+              TMP_PATHS=$(find dst | grep "$TO_IGNORE" | sed ':a;N;$!ba;s/\n/ /g')
+
+              read -a PATHS_FROM_DST <<< $TMP_PATHS
+              read -a PATHS_TO_SRC <<< $(echo $TMP_PATHS | sed 's/dst/src/g')
+
+              for i in $(seq 0 ${#PATHS_FROM_DST[@]}); do
+                  mv "${PATHS_FROM_DST[$i]}" " ${PATHS_TO_SRC[$i]}"
               done
-          
-        - name: Copia i documenti nella repo di destinazione
-          run: |
-              rm -rf $(ls -d dst/* | grep -v 'Js\|Assets\|Style\|README.md\|index.html')
-              cp -r src/* dst/
         
         - name: Commit dei documenti compilati
           uses: EndBug/add-and-commit@v9
