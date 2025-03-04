@@ -66,6 +66,10 @@ jobs:
               for i in $(seq 0 ${#PATHS_FROM_DST[@]}); do
                   mv "${PATHS_FROM_DST[$i]}" " ${PATHS_TO_SRC[$i]}"
               done
+
+        - name: Copia i file da src a dst
+          run: |
+              cp src/* dst/*
         
         - name: Commit dei documenti compilati
           uses: EndBug/add-and-commit@v9
