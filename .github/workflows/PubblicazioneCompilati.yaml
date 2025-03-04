@@ -63,7 +63,7 @@ jobs:
 
         - name: Copia i file da src a dst
           run: |
-              cp -r src/* dst/*
+              cp -r src/* dst/
         
         - name: Commit dei documenti compilati
           uses: EndBug/add-and-commit@v9
