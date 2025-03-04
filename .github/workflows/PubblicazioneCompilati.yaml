@@ -56,9 +56,9 @@ jobs:
 
         - name: Muove le cartelle da ignorare da dst a src
           run: |
-            PATHS_FROM_DST=$(find dst -type f -not -path '*/.*' | grep "${{ steps.dirs.outputs.TO_IGNORE }}" | sed ':a;N;$!ba;s/\n/ /g')
+            PATHS_FROM_DST=$(find dst -type f -not -path '*/.*' | grep "${{steps.dirs.outputs.TO_IGNORE}}" | sed ':a;N;$!ba;s/\n/ /g')
 
-            for path in $TMP_PATHS; do
+            for path in $PATHS_FROM_DST; do
               cp -r $path $(echo $path | sed 's/dst/src/g')
             done
 
