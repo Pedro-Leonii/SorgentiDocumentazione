@@ -45,18 +45,17 @@ jobs:
             work_in_root_file_dir: true
             root_file: |
               ${{ steps.setup_tex.outputs.TEX_PATH }}
+            post_compile: |
+              latexmk -c
+              rm -rf $( find . -type -f | grep "${{steps.dirs.outputs.TO_DEL}}\|${{steps.dirs.outputs.TO_IGNORE}}")
+              find * -type f ! -name "*.pdf" -delete
+
           env:
             TEXINPUTS: "/home/runner/work/SorgentiDocumentazione/SorgentiDocumentazione/src/Packages:"
-  
-        - name: Rimuove i file contenuti in src che non devono essere pubblicati
-          working-directory: src
-          run: |
-            rm -rf $( find . -type -f | grep "${{steps.dirs.outputs.TO_DEL}}\|${{steps.dirs.outputs.TO_IGNORE}}")
-            find * -type f ! -name "*.pdf" -delete
 
         - name: Muove le cartelle da ignorare da dst a src
           run: |
-            PATHS_FROM_DST=$(find dst -type f -not -path '*/.*' | grep "${{steps.dirs.outputs.TO_IGNORE}}" | sed ':a;N;$!ba;s/\n/ /g')
+            PATHS_FROM_DST=$(find dst -type f -not -path '*/.*' | grep "${{steps.dirs.outputs.TO_IGNORE}}")
 
             for path in $PATHS_FROM_DST; do
               cp -r $path $(echo $path | sed 's/dst/src/g')
