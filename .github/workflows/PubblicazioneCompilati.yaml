@@ -64,7 +64,7 @@ jobs:
 
         - name: Copia i file da src a dst
           run: |
-              rm -rf dst/*.pdf
+              find dst -name "*.pdf" -type f
               cp -r src/* dst/
         
         - name: Commit dei documenti compilati
