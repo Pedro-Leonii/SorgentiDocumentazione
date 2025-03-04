@@ -46,13 +46,12 @@ jobs:
             root_file: |
               ${{ steps.setup_tex.outputs.TEX_PATH }}
             post_compile: |
-              latexmk -c
-              rm -rf $( find . -type -f | grep "${{steps.dirs.outputs.TO_DEL}}\|${{steps.dirs.outputs.TO_IGNORE}}")
               find * -type f ! -name "*.pdf" -delete
-
           env:
             TEXINPUTS: "/home/runner/work/SorgentiDocumentazione/SorgentiDocumentazione/src/Packages:"
-
+        - name: Rimuove file latex e directory da eliminare
+              rm -rf $( find . -type -f | grep "${{steps.dirs.outputs.TO_DEL}}")
+              
         - name: Muove le cartelle da ignorare da dst a src
           run: |
             PATHS_FROM_DST=$(find dst -type f -not -path '*/.*' | grep "${{steps.dirs.outputs.TO_IGNORE}}")
