@@ -56,7 +56,7 @@ jobs:
             PATHS_FROM_DST=$(find dst -type f -not -path '*/.*' | grep "${{steps.dirs.outputs.TO_IGNORE}}")
 
             for path in $PATHS_FROM_DST; do
-              cp --parents $path dst
+              cp --parents $path src
             done
 
         - name: Copia i file da src a dst
