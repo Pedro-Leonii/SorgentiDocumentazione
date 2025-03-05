@@ -3,69 +3,78 @@ on: workflow_dispatch
 jobs:
     pubblicazione_compilati:
       env: 
-        DIRS_TO_IGNORE: ${{vars.DIR_TO_IGNORE_FORK}}
-        DIRS_TO_DEL: ${{vars.DIR_TO_DEL_FORK}}
+        # ELEM_TO_MAINTAIN: contiene i nomi dei file compilati separati da spazio che non devono essere sovrascritti dalla pubblicazione perchè firmati dal proponente
+        # ELEM_TO_DEL: contiene i nomi dei file sorgente separati da spazio che non devono essere pubblicati 
+        # SRC: nome directory di destinazione della clonazione del repo dei file sorgenti
+        # CMP: nome directory di destinazione della clonazione del repo dei file compilati
+        ELEM_TO_MANTAIN: ${{vars.ELEM_TO_IGNORE_FORK}}
+        ELEM_TO_DEL: ${{vars.ELEM_TO_DEL_FORK}}
+        SRC: src
+        CMP: cmp
           
       runs-on: ubuntu-latest
       steps:
-        - name: Clona la repository dei documenti sorgenti
+        - name: Clona repo documenti sorgente
           uses: actions/checkout@v4
           with:
-            path: src
+            path: $SRC
 
-        - name: Clona la repository dei documenti compilati
+        - name: Clona repo documenti compilati
           uses: actions/checkout@v4
           with:
             repository: Pedro-Leonii/Documentazione
-            path: dst
+            path: $CMP
             token: ${{ secrets.FORK_TOKEN  }}
 
-        - name: Prepara mette le directory da eliminare e da ignorare in OR
-          id: dirs
+        # Definisce due regex che mettono in OR rispettivamente i file sorgenti da eliminare dopo la compilazione e i file compilati da non aggiornare 
+        - name: Definizione regex 
+          id: regex
           run: |
-            echo "TO_DEL=$(echo "$DIRS_TO_DEL" | sed 's/ /\\|/g')" >> $GITHUB_OUTPUT 
-            echo "TO_IGNORE=$(echo "$DIRS_TO_IGNORE" | sed 's/ /\\|/g')" >> $GITHUB_OUTPUT 
-        
-        - name: Seleziona i documenti da compilare
-          id: setup_tex
-          run: |
-            TO_COMPILE=$(find -type f -name "*.tex" \
-            | grep -v "${{ steps.dirs.outputs.TO_DEL }}" \
-            | grep -v "${{ steps.dirs.outputs.TO_IGNORE }}")
+            echo "REGEX_TO_DEL=$(echo "$ELEM_TO_DEL" | sed 's/ /\\|/g')" >> $GITHUB_OUTPUT 
+            echo "REGEX_TO_MANTAIN=$(echo "$ELEM_TO_MANTAIN" | sed 's/ /\\|/g')" >> $GITHUB_OUTPUT 
             
-            echo "TEX_PATH<<EOF" >> $GITHUB_OUTPUT
+        # Seleziona i documenti contenuti nella repo dei documenti sorgente che devono essere aggioranti nella repo dei documenti pubblicati
+        - name: Selezione documenti sorgente per compilazione
+          id: select_files
+          run: |
+            TO_COMPILE=$(find $SRC -type f -name "*.tex" \
+            | grep -v "${{ steps.regex.outputs.REGEX_TO_DEL }}" \
+            | grep -v "${{ steps.regex.outputs.REGEX_TO_MANTAIN }}")
+            
+            echo "TEX_FILES<<EOF" >> $GITHUB_OUTPUT
             echo $TO_COMPILE >> $GITHUB_OUTPUT
             echo "EOF" >> $GITHUB_OUTPUT
-              
-        - name: Compila i documenti
+
+        # Compila i documenti contenuti nella repo dei documenti sorgente che devono essere aggiornati nella repo dei documenti pubblicati  
+        - name: Compilazione
           uses: xu-cheng/latex-action@v3
           with:
             work_in_root_file_dir: true
             root_file: |
-              ${{ steps.setup_tex.outputs.TEX_PATH }}
+              ${{ steps.select_files.outputs.TEX_FILES }}
           env:
-            TEXINPUTS: "/home/runner/work/SorgentiDocumentazione/SorgentiDocumentazione/src/Packages:"
-          
-        - name: Elimina le directory che non devono essere pubblicate
-          run: |
-            rm -rf $( find src -type d -not -path '*/.*' | grep "${{steps.dirs.outputs.TO_DEL}}")
-            find src -type f -not -path '*/*.pdf' -delete
-              
-        - name: Muove le cartelle da ignorare da dst a src
-          run: |
-            PATHS_FROM_DST=$(find dst -type f -not -path '*/.*' | grep "${{steps.dirs.outputs.TO_IGNORE}}")
+            TEXINPUTS: "/home/runner/work/SorgentiDocumentazione/SorgentiDocumentazione/$SRC/Packages:"
 
-            for path in $PATHS_FROM_DST; do
-              cp --parents $path src
+        # Elimina i file indicati nella variabile ELEM_TO_DEL e quelli generati dalla compilazione 
+        - name: Pulizia dopo la compilazione
+          run: |
+            rm -rf $( find $SRC -type d -not -path '*/.*' | grep "${{steps.regex.outputs.REGEX_TO_DEL}}")
+            find $SRC -type f -not -path '*/*.pdf' -delete
+
+        # Elimina i documenti contenuti nella repo documenti compilati che devono essere aggiornati 
+        - name: Pulizia repo documenti compilati 
+          run:  rm $(find $DST_DIR -type f -path '*/*.pdf' | grep -v "${{steps.regex.outputs.REGEX_TO_MAINTAIN}}")
+
+        # Copia i file compilati che devono essere aggiornati nella repo documenti pubblicati
+        - name: Aggiornamento repo documenti compilati
+          run: |
+            FILES_TO_COPY=$(find $SRC -type f -not -path '*/.*')
+            
+            for file in $FILES_TO_COPY; do
+                cp -r $file $(echo $file | sed "s/$SRC/$DST/g") 
             done
-
-        - name: Copia i file da src a dst
-          run: |
-              find dst -name "*.pdf" -type f -delete
-              cp -r src/* dst/
-              tree -a
         
-        - name: Commit dei documenti compilati
+        - name: Commit repo documenti compilati
           uses: EndBug/add-and-commit@v9
           with:
-            cwd: dst
+            cwd: $DST
