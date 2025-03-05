@@ -7,7 +7,7 @@ jobs:
         # ELEM_TO_DEL: contiene i nomi dei file sorgente separati da spazio che non devono essere pubblicati 
         # SRC: nome directory di destinazione della clonazione del repo dei file sorgenti
         # CMP: nome directory di destinazione della clonazione del repo dei file compilati
-        ELEM_TO_MANTAIN: ${{vars.ELEM_TO_MAINTAIN}}
+        ELEM_TO_MAINTAIN: ${{vars.ELEM_TO_MAINTAIN}}
         ELEM_TO_DEL: ${{vars.ELEM_TO_DEL}}
         SRC: "src"
         CMP: "cmp"
@@ -31,7 +31,7 @@ jobs:
           id: regex
           run: |
             echo "REGEX_TO_DEL=$(echo "$ELEM_TO_DEL" | sed 's/ /\\|/g')" >> $GITHUB_OUTPUT 
-            echo "REGEX_TO_MANTAIN=$(echo "$ELEM_TO_MANTAIN" | sed 's/ /\\|/g')" >> $GITHUB_OUTPUT 
+            echo "REGEX_TO_MAINTAIN=$(echo "$ELEM_TO_MAINTAIN" | sed 's/ /\\|/g')" >> $GITHUB_OUTPUT 
             
         # Seleziona i documenti contenuti nella repo dei documenti sorgente che devono essere aggioranti nella repo dei documenti pubblicati
         - name: Selezione documenti sorgente per compilazione
@@ -39,7 +39,7 @@ jobs:
           run: |
             TO_COMPILE=$(find $SRC -type f -name "*.tex" \
             | grep -v "${{ steps.regex.outputs.REGEX_TO_DEL }}" \
-            | grep -v "${{ steps.regex.outputs.REGEX_TO_MANTAIN }}")
+            | grep -v "${{ steps.regex.outputs.REGEX_TO_MAINTAIN }}")
             
             echo "TEX_FILES<<EOF" >> $GITHUB_OUTPUT
             echo $TO_COMPILE >> $GITHUB_OUTPUT
