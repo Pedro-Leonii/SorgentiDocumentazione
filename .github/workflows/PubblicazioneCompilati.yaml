@@ -9,8 +9,8 @@ jobs:
         # CMP: nome directory di destinazione della clonazione del repo dei file compilati
         ELEM_TO_MANTAIN: ${{vars.ELEM_TO_IGNORE_FORK}}
         ELEM_TO_DEL: ${{vars.ELEM_TO_DEL_FORK}}
-        SRC: src
-        CMP: cmp
+        SRC: "src"
+        CMP: "cmp"
           
       runs-on: ubuntu-latest
       steps:
