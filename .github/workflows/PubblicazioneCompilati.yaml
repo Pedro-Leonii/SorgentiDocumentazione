@@ -63,7 +63,7 @@ jobs:
 
         # Elimina i documenti contenuti nella repo documenti compilati che devono essere aggiornati 
         - name: Pulizia repo documenti compilati 
-          run:  rm $(find $DST_DIR -type f -path '*/*.pdf' | grep -v "${{steps.regex.outputs.REGEX_TO_MAINTAIN}}")
+          run:  rm $(find $CMP -type f -path '*/*.pdf' | grep -v "${{steps.regex.outputs.REGEX_TO_MAINTAIN}}")
 
         # Copia i file compilati che devono essere aggiornati nella repo documenti pubblicati
         - name: Aggiornamento repo documenti compilati
