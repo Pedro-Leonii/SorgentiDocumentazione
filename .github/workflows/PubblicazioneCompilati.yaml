@@ -53,7 +53,7 @@ jobs:
             root_file: |
               ${{ steps.select_files.outputs.TEX_FILES }}
           env:
-            TEXINPUTS: "/home/runner/work/SorgentiDocumentazione/SorgentiDocumentazione/$SRC/Packages:"
+            TEXINPUTS: "/home/runner/work/SorgentiDocumentazione/SorgentiDocumentazione/${{env.SRC}}/Packages:"
 
         # Elimina i file indicati nella variabile ELEM_TO_DEL e quelli generati dalla compilazione 
         - name: Pulizia dopo la compilazione
