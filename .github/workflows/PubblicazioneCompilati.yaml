@@ -17,13 +17,13 @@ jobs:
         - name: Clona repo documenti sorgente
           uses: actions/checkout@v4
           with:
-            path: "$SRC"
+            path: ${{ env.SRC }}
 
         - name: Clona repo documenti compilati
           uses: actions/checkout@v4
           with:
             repository: Pedro-Leonii/Documentazione
-            path: "$CMP"
+            path: ${{ env.CMP }}
             token: ${{ secrets.FORK_TOKEN  }}
 
         # Definisce due regex che mettono in OR rispettivamente i file sorgenti da eliminare dopo la compilazione e i file compilati da non aggiornare 
