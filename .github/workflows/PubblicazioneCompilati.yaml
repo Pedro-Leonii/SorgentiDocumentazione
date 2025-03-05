@@ -7,8 +7,8 @@ jobs:
         # ELEM_TO_DEL: contiene i nomi dei file sorgente separati da spazio che non devono essere pubblicati 
         # SRC: nome directory di destinazione della clonazione del repo dei file sorgenti
         # CMP: nome directory di destinazione della clonazione del repo dei file compilati
-        ELEM_TO_MANTAIN: ${{vars.ELEM_TO_IGNORE_FORK}}
-        ELEM_TO_DEL: ${{vars.ELEM_TO_DEL_FORK}}
+        ELEM_TO_MANTAIN: ${{vars.ELEM_TO_MAINTAIN}}
+        ELEM_TO_DEL: ${{vars.ELEM_TO_DEL}}
         SRC: "src"
         CMP: "cmp"
           
