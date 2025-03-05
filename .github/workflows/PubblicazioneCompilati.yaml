@@ -71,7 +71,7 @@ jobs:
             FILES_TO_COPY=$(find $SRC -type f -not -path '*/.*')
             
             for file in $FILES_TO_COPY; do
-                cp -r $file $(echo $file | sed "s/$SRC/$DST/g") 
+                cp -r $file $(echo $file | sed "s/$SRC/$CMP/g") 
             done
         
         - name: Commit repo documenti compilati
