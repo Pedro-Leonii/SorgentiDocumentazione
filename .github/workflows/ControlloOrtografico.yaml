@@ -12,7 +12,7 @@ jobs:
               id: lint
               with:
                   root_file: Candidatura/PreventivoCostiAssunzioneImpegni-v3_0.tex
-                  args: --check it
+                  args: --lang=it
 
             # - name: Upload TeXtidote report
             #   uses: actions/upload-artifact@v2
