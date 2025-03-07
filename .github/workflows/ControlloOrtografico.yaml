@@ -1,38 +1,26 @@
 name: Controllo ortografico file latex
-
-on:
-  pull_request:
-    paths:
-      - '**/*.tex'
+on: workflow_dispatch 
 jobs:
-  controllo_grammaticale:
-    if: startsWith(github.head_ref, 'feature/')
-    runs-on: ubuntu-latest
-    env:
-        GH_TOKEN: ${{ secrets.FORK_TOKEN }}
-    steps:
-        - name: Clona repository
-          run: |  
-            gh repo clone ${{ github.repositoryUrl }}
+    lint_latex:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Set up Git repository
+              uses: actions/checkout@v2
+            - name: Lint LaTeX document
+              uses: ChiefGokhlayeh/textidote-action@v5
+              id: lint
+              with:
+                  root_file: SorgentiDocumentazione/Candidatura/PreventivoCostiAssunzioneImpegni-v3_0.tex
+                  args: --check it
 
-        - name: Installa aspell
-          run: |
-            sudo apt-get install aspell
-            sudo apt-get install aspell-it
+            - name: Upload TeXtidote report
+              uses: actions/upload-artifact@v2
+              with:
+                  name: textidote_report
+                  path: report.html
 
-        - name: Installa python
-          run: |
-            sudo apt-get install python3
-          
-        - name: Controllo grammaticale
-          run: |
-            git checkout ${{ github.head_ref }}
-            python3 .github/workflows/dipendenze/controlloOrtografico.py 
-          working-directory: SorgentiDocumentazione
-
-        - name: Aggiunge alla pr il commento con errori
-          run: |
-            gh pr comment "${{github.event.pull_request.number}}" -F errori.md  -R ${{ github.repositoryUrl }}
-          working-directory: SorgentiDocumentazione
+            - name: Throw error if linter warnings exist
+              if: ${{ steps.lint.outputs.num_warnings != 0 }}
+              run: 'echo "::error file=preventivo::num_warnings: ${{ steps.lint.outputs.num_warnings }}"; exit 1;'
 
 
