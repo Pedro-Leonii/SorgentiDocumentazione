@@ -14,11 +14,11 @@ jobs:
                   root_file: SorgentiDocumentazione/Candidatura/PreventivoCostiAssunzioneImpegni-v3_0.tex
                   args: --check it
 
-            - name: Upload TeXtidote report
-              uses: actions/upload-artifact@v2
-              with:
-                  name: textidote_report
-                  path: report.html
+            # - name: Upload TeXtidote report
+            #   uses: actions/upload-artifact@v2
+            #   with:
+            #       name: textidote_report
+            #       path: report.html
 
             - name: Throw error if linter warnings exist
               if: ${{ steps.lint.outputs.num_warnings != 0 }}
