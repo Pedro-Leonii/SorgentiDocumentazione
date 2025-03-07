@@ -6,6 +6,9 @@ jobs:
         steps:
             - name: Set up Git repository
               uses: actions/checkout@v4
+
+            - name: tree
+              run: tree .
               
             - name: Lint LaTeX document
               uses: ChiefGokhlayeh/textidote-action@v5
@@ -19,9 +22,6 @@ jobs:
             #   with:
             #       name: textidote_report
             #       path: report.html
-
-            - name: tree
-              run: tree .
 
             - name: Throw error if linter warnings exist
               if: ${{ steps.lint.outputs.num_warnings != 0 }}
